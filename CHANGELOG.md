@@ -3,4 +3,4 @@
 INITIAL RELEASE
 
 This is the first release of moov-io/fednow20022 so please try it out and give us some feedback! Let us know what works and doesn't for your usecase.
-Join our slack channel (`#fednow20022`) to have an interactive discussion about the development of the project.
+Join our slack channel (`#fednow`) on the [moov-io slack](https://slack.moov.io/) to have an interactive discussion about the development of the project.

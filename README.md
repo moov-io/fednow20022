@@ -43,7 +43,7 @@ This project offers Go structures which can read and write XML encoded ISO 20022
  ------- | -------
 Twitter [@moov](https://twitter.com/moov) | You can follow Moov.io's Twitter feed to get updates on our project(s). You can also tweet us questions or just share blogs or stories.
 [GitHub Issue](https://github.com/moov-io/fednow20022/issues/new) | If you are able to reproduce a problem please open a GitHub Issue under the specific project that caused the error.
-[moov-io slack](https://slack.moov.io/) | Join our slack channel (`#fednow20022`) to have an interactive discussion about the development of the project.
+[moov-io slack](https://slack.moov.io/) | Join our slack channel (`#fednow`) to have an interactive discussion about the development of the project.
 
 ## Supported and Tested Platforms
 

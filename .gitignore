@@ -26,6 +26,7 @@ go.work.sum
 # env file
 .env
 
+coverage.txt
 /lint-project.sh
 gitleaks.tar.gz
 /bin/

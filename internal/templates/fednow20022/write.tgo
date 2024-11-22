@@ -7,6 +7,7 @@ package {{ .GoPackageName }}
 
 import (
 	"fmt"
+
 	"github.com/moov-io/fednow20022/pkg/fednow"
 	{{- range .GoImportsNeeded }}
 		"{{ . }}"
@@ -48,7 +49,22 @@ import (
 				{{- $l3 := len (slice (printf "%*s" $l "") 10) }}
 				{{- $l4 := len (slice (printf "%*s" $l "") 7) }}
 				func New{{ title (slice .Uri $l1 $l2) }}{{ slice .Uri $l3 $l4 }}Message() *Message {
-					return newMessageForNS("{{ .Uri }}")
+					message := &Message{}
+					message.Xmlns = append(message.Xmlns, xml.Attr{
+						Name: xml.Name{Local: "xmlns"},
+		                        	Value: "urn:fednow",
+					})
+					message.Xmlns = append(message.Xmlns, xml.Attr{
+						Name: xml.Name{Local: "xmlns:head"},
+						Value: "urn:iso:std:iso:20022:tech:xsd:head.001.001.01",
+					})
+					message.Xmlns = append(message.Xmlns, xml.Attr{
+		                                Name: xml.Name{
+			                                Local: fmt.Sprintf("xmlns:%s", NamespacePrefixMap["{{ .Uri }}"]),
+		                                },
+		                                Value: "{{ .Uri }}",
+					})
+					return message
 				}
 			{{ end }}
 		{{- end }}

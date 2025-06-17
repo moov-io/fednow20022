@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.056.001.08" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.056.001.08 ReturnRequest_camt_056_001_08.xsd">
+	<FIToFIPmtCxlReq>
+		<Assgnmt>
+			<Id>20230720011104238Sc02RTStep2MsgId</Id>
+			<Assgnr>
+				<Agt>
+					<FinInstnId>
+						<ClrSysMmbId>
+							<ClrSysId>
+								<Cd>USABA</Cd>
+							</ClrSysId>
+							<MmbId>011104238</MmbId>
+						</ClrSysMmbId>
+					</FinInstnId>
+				</Agt>
+			</Assgnr>
+			<Assgne>
+				<Agt>
+					<FinInstnId>
+						<ClrSysMmbId>
+							<ClrSysId>
+								<Cd>USABA</Cd>
+							</ClrSysId>
+							<MmbId>021040078</MmbId>
+						</ClrSysMmbId>
+					</FinInstnId>
+				</Agt>
+			</Assgne>
+			<CreDtTm>2023-07-20T09:31:36-06:00</CreDtTm>
+		</Assgnmt>
+		<Case>
+			<Id>ReturnRequestSc2Step2</Id>
+			<Cretr>
+				<Pty>
+					<Nm>Corporation B</Nm>
+					<CtctDtls>
+						<EmailAdr>head.treasurer@CorporationB.com</EmailAdr>
+						<Dept>Treasury</Dept>
+						<PrefrdMtd>MAIL</PrefrdMtd>
+					</CtctDtls>
+				</Pty>
+			</Cretr>
+		</Case>
+		<Undrlyg>
+			<TxInf>
+				<OrgnlGrpInf>
+					<OrgnlMsgId>20230620011104238Sc02RTStep1MsgId</OrgnlMsgId>
+					<OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId>
+					<OrgnlCreDtTm>2023-06-20T08:08:14-06:00</OrgnlCreDtTm>
+				</OrgnlGrpInf>
+				<OrgnlInstrId>Variation03InstrId001</OrgnlInstrId>
+				<OrgnlEndToEndId>Variation3EtoEId001</OrgnlEndToEndId>
+				<OrgnlUETR>8a562c67-ca16-48ba-b074-65581be6f011</OrgnlUETR>
+				<OrgnlIntrBkSttlmAmt Ccy="USD">45021.75</OrgnlIntrBkSttlmAmt>
+				<OrgnlIntrBkSttlmDt>2023-06-20</OrgnlIntrBkSttlmDt>
+				<CxlRsnInf>
+					<Rsn>
+						<Cd>SVNR</Cd>
+					</Rsn>
+				</CxlRsnInf>
+			</TxInf>
+		</Undrlyg>
+	</FIToFIPmtCxlReq>
+</Document>

@@ -1,0 +1,68 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07 InformationRequest_camt_026_001_07.xsd">
+	<UblToApply>
+		<Assgnmt>
+			<Id>20230727021040078RFISc1Step2MsgId</Id>
+			<Assgnr>
+				<Agt>
+					<FinInstnId>
+						<ClrSysMmbId>
+							<ClrSysId>
+								<Cd>USABA</Cd>
+							</ClrSysId>
+							<MmbId>021040078</MmbId>
+						</ClrSysMmbId>
+					</FinInstnId>
+				</Agt>
+			</Assgnr>
+			<Assgne>
+				<Agt>
+					<FinInstnId>
+						<ClrSysMmbId>
+							<ClrSysId>
+								<Cd>USABA</Cd>
+							</ClrSysId>
+							<MmbId>011104238</MmbId>
+						</ClrSysMmbId>
+					</FinInstnId>
+				</Agt>
+			</Assgne>
+			<CreDtTm>2023-07-27T10:18:02-05:00</CreDtTm>
+		</Assgnmt>
+		<Case>
+			<Id>RFI_pacs.008_Case017</Id>
+			<Cretr>
+				<Pty>
+					<Nm>Corporation D</Nm>
+					<CtctDtls>
+						<Nm>Investigation Manager</Nm>
+						<PhneNb>+1-888-600-7000</PhneNb>
+						<EmailAdr>support@corporationD.com</EmailAdr>
+						<PrefrdMtd>PHON</PrefrdMtd>
+					</CtctDtls>
+				</Pty>
+			</Cretr>
+		</Case>
+		<Undrlyg>
+			<IntrBk>
+				<OrgnlGrpInf>
+					<OrgnlMsgId>20230726011104238RFISc1Step1MsgId</OrgnlMsgId>
+					<OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId>
+					<OrgnlCreDtTm>2023-07-26T11:35:23-05:00</OrgnlCreDtTm>
+				</OrgnlGrpInf>
+				<OrgnlInstrId>RFISc1Step1InstrId001</OrgnlInstrId>
+				<OrgnlEndToEndId>RFISc1Step1EtoEId001</OrgnlEndToEndId>
+				<OrgnlTxId>RFISc1Step1TransId001</OrgnlTxId>
+				<OrgnlIntrBkSttlmAmt Ccy="USD">45021.75</OrgnlIntrBkSttlmAmt>
+				<OrgnlIntrBkSttlmDt>2023-07-26</OrgnlIntrBkSttlmDt>
+			</IntrBk>
+		</Undrlyg>
+		<Justfn>
+			<MssngOrIncrrctInf>
+				<IncrrctInf>
+					<Cd>IN06</Cd>
+					<AddtlIncrrctInf>The amount of the transfer is incorrect. Amount agreed after discount was $49,021.75. Please advise</AddtlIncrrctInf>
+				</IncrrctInf>
+			</MssngOrIncrrctInf>
+		</Justfn>
+	</UblToApply>
+</Document>

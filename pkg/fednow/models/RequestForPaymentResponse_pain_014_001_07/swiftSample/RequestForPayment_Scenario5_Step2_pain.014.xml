@@ -1,0 +1,43 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.014.001.07" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.014.001.07 RequestForPaymentResponse_pain_014_001_07.xsd">
+	<CdtrPmtActvtnReqStsRpt>
+		<GrpHdr>
+			<MsgId>20230725021307481RFPSc05Step2MsgId</MsgId>
+			<CreDtTm>2023-07-25T15:42:18-05:00</CreDtTm>
+			<InitgPty>
+				<Nm>Corporation A</Nm>
+			</InitgPty>
+			<DbtrAgt>
+				<FinInstnId>
+					<ClrSysMmbId>
+						<ClrSysId>
+							<Cd>USABA</Cd>
+						</ClrSysId>
+						<MmbId>021307481</MmbId>
+					</ClrSysMmbId>
+				</FinInstnId>
+			</DbtrAgt>
+			<CdtrAgt>
+				<FinInstnId>
+					<ClrSysMmbId>
+						<ClrSysId>
+							<Cd>USABA</Cd>
+						</ClrSysId>
+						<MmbId>011104238</MmbId>
+					</ClrSysMmbId>
+				</FinInstnId>
+			</CdtrAgt>
+		</GrpHdr>
+		<OrgnlGrpInfAndSts>
+			<OrgnlMsgId>20230725011104238RFPSc05Step1MsgId</OrgnlMsgId>
+			<OrgnlMsgNmId>pain.013.001.07</OrgnlMsgNmId>
+			<OrgnlCreDtTm>2023-07-25T15:42:14-05:00</OrgnlCreDtTm>
+		</OrgnlGrpInfAndSts>
+		<OrgnlPmtInfAndSts>
+			<OrgnlPmtInfId>RFPSc05Step1PaymentInfoId001</OrgnlPmtInfId>
+			<TxInfAndSts>
+				<OrgnlEndToEndId>RFPSc05Step1EndToEndId001</OrgnlEndToEndId>
+				<TxSts>PRES</TxSts>
+			</TxInfAndSts>
+		</OrgnlPmtInfAndSts>
+	</CdtrPmtActvtnReqStsRpt>
+</Document>

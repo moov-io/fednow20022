@@ -1,0 +1,34 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.006.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:admi.006.001.01 RetrievalRequest_admi.006.001.01.xsd">
+	<RsndReq>
+		<MsgHdr>
+			<MsgId>20230730011104238MRSc2Step1MsgId</MsgId>
+			<CreDtTm>2023-07-30T19:02:15-04:00</CreDtTm>
+		</MsgHdr>
+		<RsndSchCrit>
+			<BizDt>2023-07-27</BizDt>
+			<OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId>
+			<FileRef>20230727011104238IRSc3Step1MsgId</FileRef>
+			<Rcpt>
+				<Id>
+					<PrtryId>
+						<Id>011104238</Id>
+						<Issr>NA</Issr>
+					</PrtryId>
+				</Id>
+			</Rcpt>
+		</RsndSchCrit>
+		<RsndSchCrit>
+			<BizDt>2023-07-25</BizDt>
+			<OrgnlMsgNmId>pain.013.001.07</OrgnlMsgNmId>
+			<FileRef>20230725011104238RFPSc05Step1MsgId</FileRef>
+			<Rcpt>
+				<Id>
+					<PrtryId>
+						<Id>011104238</Id>
+						<Issr>NA</Issr>
+					</PrtryId>
+				</Id>
+			</Rcpt>
+		</RsndSchCrit>
+	</RsndReq>
+</Document>

@@ -1,0 +1,63 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.029.001.09" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.029.001.09 InformationRequestResponse_camt_029_001_09.xsd">
+	<RsltnOfInvstgtn>
+		<Assgnmt>
+			<Id>20230727011104238RFISc1Step3MsgId</Id>
+			<Assgnr>
+				<Agt>
+					<FinInstnId>
+						<ClrSysMmbId>
+							<ClrSysId>
+								<Cd>USABA</Cd>
+							</ClrSysId>
+							<MmbId>011104238</MmbId>
+						</ClrSysMmbId>
+					</FinInstnId>
+				</Agt>
+			</Assgnr>
+			<Assgne>
+				<Agt>
+					<FinInstnId>
+						<ClrSysMmbId>
+							<ClrSysId>
+								<Cd>USABA</Cd>
+							</ClrSysId>
+							<MmbId>021040078</MmbId>
+						</ClrSysMmbId>
+					</FinInstnId>
+				</Agt>
+			</Assgne>
+			<CreDtTm>2023-07-27T10:18:06-05:00</CreDtTm>
+		</Assgnmt>
+		<RslvdCase>
+			<Id>RFI_pacs.008_Case017</Id>
+			<Cretr>
+				<Pty>
+					<Nm>Corporation B</Nm>
+					<CtctDtls>
+						<Nm>Investigation Manager</Nm>
+						<PhneNb>+1-888-600-7000</PhneNb>
+						<EmailAdr>support@corporationB.com</EmailAdr>
+						<PrefrdMtd>PHON</PrefrdMtd>
+					</CtctDtls>
+				</Pty>
+			</Cretr>
+		</RslvdCase>
+		<Sts>
+			<Conf>IPAY</Conf>
+		</Sts>
+		<CrrctnTx>
+			<IntrBk>
+				<GrpHdr>
+					<MsgId>20230727011104238RFISc1Step4MsgId</MsgId>
+					<MsgNmId>pacs.008.001.08</MsgNmId>
+					<CreDtTm>2023-07-27T10:18:10-05:00</CreDtTm>
+				</GrpHdr>
+				<InstrId>RFISc1Step4InstrId001</InstrId>
+				<EndToEndId>RFISc1Step4EtoEId001</EndToEndId>
+				<TxId>RFISc1Step4TransId001</TxId>
+				<IntrBkSttlmAmt Ccy="USD">4000.25</IntrBkSttlmAmt>
+				<IntrBkSttlmDt>2023-07-27</IntrBkSttlmDt>
+			</IntrBk>
+		</CrrctnTx>
+	</RsltnOfInvstgtn>
+</Document>

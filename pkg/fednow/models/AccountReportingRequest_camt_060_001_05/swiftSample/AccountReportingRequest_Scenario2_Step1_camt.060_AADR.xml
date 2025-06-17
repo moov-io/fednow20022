@@ -1,0 +1,35 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.060.001.05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.060.001.05 FedNow_AccountReportingRequest_camt_060_001_05.xsd">
+	<AcctRptgReq>
+		<GrpHdr>
+			<MsgId>20230903011104238AADRrequest1</MsgId>
+			<CreDtTm>2023-09-03T09:30:47+04:00</CreDtTm>
+		</GrpHdr>
+		<RptgReq>
+			<Id>AADR</Id>
+			<ReqdMsgNmId>camt.052.001.08</ReqdMsgNmId>
+			<Acct>
+				<Id>
+					<Othr>
+						<Id>011104238</Id>
+					</Othr>
+				</Id>
+			</Acct>
+			<AcctOwnr>
+				<Agt>
+					<FinInstnId>
+						<ClrSysMmbId>
+							<MmbId>011104238</MmbId>
+						</ClrSysMmbId>
+					</FinInstnId>
+				</Agt>
+			</AcctOwnr>
+			<RptgPrd>
+				<FrToDt>
+					<FrDt>2023-09-02</FrDt>
+					<ToDt>2023-09-02</ToDt>
+				</FrToDt>
+				<Tp>ALLL</Tp>
+			</RptgPrd>
+		</RptgReq>
+	</AcctRptgReq>
+</Document>

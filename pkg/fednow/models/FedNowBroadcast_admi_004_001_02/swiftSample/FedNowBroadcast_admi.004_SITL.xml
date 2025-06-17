@@ -1,0 +1,9 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.004.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:admi.004.001.02 FedNowBroadcast_admi.004.001.02.xsd">
+	<SysEvtNtfctn>
+		<EvtInf>
+			<EvtCd>SITL</EvtCd>
+			<EvtParam>FDNAUSD200000.00</EvtParam>
+			<EvtTm>2023-08-01T15:07:59-04:00</EvtTm>
+		</EvtInf>
+	</SysEvtNtfctn>
+</Document>

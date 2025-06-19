@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestMapping(t *testing.T) {
+func TestMappingTable(t *testing.T) {
 	swiftSamplePaths, err := common.GetSubFilePaths("swiftSample")
 	require.NoError(t, err, "failed to get sample paths")
 	for _, path := range swiftSamplePaths {

@@ -36,7 +36,7 @@ func TestMakeValidDataJson(t *testing.T) {
 }
 func TestCreateDocument(t *testing.T) {
 	wrapper := &AccountActivityDetailsReportWrapper{}
-	validData, err := common.ReadFile("./swiftSample/ValidData.json")
+	validData, err := common.ReadFile("./modelSample/ValidData.json")
 	require.NoError(t, err, "failed to read valid data JSON")
 
 	tests := []struct {
@@ -46,8 +46,8 @@ func TestCreateDocument(t *testing.T) {
 		errorMsg    string
 	}{
 		{
-			name: "valid model creates document successfully",
-			modelJson:  validData,
+			name:        "valid model creates document successfully",
+			modelJson:   validData,
 			expectError: false,
 			errorMsg:    "",
 		},
@@ -94,7 +94,7 @@ func TestCreateDocument(t *testing.T) {
 }
 func TestValidateDocument(t *testing.T) {
 	wrapper := &AccountActivityDetailsReportWrapper{}
-	validData, err := common.ReadFile("./swiftSample/ValidData.json")
+	validData, err := common.ReadFile("./modelSample/ValidData.json")
 	require.NoError(t, err, "failed to read valid data JSON")
 
 	tests := []struct {
@@ -104,8 +104,8 @@ func TestValidateDocument(t *testing.T) {
 		errorMsg    string
 	}{
 		{
-			name: "valid model validates successfully",
-			modelJson:  validData,
+			name:        "valid model validates successfully",
+			modelJson:   validData,
 			expectError: false,
 			errorMsg:    "",
 		},
@@ -145,7 +145,7 @@ func TestValidateDocument(t *testing.T) {
 }
 func TestCheckRequireField(t *testing.T) {
 	wrapper := &AccountActivityDetailsReportWrapper{}
-	validData, err := common.ReadFile("./swiftSample/ValidData.json")
+	validData, err := common.ReadFile("./modelSample/ValidData.json")
 	require.NoError(t, err, "failed to read valid data JSON")
 
 	tests := []struct {
@@ -155,8 +155,22 @@ func TestCheckRequireField(t *testing.T) {
 		errorMsg    string
 	}{
 		{
-			name: "valid model has all required fields",
-			modelJson:  validData,
+			name:        "valid model has all required fields",
+			modelJson:   validData,
+			expectError: false,
+			errorMsg:    "",
+		},
+		{
+			name: "model with missing required field fails validation",
+			modelJson: []byte(
+				`{
+					"message_id": "AADR",
+					"created_date_time": "2023-09-02T19:31:13-04:00",
+					"pagenation": {
+							"page_number": "1",
+							"last_page_indicator": true
+					}
+				}`),
 			expectError: false,
 			errorMsg:    "",
 		},
@@ -211,6 +225,9 @@ func TestCheckRequireField(t *testing.T) {
 				}
 			} else {
 				assert.NoError(t, err)
+				/*Check document validate*/
+				err = wrapper.ValidateDocument(tt.modelJson)
+				assert.NoError(t, err, "Document validation should pass for valid model")
 			}
 		})
 	}
@@ -284,7 +301,7 @@ func TestCustomerCreditTransferWrapper_GetHelp(t *testing.T) {
 
 	// Verify it's valid JSON
 	var jsonData interface{}
-	err = json.Unmarshal([]byte(result), &jsonData)
+	err = json.Unmarshal(result, &jsonData)
 	assert.NoError(t, err, "Help result should be valid JSON")
 
 	// Verify it contains expected fields

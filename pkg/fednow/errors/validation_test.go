@@ -149,7 +149,11 @@ func TestValidationErrorCollector(t *testing.T) {
 		// Original collector should not be affected
 		originalErrs := collector.Errors()
 		assert.Equal(t, err1, originalErrs[0])
-		assert.NotEqual(t, "Modified", originalErrs[0].(*ValidationError).Field)
+		if ve, ok := originalErrs[0].(*ValidationError); ok {
+			assert.NotEqual(t, "Modified", ve.Field)
+		} else {
+			t.Fatalf("expected ValidationError, got %T", originalErrs[0])
+		}
 	})
 }
 

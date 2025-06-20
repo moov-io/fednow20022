@@ -32,7 +32,7 @@ type MessageModel struct {
 	EntryDetails                       []common.Entry                        `json:"entry_details,omitempty"`
 }
 
-const XLNS = "urn:iso:std:iso:20022:tech:xsd:camt.052.001.08"
+var XLNS = "urn:iso:std:iso:20022:tech:xsd:camt.052.001.08"
 
 var DataFactory = func() any {
 	return &MessageModel{}

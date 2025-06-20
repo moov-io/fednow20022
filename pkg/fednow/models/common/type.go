@@ -23,12 +23,14 @@ const (
 	Debit  CdtDbtInd = "DBIT"
 )
 const (
-	AccountBalanceReport          CAMTReportType = "ABAR"
-	ActivityReport                CAMTReportType = "ACTR"
-	EndpointDetailsReceivedReport CAMTReportType = "DTLR"
-	EndpointDetailsSentReport     CAMTReportType = "DTLS"
-	EndpointGapReportType         CAMTReportType = "GAPR"
-	EndpointTotalsReport          CAMTReportType = "ETOT"
+	AccountDebitCreditNotification                   CAMTReportType = "ADCN"
+	AccountActivityDetailsReport                     CAMTReportType = "AADR"
+	AccountActivityTotalsReport                      CAMTReportType = "AATR"
+	AccountBalanceReport                             CAMTReportType = "ABAR"
+	CorrespondentAccountActivityDetailsReport        CAMTReportType = "CADR"
+	CorrespondentAccountActivityTotalsReport         CAMTReportType = "CATR"
+	CorrespondentIntradayAccountActivityTotalsReport CAMTReportType = "CITR"
+	IntradayAccountActivityTotalsReport              CAMTReportType = "IATR"
 )
 const (
 	MessagesInProcess           TransactionStatusCode = "INPR"

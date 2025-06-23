@@ -1,5 +1,6 @@
 package common
 
+
 type ElementHelper struct {
 	Title         string
 	Rules         string
@@ -474,5 +475,76 @@ func BuildFiniancialInstitutionIdHelper() FiniancialInstitutionIdHelper {
 			Documentation: `Name by which an agent is known and which is usually used to identify that agent.`,
 		},
 		Address: BuildPostalAddressHelper(),
+	}
+}
+
+type CreditLineHelper struct {
+	Included ElementHelper
+	Type     ElementHelper
+	Amount   CurrencyAndAmountHelper
+	DateTime ElementHelper
+}
+
+func BuildCreditLineHelper() CreditLineHelper {
+	return CreditLineHelper{
+		Included: ElementHelper{
+			Title:         "Included",
+			Rules:         "",
+			Type:          `Boolean (based on string)`,
+			Documentation: `Indicates whether or not the credit line is included in the balance.`,
+		},
+		Type: ElementHelper{
+			Title:         "Type",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Type of the credit line provided when multiple credit lines may be provided.`,
+		},
+		Amount: BuildCurrencyAndAmountHelper(),
+		DateTime: ElementHelper{
+			Title:         "Date Time",
+			Rules:         "",
+			Type:          `ISODateTime (based on string)`,
+			Documentation: `Indicates the date (and time) of the balance.`,
+		},
+	}
+}
+
+type TotalsPerBankTransactionHelper struct {
+	TotalNetEntries      ElementHelper
+	CreditDebitIndicator ElementHelper
+	CreditEntries        NumberAndSumOfTransactionsHelper
+	DebitEntries         NumberAndSumOfTransactionsHelper
+	BankTransactionCode  ElementHelper
+	Date                 ElementHelper
+}
+
+func BuildTotalsPerBankTransactionHelper() TotalsPerBankTransactionHelper {
+	return TotalsPerBankTransactionHelper{
+		TotalNetEntries: ElementHelper{
+			Title:         "Number Of Entries",
+			Rules:         "",
+			Type:          `Max15NumericText (based on string) pattern: [0-9]{1,15}`,
+			Documentation: `Number of individual entries included in the report.`,
+		},
+		CreditDebitIndicator: ElementHelper{
+			Title:         "Credit Debit Indicator",
+			Rules:         "",
+			Type:          `CdtDbtInd(Credit, Debit)`,
+			Documentation: `Indicates whether the balance is a credit or a debit balance.`,
+		},
+		CreditEntries: BuildNumberAndSumOfTransactionsHelper(),
+		DebitEntries:  BuildNumberAndSumOfTransactionsHelper(),
+		BankTransactionCode: ElementHelper{
+			Title:         "Bank Transaction Code",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Specifies the bank transaction code to which the entry refers.`,
+		},
+		Date: ElementHelper{
+			Title:         "Date",
+			Rules:         "",
+			Type:          `ISODate (based on string)`,
+			Documentation: `Date at which the transaction was executed.`,
+		},
 	}
 }

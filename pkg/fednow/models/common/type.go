@@ -10,6 +10,9 @@ type CdtDbtInd string
 type ReportStatus string
 type WorkingDayType string
 type PaymentSystemType string
+type BalanceType string
+type CreditLineType string
+type TransactionCode string
 
 const (
 	BusinessProcessingDate WorkingDayType = "BPRD"
@@ -71,6 +74,32 @@ const (
 	PaymentSysSWIFT PaymentSystemType = "SWIFT" // Society for Worldwide Interbank Financial Telecommunication
 	PaymentSysBACS  PaymentSystemType = "BACS"  // Bankers' Automated Clearing Services
 )
+const (
+	AccountBalance                        BalanceType = "ABAL"
+	AvailableBalanceFromAccountBalance    BalanceType = "AVAL"
+	AvailableBalanceFromDaylightOverdraft BalanceType = "AVLD"
+	DaylightOverdraftBalance              BalanceType = "DLOD"
+	OpeningBalanceFinalBalanceLoaded      BalanceType = "OBFL"
+	OpeningBalanceNotLoaded               BalanceType = "OBNL"
+	OpeningBalancePriorDayBalanceLoaded   BalanceType = "OBPL"
+)
+const (
+	CollateralAvailable                CreditLineType = "COLL"
+	CollateralizedCapacity             CreditLineType = "CCAP"
+	CollateralizedDaylightOverdrafts   CreditLineType = "CLOD"
+	NetDebitCap                        CreditLineType = "NCAP"
+	UncollateralizedDaylightOverdrafts CreditLineType = "ULOD"
+)
+const (
+	AvailableAllOtherActivity        TransactionCode = "AVOT"
+	FedNowFundsTransfers             TransactionCode = "FDNF"
+	FedwireFundsTransfers            TransactionCode = "FDWF"
+	FedwireSecuritiesTransfers       TransactionCode = "FDWS"
+	MemoPostEntries                  TransactionCode = "MEMO"
+	NationalSettlementServiceEntries TransactionCode = "NSSE"
+	PrefundedACHCreditItems          TransactionCode = "FDAP"
+	UnavailableAllOtherActivity      TransactionCode = "UVOT"
+)
 
 type MessagePagenation struct {
 	// PgNb (Page Number) indicates the current page of the report.
@@ -88,6 +117,7 @@ type NumberAndSumOfTransactions struct {
 	// It aggregates the values of individual transactions to provide a summary amount.
 	Sum float64 `json:"sum,omitempty"`
 }
+
 type TotalsPerBankTransactionCode struct {
 	// NbOfNtries (Number of Entries) specifies the total number of transactions for a given bank transaction code.
 	// This helps in categorizing transactions based on their type.
@@ -185,4 +215,34 @@ type PostalAddress struct {
 	TownName       string `json:"town_name,omitempty"`       // Town or city name of the address
 	Subdivision    string `json:"subdivision,omitempty"`     // Subdivision or state of the address
 	Country        string `json:"country,omitempty"`         // Country of the address
+}
+type Balance struct {
+	//Specifies the nature of a balance.
+	BalanceTypeId BalanceType `json:"balance_type_id,omitempty"`
+
+	CdtLines []CreditLine `json:"credit_lines,omitempty"` // Credit lines associated with the balance
+	//Amount of money of the cash balance.
+	Amount CurrencyAndAmount `json:"amount,omitempty"`
+	//Indicates whether the balance is a credit or a debit balance.
+	CreditDebitIndicator CdtDbtInd `json:"credit_debit_indicator,omitempty"`
+	//Indicates the date (and time) of the balance.
+	DateTime time.Time `json:"date_time,omitempty"` // Date and time of the balance
+}
+type CreditLine struct {
+	//Indicates whether or not the credit line is included in the balance.
+	Included bool `json:"included,omitempty"` // Indicates if the credit line is included in the balance
+	//Type of the credit line provided when multiple credit lines may be provided.
+	Type CreditLineType `json:"type,omitempty"` // Type of the credit line
+	//Amount of money of the cash balance.
+	Amount CurrencyAndAmount `json:"amount,omitempty"` // Amount of the credit line
+	//Indicates the date (and time) of the balance.
+	DateTime time.Time `json:"date_time,omitempty"` // Date and time of the credit line
+}
+type TotalsPerBankTransaction struct {
+	TotalNetEntries      float64                    `json:"total_net_entry_amount,omitempty"` // Total net entry amount for the bank transaction code
+	CreditDebitIndicator CdtDbtInd                  `json:"credit_debit_indicator,omitempty"` // Credit or Debit Indicator
+	CreditEntries        NumberAndSumOfTransactions `json:"credit_entries,omitempty"`         // Credit entries for the bank transaction code
+	DebitEntries         NumberAndSumOfTransactions `json:"debit_entries,omitempty"`          // Debit entries for the bank transaction code
+	BankTransactionCode  TransactionCode            `json:"bank_transaction_code,omitempty"`  // Bank Transaction Code
+	Date                 time.Time                  `json:"date,omitempty"`                   // Date of the bank transaction
 }

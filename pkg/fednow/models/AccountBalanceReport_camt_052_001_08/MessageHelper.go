@@ -2,60 +2,6 @@ package AccountBalanceReport_camt_052_001_08
 
 import "github.com/moov-io/fednow20022/pkg/fednow/models/common"
 
-type TotalsPerBankTransactionCodeHelper struct {
-	NumberOfEntries     common.ElementHelper
-	BankTransactionCode common.ElementHelper
-}
-
-func BuildTotalsPerBankTransactionCodeHelper() TotalsPerBankTransactionCodeHelper {
-	return TotalsPerBankTransactionCodeHelper{
-		NumberOfEntries: common.ElementHelper{
-			Title:         "Number of Entries",
-			Rules:         "",
-			Type:          `Max15NumericText (based on string) minLength: 1 maxLength: 15`,
-			Documentation: `Number of individual entries for the bank transaction code.`,
-		},
-		BankTransactionCode: common.ElementHelper{
-			Title:         "Bank Transaction Code",
-			Rules:         "",
-			Type:          `TransactionStatusCode(MessagesInProcess, MessagesIntercepted ...)`,
-			Documentation: `Bank transaction code in a proprietary form, as defined by the issuer.`,
-		},
-	}
-}
-
-type BalanceHelper struct {
-	BalanceTypeId        common.ElementHelper
-	CreditLine           common.CreditLineHelper
-	Amount               common.CurrencyAndAmountHelper
-	CreditDebitIndicator common.ElementHelper
-	DateTime             common.ElementHelper
-}
-func BuildBalanceHelper() BalanceHelper{
-	return BalanceHelper{
-		BalanceTypeId: common.ElementHelper{
-			Title:         "Balance Type Id",
-			Rules:         "",
-			Type:          `BalanceType(AccountBalance, AvailableBalanceFromAccountBalance ...)`,
-			Documentation: `Specifies the nature of a balance.`,
-		},
-		CreditLine: common.BuildCreditLineHelper(),
-		Amount:   common.BuildCurrencyAndAmountHelper(),
-		CreditDebitIndicator: common.ElementHelper{
-			Title:         "Credit Debit Indicator",
-			Rules:         "",
-			Type:          `CdtDbtInd(Credit, Debit)`,
-			Documentation: `Indicates whether the balance is a credit or a debit balance.`,
-		},
-		DateTime: common.ElementHelper{
-			Title:         "Date Time",
-			Rules:         "",
-			Type:          `ISODateTime (based on string)`,
-			Documentation: `Indicates the date (and time) of the balance.`,
-		},
-	}
-}
-
 type MessageHelper struct {
 	MessageId             common.ElementHelper
 	CreatedDateTime       common.ElementHelper
@@ -64,8 +10,9 @@ type MessageHelper struct {
 	ReportId              common.ElementHelper
 	ReportCreateDateTime  common.ElementHelper
 	AccountOtherId        common.ElementHelper
+	AccountType           common.ElementHelper
 	RelateAccountOtherId  common.ElementHelper
-	Balances              BalanceHelper
+	Balances              common.BalanceHelper
 	TransactionsSummary   common.TotalsPerBankTransactionHelper
 }
 
@@ -103,13 +50,19 @@ func BuildMessageHelper() MessageHelper {
 			Type:          `RoutingNumber_FRS_1 (based on string) exactLength: 9 pattern: [0-9]{9,9}`,
 			Documentation: `Identification assigned by an institution.`,
 		},
+		AccountType: common.ElementHelper{
+			Title:         "Account Type",
+			Rules:         "This is the type of account to which the activity report relates.",
+			Type:          `AccountType(Checking, Savings, Other)`,
+			Documentation: `Type of account to which the activity report relates.`,
+		},
 		RelateAccountOtherId: common.ElementHelper{
 			Title:         "Related Account Other Id",
 			Rules:         "",
 			Type:          `RoutingNumber_FRS_1 (based on string) exactLength: 9 pattern: [0-9]{9,9}`,
 			Documentation: `This component only occurs in a Correspondent Account Activity Details Report (CADR) to identify the correspondent's respondent for which activity details are reported. The component is not present in a regular Account Activity Details Report (AADR).`,
 		},
-		Balances: BuildBalanceHelper(),
+		Balances:            common.BuildBalanceHelper(),
 		TransactionsSummary: common.BuildTotalsPerBankTransactionHelper(),
 	}
 

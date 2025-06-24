@@ -1,6 +1,10 @@
 package common
 
-import "time"
+import (
+	"time"
+
+	"github.com/moov-io/fednow20022/pkg/fednow"
+)
 
 type CAMTReportType string
 type ReportType string
@@ -13,9 +17,13 @@ type PaymentSystemType string
 type BalanceType string
 type CreditLineType string
 type TransactionCode string
+type ProprietaryAgentType string
 
 const (
 	BusinessProcessingDate WorkingDayType = "BPRD"
+)
+const (
+	Respondent ProprietaryAgentType = "RESP"
 )
 const (
 	EveryDay ReportType = "EDAY"
@@ -52,6 +60,13 @@ const (
 	TransCredit                 TransactionStatusCode = "CRDT"
 	TransDebit                  TransactionStatusCode = "DBIT"
 	AcceptedSettlementCompleted TransactionStatusCode = "ACSC"
+	/*from https://www2.swift.com/mystandards/#/mp/mx/_kijaUKEYEeuB-v2uhrZqSw/_qR07TZ5FEeyNX8SYmSuaLA/Notification/Entry/BankTransactionCode/Proprietary/Code/ValueMessagesSent!content*/
+	NonvalueMessagesReceived TransactionStatusCode = "RCVD"
+	NonvalueMessagesSent     TransactionStatusCode = "SENT"
+	RejectedMessagesReceived TransactionStatusCode = "RJTR"
+	RejectedMessagesSent     TransactionStatusCode = "RJTS"
+	ValueMessagesReceived    TransactionStatusCode = "CRDT"
+	ValueMessagesSent        TransactionStatusCode = "DBIT"
 )
 const (
 	InstrumentCTRC                      InstrumentPropCodeType = "CTRC" // Credit Transfer (Proprietary Code)
@@ -245,4 +260,20 @@ type TotalsPerBankTransaction struct {
 	DebitEntries         NumberAndSumOfTransactions `json:"debit_entries,omitempty"`          // Debit entries for the bank transaction code
 	BankTransactionCode  TransactionCode            `json:"bank_transaction_code,omitempty"`  // Bank Transaction Code
 	Date                 time.Time                  `json:"date,omitempty"`                   // Date of the bank transaction
+}
+type TransactionDetailReference struct {
+	MessageIdentification     string `json:"message_identification,omitempty"`     // Message Identification
+	InstructionIdentification string `json:"instruction_identification,omitempty"` // Instruction Identification
+	EndToEndIdentification    string `json:"end_to_end_identification,omitempty"`  // End-to-End Identification
+	UETR                      string `json:"uetr,omitempty"`                       // Unique End-to-End Transaction Reference
+}
+type RelatedAgents struct {
+	InstructingAgent Agent                `json:"instructing_agent,omitempty"` // Instructing Agent
+	InstructedAgent  Agent                `json:"instructed_agent,omitempty"`  // Instructed Agent
+	ProprietaryType  ProprietaryAgentType `json:"proprietary_type,omitempty"`  // Proprietary Type
+	ProprietaryAgent Agent                `json:"proprietary_agent,omitempty"` // Proprietary Agent
+}
+type RelatedDates struct {
+	AcceptanceDateTime      time.Time      `json:"acceptance_date_time,omitempty"`      // Acceptance DateTime
+	InterbankSettlementDate fednow.ISODate `json:"interbank_settlement_date,omitempty"` // Interbank Settlement Date
 }

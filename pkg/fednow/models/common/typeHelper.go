@@ -1,6 +1,5 @@
 package common
 
-
 type ElementHelper struct {
 	Title         string
 	Rules         string
@@ -545,6 +544,140 @@ func BuildTotalsPerBankTransactionHelper() TotalsPerBankTransactionHelper {
 			Rules:         "",
 			Type:          `ISODate (based on string)`,
 			Documentation: `Date at which the transaction was executed.`,
+		},
+	}
+}
+
+type TransactionDetailReferenceHelper struct {
+	MessageIdentification     ElementHelper
+	InstructionIdentification ElementHelper
+	EndToEndIdentification    ElementHelper
+	UETR                      ElementHelper
+}
+
+func BuildTransactionDetailReferenceHelper() TransactionDetailReferenceHelper {
+	return TransactionDetailReferenceHelper{
+		MessageIdentification: ElementHelper{
+			Title:         "Message Identification",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Point to point reference, as assigned by the instructing party of the underlying message.`,
+		},
+		InstructionIdentification: ElementHelper{
+			Title:         "Instruction Identification",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction.`,
+		},
+		EndToEndIdentification: ElementHelper{
+			Title:         "End To End Identification",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.`,
+		},
+		UETR: ElementHelper{
+			Title:         "UETR",
+			Rules:         "",
+			Type:          `UUIDv4Identifier (based on string) pattern: [a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12} identificationScheme: RFC4122; UUIDv4`,
+			Documentation: `Universally unique identifier to provide an end-to-end reference of a payment transaction.`,
+		},
+	}
+}
+
+type RelatedAgentsHelper struct {
+	InstructingAgent AgentHelper
+	InstructedAgent  AgentHelper
+	ProprietaryType  ElementHelper
+	ProprietaryAgent AgentHelper
+}
+
+func BuildRelatedAgentsHelper() RelatedAgentsHelper {
+	return RelatedAgentsHelper{
+		InstructingAgent: BuildAgentHelper(),
+		InstructedAgent:  BuildAgentHelper(),
+		ProprietaryType: ElementHelper{
+			Title:         "Proprietary Type",
+			Rules:         "",
+			Type:          `This element contains the code 'RESP' (Respondent) to identify the related agent is a respondent of the receiver of the Account Debit Credit Notification message.`,
+			Documentation: `Type of agent, in a coded form as published in an external list.`,
+		},
+		ProprietaryAgent: BuildAgentHelper(),
+	}
+}
+
+type RelatedDatesHelper struct {
+	AcceptanceDateTime      ElementHelper
+	InterbankSettlementDate ElementHelper
+}
+
+func BuildRelatedDatesHelper() RelatedDatesHelper {
+	return RelatedDatesHelper{
+		AcceptanceDateTime: ElementHelper{
+			Title:         "Acceptance Date Time",
+			Rules:         "",
+			Type:          `ISODateTime (based on dateTime)`,
+			Documentation: `Point in time when the payment order from the initiating party meets the processing conditions of the account servicing agent. This means that the account servicing agent has received the payment order and has applied checks such as authorisation, availability of funds.`,
+		},
+		InterbankSettlementDate: ElementHelper{
+			Title:         "Interbank Settlement Date",
+			Rules:         "",
+			Type:          `ISODate (based on date)`,
+			Documentation: `Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.`,
+		},
+	}
+}
+
+type TotalsPerBankTransactionCodeHelper struct {
+	NumberOfEntries     ElementHelper
+	BankTransactionCode ElementHelper
+}
+
+func BuildTotalsPerBankTransactionCodeHelper() TotalsPerBankTransactionCodeHelper {
+	return TotalsPerBankTransactionCodeHelper{
+		NumberOfEntries: ElementHelper{
+			Title:         "Number of Entries",
+			Rules:         "",
+			Type:          `Max15NumericText (based on string) minLength: 1 maxLength: 15`,
+			Documentation: `Number of individual entries for the bank transaction code.`,
+		},
+		BankTransactionCode: ElementHelper{
+			Title:         "Bank Transaction Code",
+			Rules:         "",
+			Type:          `TransactionStatusCode(MessagesInProcess, MessagesIntercepted ...)`,
+			Documentation: `Bank transaction code in a proprietary form, as defined by the issuer.`,
+		},
+	}
+}
+
+type BalanceHelper struct {
+	BalanceTypeId        ElementHelper
+	CreditLine           CreditLineHelper
+	Amount               CurrencyAndAmountHelper
+	CreditDebitIndicator ElementHelper
+	DateTime             ElementHelper
+}
+
+func BuildBalanceHelper() BalanceHelper {
+	return BalanceHelper{
+		BalanceTypeId: ElementHelper{
+			Title:         "Balance Type Id",
+			Rules:         "",
+			Type:          `BalanceType(AccountBalance, AvailableBalanceFromAccountBalance ...)`,
+			Documentation: `Specifies the nature of a balance.`,
+		},
+		CreditLine: BuildCreditLineHelper(),
+		Amount:     BuildCurrencyAndAmountHelper(),
+		CreditDebitIndicator: ElementHelper{
+			Title:         "Credit Debit Indicator",
+			Rules:         "",
+			Type:          `CdtDbtInd(Credit, Debit)`,
+			Documentation: `Indicates whether the balance is a credit or a debit balance.`,
+		},
+		DateTime: ElementHelper{
+			Title:         "Date Time",
+			Rules:         "",
+			Type:          `ISODateTime (based on string)`,
+			Documentation: `Indicates the date (and time) of the balance.`,
 		},
 	}
 }

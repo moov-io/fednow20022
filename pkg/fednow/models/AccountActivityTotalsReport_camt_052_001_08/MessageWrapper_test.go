@@ -3,6 +3,7 @@ package AccountActivityTotalsReport_camt_052_001_08
 import (
 	"encoding/json"
 	"encoding/xml"
+	"reflect"
 	"testing"
 
 	"github.com/moov-io/fednow20022/pkg/fednow/models/common"
@@ -307,4 +308,25 @@ func TestCustomerCreditTransferWrapper_GetHelp(t *testing.T) {
 	// Verify it contains expected fields
 	assert.Contains(t, string(result), "MessageId")
 	assert.Contains(t, string(result), "CreatedDateTime")
+}
+func Test_MessageModel_fields_exist_in_MessageHelper(t *testing.T) {
+	modelType := reflect.TypeOf(MessageModel{})
+	helperType := reflect.TypeOf(BuildMessageHelper())
+
+	helperFields := map[string]bool{}
+	for i := 0; i < helperType.NumField(); i++ {
+		helperFields[helperType.Field(i).Name] = true
+	}
+
+	missing := []string{}
+	for i := 0; i < modelType.NumField(); i++ {
+		fieldName := modelType.Field(i).Name
+		if !helperFields[fieldName] {
+			missing = append(missing, fieldName)
+		}
+	}
+
+	if len(missing) > 0 {
+		t.Errorf("Fields in MessageModel missing in MessageHelper: %v", missing)
+	}
 }

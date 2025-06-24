@@ -41,7 +41,7 @@ var DocumentFactory = func() common.ISODocument {
 }
 
 var RequireFileds = []string{
-	"MessageId", "CreatedDateTime", 
+	"MessageId", "CreatedDateTime",
 	"Pagenation.PageNumber", "Pagenation.LastPageIndicator",
 	"OriginalBusinessQuery.MessageIdentification",
 	"OriginalBusinessQuery.MessageNameIdentification",

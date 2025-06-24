@@ -1,4 +1,4 @@
-package AccountActivityDetailsReport_camt_052_001_08
+package AccountDebitCreditNotification_camt_054_001_08
 
 import (
 	"encoding/json"
@@ -36,7 +36,7 @@ func TestMakeValidDataJson(t *testing.T) {
 	require.NotEmpty(t, data, "data should not be empty")
 }
 func TestCreateDocument(t *testing.T) {
-	wrapper := &AccountActivityDetailsReportWrapper{}
+	wrapper := &AccountDebitCreditNotificationWrapper{}
 	validData, err := common.ReadFile("./modelSample/ValidData.json")
 	require.NoError(t, err, "failed to read valid data JSON")
 
@@ -94,7 +94,7 @@ func TestCreateDocument(t *testing.T) {
 	}
 }
 func TestValidateDocument(t *testing.T) {
-	wrapper := &AccountActivityDetailsReportWrapper{}
+	wrapper := &AccountDebitCreditNotificationWrapper{}
 	validData, err := common.ReadFile("./modelSample/ValidData.json")
 	require.NoError(t, err, "failed to read valid data JSON")
 
@@ -145,7 +145,7 @@ func TestValidateDocument(t *testing.T) {
 	}
 }
 func TestCheckRequireField(t *testing.T) {
-	wrapper := &AccountActivityDetailsReportWrapper{}
+	wrapper := &AccountDebitCreditNotificationWrapper{}
 	validData, err := common.ReadFile("./modelSample/ValidData.json")
 	require.NoError(t, err, "failed to read valid data JSON")
 
@@ -158,20 +158,6 @@ func TestCheckRequireField(t *testing.T) {
 		{
 			name:        "valid model has all required fields",
 			modelJson:   validData,
-			expectError: false,
-			errorMsg:    "",
-		},
-		{
-			name: "model with missing required field fails validation",
-			modelJson: []byte(
-				`{
-					"message_id": "AADR",
-					"created_date_time": "2023-09-02T19:31:13-04:00",
-					"pagenation": {
-							"page_number": "1",
-							"last_page_indicator": true
-					}
-				}`),
 			expectError: false,
 			errorMsg:    "",
 		},
@@ -234,7 +220,7 @@ func TestCheckRequireField(t *testing.T) {
 	}
 }
 func TestGetDataModel(t *testing.T) {
-	wrapper := &AccountActivityDetailsReportWrapper{}
+	wrapper := &AccountDebitCreditNotificationWrapper{}
 	swiftSamplePaths, err := common.GetSubFilePaths("swiftSample")
 	require.NoError(t, err, "failed to get sample paths")
 	path := swiftSamplePaths[0] // Use the first sample path for testing
@@ -293,7 +279,7 @@ func TestGetDataModel(t *testing.T) {
 }
 
 func TestCustomerCreditTransferWrapper_GetHelp(t *testing.T) {
-	wrapper := &AccountActivityDetailsReportWrapper{}
+	wrapper := &AccountDebitCreditNotificationWrapper{}
 
 	result, err := wrapper.GetHelp()
 
@@ -308,9 +294,7 @@ func TestCustomerCreditTransferWrapper_GetHelp(t *testing.T) {
 	// Verify it contains expected fields
 	assert.Contains(t, string(result), "MessageId")
 	assert.Contains(t, string(result), "CreatedDateTime")
-	assert.Contains(t, string(result), "InstructionId")
 }
-
 func Test_MessageModel_fields_exist_in_MessageHelper(t *testing.T) {
 	modelType := reflect.TypeOf(MessageModel{})
 	helperType := reflect.TypeOf(BuildMessageHelper())

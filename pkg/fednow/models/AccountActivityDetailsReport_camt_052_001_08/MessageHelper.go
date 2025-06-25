@@ -2,28 +2,6 @@ package AccountActivityDetailsReport_camt_052_001_08
 
 import "github.com/moov-io/fednow20022/pkg/fednow/models/common"
 
-type TotalsPerBankTransactionCodeHelper struct {
-	NumberOfEntries     common.ElementHelper
-	BankTransactionCode common.ElementHelper
-}
-
-func BuildTotalsPerBankTransactionCodeHelper() TotalsPerBankTransactionCodeHelper {
-	return TotalsPerBankTransactionCodeHelper{
-		NumberOfEntries: common.ElementHelper{
-			Title:         "Number of Entries",
-			Rules:         "",
-			Type:          `Max15NumericText (based on string) minLength: 1 maxLength: 15`,
-			Documentation: `Number of individual entries for the bank transaction code.`,
-		},
-		BankTransactionCode: common.ElementHelper{
-			Title:         "Bank Transaction Code",
-			Rules:         "",
-			Type:          `TransactionStatusCode(MessagesInProcess, MessagesIntercepted ...)`,
-			Documentation: `Bank transaction code in a proprietary form, as defined by the issuer.`,
-		},
-	}
-}
-
 type MessageHelper struct {
 	MessageId                          common.ElementHelper
 	CreatedDateTime                    common.ElementHelper
@@ -36,7 +14,7 @@ type MessageHelper struct {
 	TotalEntries                       common.ElementHelper
 	TotalCreditEntries                 common.NumberAndSumOfTransactionsHelper
 	TotalDebitEntries                  common.NumberAndSumOfTransactionsHelper
-	TotalEntriesPerBankTransactionCode TotalsPerBankTransactionCodeHelper
+	TotalEntriesPerBankTransactionCode common.TotalsPerBankTransactionCodeHelper
 	EntryDetails                       common.EntryHelper
 }
 
@@ -88,7 +66,7 @@ func BuildMessageHelper() MessageHelper {
 		},
 		TotalCreditEntries:                 common.BuildNumberAndSumOfTransactionsHelper(),
 		TotalDebitEntries:                  common.BuildNumberAndSumOfTransactionsHelper(),
-		TotalEntriesPerBankTransactionCode: BuildTotalsPerBankTransactionCodeHelper(),
+		TotalEntriesPerBankTransactionCode: common.BuildTotalsPerBankTransactionCodeHelper(),
 		EntryDetails:                       common.BuildEntryHelper(),
 	}
 

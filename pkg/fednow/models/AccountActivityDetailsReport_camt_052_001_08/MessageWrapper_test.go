@@ -3,7 +3,11 @@ package AccountActivityDetailsReport_camt_052_001_08
 import (
 	"encoding/json"
 	"encoding/xml"
+	"fmt"
+	"os"
+	"os/exec"
 	"reflect"
+	"strings"
 	"testing"
 
 	"github.com/moov-io/fednow20022/pkg/fednow/models/common"
@@ -56,19 +60,19 @@ func TestCreateDocument(t *testing.T) {
 			name:        "invalid JSON returns error",
 			modelJson:   []byte(`{"invalid": json}`),
 			expectError: true,
-			errorMsg:    "failed to unmarshal JSON to MessageModel",
+			errorMsg:    "failed to unmarshal JSON",
 		},
 		{
 			name:        "empty JSON returns error",
 			modelJson:   []byte(``),
 			expectError: true,
-			errorMsg:    "failed to unmarshal JSON to MessageModel",
+			errorMsg:    "failed to unmarshal JSON",
 		},
 		{
 			name:        "nil JSON returns error",
 			modelJson:   nil,
 			expectError: true,
-			errorMsg:    "failed to unmarshal JSON to MessageModel",
+			errorMsg:    "failed to unmarshal JSON",
 		},
 	}
 	for _, tt := range tests {
@@ -114,19 +118,19 @@ func TestValidateDocument(t *testing.T) {
 			name:        "invalid JSON returns error",
 			modelJson:   []byte(`{"invalid": json}`),
 			expectError: true,
-			errorMsg:    "failed to unmarshal JSON to MessageModel",
+			errorMsg:    "failed to unmarshal JSON",
 		},
 		{
 			name:        "empty JSON returns error",
 			modelJson:   []byte(``),
 			expectError: true,
-			errorMsg:    "failed to unmarshal JSON to MessageModel",
+			errorMsg:    "failed to unmarshal JSON",
 		},
 		{
 			name:        "nil JSON returns error",
 			modelJson:   nil,
 			expectError: true,
-			errorMsg:    "failed to unmarshal JSON to MessageModel",
+			errorMsg:    "failed to unmarshal JSON",
 		},
 	}
 	for _, tt := range tests {
@@ -331,4 +335,35 @@ func Test_MessageModel_fields_exist_in_MessageHelper(t *testing.T) {
 	if len(missing) > 0 {
 		t.Errorf("Fields in MessageModel missing in MessageHelper: %v", missing)
 	}
+}
+
+func TestMain(m *testing.M) {
+	// Run tests
+	exitCode := m.Run()
+
+	// After tests, check code coverage if running with coverage
+	if coverProfile := os.Getenv("COVERAGE_CHECK"); coverProfile != "" {
+		cmd := exec.Command("go", "tool", "cover", "-func=coverage.out")
+		output, err := cmd.CombinedOutput()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Failed to check coverage: %v\n", err)
+			os.Exit(2)
+		}
+		lines := strings.Split(string(output), "\n")
+		for _, line := range lines {
+			if strings.HasPrefix(line, "total:") {
+				var percent float64
+				_, err := fmt.Sscanf(line, "total: (statements) %f%%", &percent)
+				if err != nil {
+					fmt.Fprintf(os.Stderr, "Failed to parse coverage percent: %v\n", err)
+					os.Exit(2)
+				}
+				if percent < 80.0 {
+					fmt.Fprintf(os.Stderr, "Code coverage is below 80%%: %.1f%%\n", percent)
+					os.Exit(3)
+				}
+			}
+		}
+	}
+	os.Exit(exitCode)
 }

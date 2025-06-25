@@ -18,6 +18,15 @@ type BalanceType string
 type CreditLineType string
 type TransactionCode string
 type ProprietaryAgentType string
+type ModifyMode string
+type AccountType string
+type SettlementMethod string
+type ExternalCashClearingSystem string
+type LocalInstrumentType string
+type ChargeBearerType string
+type CodeOrProprietaryType string
+type RemittanceDeliveryMethod string
+type ProxyType string
 
 const (
 	BusinessProcessingDate WorkingDayType = "BPRD"
@@ -26,12 +35,39 @@ const (
 	Respondent ProprietaryAgentType = "RESP"
 )
 const (
+	FedNowServiceLI LocalInstrumentType = "FDNA" // FedNow Service Local Instrument
+)
+const (
+	FedNowService ExternalCashClearingSystem = "FDN" // FedNow Service
+)
+const (
 	EveryDay ReportType = "EDAY"
 	Intraday ReportType = "IDAY"
 )
 const (
 	Credit CdtDbtInd = "CRDT"
 	Debit  CdtDbtInd = "DBIT"
+)
+const (
+	MasterAccount       AccountType = "M"
+	SingleRoutingNumber AccountType = "S"
+)
+const (
+	TelephoneNumber ProxyType = "TELN" // Telephone Number
+	EmailAddress    ProxyType = "EMAL" // Email Address
+)
+const (
+	ClearingSystem   SettlementMethod = "CLRG"
+	CoverMethod      SettlementMethod = "COVE"
+	InstructedAgent  SettlementMethod = "INDA"
+	InstructingAgent SettlementMethod = "INGA"
+)
+const (
+	ChargeBearerSLEV   ChargeBearerType = "SLEV" // Sender Pays All Charges
+	ChargeBearerRECV   ChargeBearerType = "RECV" // Receiver Pays All Charges
+	ChargeBearerSHAR   ChargeBearerType = "SHAR" // Shared Charges
+	ChargeBearerDEBT   ChargeBearerType = "DEBT" // Shared Charges
+	ChargeBearerCREDIT ChargeBearerType = "CRED" // Shared Charges
 )
 const (
 	AccountDebitCreditNotification                   CAMTReportType = "ADCN"
@@ -60,7 +96,7 @@ const (
 	TransCredit                 TransactionStatusCode = "CRDT"
 	TransDebit                  TransactionStatusCode = "DBIT"
 	AcceptedSettlementCompleted TransactionStatusCode = "ACSC"
-	/*from https://www2.swift.com/mystandards/#/mp/mx/_kijaUKEYEeuB-v2uhrZqSw/_qR07TZ5FEeyNX8SYmSuaLA/Notification/Entry/BankTransactionCode/Proprietary/Code/ValueMessagesSent!content*/
+
 	NonvalueMessagesReceived TransactionStatusCode = "RCVD"
 	NonvalueMessagesSent     TransactionStatusCode = "SENT"
 	RejectedMessagesReceived TransactionStatusCode = "RJTR"
@@ -114,6 +150,31 @@ const (
 	NationalSettlementServiceEntries TransactionCode = "NSSE"
 	PrefundedACHCreditItems          TransactionCode = "FDAP"
 	UnavailableAllOtherActivity      TransactionCode = "UVOT"
+)
+const (
+	CodeCINV CodeOrProprietaryType = "CINV" // Invoice
+	CodeCREQ CodeOrProprietaryType = "CREQ" // Credit Request
+	CodeCNTR CodeOrProprietaryType = "CNTR" // Credit Note
+	CodeDBTR CodeOrProprietaryType = "DBTR" // Debtor
+	CodeCRED CodeOrProprietaryType = "CRED" // Credit
+	CodeSCT  CodeOrProprietaryType = "SCT"  // SEPA Credit Transfer
+	CodePAYM CodeOrProprietaryType = "PAYM" // Payment Message
+	CodeRTGS CodeOrProprietaryType = "RTGS" // Real-Time Gross Settlement
+	CodeRCLS CodeOrProprietaryType = "RCLS" // Reversal
+	CodeRFF  CodeOrProprietaryType = "RFF"  // Reference
+	CodeCMCN CodeOrProprietaryType = "CMCN" // Reference
+)
+const (
+	Fax                       RemittanceDeliveryMethod = "FAXI" //Fax
+	ElectronicDataInterchange RemittanceDeliveryMethod = "EDIC" //Electronic Data Interchange (EDI)
+	UniformResourceIdentifier RemittanceDeliveryMethod = "URID" //Uniform Resource Identifier (URI)
+	PostalMail                RemittanceDeliveryMethod = "POST" //Postal Mail
+	Email                     RemittanceDeliveryMethod = "EMAL" //Email
+)
+const (
+	All      ModifyMode = "ALLL"
+	Changed  ModifyMode = "CHNG"
+	Modified ModifyMode = "MODF"
 )
 
 type MessagePagenation struct {
@@ -226,6 +287,7 @@ type PostalAddress struct {
 	BuildingName   string `json:"building_name,omitempty"`   // Building name of the address
 	Floor          string `json:"floor,omitempty"`           // Floor number of the address
 	RoomNumber     string `json:"room_number,omitempty"`     // Room number of the address
+	PostBox        string `json:"post_box,omitempty"`        // Post box number of the address
 	PostalCode     string `json:"postal_code,omitempty"`     // Postal code of the address
 	TownName       string `json:"town_name,omitempty"`       // Town or city name of the address
 	Subdivision    string `json:"subdivision,omitempty"`     // Subdivision or state of the address
@@ -276,4 +338,52 @@ type RelatedAgents struct {
 type RelatedDates struct {
 	AcceptanceDateTime      time.Time      `json:"acceptance_date_time,omitempty"`      // Acceptance DateTime
 	InterbankSettlementDate fednow.ISODate `json:"interbank_settlement_date,omitempty"` // Interbank Settlement Date
+}
+type PeriodDateAndTime struct {
+	FromDate fednow.ISODate `json:"from_date,omitempty"` // Start date of the period
+	ToDate   fednow.ISODate `json:"to_date,omitempty"`   // End
+	FromTime time.Time      `json:"from_time,omitempty"` // Start time of the period
+	ToTime   time.Time      `json:"to_time,omitempty"`   // End time of the period
+	Type     ModifyMode     `json:"type,omitempty"`      // Type of the period (e.g., ALLL, CHNG, MODF)
+}
+type Assignments struct {
+	Assigner Agent `json:"assigner,omitempty"` // Assigner Agent
+	Assignee Agent `json:"assignee,omitempty"` // Assignee Agent
+}
+type GroupInformation struct {
+	OriginalMessageIdentification     string    `json:"original_message_identification,omitempty"`      // Original Message Identification
+	OriginalMessageNameIdentification string    `json:"original_message_name_identification,omitempty"` // Original Message Name Identification
+	OriginalCreationDateTime          time.Time `json:"original_creation_date_time,omitempty"`          // Original Creation DateTime
+}
+type SettlementInformation struct {
+	Method  SettlementMethod           `json:"method_code,omitempty"`  // Settlement Method Code
+	Service ExternalCashClearingSystem `json:"service_code,omitempty"` // FedNow Service Code
+}
+type PaymentTypeInfo struct {
+	LocalInstrument LocalInstrumentType `json:"local_instrument_code,omitempty"` // Local Instrument Code
+	CategoryPurpose string              `json:"category_purpose,omitempty"`      // Category Purpose
+}
+type TransactionParty struct {
+	PartyName            string        `json:"party_name,omitempty"`             // Name of the transaction party
+	PartyAddress         PostalAddress `json:"party_address,omitempty"`          // Address of the transaction party
+	PartyAccountId       string        `json:"party_account_id,omitempty"`       // Account ID of the transaction party
+	PartyAccountProxy    Proxy         `json:"party_account_proxy,omitempty"`    // Proxy for the transaction party's account
+	PartyAgent           Agent         `json:"party_agent,omitempty"`            // Agent representing the transaction party
+	UltimatePartyName    string        `json:"ultimate_party_name,omitempty"`    // Ultimate party name in the transaction
+	UltimatePartyAddress PostalAddress `json:"ultimate_party_address,omitempty"` // Ultimate party address in the transaction
+}
+type RemittanceInformation struct {
+	Unstructured                string                `json:"unstructured,omitempty"`                  // Unstructured remittance information
+	ReferredDocumentInformation CodeOrProprietaryType `json:"referred_document_information,omitempty"` // Referred Document Information
+	Number                      string                `json:"number,omitempty"`                        // Number of the referred document
+	RelatedDate                 fednow.ISODate        `json:"related_date,omitempty"`                  // Related Date of
+}
+type RelatedRemittanceInformation struct {
+	RemittanceIdentification string                   `json:"remittance_identification,omitempty"` // Remittance Identification
+	Method                   RemittanceDeliveryMethod `json:"method,omitempty"`                    // Method of remittance delivery
+	ElectronicAddress        string                   `json:"electronic_address,omitempty"`        // Electronic Address for remittance delivery
+}
+type Proxy struct {
+	Type  ProxyType `json:"type,omitempty"`  // Type of the proxy (e.g., TELN for Telephone Number, EMAL for Email Address)
+	Value string    `json:"value,omitempty"` // Value of the proxy (e.g., actual telephone number or email address)
 }

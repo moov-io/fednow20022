@@ -1,0 +1,17 @@
+{
+  "message_id": "20230903011104238AADRrequest1",
+  "created_date_time": "2023-09-03T09:30:47+04:00",
+  "reporting_request_id": "AADR",
+  "requested_message_name_id": "camt.052.001.08",
+  "account_other_id": "011104238",
+  "account_owner": {
+    "payment_sys_member_id": "011104238"
+  },
+  "reporting_period": {
+    "from_date": "2023-09-01",
+    "to_date": "2023-09-02",
+    "from_time": "0001-01-01T00:00:00Z",
+    "to_time": "0001-01-01T00:00:00Z",
+    "type": "ALLL"
+  }
+}

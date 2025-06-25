@@ -681,3 +681,215 @@ func BuildBalanceHelper() BalanceHelper {
 		},
 	}
 }
+
+type PeriodDateAndTimeHelper struct {
+	FromDate ElementHelper
+	ToDate   ElementHelper
+	FromTime ElementHelper
+	ToTime   ElementHelper
+	Type     ElementHelper
+}
+
+func BuildPeriodDateAndTimeHelper() PeriodDateAndTimeHelper {
+	return PeriodDateAndTimeHelper{
+		FromDate: ElementHelper{
+			Title:         "From Date",
+			Rules:         "",
+			Type:          `ISODate (based on date)`,
+			Documentation: `Start date of the range.`,
+		},
+		ToDate: ElementHelper{
+			Title:         "To Date",
+			Rules:         "",
+			Type:          `ISODate (based on date)`,
+			Documentation: `End date of the range.`,
+		},
+		FromTime: ElementHelper{
+			Title:         "From Time",
+			Rules:         "",
+			Type:          `ISOTime (based on time)`,
+			Documentation: `Time at which the time span starts.`,
+		},
+		ToTime: ElementHelper{
+			Title:         "To Time",
+			Rules:         "",
+			Type:          `ISOTime (based on time)`,
+			Documentation: `Time at which the time span ends.`,
+		},
+		Type: ElementHelper{
+			Title:         "Type",
+			Rules:         "",
+			Type:          `ModifyMode`,
+			Documentation: `Specifies that the query requests that only items that have changed since the last query be returned.`,
+		},
+	}
+}
+
+type AssignmentsHelper struct {
+	Assigner AgentHelper
+	Assignee AgentHelper
+}
+
+func BuildAssignmentsHelper() AssignmentsHelper {
+	return AssignmentsHelper{
+		Assigner: BuildAgentHelper(),
+		Assignee: BuildAgentHelper(),
+	}
+}
+
+type GroupInformationHelper struct {
+	OriginalMessageIdentification     ElementHelper
+	OriginalMessageNameIdentification ElementHelper
+	OriginalCreationDateTime          ElementHelper
+}
+
+func BuildGroupInformationHelper() GroupInformationHelper {
+	return GroupInformationHelper{
+		OriginalMessageIdentification: ElementHelper{
+			Title:         "Original Message Identification",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `This is the Message Identification of the account report request message sent by the FedNow participant to request the account activity details report.`,
+		},
+		OriginalMessageNameIdentification: ElementHelper{
+			Title:         "Original Message Name Identification",
+			Rules:         "",
+			Type:          `MessageNameIdentification_FRS_1 (based on string) exactLength: 15 pattern: [a-z]{4,4}[.]{1,1}[0-9]{3,3}[.]{1,1}001[.]{1,1}[0-9]{2,2}`,
+			Documentation: `This is the Message Identification Name of the account reporting request message sent by the FedNow participant to request the account activity details report (i.e., camt.060.001.05 or a subsequent version of the message as it is introduced in a FedNow Service future release).`,
+		},
+		OriginalCreationDateTime: ElementHelper{
+			Title:         "Original Creation DateTime",
+			Rules:         "",
+			Type:          `ISODateTime (based on dateTime)`,
+			Documentation: `This is the Creation Date Time of the account report request message sent by the FedNow participant to request the account activity details report. Time is in 24-hour clock format and includes the offset against the Coordinated Universal Time (UTC).`,
+		},
+	}
+}
+
+type SettlementInformationHelper struct {
+	Method  ElementHelper
+	Service ElementHelper
+}
+
+func BuildSettlementInformationHelper() SettlementInformationHelper {
+	return SettlementInformationHelper{
+		Method: ElementHelper{
+			Title:         "Method",
+			Rules:         "",
+			Type:          `SettlementMethodType`,
+			Documentation: `Specifies the method of settlement.`,
+		},
+		Service: ElementHelper{
+			Title:         "Service",
+			Rules:         "",
+			Type:          `ExternalCashClearingSystem`,
+			Documentation: `Specifies the service used for settlement.`,
+		},
+	}
+}
+
+type PaymentTypeInfoHelper struct {
+	LocalInstrument ElementHelper
+	CategoryPurpose ElementHelper
+}
+
+func BuildPaymentTypeInfoHelper() PaymentTypeInfoHelper {
+	return PaymentTypeInfoHelper{
+		LocalInstrument: ElementHelper{
+			Title:         "Local Instrument",
+			Rules:         "",
+			Type:          `LocalInstrumentType`,
+			Documentation: `User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.`,
+		},
+		CategoryPurpose: ElementHelper{
+			Title:         "Category Purpose",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 3`,
+			Documentation: `Category purpose, in a proprietary form.`,
+		},
+	}
+}
+
+type TransactionPartyHelper struct {
+	PartyName      ElementHelper
+	PartyAddress   PostalAddressHelper
+	PartyAccountId ElementHelper
+	PartyAgent     AgentHelper
+}
+
+func BuildTransactionPartyHelper() TransactionPartyHelper {
+	return TransactionPartyHelper{
+		PartyName: ElementHelper{
+			Title:         "Party Name",
+			Rules:         "",
+			Type:          `Max140Text (based on string) minLength: 1 maxLength: 140`,
+			Documentation: `Name by which a party is known and which is usually used to identify that party.`,
+		},
+		PartyAddress: BuildPostalAddressHelper(),
+		PartyAccountId: ElementHelper{
+			Title:         "Party Account Id",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Identification of the account of the party.`,
+		},
+		PartyAgent: BuildAgentHelper(),
+	}
+}
+
+type RemittanceInformationHelper struct {
+	ReferredDocumentInformation ElementHelper
+	Number                      ElementHelper
+	RelatedDate                 ElementHelper
+}
+
+func BuildRemittanceInformationHelper() RemittanceInformationHelper {
+	return RemittanceInformationHelper{
+		ReferredDocumentInformation: ElementHelper{
+			Title:         "Referred Document Information",
+			Rules:         "",
+			Type:          `Max140Text (based on string) minLength: 1 maxLength: 140`,
+			Documentation: `Reference to a document that is referred to in the remittance information.`,
+		},
+		Number: ElementHelper{
+			Title:         "Number",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Number of the document that is referred to in the remittance information.`,
+		},
+		RelatedDate: ElementHelper{
+			Title:         "Related Date",
+			Rules:         "",
+			Type:          `ISODate (based on date)`,
+			Documentation: `Date related to the document that is referred to in the remittance information.`,
+		},
+	}
+}
+
+type RelatedRemittanceInformationHelper struct {
+	RemittanceIdentification ElementHelper
+	Method                   ElementHelper
+	ElectronicAddress        ElementHelper
+}
+
+func BuildRelatedRemittanceInformationHelper() RelatedRemittanceInformationHelper {
+	return RelatedRemittanceInformationHelper{
+		RemittanceIdentification: ElementHelper{
+			Title:         "Remittance Identification",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Identification of the remittance information.`,
+		},
+		Method: ElementHelper{
+			Title:         "Method",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Method of remittance information.`,
+		},
+		ElectronicAddress: ElementHelper{
+			Title:         "Electronic Address",
+			Rules:         "",
+			Type:          `Max2048Text (based on string) minLength: 1 maxLength: 2048`,
+			Documentation: `Electronic address for remittance information.`,
+		},
+	}
+}

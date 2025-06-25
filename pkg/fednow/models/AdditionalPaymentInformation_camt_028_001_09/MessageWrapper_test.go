@@ -1,4 +1,4 @@
-package AccountDebitCreditNotification_camt_054_001_08
+package AdditionalPaymentInformation_camt_028_001_09
 
 import (
 	"encoding/json"
@@ -40,7 +40,7 @@ func TestMakeValidDataJson(t *testing.T) {
 	require.NotEmpty(t, data, "data should not be empty")
 }
 func TestCreateDocument(t *testing.T) {
-	wrapper := &AccountDebitCreditNotificationWrapper{}
+	wrapper := &AdditionalPaymentInformationWrapper{}
 	validData, err := common.ReadFile("./modelSample/ValidData.json")
 	require.NoError(t, err, "failed to read valid data JSON")
 
@@ -98,7 +98,7 @@ func TestCreateDocument(t *testing.T) {
 	}
 }
 func TestValidateDocument(t *testing.T) {
-	wrapper := &AccountDebitCreditNotificationWrapper{}
+	wrapper := &AdditionalPaymentInformationWrapper{}
 	validData, err := common.ReadFile("./modelSample/ValidData.json")
 	require.NoError(t, err, "failed to read valid data JSON")
 
@@ -149,7 +149,7 @@ func TestValidateDocument(t *testing.T) {
 	}
 }
 func TestCheckRequireField(t *testing.T) {
-	wrapper := &AccountDebitCreditNotificationWrapper{}
+	wrapper := &AdditionalPaymentInformationWrapper{}
 	validData, err := common.ReadFile("./modelSample/ValidData.json")
 	require.NoError(t, err, "failed to read valid data JSON")
 
@@ -224,7 +224,7 @@ func TestCheckRequireField(t *testing.T) {
 	}
 }
 func TestGetDataModel(t *testing.T) {
-	wrapper := &AccountDebitCreditNotificationWrapper{}
+	wrapper := &AdditionalPaymentInformationWrapper{}
 	swiftSamplePaths, err := common.GetSubFilePaths("swiftSample")
 	require.NoError(t, err, "failed to get sample paths")
 	path := swiftSamplePaths[0] // Use the first sample path for testing
@@ -283,7 +283,7 @@ func TestGetDataModel(t *testing.T) {
 }
 
 func TestCustomerCreditTransferWrapper_GetHelp(t *testing.T) {
-	wrapper := &AccountDebitCreditNotificationWrapper{}
+	wrapper := &AdditionalPaymentInformationWrapper{}
 
 	result, err := wrapper.GetHelp()
 

@@ -511,7 +511,11 @@ func processNestedSliceMapping(from any, result map[string]string, key string, m
 		for k1, v1 := range mapping {
 			switch inner := v1.(type) {
 			case string:
-				result[fmt.Sprintf("%s[%d].%s", src, i, k1)] = fmt.Sprintf("%s[%d].%s", dst, i, inner)
+				if k1 == "index" && inner == "index" { /// string array
+					result[fmt.Sprintf("%s[%d]", src, i)] = fmt.Sprintf("%s[%d]", dst, i)
+				} else {
+					result[fmt.Sprintf("%s[%d].%s", src, i, k1)] = fmt.Sprintf("%s[%d].%s", dst, i, inner)
+				}
 			case map[string]string:
 				src2, dst2 := seperateKeyAndValue(k1, ":")
 				if src2 == "" || dst2 == "" {

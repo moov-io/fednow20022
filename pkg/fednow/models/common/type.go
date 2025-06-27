@@ -27,6 +27,7 @@ type ChargeBearerType string
 type CodeOrProprietaryType string
 type RemittanceDeliveryMethod string
 type ProxyType string
+type FundEventType string
 
 const (
 	BusinessProcessingDate WorkingDayType = "BPRD"
@@ -68,6 +69,22 @@ const (
 	ChargeBearerSHAR   ChargeBearerType = "SHAR" // Shared Charges
 	ChargeBearerDEBT   ChargeBearerType = "DEBT" // Shared Charges
 	ChargeBearerCREDIT ChargeBearerType = "CRED" // Shared Charges
+)
+const (
+	//Ad hoc Fedwire Funds Service customized message.
+	AdHoc                     FundEventType = "ADHC"
+	ConnectionCheck           FundEventType = "PING"
+	ConnectionPointDisconnect FundEventType = "FPCD"
+	ConnectionPointReconnect  FundEventType = "FPCR"
+	FedNowKeys                FundEventType = "FNKY"
+	ParticipantOffline        FundEventType = "FPOF"
+	ParticipantOnline         FundEventType = "FPON"
+	ParticipantReactivation   FundEventType = "FPRE"
+	SystemClosed              FundEventType = "CLSD"
+	SystemExtension           FundEventType = "EXTN"
+	SystemOpen                FundEventType = "OPEN"
+	SystemRollover            FundEventType = "ROLL"
+	TransactionLimitChange    FundEventType = "SITL"
 )
 const (
 	AccountDebitCreditNotification                   CAMTReportType = "ADCN"

@@ -893,3 +893,25 @@ func BuildRelatedRemittanceInformationHelper() RelatedRemittanceInformationHelpe
 		},
 	}
 }
+
+type ReasonHelper struct {
+	Code        ElementHelper
+	Proprietary ElementHelper
+}
+
+func BuildReasonHelper() ReasonHelper {
+	return ReasonHelper{
+		Code: ElementHelper{
+			Title:         "Code",
+			Rules:         "",
+			Type:          `StatusReasonInformationCode`,
+			Documentation: `Reason for the status, as published in an external reason code list.`,
+		},
+		Proprietary: ElementHelper{
+			Title:         "Proprietary",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Reason for the status, in a proprietary form.`,
+		},
+	}
+}

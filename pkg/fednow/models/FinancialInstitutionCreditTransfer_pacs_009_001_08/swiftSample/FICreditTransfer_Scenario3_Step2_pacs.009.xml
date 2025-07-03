@@ -22,7 +22,7 @@
 					<Prtry>LMT1</Prtry>
 				</LclInstrm>
 			</PmtTpInf>
-			<IntrBkSttlmAmt Ccy="USD">1500000</IntrBkSttlmAmt>
+			<IntrBkSttlmAmt Ccy="USD">8000000</IntrBkSttlmAmt>
 			<IntrBkSttlmDt>2023-07-21</IntrBkSttlmDt>
 			<InstgAgt>
 				<FinInstnId>

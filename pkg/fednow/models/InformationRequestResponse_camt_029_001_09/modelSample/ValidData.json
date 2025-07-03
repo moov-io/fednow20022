@@ -1,0 +1,42 @@
+{
+  "assignment_id": "20230727011104238RFISc1Step3MsgId",
+  "created_date_time": "2023-07-27T10:18:06-05:00",
+  "assignments": {
+    "assigner": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "011104238"
+    },
+    "assignee": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "021040078"
+    }
+  },
+  "case_id": "RFI_pacs.008_Case017",
+  "creator": {
+    "name": "Corporation B",
+    "contact": {
+      "name": "Investigation Manager",
+      "email": "support@corporationB.com",
+      "phone": "+1-888-600-7000",
+      "preferred_method": "PHON"
+    }
+  },
+  "status": "IPAY",
+  "interbank": {
+    "original_group_info": {
+      "original_message_identification": "20230727011104238RFISc1Step4MsgId",
+      "original_message_name_identification": "pacs.008.001.08",
+      "original_creation_date_time": "2023-07-27T10:18:10-05:00"
+    },
+    "original_transaction_detail": {
+      "message_identification": "RFISc1Step4TransId001",
+      "instruction_identification": "RFISc1Step4InstrId001",
+      "end_to_end_identification": "RFISc1Step4EtoEId001"
+    },
+    "original_interbank_settlement_amount": {
+      "currency": "USD",
+      "amount": 4000.25
+    },
+    "original_interbank_settlement_date": "2023-07-27"
+  }
+}

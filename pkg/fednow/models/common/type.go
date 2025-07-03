@@ -29,6 +29,10 @@ type RemittanceDeliveryMethod string
 type ProxyType string
 type FundEventType string
 type StatusReasonInformationCode string
+type CopyDuplicateCode string
+type ContactMethod string
+type MissingOrIncorrectInformationCode string
+type InvestigationExecutionConfirmationCode string
 
 const (
 	BusinessProcessingDate WorkingDayType = "BPRD"
@@ -72,6 +76,78 @@ const (
 	ChargeBearerCREDIT ChargeBearerType = "CRED" // Shared Charges
 )
 const (
+	ContactEmail             ContactMethod = "EMAIL"
+	ContactPhone             ContactMethod = "PHON"
+	ContactMail              ContactMethod = "MAIL"
+	ContactFax               ContactMethod = "FAXX" // Fax
+	ContactLetter            ContactMethod = "LETT"
+	ContactMobileOrCellPhone ContactMethod = "CELL"
+)
+const (
+	IDUP InvestigationExecutionConfirmationCode = "IDUP" // Instruction Is Duplicate - It is recommended to provide a reference of the original message in the Resolution Related Information component
+	INFO InvestigationExecutionConfirmationCode = "INFO" // Additional Information Sent – It is recommended to provide the Case Identification of the Information Request in the Case Identification of the Additional Payment Information message (camt.028)
+	IPAY InvestigationExecutionConfirmationCode = "IPAY" // Payment Initiated – Correction Transaction component may be present with reference information of the payment instruction
+	NINF InvestigationExecutionConfirmationCode = "NINF" // No Further Information Available
+	PDNG InvestigationExecutionConfirmationCode = "PDNG" // Information Request Pending
+)
+const (
+	MissingAmount                                   MissingOrIncorrectInformationCode = "MS06"
+	MissingCreditor                                 MissingOrIncorrectInformationCode = "MS12"
+	MissingCreditorAccount                          MissingOrIncorrectInformationCode = "MS13"
+	MissingCreditorAgent                            MissingOrIncorrectInformationCode = "MS15"
+	MissingDebtor                                   MissingOrIncorrectInformationCode = "MS03"
+	MissingDebtorAccount                            MissingOrIncorrectInformationCode = "MS04"
+	MissingDebtorAgent                              MissingOrIncorrectInformationCode = "MS05"
+	MissingInstructedReimbursementAgent             MissingOrIncorrectInformationCode = "MS10"
+	MissingInstructingReimbursementAgent            MissingOrIncorrectInformationCode = "MS09"
+	MissingInstruction                              MissingOrIncorrectInformationCode = "MS14"
+	MissingInstructionForCreditorAgent              MissingOrIncorrectInformationCode = "MS16"
+	MissingInstructionForDebtorAgent                MissingOrIncorrectInformationCode = "MS17"
+	MissingInstructionForNextAgent                  MissingOrIncorrectInformationCode = "MS02"
+	MissingIntermediary                             MissingOrIncorrectInformationCode = "MS08"
+	MissingRemittanceInformation                    MissingOrIncorrectInformationCode = "MS01"
+	MissingSettlementAccount                        MissingOrIncorrectInformationCode = "MS07"
+	MissingThirdReimbursementAgent                  MissingOrIncorrectInformationCode = "MS11"
+	Narrative                                       MissingOrIncorrectInformationCode = "NARR"
+	IncorrectCategoryPurpose                        MissingOrIncorrectInformationCode = "IN03"
+	IncorrectChargeBearer                           MissingOrIncorrectInformationCode = "IN17"
+	IncorrectCreditor                               MissingOrIncorrectInformationCode = "IN13"
+	IncorrectCreditorAccount                        MissingOrIncorrectInformationCode = "IN14"
+	IncorrectCreditorAddress                        MissingOrIncorrectInformationCode = "IN39"
+	IncorrectCreditorAgentAccount                   MissingOrIncorrectInformationCode = "IN12"
+	IncorrectDebtor                                 MissingOrIncorrectInformationCode = "IN07"
+	IncorrectDebtorAccount                          MissingOrIncorrectInformationCode = "IN08"
+	IncorrectDebtorAddress                          MissingOrIncorrectInformationCode = "IN38"
+	IncorrectInstructedReimbursementAgent           MissingOrIncorrectInformationCode = "IN09"
+	IncorrectInstructingReimbursementAgent          MissingOrIncorrectInformationCode = "IN37"
+	IncorrectInstructionForCreditorAgent            MissingOrIncorrectInformationCode = "IN19"
+	IncorrectInstructionForNextAgent                MissingOrIncorrectInformationCode = "IN18"
+	IncorrectInterbankSettlementAmount              MissingOrIncorrectInformationCode = "IN06"
+	IncorrectInterbankSettlementDate                MissingOrIncorrectInformationCode = "IN05"
+	IncorrectPaymentClearingChannel                 MissingOrIncorrectInformationCode = "IN11"
+	IncorrectPaymentPurpose                         MissingOrIncorrectInformationCode = "IN16"
+	IncorrectPaymentServiceLevel                    MissingOrIncorrectInformationCode = "IN02"
+	IncorrectRelatedReference                       MissingOrIncorrectInformationCode = "IN01"
+	IncorrectRemittanceInformation                  MissingOrIncorrectInformationCode = "IN15"
+	IncorrectReportEntryAmount                      MissingOrIncorrectInformationCode = "IN33"
+	IncorrectRequestedExecutionDate                 MissingOrIncorrectInformationCode = "IN04"
+	IncorrectSettlementAccount                      MissingOrIncorrectInformationCode = "IN36"
+	IncorrectThirdReimbursementAgent                MissingOrIncorrectInformationCode = "IN10"
+	InsufficientChargesDetails                      MissingOrIncorrectInformationCode = "MM34"
+	InsufficientPaymentPurpose                      MissingOrIncorrectInformationCode = "MM35"
+	MismatchCreditorAgentNameAccount                MissingOrIncorrectInformationCode = "MM22"
+	MismatchCreditorNameAccount                     MissingOrIncorrectInformationCode = "MM20"
+	MismatchDebtorNameAccount                       MissingOrIncorrectInformationCode = "MM21"
+	PaymentExecutedCreditorAccountOrIdentification  MissingOrIncorrectInformationCode = "MM31"
+	PaymentExecutedCreditorNameOrAddress            MissingOrIncorrectInformationCode = "MM32"
+	PaymentExecutedDebtorAccountOrIdentification    MissingOrIncorrectInformationCode = "MM27"
+	PaymentExecutedDebtorNameOrAddress              MissingOrIncorrectInformationCode = "MM28"
+	PendingExecutionCreditorAccountOrIdentification MissingOrIncorrectInformationCode = "MM29"
+	PendingExecutionCreditorNameOrAddress           MissingOrIncorrectInformationCode = "MM30"
+	PendingExecutionDebtorAccountOrIdentification   MissingOrIncorrectInformationCode = "MM25"
+	PendingExecutionDebtorNameOrAddress             MissingOrIncorrectInformationCode = "MM26"
+)
+const (
 	//Ad hoc Fedwire Funds Service customized message.
 	AdHoc                     FundEventType = "ADHC"
 	ConnectionCheck           FundEventType = "PING"
@@ -96,6 +172,11 @@ const (
 	CorrespondentAccountActivityTotalsReport         CAMTReportType = "CATR"
 	CorrespondentIntradayAccountActivityTotalsReport CAMTReportType = "CITR"
 	IntradayAccountActivityTotalsReport              CAMTReportType = "IATR"
+)
+const (
+	Copy          CopyDuplicateCode = "COPY"
+	CopyDuplicate CopyDuplicateCode = "CODU"
+	Duplicate     CopyDuplicateCode = "DUPL"
 )
 const (
 	InsufficientFunds         StatusReasonInformationCode = "AM04" // The account does not have enough balance to process the transaction.
@@ -392,6 +473,7 @@ type SettlementInformation struct {
 type PaymentTypeInfo struct {
 	LocalInstrument LocalInstrumentType `json:"local_instrument_code,omitempty"` // Local Instrument Code
 	CategoryPurpose string              `json:"category_purpose,omitempty"`      // Category Purpose
+	ServiceLevel    ChargeBearerType    `json:"service_level,omitempty"`         // Service Level
 }
 type TransactionParty struct {
 	PartyName            string        `json:"party_name,omitempty"`             // Name of the transaction party
@@ -420,4 +502,30 @@ type Proxy struct {
 type Reason struct {
 	Code        StatusReasonInformationCode `json:"type,omitempty"` // Type of the reason for the transaction status
 	Proprietary string                      `json:"code,omitempty"` // Code representing the reason
+}
+type MarketPractice struct {
+	Registry       string `json:"registry_code,omitempty"`       // Registry Code for the market practice
+	Identification string `json:"identification_code,omitempty"` // Identification Code for the market practice
+}
+type ContactDetails struct {
+	Name            string        `json:"name,omitempty"`             // Name of the contact person
+	Email           string        `json:"email,omitempty"`            // Email address of the contact person
+	Phone           string        `json:"phone,omitempty"`            // Phone number of the contact person
+	PreferredMethod ContactMethod `json:"preferred_method,omitempty"` // Preferred method of contact
+}
+type MissingCodeAndInfo struct {
+	Code MissingOrIncorrectInformationCode `json:"code,omitempty"` // Code representing the missing or incorrect information
+	Info string                            `json:"info,omitempty"` // Additional information about the missing or incorrect information
+}
+type Creator struct {
+	Name               string            `json:"name,omitempty"`                  // Name of the creator
+	PaymentSysCode     PaymentSystemType `json:"payment_sys_code,omitempty"`      // Payment system code of the creator
+	PaymentSysMemberId string            `json:"payment_sys_member_id,omitempty"` // Payment system
+	Contact            ContactDetails    `json:"contact,omitempty"`               // Contact details of the creator
+}
+type PaymentInfomation struct {
+	OriginalGroupInfo         GroupInformation           `json:"original_group_info,omitempty"`                  // Information about the original group
+	OriginalTransactionDetail TransactionDetailReference `json:"original_transaction_detail,omitempty"`          // Reference to the original transaction detail
+	SettlementAmount          CurrencyAndAmount          `json:"original_interbank_settlement_amount,omitempty"` // Amount of the original interbank settlement
+	SettlementDate            fednow.ISODate             `json:"original_interbank_settlement_date,omitempty"`
 }

@@ -1,0 +1,15 @@
+{
+  "from_member_id": "021150706",
+  "to_member_id": "011104238",
+  "created_date_time": "2023-09-02T19:31:13-04:00",
+  "business_message_identifier": "AADR",
+  "message_definition_identifier": "camt.052.001.08",
+  "market_practice": {
+    "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+    "identification_code": "frb.fednow.aad.01"
+  },
+  "business_processing_date": "0001-01-01T00:00:00Z",
+  "related_info": {
+    "created_date_time": "0001-01-01T00:00:00Z"
+  }
+}

@@ -915,3 +915,135 @@ func BuildReasonHelper() ReasonHelper {
 		},
 	}
 }
+
+type MarketPracticeHelper struct {
+	Identification ElementHelper
+	Registry       ElementHelper
+}
+
+func BuildMarketPracticeHelper() MarketPracticeHelper {
+	return MarketPracticeHelper{
+		Identification: ElementHelper{
+			Title:         "Identification",
+			Rules:         "",
+			Type:          `MarketPracticeIdentification_FedNow_1 (based on string) minLength: 13 maxLength: 17 pattern: frb([.]{1,1})fednow([.]{1,1})(([a-z]{3,3}[.]{1,1})){0,1}01`,
+			Documentation: `Identifier which unambiguously identifies, within the implementation specification registry, the implementation specification to which the ISO 20022 message is compliant. This can be done via a URN. It can also contain a version number or date.`,
+		},
+		Registry: ElementHelper{
+			Title:         "Registry",
+			Rules:         "",
+			Type:          `Max350Text (based on string) minLength: 1 maxLength: 350`,
+			Documentation: `Name of the implementation specification registry in which the implementation specification of the ISO 20022 message is maintained. For example, "MyStandards".`,
+		},
+	}
+}
+
+type ContactDetailsHelper struct {
+	Name            ElementHelper
+	Email           ElementHelper
+	Phone           ElementHelper
+	PreferredMethod ElementHelper
+}
+
+func BuildContactDetailsHelper() ContactDetailsHelper {
+	return ContactDetailsHelper{
+		Name: ElementHelper{
+			Title:         "Name",
+			Rules:         "",
+			Type:          `Max140Text (based on string) minLength: 1 maxLength: 140`,
+			Documentation: `Name by which a party is known and which is usually used to identify that party.`,
+		},
+		Email: ElementHelper{
+			Title:         "Email",
+			Rules:         "",
+			Type:          `Max2048Text (based on string) minLength: 1 maxLength: 2048`,
+			Documentation: `Address for electronic mail (e-mail).`,
+		},
+		Phone: ElementHelper{
+			Title:         "Phone",
+			Rules:         "",
+			Type:          `PhoneNumber (based on string) pattern: \+[0-9]{1,3}-[0-9()+\-]{1,30}`,
+			Documentation: `Collection of information that identifies a phone number, as defined by telecom services.`,
+		},
+		PreferredMethod: ElementHelper{
+			Title:         "Preferred Method",
+			Rules:         "",
+			Type:          `ContactMethod`,
+			Documentation: `Preferred method used to reach the contact.`,
+		},
+	}
+}
+
+type MissingCodeAndInfoHelper struct {
+	Code ElementHelper
+	Info ElementHelper
+}
+
+func BuildMissingCodeAndInfoHelper() MissingCodeAndInfoHelper {
+	return MissingCodeAndInfoHelper{
+		Code: ElementHelper{
+			Title:         "Code",
+			Rules:         "",
+			Type:          `MissingOrIncorrectInformationCode`,
+			Documentation: `Specifies the missing information in a coded form.`,
+		},
+		Info: ElementHelper{
+			Title:         "Information",
+			Rules:         "",
+			Type:          `Max500Text (based on string) minLength: 1 maxLength: 500`,
+			Documentation: `Further details about the incorrect information.`,
+		},
+	}
+}
+
+type CreatorHelper struct {
+	Name               ElementHelper
+	PaymentSysCode     ElementHelper
+	PaymentSysMemberId ElementHelper
+	Contact            ContactDetailsHelper
+}
+
+func BuildCreatorHelper() CreatorHelper {
+	return CreatorHelper{
+		Name: ElementHelper{
+			Title:         "Name",
+			Rules:         "",
+			Type:          `Max140Text (based on string) minLength: 1 maxLength: 140`,
+			Documentation: `Name of the creator of the message.`,
+		},
+		PaymentSysCode: ElementHelper{
+			Title:         "Payment System Code",
+			Rules:         "",
+			Type:          `PaymentSystemType`,
+			Documentation: `Payment system code of the creator.`,
+		},
+		PaymentSysMemberId: ElementHelper{
+			Title:         "Payment System Member ID",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Payment system member ID of the creator.`,
+		},
+		Contact: BuildContactDetailsHelper(),
+	}
+}
+
+type PaymentInfomationHelper struct {
+	OriginalGroupInfo         GroupInformationHelper
+	OriginalTransactionDetail TransactionDetailReferenceHelper
+	SettlementAmount          CurrencyAndAmountHelper
+	SettlementDate            ElementHelper
+}
+
+func BuildPaymentInfomationHelper() PaymentInfomationHelper {
+	return PaymentInfomationHelper{
+		OriginalGroupInfo:         BuildGroupInformationHelper(),
+		OriginalTransactionDetail: BuildTransactionDetailReferenceHelper(),
+		SettlementAmount:          BuildCurrencyAndAmountHelper(),
+		SettlementDate: ElementHelper{
+			Title:         "Settlement Date",
+			Rules:         "",
+			Type:          `ISODate (based on date)`,
+			Documentation: `The date of the original interbank settlement.`,
+		},
+	}
+}

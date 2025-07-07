@@ -77,7 +77,7 @@ var PathMap = map[string]any{
 	"FIToFICstmrCdtTrf.CdtTrfTxInf.PmtId.InstrId":                                "PaymentIdentification.InstructionIdentification",
 	"FIToFICstmrCdtTrf.CdtTrfTxInf.PmtId.EndToEndId":                             "PaymentIdentification.EndToEndIdentification",
 	"FIToFICstmrCdtTrf.CdtTrfTxInf.PmtId.UETR":                                   "PaymentIdentification.UETR",
-	"FIToFICstmrCdtTrf.CdtTrfTxInf.PmtId.TxId":                                   "PaymentIdentification.MessageIdentification",
+	"FIToFICstmrCdtTrf.CdtTrfTxInf.PmtId.TxId":                                   "PaymentIdentification.TransactionId",
 	"FIToFICstmrCdtTrf.CdtTrfTxInf.PmtTpInf.LclInstrm.Prtry":                     "PaymentType.LocalInstrument",
 	"FIToFICstmrCdtTrf.CdtTrfTxInf.PmtTpInf.CtgyPurp.Prtry":                      "PaymentType.CategoryPurpose",
 	"FIToFICstmrCdtTrf.CdtTrfTxInf.IntrBkSttlmAmt.Value":                         "InterbankSettlementAmount.Amount",

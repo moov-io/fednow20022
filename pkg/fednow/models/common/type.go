@@ -189,6 +189,17 @@ const (
 	MissingDebtorInfo         StatusReasonInformationCode = "RR01" // Mandatory information about the debtor is missing.
 	MissingCreditorInfo       StatusReasonInformationCode = "RR02" // Mandatory information about the creditor is missing.
 	CutOffTimeExceeded        StatusReasonInformationCode = "SL01" // The transaction was submitted after the cut-off time for processing.
+
+	// Added values
+	InvalidCreditorAccount            StatusReasonInformationCode = "AC03" // Invalid Creditor Account
+	BlockedAccount                    StatusReasonInformationCode = "AC06" // Blocked Account
+	ClosedCreditorAccount             StatusReasonInformationCode = "AC07" // Closed Creditor Account
+	InconsistentEndCustomer           StatusReasonInformationCode = "BE01" // Inconsistent End Customer
+	MissingOrIncorrectCreditorAddress StatusReasonInformationCode = "BE04" // Missing or Incorrect Creditor Address
+	InvalidCreditorIdentification     StatusReasonInformationCode = "BE17" // Invalid Creditor Identification
+	DuplicatePayment                  StatusReasonInformationCode = "DUPL" // Duplicate Payment - It is recommended to provide the reference of the original message in Additional Information
+	NarrativeReason                   StatusReasonInformationCode = "NARR" // Narrative - Must be followed by the reason in free-formatted text in Additional Information
+	RegulatoryReason                  StatusReasonInformationCode = "RR04" // Regulatory Reason
 )
 const (
 	MessagesInProcess           TransactionStatusCode = "INPR"
@@ -435,7 +446,7 @@ type TotalsPerBankTransaction struct {
 	Date                 time.Time                  `json:"date,omitempty"`                   // Date of the bank transaction
 }
 type TransactionDetailReference struct {
-	MessageIdentification     string `json:"message_identification,omitempty"`     // Message Identification
+	TransactionId     string `json:"transaction_id,omitempty"`     // Transaction ID
 	InstructionIdentification string `json:"instruction_identification,omitempty"` // Instruction Identification
 	EndToEndIdentification    string `json:"end_to_end_identification,omitempty"`  // End-to-End Identification
 	UETR                      string `json:"uetr,omitempty"`                       // Unique End-to-End Transaction Reference

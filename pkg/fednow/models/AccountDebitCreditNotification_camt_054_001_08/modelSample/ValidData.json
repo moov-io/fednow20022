@@ -16,7 +16,7 @@
   "bank_transaction_code": "DBIT",
   "additional_information_indicator": "pacs.008.001.08",
   "transaction_detail_reference": {
-    "message_identification": "20230604011104238Sc01Step1MsgId",
+    "transaction_id": "20230604011104238Sc01Step1MsgId",
     "instruction_identification": "Scenario01InstrId001",
     "end_to_end_identification": "Scenario01EtoEId001",
     "uetr": "8a562c67-ca16-48ba-b074-65581be6f011"

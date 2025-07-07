@@ -65,7 +65,7 @@ var PathMap = map[string]any{
 	"FICdtTrf.GrpHdr.SttlmInf.ClrSys.Cd":                               "SettlementInfo.Service",
 	"FICdtTrf.CdtTrfTxInf.PmtId.InstrId":                               "PaymentIdentification.InstructionIdentification",
 	"FICdtTrf.CdtTrfTxInf.PmtId.EndToEndId":                            "PaymentIdentification.EndToEndIdentification",
-	"FICdtTrf.CdtTrfTxInf.PmtId.TxId":                                  "PaymentIdentification.MessageIdentification",
+	"FICdtTrf.CdtTrfTxInf.PmtId.TxId":                                  "PaymentIdentification.TransactionId",
 	"FICdtTrf.CdtTrfTxInf.PmtTpInf.SvcLvl.Cd":                          "PaymentType.ServiceLevel",
 	"FICdtTrf.CdtTrfTxInf.PmtTpInf.LclInstrm.Prtry":                    "PaymentType.LocalInstrument",
 	"FICdtTrf.CdtTrfTxInf.IntrBkSttlmAmt.Value":                        "InterbankSettlementAmount.Amount",

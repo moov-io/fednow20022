@@ -61,7 +61,7 @@ var PathMap = map[string]any{
 	"AddtlPmtInf.Undrlyg.IntrBk.OrgnlGrpInf.OrgnlMsgId":                 "OriginalGroupInfo.OriginalMessageIdentification",
 	"AddtlPmtInf.Undrlyg.IntrBk.OrgnlGrpInf.OrgnlMsgNmId":               "OriginalGroupInfo.OriginalMessageNameIdentification",
 	"AddtlPmtInf.Undrlyg.IntrBk.OrgnlGrpInf.OrgnlCreDtTm":               "OriginalGroupInfo.OriginalCreationDateTime",
-	"AddtlPmtInf.Undrlyg.IntrBk.OrgnlTxId":                              "OriginalTransactionInfo.MessageIdentification",
+	"AddtlPmtInf.Undrlyg.IntrBk.OrgnlTxId":                              "OriginalTransactionInfo.TransactionId",
 	"AddtlPmtInf.Undrlyg.IntrBk.OrgnlInstrId":                           "OriginalTransactionInfo.InstructionIdentification",
 	"AddtlPmtInf.Undrlyg.IntrBk.OrgnlEndToEndId":                        "OriginalTransactionInfo.EndToEndIdentification",
 	"AddtlPmtInf.Undrlyg.IntrBk.OrgnlIntrBkSttlmAmt.Value":              "OriginalInterbankSettlementAmount.Amount",

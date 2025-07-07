@@ -7,7 +7,7 @@
     "service_code": "FDN"
   },
   "payment_identification": {
-    "message_identification": "Scenario01FITxId001",
+    "transaction_id": "Scenario01FITxId001",
     "instruction_identification": "Scenario01FIInstrId001",
     "end_to_end_identification": "Scenario01FIEtoEId001"
   },

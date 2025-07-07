@@ -58,7 +58,7 @@ var PathMap = map[string]any{
 	"FIToFIPmtStsRpt.TxInfAndSts.OrgnlInstrId":                                "OriginalTransactionInfo.InstructionIdentification",
 	"FIToFIPmtStsRpt.TxInfAndSts.OrgnlEndToEndId":                             "OriginalTransactionInfo.EndToEndIdentification",
 	"FIToFIPmtStsRpt.TxInfAndSts.OrgnlUETR":                                   "OriginalTransactionInfo.UETR",
-	"FIToFIPmtStsRpt.TxInfAndSts.OrgnlTxId":                                   "OriginalTransactionInfo.MessageIdentification",
+	"FIToFIPmtStsRpt.TxInfAndSts.OrgnlTxId":                                   "OriginalTransactionInfo.TransactionId",
 	"FIToFIPmtStsRpt.TxInfAndSts.TxSts":                                       "TransactionStatus",
 	"FIToFIPmtStsRpt.TxInfAndSts.StsRsnInf[0].Rsn.Cd":                         "StatusReasonInformation.Code",
 	"FIToFIPmtStsRpt.TxInfAndSts.StsRsnInf[0].Rsn.Prtry":                      "StatusReasonInformation.Proprietary",

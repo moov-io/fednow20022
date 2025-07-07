@@ -65,11 +65,11 @@ var PathMap = map[string]any{
 	"RsltnOfInvstgtn.CrrctnTx.IntrBk.GrpHdr.CreDtTm":       "Interbank.OriginalGroupInfo.OriginalCreationDateTime",
 	"RsltnOfInvstgtn.CrrctnTx.IntrBk.InstrId":              "Interbank.OriginalTransactionDetail.InstructionIdentification",
 	"RsltnOfInvstgtn.CrrctnTx.IntrBk.EndToEndId":           "Interbank.OriginalTransactionDetail.EndToEndIdentification",
-	"RsltnOfInvstgtn.CrrctnTx.IntrBk.TxId":                 "Interbank.OriginalTransactionDetail.MessageIdentification",
+	"RsltnOfInvstgtn.CrrctnTx.IntrBk.TxId":                 "Interbank.OriginalTransactionDetail.TransactionId",
 	"RsltnOfInvstgtn.CrrctnTx.IntrBk.IntrBkSttlmAmt.Value": "Interbank.SettlementAmount.Amount",
 	"RsltnOfInvstgtn.CrrctnTx.IntrBk.IntrBkSttlmAmt.Ccy":   "Interbank.SettlementAmount.Currency",
 	"RsltnOfInvstgtn.CrrctnTx.IntrBk.IntrBkSttlmDt":        "Interbank.SettlementDate",
 	// Resolution Related Information
 	"RsltnOfInvstgtn.RsltnRltdInf.EndToEndId": "ResolutionRelatedInformation.EndToEndIdentification",
-	"RsltnOfInvstgtn.RsltnRltdInf.TxId":       "ResolutionRelatedInformation.MessageIdentification",
+	"RsltnOfInvstgtn.RsltnRltdInf.TxId":       "ResolutionRelatedInformation.TransactionId",
 }

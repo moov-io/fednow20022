@@ -549,7 +549,7 @@ func BuildTotalsPerBankTransactionHelper() TotalsPerBankTransactionHelper {
 }
 
 type TransactionDetailReferenceHelper struct {
-	MessageIdentification     ElementHelper
+	TransactionId             ElementHelper
 	InstructionIdentification ElementHelper
 	EndToEndIdentification    ElementHelper
 	UETR                      ElementHelper
@@ -557,7 +557,7 @@ type TransactionDetailReferenceHelper struct {
 
 func BuildTransactionDetailReferenceHelper() TransactionDetailReferenceHelper {
 	return TransactionDetailReferenceHelper{
-		MessageIdentification: ElementHelper{
+		TransactionId: ElementHelper{
 			Title:         "Message Identification",
 			Rules:         "",
 			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,

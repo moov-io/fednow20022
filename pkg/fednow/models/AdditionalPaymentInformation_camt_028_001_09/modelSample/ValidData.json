@@ -22,7 +22,7 @@
     "original_creation_date_time": "2023-07-27T16:12:58-04:00"
   },
   "original_transaction_info": {
-    "message_identification": "RFIScenario3TxId001",
+    "transaction_id": "RFIScenario3TxId001",
     "instruction_identification": "RFIScenario3InstrId001",
     "end_to_end_identification": "RFIScenario3EtoEId001"
   },

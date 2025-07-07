@@ -29,7 +29,7 @@
       "original_creation_date_time": "2023-07-27T10:18:10-05:00"
     },
     "original_transaction_detail": {
-      "message_identification": "RFISc1Step4TransId001",
+      "transaction_id": "RFISc1Step4TransId001",
       "instruction_identification": "RFISc1Step4InstrId001",
       "end_to_end_identification": "RFISc1Step4EtoEId001"
     },

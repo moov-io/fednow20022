@@ -33,6 +33,8 @@ type CopyDuplicateCode string
 type ContactMethod string
 type MissingOrIncorrectInformationCode string
 type InvestigationExecutionConfirmationCode string
+type ReturnReasonCode string
+type MessageHandlingCode string
 
 const (
 	BusinessProcessingDate WorkingDayType = "BPRD"
@@ -63,6 +65,10 @@ const (
 	EmailAddress    ProxyType = "EMAL" // Email Address
 )
 const (
+	FedNowProcessingSuccessful        MessageHandlingCode = "TS01"
+	ParticipantReceiptAcknowledgement MessageHandlingCode = "TS02"
+)
+const (
 	ClearingSystem   SettlementMethod = "CLRG"
 	CoverMethod      SettlementMethod = "COVE"
 	InstructedAgent  SettlementMethod = "INDA"
@@ -89,6 +95,22 @@ const (
 	IPAY InvestigationExecutionConfirmationCode = "IPAY" // Payment Initiated – Correction Transaction component may be present with reference information of the payment instruction
 	NINF InvestigationExecutionConfirmationCode = "NINF" // No Further Information Available
 	PDNG InvestigationExecutionConfirmationCode = "PDNG" // Information Request Pending
+)
+const (
+	InvalidOrMissingCreditorAccountType ReturnReasonCode = "AC14"
+	DuplicatePaymentCode                ReturnReasonCode = "DUPL" // Duplicate Payment - It is recommended to provide the reference of the original message in Additional Information
+	TooLowAmount                        ReturnReasonCode = "AM06" // Too Low Amount - It is suggested, if possible, to provide the expected amount in Additional Information
+	WrongAmount                         ReturnReasonCode = "AM09" // Wrong Amount - It is suggested, if possible, to provide the expected amount in Additional Information
+	UnrecognizedInitiatingParty         ReturnReasonCode = "BE05" // Unrecognized Initiating Party
+	RequestedByCustomer                 ReturnReasonCode = "CUST" // Requested By Customer
+	FollowingRefundRequest              ReturnReasonCode = "FOCR" // Following Refund Request - It is recommended to provide the reference of the Refund Request in Additional Information
+	FraudulentPayment                   ReturnReasonCode = "FR01" // Fraudulent Payment
+	NotSpecifiedReasonCustomer          ReturnReasonCode = "MS02" // Not Specified Reason Customer
+	NotSpecifiedReasonAgent             ReturnReasonCode = "MS03" // Not Specified Reason Agent
+	NarrativeReasonCode                 ReturnReasonCode = "NARR" // Narrative - Must be followed by the reason in free-formatted text in Additional Information
+	RegulatoryReasonCode                ReturnReasonCode = "RR04" // Regulatory Reason
+	ReturnUponUnableToApply             ReturnReasonCode = "RUTA" // Return Upon Unable To Apply - It is recommended to provide the reference of the investigation case in Additional Information
+	UnduePayment                        ReturnReasonCode = "UPAY" // Undue Payment
 )
 const (
 	MissingAmount                                   MissingOrIncorrectInformationCode = "MS06"
@@ -446,7 +468,7 @@ type TotalsPerBankTransaction struct {
 	Date                 time.Time                  `json:"date,omitempty"`                   // Date of the bank transaction
 }
 type TransactionDetailReference struct {
-	TransactionId     string `json:"transaction_id,omitempty"`     // Transaction ID
+	TransactionId             string `json:"transaction_id,omitempty"`             // Transaction ID
 	InstructionIdentification string `json:"instruction_identification,omitempty"` // Instruction Identification
 	EndToEndIdentification    string `json:"end_to_end_identification,omitempty"`  // End-to-End Identification
 	UETR                      string `json:"uetr,omitempty"`                       // Unique End-to-End Transaction Reference
@@ -487,6 +509,7 @@ type PaymentTypeInfo struct {
 	ServiceLevel    ChargeBearerType    `json:"service_level,omitempty"`         // Service Level
 }
 type TransactionParty struct {
+	Agent                Agent         `json:"agent,omitempty"`                  // Agent representing the transaction party
 	PartyName            string        `json:"party_name,omitempty"`             // Name of the transaction party
 	PartyAddress         PostalAddress `json:"party_address,omitempty"`          // Address of the transaction party
 	PartyAccountId       string        `json:"party_account_id,omitempty"`       // Account ID of the transaction party
@@ -513,6 +536,10 @@ type Proxy struct {
 type Reason struct {
 	Code        StatusReasonInformationCode `json:"type,omitempty"` // Type of the reason for the transaction status
 	Proprietary string                      `json:"code,omitempty"` // Code representing the reason
+}
+type ReturnReason struct {
+	Code ReturnReasonCode `json:"code,omitempty"` // Code representing the return reason
+	Info string           `json:"info,omitempty"` // Additional information about the return reason
 }
 type MarketPractice struct {
 	Registry       string `json:"registry_code,omitempty"`       // Registry Code for the market practice

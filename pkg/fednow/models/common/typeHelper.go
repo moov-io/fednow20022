@@ -811,6 +811,7 @@ func BuildPaymentTypeInfoHelper() PaymentTypeInfoHelper {
 }
 
 type TransactionPartyHelper struct {
+	Agent          AgentHelper
 	PartyName      ElementHelper
 	PartyAddress   PostalAddressHelper
 	PartyAccountId ElementHelper
@@ -819,6 +820,7 @@ type TransactionPartyHelper struct {
 
 func BuildTransactionPartyHelper() TransactionPartyHelper {
 	return TransactionPartyHelper{
+		Agent: BuildAgentHelper(),
 		PartyName: ElementHelper{
 			Title:         "Party Name",
 			Rules:         "",
@@ -912,6 +914,28 @@ func BuildReasonHelper() ReasonHelper {
 			Rules:         "",
 			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
 			Documentation: `Reason for the status, in a proprietary form.`,
+		},
+	}
+}
+
+type ReturnReasonHelper struct {
+	Code        ElementHelper
+	Proprietary ElementHelper
+}
+
+func BuildReturnReasonHelper() ReturnReasonHelper {
+	return ReturnReasonHelper{
+		Code: ElementHelper{
+			Title:         "Code",
+			Rules:         "",
+			Type:          `ReturnReasonCode`,
+			Documentation: `Reason for the return, as published in an external reason code list.`,
+		},
+		Proprietary: ElementHelper{
+			Title:         "Proprietary",
+			Rules:         "",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Reason for the return, in a proprietary form.`,
 		},
 	}
 }

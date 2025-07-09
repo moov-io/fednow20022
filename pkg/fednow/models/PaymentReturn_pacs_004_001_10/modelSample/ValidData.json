@@ -1,0 +1,69 @@
+{
+  "message_id": "20230727021040078RFISc3Step6MsgId",
+  "created_date_time": "2023-07-27T17:31:05-04:00",
+  "number_of_transactions": "1",
+  "settlement_info": {
+    "method_code": "CLRG",
+    "service_code": "FDN"
+  },
+  "original_group_info": {
+    "original_message_identification": "20230727011104238RFISc3Step1MsgId",
+    "original_message_name_identification": "pacs.008.001.08",
+    "original_creation_date_time": "2023-07-27T16:12:58-04:00"
+  },
+  "payment_identification": {
+    "transaction_id": "RFIScenario3TxId001",
+    "instruction_identification": "RFIScenario3InstrId001",
+    "end_to_end_identification": "RFIScenario3EtoEId001"
+  },
+  "original_interbank_settlement_amount": {
+    "currency": "USD",
+    "amount": 999
+  },
+  "original_interbank_settlement_date": "2023-07-27",
+  "returned_interbank_settlement_amount": {
+    "currency": "USD",
+    "amount": 999
+  },
+  "interbank_settlement_date_time": "2023-07-27",
+  "charge_bearer": "SLEV",
+  "agents": {
+    "instructing_agent": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "021040078"
+    },
+    "instructed_agent": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "011104238"
+    }
+  },
+  "debtor": {
+    "agent": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "021040078",
+      "bank_name": "BankA"
+    }
+  },
+  "creditor": {
+    "party_name": "Individual A",
+    "party_address": {
+      "street_name": "Dream Road",
+      "building_number": "450",
+      "room_number": "141",
+      "postal_code": "60532",
+      "town_name": "LISLE",
+      "subdivision": "IL",
+      "country": "US"
+    },
+    "party_account_id": "0031234567",
+    "party_agent": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "011104238"
+    }  },
+  "return_reason_information": {
+    "code": "RRO4"
+  },
+  "payment_type": {
+    "local_instrument_code": "FDNA"
+  }
+}

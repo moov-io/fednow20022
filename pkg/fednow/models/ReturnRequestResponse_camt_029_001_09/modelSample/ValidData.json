@@ -1,0 +1,39 @@
+{
+  "message_id": "20230604021040078Sc01RTStep3MsgId",
+  "created_date_time": "2023-06-04T14:55:26-04:00",
+  "assigners": {
+    "assigner": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "021040078"
+    },
+    "assignee": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "011104238"
+    }
+  },
+  "case_id": "20230604011104238Sc01Step1MsgIdDUP",
+  "creator": {
+    "payment_sys_code": "USABA",
+    "payment_sys_member_id": "011104238"
+  },
+  "status": "IPAY",
+  "group_information": {
+    "original_message_identification": "20230604011104238Sc01RTStep1MsgId",
+    "original_message_name_identification": "pacs.008.001.08",
+    "original_creation_date_time": "2023-06-04T10:55:26-04:00"
+  },
+  "transaction_information": {
+    "instruction_identification": "Scenario01InstrId001",
+    "end_to_end_identification": "Scenario01EtoEId001",
+    "uetr": "8a562c67-ca16-48ba-b074-65581be6f011"
+  },
+  "return_reason": {},
+  "related_information": {
+    "uetr": "8a562c67-ca16-48ba-b074-65581be6f011",
+    "interbank_settlement_amount": {
+      "currency": "USD",
+      "amount": 51.74
+    },
+    "interbank_settlement_date": "2023-06-04"
+  }
+}

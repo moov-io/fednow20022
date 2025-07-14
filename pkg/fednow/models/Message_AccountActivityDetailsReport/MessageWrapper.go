@@ -7,7 +7,6 @@ import (
 
 	"github.com/moov-io/fednow20022/gen/AccountActivityDetailsReport_camt_052_001_08"
 	"github.com/moov-io/fednow20022/gen/Message_AccountActivityDetailsReport_camt_052_001_08"
-	AccountActivityDetailsReportModel "github.com/moov-io/fednow20022/pkg/fednow/models/AccountActivityDetailsReport_camt_052_001_08"
 	"github.com/moov-io/fednow20022/pkg/fednow/models/common"
 	"github.com/moov-io/fednow20022/pkg/fednow/models/head_001_001_02"
 )
@@ -93,37 +92,31 @@ func (w *MessageAccountActivityDetailsReportWrapper) GetDataModel(xmlData []byte
 	}
 	header := doc.AppHdr
 	dataModel := doc.AccountActivityDetailsReport
-	headerXML, err := xml.Marshal(header)
+
+	docheader, err := common.MessageModelWith(header, HeaderDataFactory, HeaderPathMap)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal header XML: %w", err)
+		return nil, err
 	}
-	dataModelXML, err := xml.Marshal(dataModel)
+	dataModelModel, err := common.MessageModelWith(dataModel, DataDataFactory, DataPathMap)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal XML: %w", err)
+		return nil, err
 	}
-	headerStructJson, err := HeaderWrapper.GetDataModel(headerXML)
+	msgModel, err := NewMessageModel(docheader, dataModelModel)
 	if err != nil {
-		return nil, fmt.Errorf("failed to get header model: %w", err)
-	}
-	dataModelStructJson, err := DataWrapper.GetDataModel(dataModelXML)
-	if err != nil {
-		return nil, fmt.Errorf("failed to get data model: %w", err)
-	}
-	var headerStruct head_001_001_02.MessageModel
-	if err := json.Unmarshal(headerStructJson, &headerStruct); err != nil {
-		return nil, fmt.Errorf("failed to unmarshal header model: %w", err)
-	}
-	var dataModelStruct AccountActivityDetailsReportModel.MessageModel
-	if err := json.Unmarshal(dataModelStructJson, &dataModelStruct); err != nil {
-		return nil, fmt.Errorf("failed to unmarshal data model: %w", err)
-	}
-	var msgModel = MessageModel{
-		AppHdr:                       headerStruct,
-		AccountActivityDetailsReport: dataModelStruct,
+		return nil, err
 	}
 	modelJson, err = json.Marshal(msgModel)
 	if err != nil {
 		return nil, fmt.Errorf("failed to marshal message model: %w", err)
 	}
 	return modelJson, nil
+
+}
+func (w *MessageAccountActivityDetailsReportWrapper) GetHelp()  ([]byte, error) {
+	helper := BuildHelper()
+	jsonData, err := json.MarshalIndent(helper, "", "  ")
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal MessageHelper to JSON: %w", err)
+	}
+	return jsonData, nil
 }

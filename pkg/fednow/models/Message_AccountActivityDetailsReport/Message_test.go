@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
+	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -268,4 +270,92 @@ func TestGetDataModel(t *testing.T) {
 			require.NotNil(t, modelJson, "modelJson should not be nil for file %s", path)
 		})
 	}
+	tests := []struct {
+		name        string
+		xmlData     []byte
+		expectError bool
+		errorMsg    string
+	}{
+		{
+			name:        "invalid XML returns error",
+			xmlData:     []byte(`<invalid>xml`),
+			expectError: true,
+			errorMsg:    "failed to unmarshal XML",
+		},
+		{
+			name:        "empty XML returns error",
+			xmlData:     []byte(``),
+			expectError: true,
+			errorMsg:    "failed to unmarshal XML",
+		},
+		{
+			name:        "nil XML returns error",
+			xmlData:     nil,
+			expectError: true,
+			errorMsg:    "failed to unmarshal XML",
+		},
+		{
+			name:        "malformed XML returns error",
+			xmlData:     []byte(`<?xml version="1.0"?><Document>missing namespace</Document>`),
+			expectError: true,
+			errorMsg:    "failed to unmarshal XML",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			_, err := wrapper.GetDataModel(tt.xmlData)
+
+			if tt.expectError {
+				assert.Error(t, err)
+				if tt.errorMsg != "" {
+					assert.Contains(t, err.Error(), tt.errorMsg)
+				}
+			} else {
+				assert.NoError(t, err)
+			}
+		})
+	}
+}
+func TestGetHelp(t *testing.T) {
+	wrapper := &MessageAccountActivityDetailsReportWrapper{}
+
+	result, err := wrapper.GetHelp()
+
+	assert.NoError(t, err)
+	assert.NotEmpty(t, result)
+
+	// Verify it's valid JSON
+	var jsonData interface{}
+	err = json.Unmarshal(result, &jsonData)
+	assert.NoError(t, err, "Help result should be valid JSON")
+}
+func TestMain(m *testing.M) {
+	// Run tests
+	exitCode := m.Run()
+
+	// After tests, check code coverage if running with coverage
+	if coverProfile := os.Getenv("COVERAGE_CHECK"); coverProfile != "" {
+		cmd := exec.Command("go", "tool", "cover", "-func=coverage.out")
+		output, err := cmd.CombinedOutput()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Failed to check coverage: %v\n", err)
+			os.Exit(2)
+		}
+		lines := strings.Split(string(output), "\n")
+		for _, line := range lines {
+			if strings.HasPrefix(line, "total:") {
+				var percent float64
+				_, err := fmt.Sscanf(line, "total: (statements) %f%%", &percent)
+				if err != nil {
+					fmt.Fprintf(os.Stderr, "Failed to parse coverage percent: %v\n", err)
+					os.Exit(2)
+				}
+				if percent < 80.0 {
+					fmt.Fprintf(os.Stderr, "Code coverage is below 80%%: %.1f%%\n", percent)
+					os.Exit(3)
+				}
+			}
+		}
+	}
+	os.Exit(exitCode)
 }

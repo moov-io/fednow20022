@@ -18,10 +18,12 @@ func (w *MessageAccountActivityDetailsReportWrapper) CreateDocument(modelJson []
 	if err := json.Unmarshal(modelJson, &model); err != nil {
 		return nil, fmt.Errorf("failed to unmarshal JSON: %w", err)
 	}
+
 	headerDoc, err := common.DocumentWith(model.AppHdr, HeaderPathMap, HeaderDocumentFactory)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create header document: %w", err)
 	}
+
 	hdr, err := head_001_001_02.GetBusinessApplicationHeaderV02(headerDoc)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get business application header: %w", err)
@@ -31,22 +33,25 @@ func (w *MessageAccountActivityDetailsReportWrapper) CreateDocument(modelJson []
 	if err != nil {
 		return nil, fmt.Errorf("failed to create data document: %w", err)
 	}
-	if data, ok := dataDoc.(*AccountActivityDetailsReport_camt_052_001_08.Document); ok {
-		doc := Message_AccountActivityDetailsReport_camt_052_001_08.Message{
-			Xmlns:                        XMLAttributes,
-			AppHdr:                       hdr,
-			AccountActivityDetailsReport: data,
-		}
-		xmlData, err := xml.MarshalIndent(doc, "", "  ")
-		if err != nil {
-			return nil, fmt.Errorf("failed to marshal document to XML: %w", err)
-		}
-		return xmlData, nil
-	} else {
-		// dataDoc is not of the expected type
+
+	data, ok := dataDoc.(*AccountActivityDetailsReport_camt_052_001_08.Document)
+	if !ok {
 		return nil, fmt.Errorf("data document is not of type *AccountActivityDetailsReport_camt_052_001_08.Document")
 	}
+
+	doc := Message_AccountActivityDetailsReport_camt_052_001_08.Message{
+		Xmlns:                        XMLAttributes,
+		AppHdr:                       hdr,
+		AccountActivityDetailsReport: data,
+	}
+
+	xmlData, err := xml.MarshalIndent(doc, "", "  ")
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal document to XML: %w", err)
+	}
+	return xmlData, nil
 }
+
 func (w *MessageAccountActivityDetailsReportWrapper) ValidateDocument(modelJson []byte) error {
 	var model MessageModel
 	if err := json.Unmarshal(modelJson, &model); err != nil {
@@ -62,45 +67,46 @@ func (w *MessageAccountActivityDetailsReportWrapper) ValidateDocument(modelJson 
 	}
 	return doc.Validate()
 }
+
 func (w *MessageAccountActivityDetailsReportWrapper) CheckRequireField(modelJson []byte) error {
 	var model MessageModel
 	if err := json.Unmarshal(modelJson, &model); err != nil {
 		return fmt.Errorf("failed to unmarshal JSON: %w", err)
 	}
+
 	headerJson, err := json.Marshal(model.AppHdr)
 	if err != nil {
 		return fmt.Errorf("failed to marshal header JSON: %w", err)
 	}
-	err = HeaderWrapper.CheckRequireField(headerJson)
-	if err != nil {
+	if err = HeaderWrapper.CheckRequireField(headerJson); err != nil {
 		return fmt.Errorf("header validation failed: %w", err)
 	}
+
 	dataJson, err := json.Marshal(model.AccountActivityDetailsReport)
 	if err != nil {
 		return fmt.Errorf("failed to marshal data JSON: %w", err)
 	}
-	err = DataWrapper.CheckRequireField(dataJson)
-	if err != nil {
+	if err = DataWrapper.CheckRequireField(dataJson); err != nil {
 		return fmt.Errorf("data validation failed: %w", err)
 	}
-	return err
+	return nil
 }
+
 func (w *MessageAccountActivityDetailsReportWrapper) GetDataModel(xmlData []byte) (modelJson []byte, err error) {
 	var doc Message_AccountActivityDetailsReport_camt_052_001_08.Message
 	if err := xml.Unmarshal(xmlData, &doc); err != nil {
 		return nil, fmt.Errorf("failed to unmarshal XML: %w", err)
 	}
-	header := doc.AppHdr
-	dataModel := doc.AccountActivityDetailsReport
 
-	docheader, err := common.MessageModelWith(header, HeaderDataFactory, HeaderPathMap)
+	docheader, err := common.MessageModelWith(doc.AppHdr, HeaderDataFactory, HeaderPathMap)
 	if err != nil {
 		return nil, err
 	}
-	dataModelModel, err := common.MessageModelWith(dataModel, DataDataFactory, DataPathMap)
+	dataModelModel, err := common.MessageModelWith(doc.AccountActivityDetailsReport, DataDataFactory, DataPathMap)
 	if err != nil {
 		return nil, err
 	}
+
 	msgModel, err := NewMessageModel(docheader, dataModelModel)
 	if err != nil {
 		return nil, err
@@ -110,8 +116,8 @@ func (w *MessageAccountActivityDetailsReportWrapper) GetDataModel(xmlData []byte
 		return nil, fmt.Errorf("failed to marshal message model: %w", err)
 	}
 	return modelJson, nil
-
 }
+
 func (w *MessageAccountActivityDetailsReportWrapper) GetHelp() ([]byte, error) {
 	helper := BuildHelper()
 	jsonData, err := json.MarshalIndent(helper, "", "  ")

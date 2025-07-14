@@ -112,7 +112,7 @@ func (w *MessageAccountActivityDetailsReportWrapper) GetDataModel(xmlData []byte
 	return modelJson, nil
 
 }
-func (w *MessageAccountActivityDetailsReportWrapper) GetHelp()  ([]byte, error) {
+func (w *MessageAccountActivityDetailsReportWrapper) GetHelp() ([]byte, error) {
 	helper := BuildHelper()
 	jsonData, err := json.MarshalIndent(helper, "", "  ")
 	if err != nil {

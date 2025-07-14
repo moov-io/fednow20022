@@ -68,6 +68,38 @@ func WriteXMLToGenerate(filePath string, data []byte) error {
 
 	return nil
 }
+func WriteXMLTo(subPath string, filePath string, data []byte) error {
+	// Ensure directory exists with proper permissions
+	if err := os.MkdirAll(subPath, 0750); err != nil && !os.IsExist(err) {
+		return fmt.Errorf("directory creation failed: %w", err)
+	}
+
+	// Construct full file path
+	xmlFileName := filepath.Join(subPath, filePath)
+
+	// Validate file extension
+	if ext := filepath.Ext(xmlFileName); ext != ".xml" {
+		return fmt.Errorf("invalid file extension %q, must be .xml", ext)
+	}
+
+	// Write file with atomic replacement
+	tempFile := xmlFileName + ".tmp"
+	err := os.WriteFile(tempFile, data, 0600)
+	if err != nil {
+		return fmt.Errorf("temporary file write failed: %w", err)
+	}
+
+	// Atomic rename for crash safety
+	if err := os.Rename(tempFile, xmlFileName); err != nil {
+		// Clean up temp file if rename fails
+		if err := os.Remove(tempFile); err != nil && !os.IsNotExist(err) {
+			log.Printf("failed to remove temp file %q: %v", tempFile, err)
+		}
+		return fmt.Errorf("file rename failed: %w", err)
+	}
+
+	return nil
+}
 func WriteJSONToGenerate(filePath string, data []byte) error {
 	// Ensure directory exists with proper permissions
 	if err := os.MkdirAll("generated", 0750); err != nil && !os.IsExist(err) {
@@ -76,6 +108,38 @@ func WriteJSONToGenerate(filePath string, data []byte) error {
 
 	// Construct full file path
 	jsonFileName := filepath.Join("generated", filePath)
+
+	// Validate file extension
+	if ext := filepath.Ext(jsonFileName); ext != ".json" {
+		return fmt.Errorf("invalid file extension %q, must be .json", ext)
+	}
+
+	// Write file with atomic replacement
+	tempFile := jsonFileName + ".tmp"
+	err := os.WriteFile(tempFile, data, 0600)
+	if err != nil {
+		return fmt.Errorf("temporary file write failed: %w", err)
+	}
+
+	// Atomic rename for crash safety
+	if err := os.Rename(tempFile, jsonFileName); err != nil {
+		// Clean up temp file if rename fails
+		if err := os.Remove(tempFile); err != nil && !os.IsNotExist(err) {
+			log.Printf("failed to remove temp file %q: %v", tempFile, err)
+		}
+		return fmt.Errorf("file rename failed: %w", err)
+	}
+
+	return nil
+}
+func WriteJSONTo(subPath string, filePath string, data []byte) error {
+	// Ensure directory exists with proper permissions
+	if err := os.MkdirAll(subPath, 0750); err != nil && !os.IsExist(err) {
+		return fmt.Errorf("directory creation failed: %w", err)
+	}
+
+	// Construct full file path
+	jsonFileName := filepath.Join(subPath, filePath)
 
 	// Validate file extension
 	if ext := filepath.Ext(jsonFileName); ext != ".json" {

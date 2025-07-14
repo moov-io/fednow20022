@@ -10,6 +10,7 @@ package head_001_001_02
 
 import (
 	"encoding/xml"
+	"fmt"
 	"time"
 
 	"github.com/moov-io/fednow20022/gen/head_001_001_02"
@@ -67,4 +68,21 @@ var PathMap = map[string]any{
 	"Rltd.BizMsgIdr": "RelatedInfo.BusinessMessageIdentifier",
 	"Rltd.MsgDefIdr": "RelatedInfo.MessageDefinitionIdentifier",
 	"Rltd.CreDt":     "RelatedInfo.CreatedDateTime",
+}
+
+func GetBusinessApplicationHeaderV02(doc common.ISODocument) (head_001_001_02.BusinessApplicationHeaderV02, error) {
+	if docFactory, ok := doc.(*head_001_001_02.AppHdr); ok {
+		return head_001_001_02.BusinessApplicationHeaderV02{
+			Fr:        docFactory.Fr,
+			To:        docFactory.To,
+			CreDt:     docFactory.CreDt,
+			BizMsgIdr: docFactory.BizMsgIdr,
+			MsgDefIdr: docFactory.MsgDefIdr,
+			MktPrctc:  docFactory.MktPrctc,
+			BizPrcgDt: docFactory.BizPrcgDt,
+			CpyDplct:  docFactory.CpyDplct,
+			Rltd:      docFactory.Rltd,
+		}, nil
+	}
+	return head_001_001_02.BusinessApplicationHeaderV02{}, fmt.Errorf("document is not of type BusinessApplicationHeaderV02")
 }

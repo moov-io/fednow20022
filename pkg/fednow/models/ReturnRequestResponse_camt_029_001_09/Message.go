@@ -35,35 +35,6 @@ type MessageModel struct {
 	RelatedInfo     ResolutionRelatedInformation             `json:"related_information,omitempty"`
 }
 
-func Test() {
-	data := MessageModel{}
-	msg := ReturnRequestResponse_camt_029_001_09.Document{}
-
-	data.MessageId = string(msg.RsltnOfInvstgtn.Assgnmt.Id)
-	data.CreatedDateTime = time.Time(msg.RsltnOfInvstgtn.Assgnmt.CreDtTm)
-	data.Assigners.Assigner.PaymentSysCode = common.PaymentSystemType(*msg.RsltnOfInvstgtn.Assgnmt.Assgnr.Agt.FinInstnId.ClrSysMmbId.ClrSysId.Cd)
-	data.Assigners.Assigner.PaymentSysMemberId = string(msg.RsltnOfInvstgtn.Assgnmt.Assgnr.Agt.FinInstnId.ClrSysMmbId.MmbId)
-	data.Assigners.Assignee.PaymentSysCode = common.PaymentSystemType(*msg.RsltnOfInvstgtn.Assgnmt.Assgne.Agt.FinInstnId.ClrSysMmbId.ClrSysId.Cd)
-	data.Assigners.Assignee.PaymentSysMemberId = string(msg.RsltnOfInvstgtn.Assgnmt.Assgne.Agt.FinInstnId.ClrSysMmbId.MmbId)
-	data.ResolvedCaseId = string(msg.RsltnOfInvstgtn.RslvdCase.Id)
-	data.Creator.PaymentSysCode = common.PaymentSystemType(*msg.RsltnOfInvstgtn.RslvdCase.Cretr.Agt.FinInstnId.ClrSysMmbId.ClrSysId.Cd)
-	data.Creator.PaymentSysMemberId = string(msg.RsltnOfInvstgtn.RslvdCase.Cretr.Agt.FinInstnId.ClrSysMmbId.MmbId)
-	data.Status = common.InvestigationExecutionConfirmCode(*msg.RsltnOfInvstgtn.Sts.Conf)
-	data.GroupInfo.OriginalMessageIdentification = string(msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.OrgnlGrpInf.OrgnlMsgId)
-	data.GroupInfo.OriginalMessageNameIdentification = string(msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.OrgnlGrpInf.OrgnlMsgNmId)
-	data.GroupInfo.OriginalCreationDateTime = time.Time(msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.OrgnlGrpInf.OrgnlCreDtTm)
-	data.TransactionInfo.InstructionIdentification = string(*msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.OrgnlInstrId)
-	data.TransactionInfo.EndToEndIdentification = string(*msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.OrgnlEndToEndId)
-	data.TransactionInfo.UETR = string(*msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.OrgnlUETR)
-	data.RelatedInfo.TransactionId = string(*msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.RsltnRltdInf.TxId)
-	data.RelatedInfo.UETR = string(*msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.RsltnRltdInf.UETR)
-	data.RelatedInfo.InterbankSettlementAmount.Amount = float64(msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.RsltnRltdInf.IntrBkSttlmAmt.Value)
-	data.RelatedInfo.InterbankSettlementAmount.Currency = string(msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.RsltnRltdInf.IntrBkSttlmAmt.Ccy)
-	data.RelatedInfo.InterbankSettlementDate = fednow.ISODate(*msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.RsltnRltdInf.IntrBkSttlmDt)
-	data.ReturnReason.Code = common.ReturnReasonCode(*msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.CxlStsRsnInf[0].Rsn.Cd)
-	data.ReturnReason.Info = string(*msg.RsltnOfInvstgtn.CxlDtls.TxInfAndSts.CxlStsRsnInf[0].AddtlInf)
-}
-
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:camt.029.001.09"
 var DataFactory = func() any {
 	return &MessageModel{}

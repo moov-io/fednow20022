@@ -1,0 +1,84 @@
+{
+  "app_hdr": {
+    "from_member_id": "021150706",
+    "to_member_id": "011104238",
+    "created_date_time": "2023-09-02T19:31:13-04:00",
+    "business_message_identifier": "AADR",
+    "message_definition_identifier": "camt.052.001.08",
+    "market_practice": {
+      "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+      "identification_code": "frb.fednow.aad.01"
+    },
+    "business_processing_date": "0001-01-01T00:00:00Z",
+    "related_info": {
+      "created_date_time": "0001-01-01T00:00:00Z"
+    }
+  },
+  "data": {
+    "message_id": "CADR",
+    "created_date_time": "2023-09-14T13:30:08-04:00",
+    "pagenation": {
+      "page_number": "1",
+      "last_page_indicator": true
+    },
+    "original_business_query": {
+      "message_identification": "20230914122240120CADRrequest1",
+      "message_name_identification": "camt.060.001.05",
+      "creation_date_time": "2023-09-14T13:29:32-04:00"
+    },
+    "report_id": "EDAY",
+    "report_create_date_time": "2023-09-13T00:00:00-04:00",
+    "account_other_id": "122240120",
+    "related_account_other_id": "113185029",
+    "total_credit_entries": {
+      "number_of_entries": "1",
+      "sum": 500
+    },
+    "total_debit_entries": {
+      "number_of_entries": "0"
+    },
+    "entry_details": [
+      {
+        "amount": {
+          "currency": "USD",
+          "amount": 500
+        },
+        "credit_debit_indicator": "CRDT",
+        "status": "BOOK",
+        "bank_transaction_code": "CRDT",
+        "message_name_id": "pacs.008.001.08",
+        "entry_details": {
+          "message_id": "2023091331981435reportdata10",
+          "instruction_id": "20230913231981435InstrId001",
+          "end_to_end_id": "20230913231981435E2EId001",
+          "unique_transaction_reference": "8a562c67-ca16-48ba-b074-65581be6f011",
+          "instructing_agent": {
+            "payment_sys_code": "USABA",
+            "payment_sys_member_id": "231981435",
+            "postal_address": {}
+          },
+          "instructed_agent": {
+            "payment_sys_code": "USABA",
+            "payment_sys_member_id": "113185029",
+            "postal_address": {}
+          },
+          "proprietary_agent": {
+            "type": "INDA",
+            "payment_sys_member_id": "113185029"
+          },
+          "acceptance_date_time": "2023-09-13T07:49:12-04:00",
+          "type_and_date_times": [
+            {
+              "related_dates_proprietary": "SDTM",
+              "related_date_time": "2023-09-13T07:48:02-04:00"
+            },
+            {
+              "related_dates_proprietary": "BPRD",
+              "related_date_time": "2023-09-13T07:49:12-04:00"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

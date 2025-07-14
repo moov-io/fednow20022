@@ -39,6 +39,7 @@ type PaymentMethodCode string
 type CancellationRequestResponse string
 type ReasonCodeType string
 type InvestigationExecutionConfirmCode string
+
 const (
 	BusinessProcessingDate WorkingDayType = "BPRD"
 )
@@ -94,9 +95,9 @@ const (
 	ChargeBearerCREDIT ChargeBearerType = "CRED" // Shared Charges
 )
 const (
-	ReturnRequestAccepted InvestigationExecutionConfirmCode = "IPAY"
-	ReturnRequestRejected InvestigationExecutionConfirmCode = "RJCR"
-	ReturnRequestPending InvestigationExecutionConfirmCode = "PDCR"
+	ReturnRequestAccepted          InvestigationExecutionConfirmCode = "IPAY"
+	ReturnRequestRejected          InvestigationExecutionConfirmCode = "RJCR"
+	ReturnRequestPending           InvestigationExecutionConfirmCode = "PDCR"
 	PartiallyExecutedReturnRequest InvestigationExecutionConfirmCode = "PECR"
 )
 const (

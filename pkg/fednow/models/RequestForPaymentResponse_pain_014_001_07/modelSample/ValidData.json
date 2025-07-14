@@ -1,0 +1,28 @@
+{
+  "message_id": "20230714021040078RFISc02Step2MsgId",
+  "created_date_time": "2023-07-14T09:17:55-04:00",
+  "initiating_party_name": "Corporation A",
+  "agents": {
+    "debtor_agent": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "021040078"
+    },
+    "creditor_agent": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "011104238"
+    }
+  },
+  "original_group_information": {
+    "original_message_identification": "20230714011104238RFISc02Step1MsgId",
+    "original_message_name_identification": "pain.013.001.07",
+    "original_creation_date_time": "2023-07-14T09:17:49-04:00"
+  },
+  "original_payment_information_id": "RFISc02Step1PaymentInfoId001",
+  "original_transaction_information": {
+    "end_to_end_identification": "RFISc02Step1EndToEndId001"
+  },
+  "transaction_status": "PRES",
+  "payment_condition_status": {
+    "accepted_amount": {}
+  }
+}

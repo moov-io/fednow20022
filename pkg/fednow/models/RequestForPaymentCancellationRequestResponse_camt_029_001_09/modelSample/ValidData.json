@@ -1,0 +1,30 @@
+{
+  "message_id": "20230714021040078RFPSc04Stp3AMsgId",
+  "created_date_time": "2023-07-14T18:10:00-04:00",
+  "assigners": {
+    "assigner": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "021040078"
+    },
+    "assignee": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "011104238"
+    }
+  },
+  "case_id": "RFPSc04Step2Cancellation",
+  "creator": {
+    "name": "Bank A Employee",
+    "phone_number": "+1-800670555",
+    "preferred_method": "PHON"
+  },
+  "status": "CNCL",
+  "payment_cancellation_id": "RFPSc04Step1PaymentInfoId001",
+  "group_information": {
+    "original_message_identification": "20230714011104238RFPSc04Step1MsgId",
+    "original_message_name_identification": "pain.013.001.07",
+    "original_creation_date_time": "2023-07-14T09:17:49-04:00"
+  },
+  "transaction_information": {
+    "end_to_end_identification": "RFPSc04Step1EndToEndId001"
+  }
+}

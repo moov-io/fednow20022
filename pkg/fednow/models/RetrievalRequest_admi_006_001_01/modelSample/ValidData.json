@@ -1,0 +1,13 @@
+{
+  "message_id": "20230605011104238MRSc1Step1MsgId",
+  "created_date_time": "2023-06-05T11:03:38-04:00",
+  "criteriaes": [
+    {
+      "original_message_name_id": "pacs.008.001.08",
+      "business_date": "2023-06-04",
+      "file_reference": "20230604011104238Sc01Step1MsgId",
+      "recipient_id": "011104238",
+      "recipient_issuer": "NA"
+    }
+  ]
+}

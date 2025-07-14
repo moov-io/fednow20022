@@ -1,0 +1,24 @@
+{
+  "message_id": "20230604011104238Sc05Step2MsgId",
+  "created_date_time": "2023-06-04T10:56:00-04:00",
+  "original_group_info": {
+    "original_message_identification": "20230604011104238Sc05Step1MsgId",
+    "original_message_name_identification": "pacs.008.001.08",
+    "original_creation_date_time": "2023-06-04T10:55:26-04:00"
+  },
+  "payment_identification": {
+    "instruction_identification": "Scenario05InstrId001",
+    "end_to_end_identification": "Scenario05EtoEId001",
+    "uetr": "8a562c67-ca16-48ba-b074-65581be6f011"
+  },
+  "agents": {
+    "instructing_agent": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "011104238"
+    },
+    "instructed_agent": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "021150706"
+    }
+  }
+}

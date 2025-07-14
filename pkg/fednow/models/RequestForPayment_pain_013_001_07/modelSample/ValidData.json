@@ -1,0 +1,66 @@
+{
+  "message_id": "20230714011104238RFISc01Step1MsgId",
+  "created_date_time": "2023-07-14T09:17:49-04:00",
+  "number_of_transactions": "1",
+  "initiating_party_name": "Corporation A",
+  "payment_information_id": "RFISc01Step1PaymentInfoId001",
+  "payment_method": "TRF",
+  "requested_execution_date": "2023-08-01",
+  "expiry_date": "2023-08-15",
+  "debtor": {
+    "agent": {
+      "bank_name": "Individual B",
+      "postal_address": {
+        "street_name": "Main Street",
+        "building_number": "500",
+        "postal_code": "60515",
+        "town_name": "Downers Grove",
+        "subdivision": "IL",
+        "country": "US"
+      }
+    },
+    "party_account_id": "987654321",
+    "party_agent": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "021040078"
+    }
+  },
+  "credit_transfer_id": {
+    "end_to_end_identification": "RFISc01Step1EndToEndId001"
+  },
+  "credit_transfer_payment_type": {
+    "local_instrument_code": "FDNA",
+    "category_purpose": "CONS"
+  },
+  "credit_transfer_amount": {
+    "currency": "USD",
+    "amount": 50000
+  },
+  "charge_bearer": "SLEV",
+  "creditor": {
+    "agent": {
+      "bank_name": "Corporation A",
+      "postal_address": {
+        "street_name": "Avenue of the Fountains",
+        "building_number": "167565",
+        "room_number": "Suite D110",
+        "postal_code": "85268",
+        "town_name": "Fountain HIlls",
+        "subdivision": "AZ",
+        "country": "US"
+      }
+    },
+    "party_account_id": "5647772655",
+    "party_agent": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "011104238",
+      "bank_name": "BANK A",
+      "postal_address": {}
+    }
+  },
+  "credit_transfer_remit_info": {
+    "referred_document_information": "CINV",
+    "number": "INV12345",
+    "related_date": "2023-07-14"
+  }
+}

@@ -737,6 +737,18 @@ func BuildAssignmentsHelper() AssignmentsHelper {
 	}
 }
 
+type DebtorAndCreditorAgentHelper struct {
+	DebtorAgent   AgentHelper
+	CreditorAgent AgentHelper
+}
+
+func BuildDebtorAndCreditorAgentHelper() DebtorAndCreditorAgentHelper {
+	return DebtorAndCreditorAgentHelper{
+		DebtorAgent:   BuildAgentHelper(),
+		CreditorAgent: BuildAgentHelper(),
+	}
+}
+
 type GroupInformationHelper struct {
 	OriginalMessageIdentification     ElementHelper
 	OriginalMessageNameIdentification ElementHelper
@@ -920,6 +932,7 @@ func BuildReasonHelper() ReasonHelper {
 
 type ReturnReasonHelper struct {
 	Code        ElementHelper
+	Info        ElementHelper
 	Proprietary ElementHelper
 }
 
@@ -930,6 +943,12 @@ func BuildReturnReasonHelper() ReturnReasonHelper {
 			Rules:         "",
 			Type:          `ReturnReasonCode`,
 			Documentation: `Reason for the return, as published in an external reason code list.`,
+		},
+		Info: ElementHelper{
+			Title:         "Information",
+			Rules:         "",
+			Type:          `Max500Text (based on string) minLength: 1 maxLength: 500`,
+			Documentation: `Further details about the return reason.`,
 		},
 		Proprietary: ElementHelper{
 			Title:         "Proprietary",
@@ -1068,6 +1087,42 @@ func BuildPaymentInfomationHelper() PaymentInfomationHelper {
 			Rules:         "",
 			Type:          `ISODate (based on date)`,
 			Documentation: `The date of the original interbank settlement.`,
+		},
+	}
+}
+
+type PartyContactHelper struct {
+	Name            ElementHelper
+	PhoneNumber     ElementHelper
+	EmailAddress    ElementHelper
+	PreferredMethod ElementHelper
+}
+
+func BuildPartyContactHelper() PartyContactHelper {
+	return PartyContactHelper{
+		Name: ElementHelper{
+			Title:         "Name",
+			Rules:         "This is the name of the party contact.",
+			Type:          `Max140Text (based on string) minLength: 1 maxLength: 140`,
+			Documentation: `Name of the party contact.`,
+		},
+		PhoneNumber: ElementHelper{
+			Title:         "Phone Number",
+			Rules:         "This is the phone number of the party contact.",
+			Type:          `Max35Text (based on string) minLength: 1 maxLength: 35`,
+			Documentation: `Phone number of the party contact.`,
+		},
+		EmailAddress: ElementHelper{
+			Title:         "Email Address",
+			Rules:         "This is the email address of the party contact.",
+			Type:          `Max256Text (based on string) minLength: 1 maxLength: 256`,
+			Documentation: `Email address of the party contact.`,
+		},
+		PreferredMethod: ElementHelper{
+			Title:         "Preferred Method",
+			Rules:         "This indicates the preferred method of contact.",
+			Type:          `ContactMethodType`,
+			Documentation: `Preferred method of contact for the party.`,
 		},
 	}
 }

@@ -35,7 +35,10 @@ type MissingOrIncorrectInformationCode string
 type InvestigationExecutionConfirmationCode string
 type ReturnReasonCode string
 type MessageHandlingCode string
-
+type PaymentMethodCode string
+type CancellationRequestResponse string
+type ReasonCodeType string
+type InvestigationExecutionConfirmCode string
 const (
 	BusinessProcessingDate WorkingDayType = "BPRD"
 )
@@ -57,6 +60,10 @@ const (
 	Debit  CdtDbtInd = "DBIT"
 )
 const (
+	Cheque         PaymentMethodCode = "CHK"
+	CreditTransfer PaymentMethodCode = "TRF"
+)
+const (
 	MasterAccount       AccountType = "M"
 	SingleRoutingNumber AccountType = "S"
 )
@@ -67,6 +74,11 @@ const (
 const (
 	FedNowProcessingSuccessful        MessageHandlingCode = "TS01"
 	ParticipantReceiptAcknowledgement MessageHandlingCode = "TS02"
+)
+const (
+	CancelledAsPerRequest       CancellationRequestResponse = "CNCL" // Cancelled As Per Request
+	CancellationRequestRejected CancellationRequestResponse = "RJCR" // Cancellation Request Rejected
+	CancellationRequestPending  CancellationRequestResponse = "PDCR" // Cancellation Request Pending
 )
 const (
 	ClearingSystem   SettlementMethod = "CLRG"
@@ -82,6 +94,12 @@ const (
 	ChargeBearerCREDIT ChargeBearerType = "CRED" // Shared Charges
 )
 const (
+	ReturnRequestAccepted InvestigationExecutionConfirmCode = "IPAY"
+	ReturnRequestRejected InvestigationExecutionConfirmCode = "RJCR"
+	ReturnRequestPending InvestigationExecutionConfirmCode = "PDCR"
+	PartiallyExecutedReturnRequest InvestigationExecutionConfirmCode = "PECR"
+)
+const (
 	ContactEmail             ContactMethod = "EMAIL"
 	ContactPhone             ContactMethod = "PHON"
 	ContactMail              ContactMethod = "MAIL"
@@ -95,6 +113,21 @@ const (
 	IPAY InvestigationExecutionConfirmationCode = "IPAY" // Payment Initiated – Correction Transaction component may be present with reference information of the payment instruction
 	NINF InvestigationExecutionConfirmationCode = "NINF" // No Further Information Available
 	PDNG InvestigationExecutionConfirmationCode = "PDNG" // Information Request Pending
+)
+const (
+	ClosedAccountNumber           ReasonCodeType = "AC04" // Closed Account Number
+	AwaitingDebitAuthority        ReasonCodeType = "ADAC" // Awaiting Debit Authority
+	AgentDecision                 ReasonCodeType = "AGNT" // Agent Decision
+	TransInsufficientFunds        ReasonCodeType = "AM04" // Insufficient Funds
+	AlreadyReturned               ReasonCodeType = "ARDT" // Already Returned - It is recommended to provide the reference of the return payment
+	AwaitingReply                 ReasonCodeType = "ARPL" // Awaiting Reply
+	CustomerDecision              ReasonCodeType = "CUST" // Customer Decision
+	LegalDecision                 ReasonCodeType = "LEGL" // Legal Decision
+	TransNarrative                ReasonCodeType = "NARR" // Narrative - Must be followed by the reason in free-formatted text in Additional Information
+	NoAnswerFromCustomer          ReasonCodeType = "NOAS" // No Answer From Customer
+	NoOriginalTransactionReceived ReasonCodeType = "NOOR" // No Original Transaction Received
+	PassedToNextAgent             ReasonCodeType = "PTNA" // Passed To Next Agent
+	RequestingDebitAuthority      ReasonCodeType = "RQDA" // Requesting Debit Authority
 )
 const (
 	InvalidOrMissingCreditorAccountType ReturnReasonCode = "AC14"
@@ -247,6 +280,8 @@ const (
 	RejectedMessagesSent     TransactionStatusCode = "RJTS"
 	ValueMessagesReceived    TransactionStatusCode = "CRDT"
 	ValueMessagesSent        TransactionStatusCode = "DBIT"
+
+	Presented TransactionStatusCode = "PRES" // The transaction has been presented for settlement.
 )
 const (
 	InstrumentCTRC                      InstrumentPropCodeType = "CTRC" // Credit Transfer (Proprietary Code)
@@ -494,6 +529,10 @@ type Assignments struct {
 	Assigner Agent `json:"assigner,omitempty"` // Assigner Agent
 	Assignee Agent `json:"assignee,omitempty"` // Assignee Agent
 }
+type DebtorAndCreditorAgent struct {
+	DebtorAgent   Agent `json:"debtor_agent,omitempty"`   // Debtor Agent
+	CreditorAgent Agent `json:"creditor_agent,omitempty"` // Creditor Agent
+}
 type GroupInformation struct {
 	OriginalMessageIdentification     string    `json:"original_message_identification,omitempty"`      // Original Message Identification
 	OriginalMessageNameIdentification string    `json:"original_message_name_identification,omitempty"` // Original Message Name Identification
@@ -534,12 +573,13 @@ type Proxy struct {
 	Value string    `json:"value,omitempty"` // Value of the proxy (e.g., actual telephone number or email address)
 }
 type Reason struct {
-	Code        StatusReasonInformationCode `json:"type,omitempty"` // Type of the reason for the transaction status
-	Proprietary string                      `json:"code,omitempty"` // Code representing the reason
+	Code        StatusReasonInformationCode `json:"type,omitempty"`        // Type of the reason for the transaction status
+	Proprietary string                      `json:"proprietary,omitempty"` // Code representing the reason
 }
 type ReturnReason struct {
-	Code ReturnReasonCode `json:"code,omitempty"` // Code representing the return reason
-	Info string           `json:"info,omitempty"` // Additional information about the return reason
+	Code        ReturnReasonCode `json:"code,omitempty"`        // Code representing the return reason
+	Info        string           `json:"info,omitempty"`        // Additional information about the return reason
+	Proprietary string           `json:"proprietary,omitempty"` // Code representing the reason
 }
 type MarketPractice struct {
 	Registry       string `json:"registry_code,omitempty"`       // Registry Code for the market practice
@@ -566,4 +606,12 @@ type PaymentInfomation struct {
 	OriginalTransactionDetail TransactionDetailReference `json:"original_transaction_detail,omitempty"`          // Reference to the original transaction detail
 	SettlementAmount          CurrencyAndAmount          `json:"original_interbank_settlement_amount,omitempty"` // Amount of the original interbank settlement
 	SettlementDate            fednow.ISODate             `json:"original_interbank_settlement_date,omitempty"`
+}
+type PartyContact struct {
+	Name            string        `json:"name,omitempty"`
+	PhoneNumber     string        `json:"phone_number,omitempty"`
+	EmailAddress    string        `json:"email_address,omitempty"`
+	MobileNumber    string        `json:"mobile_number,omitempty"`
+	Department      string        `json:"department,omitempty"` // Department of the contact person
+	PreferredMethod ContactMethod `json:"preferred_method,omitempty"`
 }

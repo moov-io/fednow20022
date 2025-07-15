@@ -4,6 +4,8 @@ import (
 	"encoding/xml"
 	"fmt"
 
+	AccountActivityDetailsReport_camt_052_001_08_Model "github.com/moov-io/fednow20022/gen/AccountActivityDetailsReport_camt_052_001_08"
+	"github.com/moov-io/fednow20022/gen/Message_AccountActivityDetailsReport_camt_052_001_08"
 	"github.com/moov-io/fednow20022/pkg/fednow/models/AccountActivityDetailsReport_camt_052_001_08"
 	"github.com/moov-io/fednow20022/pkg/fednow/models/head_001_001_02"
 )
@@ -13,16 +15,25 @@ var XMLAttributes = []xml.Attr{
 	{Name: xml.Name{Local: "xmlns:aadr"}, Value: "urn:iso:std:iso:20022:tech:xsd:camt.052.001.08"},
 	{Name: xml.Name{Local: "xmlns"}, Value: "urn:fednow"},
 }
-var HeaderPathMap = head_001_001_02.PathMap
-var HeaderDocumentFactory = head_001_001_02.DocumentFactory
-var HeaderDataFactory = head_001_001_02.DataFactory
 
-var DataPathMap = AccountActivityDetailsReport_camt_052_001_08.PathMap
-var DataDocumentFactory = AccountActivityDetailsReport_camt_052_001_08.DocumentFactory
-var DataDataFactory = AccountActivityDetailsReport_camt_052_001_08.DataFactory
+var (
+	HeaderPathMap       = head_001_001_02.PathMap
+	HeaderDocumentFactory = head_001_001_02.DocumentFactory
+	HeaderDataFactory   = head_001_001_02.DataFactory
+	HeaderWrapper       = &head_001_001_02.HeadWrapper{}
 
-var HeaderWrapper = &head_001_001_02.HeadWrapper{}
-var DataWrapper = &AccountActivityDetailsReport_camt_052_001_08.AccountActivityDetailsReportWrapper{}
+	BodyPathMap         = AccountActivityDetailsReport_camt_052_001_08.PathMap
+	BodyDocumentFactory = AccountActivityDetailsReport_camt_052_001_08.DocumentFactory
+	BodyDataFactory     = AccountActivityDetailsReport_camt_052_001_08.DataFactory
+	BodyWrapper         = &AccountActivityDetailsReport_camt_052_001_08.AccountActivityDetailsReportWrapper{}
+)
+
+type (
+	GeneratedMsgType     = Message_AccountActivityDetailsReport_camt_052_001_08.Message
+	GeneratedBodyType    = AccountActivityDetailsReport_camt_052_001_08_Model.Document
+	HeaderMessageModelType = *head_001_001_02.MessageModel
+	BodyMessageModelType   = *AccountActivityDetailsReport_camt_052_001_08.MessageModel
+)
 
 type MessageModel struct {
 	AppHdr                       head_001_001_02.MessageModel                              `json:"app_hdr,omitempty"`
@@ -42,7 +53,7 @@ func BuildHelper() MessageHelper {
 
 func NewMessageModel(header any, data any) (MessageModel, error) {
 	if docheaderStruct, ok := header.(*head_001_001_02.MessageModel); ok {
-		if dataStruct, ok := data.(*AccountActivityDetailsReport_camt_052_001_08.MessageModel); ok {
+		if dataStruct, ok := data.(BodyMessageModelType); ok {
 			return MessageModel{
 				AppHdr:                       *docheaderStruct,
 				AccountActivityDetailsReport: *dataStruct,

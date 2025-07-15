@@ -10,9 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/moov-io/fednow20022/pkg/fednow/models/AccountActivityDetailsReport_camt_052_001_08"
 	"github.com/moov-io/fednow20022/pkg/fednow/models/common"
-	"github.com/moov-io/fednow20022/pkg/fednow/models/head_001_001_02"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -26,21 +24,21 @@ func MergeXML(
 	if err != nil {
 		return fmt.Errorf("failed to get header model: %w", err)
 	}
-	dataModelJson, err := DataWrapper.GetDataModel(dataXML)
+	dataModelJson, err := BodyWrapper.GetDataModel(dataXML)
 	if err != nil {
 		return fmt.Errorf("failed to get data model: %w", err)
 	}
-	var headerModel head_001_001_02.MessageModel
+	var headerModel HeaderMessageModelType
 	if err := json.Unmarshal(headerModelJson, &headerModel); err != nil {
 		return fmt.Errorf("failed to unmarshal header model: %w", err)
 	}
-	var dataModel AccountActivityDetailsReport_camt_052_001_08.MessageModel
+	var dataModel BodyMessageModelType
 	if err := json.Unmarshal(dataModelJson, &dataModel); err != nil {
 		return fmt.Errorf("failed to unmarshal data model: %w", err)
 	}
 	msgModel := &MessageModel{
-		AppHdr:                       headerModel,
-		AccountActivityDetailsReport: dataModel,
+		AppHdr:                       *headerModel,
+		AccountActivityDetailsReport: *dataModel,
 	}
 	msgJson, err := json.MarshalIndent(msgModel, "", "  ")
 	if err != nil {

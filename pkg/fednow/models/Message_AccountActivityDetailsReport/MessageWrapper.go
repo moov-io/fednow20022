@@ -5,8 +5,6 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/moov-io/fednow20022/gen/AccountActivityDetailsReport_camt_052_001_08"
-	"github.com/moov-io/fednow20022/gen/Message_AccountActivityDetailsReport_camt_052_001_08"
 	"github.com/moov-io/fednow20022/pkg/fednow/models/common"
 	"github.com/moov-io/fednow20022/pkg/fednow/models/head_001_001_02"
 )
@@ -29,17 +27,17 @@ func (w *MessageAccountActivityDetailsReportWrapper) CreateDocument(modelJson []
 		return nil, fmt.Errorf("failed to get business application header: %w", err)
 	}
 
-	dataDoc, err := common.DocumentWith(model.AccountActivityDetailsReport, DataPathMap, DataDocumentFactory)
+	dataDoc, err := common.DocumentWith(model.AccountActivityDetailsReport, BodyPathMap, BodyDocumentFactory)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create data document: %w", err)
 	}
 
-	data, ok := dataDoc.(*AccountActivityDetailsReport_camt_052_001_08.Document)
+	data, ok := dataDoc.(*GeneratedBodyType)
 	if !ok {
 		return nil, fmt.Errorf("data document is not of type *AccountActivityDetailsReport_camt_052_001_08.Document")
 	}
 
-	doc := Message_AccountActivityDetailsReport_camt_052_001_08.Message{
+	doc := GeneratedMsgType{
 		Xmlns:                        XMLAttributes,
 		AppHdr:                       hdr,
 		AccountActivityDetailsReport: data,
@@ -61,7 +59,7 @@ func (w *MessageAccountActivityDetailsReportWrapper) ValidateDocument(modelJson 
 	if err != nil {
 		return fmt.Errorf("failed to create document: %w", err)
 	}
-	var doc Message_AccountActivityDetailsReport_camt_052_001_08.Message
+	var doc GeneratedMsgType
 	if err := xml.Unmarshal(docXML, &doc); err != nil {
 		return fmt.Errorf("failed to unmarshal XML: %w", err)
 	}
@@ -86,14 +84,14 @@ func (w *MessageAccountActivityDetailsReportWrapper) CheckRequireField(modelJson
 	if err != nil {
 		return fmt.Errorf("failed to marshal data JSON: %w", err)
 	}
-	if err = DataWrapper.CheckRequireField(dataJson); err != nil {
+	if err = BodyWrapper.CheckRequireField(dataJson); err != nil {
 		return fmt.Errorf("data validation failed: %w", err)
 	}
 	return nil
 }
 
 func (w *MessageAccountActivityDetailsReportWrapper) GetDataModel(xmlData []byte) (modelJson []byte, err error) {
-	var doc Message_AccountActivityDetailsReport_camt_052_001_08.Message
+	var doc GeneratedMsgType
 	if err := xml.Unmarshal(xmlData, &doc); err != nil {
 		return nil, fmt.Errorf("failed to unmarshal XML: %w", err)
 	}
@@ -102,12 +100,12 @@ func (w *MessageAccountActivityDetailsReportWrapper) GetDataModel(xmlData []byte
 	if err != nil {
 		return nil, err
 	}
-	dataModelModel, err := common.MessageModelWith(doc.AccountActivityDetailsReport, DataDataFactory, DataPathMap)
+	bodyModelModel, err := common.MessageModelWith(doc.AccountActivityDetailsReport, BodyDataFactory, BodyPathMap)
 	if err != nil {
 		return nil, err
 	}
 
-	msgModel, err := NewMessageModel(docheader, dataModelModel)
+	msgModel, err := NewMessageModel(docheader, bodyModelModel)
 	if err != nil {
 		return nil, err
 	}

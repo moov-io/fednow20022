@@ -17,10 +17,10 @@ var XMLAttributes = []xml.Attr{
 }
 
 var (
-	HeaderPathMap       = head_001_001_02.PathMap
+	HeaderPathMap         = head_001_001_02.PathMap
 	HeaderDocumentFactory = head_001_001_02.DocumentFactory
-	HeaderDataFactory   = head_001_001_02.DataFactory
-	HeaderWrapper       = &head_001_001_02.HeadWrapper{}
+	HeaderDataFactory     = head_001_001_02.DataFactory
+	HeaderWrapper         = &head_001_001_02.HeadWrapper{}
 
 	BodyPathMap         = AccountActivityDetailsReport_camt_052_001_08.PathMap
 	BodyDocumentFactory = AccountActivityDetailsReport_camt_052_001_08.DocumentFactory
@@ -29,8 +29,8 @@ var (
 )
 
 type (
-	GeneratedMsgType     = Message_AccountActivityDetailsReport_camt_052_001_08.Message
-	GeneratedBodyType    = AccountActivityDetailsReport_camt_052_001_08_Model.Document
+	GeneratedMsgType       = Message_AccountActivityDetailsReport_camt_052_001_08.Message
+	GeneratedBodyType      = AccountActivityDetailsReport_camt_052_001_08_Model.Document
 	HeaderMessageModelType = *head_001_001_02.MessageModel
 	BodyMessageModelType   = *AccountActivityDetailsReport_camt_052_001_08.MessageModel
 )

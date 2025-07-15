@@ -49,24 +49,32 @@ func MergeXML(
 }
 
 func TestCreateJson(t *testing.T) {
+	var moduleName = "AccountActivityDetailsReport"
+	var headerSamplePath = "../head_001_001_02/swiftSample"
+	var bodySamplePath = "../AccountActivityDetailsReport_camt_052_001_08/swiftSample"
 	type sampleMap struct {
 		title string
 		path  string
 	}
-	headerSamples := []sampleMap{
-		{"AccountActivityDetailsReport_Scenario1_Step1_head.001", "../head_001_001_02/swiftSample/AccountActivityDetailsReport_Scenario1_Step1_head.001.xml"},
-		{"AccountActivityDetailsReport_Scenario2_Step1_head.001", "../head_001_001_02/swiftSample/AccountActivityDetailsReport_Scenario2_Step1_head.001.xml"},
-		{"AccountActivityDetailsReport_Scenario2_Step2_head.001", "../head_001_001_02/swiftSample/AccountActivityDetailsReport_Scenario2_Step2_head.001.xml"},
-	}
-	dataSamples := []sampleMap{
-		{"AccountActivityDetailsReport_Scenario1_Step1_camt.052_AADR", "../AccountActivityDetailsReport_camt_052_001_08/swiftSample/AccountActivityDetailsReport_Scenario1_Step1_camt.052_AADR.xml"},
-		{"AccountActivityDetailsReport_Scenario1_Step1_camt.052_CADR_Resp1", "../AccountActivityDetailsReport_camt_052_001_08/swiftSample/AccountActivityDetailsReport_Scenario1_Step1_camt.052_CADR_Resp1.xml"},
-		{"AccountActivityDetailsReport_Scenario2_Step2_camt.052_AADR_1", "../AccountActivityDetailsReport_camt_052_001_08/swiftSample/AccountActivityDetailsReport_Scenario2_Step2_camt.052_AADR_1.xml"},
-		{"AccountActivityDetailsReport_Scenario2_Step2_camt.052_CADR_Resp2", "../AccountActivityDetailsReport_camt_052_001_08/swiftSample/AccountActivityDetailsReport_Scenario2_Step2_camt.052_CADR_Resp2.xml"},
-		{"AccountActivityDetailsReport_Scenario2_Step2_camt.052_CADR_Resp1", "../AccountActivityDetailsReport_camt_052_001_08/swiftSample/AccountActivityDetailsReport_Scenario2_Step2_camt.052_CADR_Resp1.xml"},
-		{"AccountActivityDetailsReport_Scenario2_Step2_camt.052_AADR_2", "../AccountActivityDetailsReport_camt_052_001_08/swiftSample/AccountActivityDetailsReport_Scenario2_Step2_camt.052_AADR_2.xml"},
+	headerSamplePaths, err := common.GetSubFilePaths(headerSamplePath)
+	require.NoError(t, err, "failed to get header sample paths")
+	dataSamplePaths, err := common.GetSubFilePaths(bodySamplePath)
+	require.NoError(t, err, "failed to get data sample paths")
+	var headerSamples []sampleMap
+	for _, path := range headerSamplePaths {
+		filename := filepath.Base(path)
+		title := strings.TrimSuffix(filename, filepath.Ext(filename))
+		if strings.Contains(title, moduleName) {
+			headerSamples = append(headerSamples, sampleMap{title, path})
+		}
 	}
 
+	var dataSamples []sampleMap
+	for _, path := range dataSamplePaths {
+		filename := filepath.Base(path)
+		title := strings.TrimSuffix(filename, filepath.Ext(filename))
+		dataSamples = append(dataSamples, sampleMap{title, path})
+	}
 	for _, headerSample := range headerSamples {
 		for _, dataSample := range dataSamples {
 			t.Run(headerSample.title+"_"+dataSample.title, func(t *testing.T) {

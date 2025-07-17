@@ -1,0 +1,143 @@
+{
+  "app_hdr": {
+    "from_member_id": "231981435",
+    "to_member_id": "021150706",
+    "created_date_time": "2023-09-21T18:30:38-04:00",
+    "business_message_identifier": "20230921231981435ABARMMrequest1",
+    "message_definition_identifier": "camt.060.001.05",
+    "market_practice": {
+      "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+      "identification_code": "frb.fednow.01"
+    },
+    "business_processing_date": "0001-01-01T00:00:00Z",
+    "related_info": {
+      "created_date_time": "0001-01-01T00:00:00Z"
+    }
+  },
+  "data": {
+    "message_id": "ABAR",
+    "created_date_time": "2023-09-21T18:30:45-04:00",
+    "pagenation": {
+      "page_number": "1",
+      "last_page_indicator": true
+    },
+    "original_business_query": {
+      "message_identification": "20230921114001500ABARSSrequest1",
+      "message_name_identification": "camt.060.001.05",
+      "creation_date_time": "2023-09-21T13:29:32-04:00"
+    },
+    "report_id": "ABMS",
+    "report_create_date_time": "2023-09-21T00:00:00-04:00",
+    "account_other_id": "114001500",
+    "account_type": "S",
+    "related_account_other_id": "114001500",
+    "balances": [
+      {
+        "balance_type_id": "DLOD",
+        "amount": {
+          "currency": "USD",
+          "amount": 23890.4
+        },
+        "credit_debit_indicator": "DBIT",
+        "date_time": "2023-09-21T18:30:45-04:00"
+      },
+      {
+        "balance_type_id": "ABAL",
+        "amount": {
+          "currency": "USD",
+          "amount": 24255.97
+        },
+        "credit_debit_indicator": "DBIT",
+        "date_time": "2023-09-21T18:30:45-04:00"
+      }
+    ],
+    "transactions_summary": [
+      {
+        "total_net_entry_amount": 1000,
+        "credit_debit_indicator": "DBIT",
+        "credit_entries": {
+          "number_of_entries": "20",
+          "sum": 9000
+        },
+        "debit_entries": {
+          "number_of_entries": "20",
+          "sum": 10000
+        },
+        "bank_transaction_code": "FDWF",
+        "date": "2023-09-21T18:30:45-04:00"
+      },
+      {
+        "total_net_entry_amount": 23802.7,
+        "credit_debit_indicator": "DBIT",
+        "credit_entries": {
+          "number_of_entries": "30",
+          "sum": 4892.51
+        },
+        "debit_entries": {
+          "number_of_entries": "20",
+          "sum": 28695.21
+        },
+        "bank_transaction_code": "NSSE",
+        "date": "2023-09-21T18:30:45-04:00"
+      },
+      {
+        "credit_debit_indicator": "CRDT",
+        "credit_entries": {
+          "number_of_entries": "0"
+        },
+        "debit_entries": {
+          "number_of_entries": "0"
+        },
+        "bank_transaction_code": "FDWS",
+        "date": "2023-09-21T18:30:45-04:00"
+      },
+      {
+        "total_net_entry_amount": 9087.7,
+        "credit_debit_indicator": "DBIT",
+        "credit_entries": {
+          "number_of_entries": "67",
+          "sum": 1508.62
+        },
+        "debit_entries": {
+          "number_of_entries": "200",
+          "sum": 10596.32
+        },
+        "bank_transaction_code": "FDNF",
+        "date": "2023-09-21T18:30:45-04:00"
+      },
+      {
+        "credit_debit_indicator": "CRDT",
+        "credit_entries": {
+          "number_of_entries": "0"
+        },
+        "debit_entries": {
+          "number_of_entries": "0"
+        },
+        "bank_transaction_code": "FDAP",
+        "date": "2023-09-21T18:30:45-04:00"
+      },
+      {
+        "total_net_entry_amount": 10000,
+        "credit_debit_indicator": "CRDT",
+        "credit_entries": {
+          "sum": 10000
+        },
+        "debit_entries": {},
+        "bank_transaction_code": "AVOT",
+        "date": "2023-09-21T18:30:45-04:00"
+      },
+      {
+        "total_net_entry_amount": 365.57,
+        "credit_debit_indicator": "DBIT",
+        "credit_entries": {
+          "sum": 85.68
+        },
+        "debit_entries": {
+          "sum": 451.25
+        },
+        "bank_transaction_code": "UVOT",
+        "date": "2023-09-21T18:30:45-04:00"
+      }
+    ]
+  }
+}

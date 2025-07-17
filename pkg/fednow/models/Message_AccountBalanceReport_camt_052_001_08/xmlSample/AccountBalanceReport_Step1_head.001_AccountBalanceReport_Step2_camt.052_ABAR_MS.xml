@@ -1,0 +1,255 @@
+<Message xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.02" xmlns:aadr="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08" xmlns="urn:fednow">
+  <AppHdr xmlns="urn:fednow">
+    <Fr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+      <FIId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+        <FinInstnId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+          <ClrSysMmbId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+            <MmbId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">231981435</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </FIId>
+    </Fr>
+    <To xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+      <FIId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+        <FinInstnId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+          <ClrSysMmbId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+            <MmbId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">021150706</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </FIId>
+    </To>
+    <BizMsgIdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">20230921231981435ABARMMrequest1</BizMsgIdr>
+    <MsgDefIdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">camt.060.001.05</MsgDefIdr>
+    <MktPrctc xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+      <Regy xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service</Regy>
+      <Id xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">frb.fednow.01</Id>
+    </MktPrctc>
+    <CreDt xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">2023-09-21T18:30:38</CreDt>
+  </AppHdr>
+  <Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+    <BkToCstmrAcctRpt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+      <GrpHdr xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+        <MsgId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">ABAR</MsgId>
+        <CreDtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</CreDtTm>
+        <MsgPgntn xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+          <PgNb xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">1</PgNb>
+          <LastPgInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">true</LastPgInd>
+        </MsgPgntn>
+        <OrgnlBizQry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+          <MsgId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">20230921231981435ABARMSrequest1</MsgId>
+          <MsgNmId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">camt.060.001.05</MsgNmId>
+          <CreDtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T13:29:32</CreDtTm>
+        </OrgnlBizQry>
+      </GrpHdr>
+      <Rpt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+        <Id xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">ABMS</Id>
+        <CreDtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T00:00:00</CreDtTm>
+        <Acct xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+          <Id xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <Othr xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Id xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">231981435</Id>
+            </Othr>
+          </Id>
+          <Tp xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">S</Prtry>
+          </Tp>
+        </Acct>
+        <RltdAcct xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+          <Id xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <Othr xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Id xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">231981435</Id>
+            </Othr>
+          </Id>
+        </RltdAcct>
+        <Bal xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+          <Tp xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <CdOrPrtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">OBFL</Prtry>
+            </CdOrPrtry>
+          </Tp>
+          <Amt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08" Ccy="USD">8000000.00</Amt>
+          <CdtDbtInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">CRDT</CdtDbtInd>
+          <Dt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <DtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</DtTm>
+          </Dt>
+        </Bal>
+        <Bal xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+          <Tp xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <CdOrPrtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">DLOD</Prtry>
+            </CdOrPrtry>
+          </Tp>
+          <Amt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08" Ccy="USD">8022849.16</Amt>
+          <CdtDbtInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">CRDT</CdtDbtInd>
+          <Dt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <DtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</DtTm>
+          </Dt>
+        </Bal>
+        <Bal xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+          <Tp xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <CdOrPrtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">ABAL</Prtry>
+            </CdOrPrtry>
+          </Tp>
+          <Amt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08" Ccy="USD">8020349.16</Amt>
+          <CdtDbtInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">CRDT</CdtDbtInd>
+          <Dt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <DtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</DtTm>
+          </Dt>
+        </Bal>
+        <TxsSummry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+          <TtlNtriesPerBkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <TtlNetNtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Amt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">1034.9</Amt>
+              <CdtDbtInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">DBIT</CdtDbtInd>
+            </TtlNetNtry>
+            <CdtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <NbOfNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">50</NbOfNtries>
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">28965.1</Sum>
+            </CdtNtries>
+            <DbtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <NbOfNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">100</NbOfNtries>
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">30000</Sum>
+            </DbtNtries>
+            <BkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+                <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">FDWF</Cd>
+              </Prtry>
+            </BkTxCd>
+            <Dt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <DtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</DtTm>
+            </Dt>
+          </TtlNtriesPerBkTxCd>
+          <TtlNtriesPerBkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <TtlNetNtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Amt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">44000</Amt>
+              <CdtDbtInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">DBIT</CdtDbtInd>
+            </TtlNetNtry>
+            <CdtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <NbOfNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">50</NbOfNtries>
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">6000</Sum>
+            </CdtNtries>
+            <DbtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <NbOfNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">75</NbOfNtries>
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">50000</Sum>
+            </DbtNtries>
+            <BkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+                <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">NSSE</Cd>
+              </Prtry>
+            </BkTxCd>
+            <Dt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <DtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</DtTm>
+            </Dt>
+          </TtlNtriesPerBkTxCd>
+          <TtlNtriesPerBkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <TtlNetNtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Amt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">10000</Amt>
+              <CdtDbtInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">DBIT</CdtDbtInd>
+            </TtlNetNtry>
+            <CdtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <NbOfNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">100</NbOfNtries>
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">50000</Sum>
+            </CdtNtries>
+            <DbtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <NbOfNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">200</NbOfNtries>
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">60000</Sum>
+            </DbtNtries>
+            <BkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+                <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">FDWS</Cd>
+              </Prtry>
+            </BkTxCd>
+            <Dt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <DtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</DtTm>
+            </Dt>
+          </TtlNtriesPerBkTxCd>
+          <TtlNtriesPerBkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <TtlNetNtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Amt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">12884.06</Amt>
+              <CdtDbtInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">CRDT</CdtDbtInd>
+            </TtlNetNtry>
+            <CdtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <NbOfNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">258</NbOfNtries>
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">48582.18</Sum>
+            </CdtNtries>
+            <DbtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <NbOfNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">700</NbOfNtries>
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">35698.12</Sum>
+            </DbtNtries>
+            <BkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+                <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">FDNF</Cd>
+              </Prtry>
+            </BkTxCd>
+            <Dt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <DtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</DtTm>
+            </Dt>
+          </TtlNtriesPerBkTxCd>
+          <TtlNtriesPerBkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <TtlNetNtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Amt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">10000</Amt>
+              <CdtDbtInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">DBIT</CdtDbtInd>
+            </TtlNetNtry>
+            <CdtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <NbOfNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">75</NbOfNtries>
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">50000</Sum>
+            </CdtNtries>
+            <DbtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <NbOfNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">150</NbOfNtries>
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">60000</Sum>
+            </DbtNtries>
+            <BkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+                <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">FDAP</Cd>
+              </Prtry>
+            </BkTxCd>
+            <Dt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <DtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</DtTm>
+            </Dt>
+          </TtlNtriesPerBkTxCd>
+          <TtlNtriesPerBkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <TtlNetNtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Amt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">75000</Amt>
+              <CdtDbtInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">CRDT</CdtDbtInd>
+            </TtlNetNtry>
+            <CdtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">80000</Sum>
+            </CdtNtries>
+            <DbtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">5000</Sum>
+            </DbtNtries>
+            <BkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+                <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">AVOT</Cd>
+              </Prtry>
+            </BkTxCd>
+            <Dt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <DtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</DtTm>
+            </Dt>
+          </TtlNtriesPerBkTxCd>
+          <TtlNtriesPerBkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+            <TtlNetNtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Amt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2500</Amt>
+              <CdtDbtInd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">DBIT</CdtDbtInd>
+            </TtlNetNtry>
+            <CdtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">500</Sum>
+            </CdtNtries>
+            <DbtNtries xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Sum xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">3000</Sum>
+            </DbtNtries>
+            <BkTxCd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <Prtry xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+                <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">UVOT</Cd>
+              </Prtry>
+            </BkTxCd>
+            <Dt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">
+              <DtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08">2023-09-21T18:30:45</DtTm>
+            </Dt>
+          </TtlNtriesPerBkTxCd>
+        </TxsSummry>
+      </Rpt>
+    </BkToCstmrAcctRpt>
+  </Document>
+</Message>

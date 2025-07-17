@@ -1,0 +1,57 @@
+{
+  "app_hdr": {
+    "from_member_id": "021150706",
+    "to_member_id": "011104238",
+    "created_date_time": "2023-09-03T09:30:47-04:00",
+    "business_message_identifier": "AATR",
+    "message_definition_identifier": "camt.052.001.08",
+    "market_practice": {
+      "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+      "identification_code": "frb.fednow.aat.01"
+    },
+    "business_processing_date": "0001-01-01T00:00:00Z",
+    "related_info": {
+      "created_date_time": "0001-01-01T00:00:00Z"
+    }
+  },
+  "data": {
+    "message_id": "CATR",
+    "created_date_time": "2023-09-13T19:15:57-04:00",
+    "pagenation": {
+      "page_number": "1",
+      "last_page_indicator": true
+    },
+    "original_business_query": {
+      "creation_date_time": "0001-01-01T00:00:00Z"
+    },
+    "reports": [
+      {
+        "report_id": "EDAY",
+        "report_create_date_time": "2023-09-13T00:00:00-04:00",
+        "account_other_id": "122240120",
+        "related_account_other_id": "113185029",
+        "total_credit_entries": {
+          "number_of_entries": "1",
+          "sum": 500
+        },
+        "total_debit_entries": {
+          "number_of_entries": "0"
+        }
+      },
+      {
+        "report_id": "EDAY",
+        "report_create_date_time": "2023-09-13T00:00:00-04:00",
+        "account_other_id": "122240120",
+        "related_account_other_id": "113194159",
+        "total_credit_entries": {
+          "number_of_entries": "3",
+          "sum": 200.1
+        },
+        "total_debit_entries": {
+          "number_of_entries": "2",
+          "sum": 700452.25
+        }
+      }
+    ]
+  }
+}

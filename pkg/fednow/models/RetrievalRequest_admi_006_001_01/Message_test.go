@@ -15,7 +15,6 @@ func TestMappingTable(t *testing.T) {
 		t.Run("Testing file: "+path, func(t *testing.T) { // Include path in the test title
 			data, err := common.ReadFile(path)
 			require.NoError(t, err, "failed to read file %s", path)
-			/*Create Document from Swift Sample File*/
 			document, xlns, err := common.DocumentFrom(data, DocumentFactory)
 			require.NoError(t, err, "failed to parse document from %s", path)
 			require.NotNil(t, document, "document should not be nil for %s", path)

@@ -20,7 +20,7 @@ import (
 type MessageModel struct {
 	MessageId                         string                            `json:"message_id,omitempty"`
 	Assignment                        common.Assignments                `json:"assignment,omitempty"`
-	CreatedDateTime                   time.Time                         `json:"created_date_time,omitempty"`
+	CreatedDateTime                   time.Time                         `json:"created_date_time,omitzero"`
 	CaseId                            string                            `json:"case_id,omitempty"`
 	Creator                           common.Agent                      `json:"creator,omitempty"`
 	OriginalGroupInfo                 common.GroupInformation           `json:"original_group_info,omitempty"`

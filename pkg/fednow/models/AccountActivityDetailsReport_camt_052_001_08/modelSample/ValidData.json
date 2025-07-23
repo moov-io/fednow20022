@@ -5,6 +5,7 @@
     "page_number": "1",
     "last_page_indicator": true
   },
+  "original_business_query": {},
   "report_id": "EDAY",
   "report_create_date_time": "2023-09-02T00:00:00-04:00",
   "account_other_id": "011104238",
@@ -177,7 +178,6 @@
           "type": "INGA",
           "payment_sys_member_id": "011104238"
         },
-        "acceptance_date_time": "0001-01-01T00:00:00Z",
         "type_and_date_times": [
           {
             "related_dates_proprietary": "BPRD",
@@ -209,7 +209,6 @@
           "type": "INDA",
           "payment_sys_member_id": "011104238"
         },
-        "acceptance_date_time": "0001-01-01T00:00:00Z",
         "type_and_date_times": [
           {
             "related_dates_proprietary": "SDTM",
@@ -240,7 +239,6 @@
           "type": "INDA",
           "payment_sys_member_id": "011104238"
         },
-        "acceptance_date_time": "0001-01-01T00:00:00Z",
         "type_and_date_times": [
           {
             "related_dates_proprietary": "SDTM",
@@ -271,7 +269,6 @@
           "type": "INGA",
           "payment_sys_member_id": "011104238"
         },
-        "acceptance_date_time": "0001-01-01T00:00:00Z",
         "type_and_date_times": [
           {
             "related_dates_proprietary": "SDTM",

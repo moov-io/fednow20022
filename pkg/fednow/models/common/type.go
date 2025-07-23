@@ -435,19 +435,19 @@ type EntryDetail struct {
 	LocalInstrumentChoice InstrumentPropCodeType `json:"local_instrument_choice,omitempty"` // Local Instrument Choice
 	//Tp (Type) indicates the type of the related date. In this case, 'BPRD' could represent a specific type of related date, like business processing date.
 
-	AcceptanceDateTime time.Time         `json:"acceptance_date_time,omitempty"` // Acceptance DateTime
-	TypeAndDateTimes   []TypeAndDateTime `json:"type_and_date_times,omitempty"`  // Related Dates and Times
+	AcceptanceDateTime time.Time         `json:"acceptance_date_time,omitzero"` // Acceptance DateTime
+	TypeAndDateTimes   []TypeAndDateTime `json:"type_and_date_times,omitempty"` // Related Dates and Times
 
 	AdditionalTransactionInformation string `json:"additional_transaction_information,omitempty"` // Additional Transaction Information
 }
 type OriginalBusinessQuery struct {
 	MessageIdentification     string    `json:"message_identification,omitempty"`      // Message Identification
 	MessageNameIdentification string    `json:"message_name_identification,omitempty"` // Message Name Identification
-	CreationDateTime          time.Time `json:"creation_date_time,omitempty"`          // Creation DateTime
+	CreationDateTime          time.Time `json:"creation_date_time,omitzero"`           // Creation DateTime
 }
 type TypeAndDateTime struct {
 	RelatedDatesProprietary WorkingDayType `json:"related_dates_proprietary,omitempty"` // Related Dates Proprietary Code
-	RelatedDateTime         time.Time      `json:"related_date_time,omitempty"`         // Related DateTime
+	RelatedDateTime         time.Time      `json:"related_date_time,omitzero"`          // Related DateTime
 }
 type Agent struct {
 	BusinessIdCode     string            `json:"business_id_code,omitempty"`      // Business Identifier Code (BIC) of the financial institution
@@ -483,7 +483,7 @@ type Balance struct {
 	//Indicates whether the balance is a credit or a debit balance.
 	CreditDebitIndicator CdtDbtInd `json:"credit_debit_indicator,omitempty"`
 	//Indicates the date (and time) of the balance.
-	DateTime time.Time `json:"date_time,omitempty"` // Date and time of the balance
+	DateTime time.Time `json:"date_time,omitzero"` // Date and time of the balance
 }
 type CreditLine struct {
 	//Indicates whether or not the credit line is included in the balance.
@@ -493,7 +493,7 @@ type CreditLine struct {
 	//Amount of money of the cash balance.
 	Amount CurrencyAndAmount `json:"amount,omitempty"` // Amount of the credit line
 	//Indicates the date (and time) of the balance.
-	DateTime time.Time `json:"date_time,omitempty"` // Date and time of the credit line
+	DateTime time.Time `json:"date_time,omitzero"` // Date and time of the credit line
 }
 type TotalsPerBankTransaction struct {
 	TotalNetEntries      float64                    `json:"total_net_entry_amount,omitempty"` // Total net entry amount for the bank transaction code
@@ -501,7 +501,7 @@ type TotalsPerBankTransaction struct {
 	CreditEntries        NumberAndSumOfTransactions `json:"credit_entries,omitempty"`         // Credit entries for the bank transaction code
 	DebitEntries         NumberAndSumOfTransactions `json:"debit_entries,omitempty"`          // Debit entries for the bank transaction code
 	BankTransactionCode  TransactionCode            `json:"bank_transaction_code,omitempty"`  // Bank Transaction Code
-	Date                 time.Time                  `json:"date,omitempty"`                   // Date of the bank transaction
+	Date                 time.Time                  `json:"date,omitzero"`                    // Date of the bank transaction
 }
 type TransactionDetailReference struct {
 	TransactionId             string `json:"transaction_id,omitempty"`             // Transaction ID
@@ -516,14 +516,14 @@ type RelatedAgents struct {
 	ProprietaryAgent Agent                `json:"proprietary_agent,omitempty"` // Proprietary Agent
 }
 type RelatedDates struct {
-	AcceptanceDateTime      time.Time      `json:"acceptance_date_time,omitempty"`      // Acceptance DateTime
+	AcceptanceDateTime      time.Time      `json:"acceptance_date_time,omitzero"`       // Acceptance DateTime
 	InterbankSettlementDate fednow.ISODate `json:"interbank_settlement_date,omitempty"` // Interbank Settlement Date
 }
 type PeriodDateAndTime struct {
 	FromDate fednow.ISODate `json:"from_date,omitempty"` // Start date of the period
 	ToDate   fednow.ISODate `json:"to_date,omitempty"`   // End
-	FromTime time.Time      `json:"from_time,omitempty"` // Start time of the period
-	ToTime   time.Time      `json:"to_time,omitempty"`   // End time of the period
+	FromTime time.Time      `json:"from_time,omitzero"`  // Start time of the period
+	ToTime   time.Time      `json:"to_time,omitzero"`    // End time of the period
 	Type     ModifyMode     `json:"type,omitempty"`      // Type of the period (e.g., ALLL, CHNG, MODF)
 }
 type Assignments struct {
@@ -537,7 +537,7 @@ type DebtorAndCreditorAgent struct {
 type GroupInformation struct {
 	OriginalMessageIdentification     string    `json:"original_message_identification,omitempty"`      // Original Message Identification
 	OriginalMessageNameIdentification string    `json:"original_message_name_identification,omitempty"` // Original Message Name Identification
-	OriginalCreationDateTime          time.Time `json:"original_creation_date_time,omitempty"`          // Original Creation DateTime
+	OriginalCreationDateTime          time.Time `json:"original_creation_date_time,omitzero"`           // Original Creation DateTime
 }
 type SettlementInformation struct {
 	Method  SettlementMethod           `json:"method_code,omitempty"`  // Settlement Method Code

@@ -19,7 +19,6 @@ func TestMappingTable(t *testing.T) {
 			require.NoError(t, err, "failed to parse document from %s", path)
 			require.NotNil(t, document, "document should not be nil for %s", path)
 			require.Equal(t, xlns, XLNS, "unexpected XML namespace for %s", path)
-			/*Create Model from Document*/
 			messageModel, err := common.MessageModelWith(document, DataFactory, PathMap)
 			require.NoError(t, err, "failed to create message model from document %s", path)
 			require.NotNil(t, messageModel, "message model should not be nil for %s", path)

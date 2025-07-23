@@ -18,11 +18,11 @@ import (
 
 type MessageModel struct {
 	MessageId             common.CAMTReportType             `json:"message_id,omitempty"`
-	CreatedDateTime       time.Time                         `json:"created_date_time,omitempty"`
+	CreatedDateTime       time.Time                         `json:"created_date_time,omitzero"`
 	Pagenation            common.MessagePagenation          `json:"pagenation,omitempty"`
 	OriginalBusinessQuery common.OriginalBusinessQuery      `json:"original_business_query,omitempty"` // Optional field for original business query
 	ReportId              common.ReportType                 `json:"report_id,omitempty"`
-	ReportCreateDateTime  time.Time                         `json:"report_create_date_time,omitempty"`
+	ReportCreateDateTime  time.Time                         `json:"report_create_date_time,omitzero"`
 	AccountOtherId        string                            `json:"account_other_id,omitempty"`
 	AccountType           string                            `json:"account_type,omitempty"`             // Optional field for account type
 	RelateAccountOtherId  string                            `json:"related_account_other_id,omitempty"` // Optional field for related account ID

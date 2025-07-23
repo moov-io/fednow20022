@@ -18,7 +18,7 @@ import (
 
 type ReportModel struct {
 	ReportId                           common.ReportType                     `json:"report_id,omitempty"`
-	ReportCreateDateTime               time.Time                             `json:"report_create_date_time,omitempty"`
+	ReportCreateDateTime               time.Time                             `json:"report_create_date_time,omitzero"`
 	AccountOtherId                     string                                `json:"account_other_id,omitempty"`
 	RelateAccountOtherId               string                                `json:"related_account_other_id,omitempty"` // Optional field for related account ID
 	TotalEntries                       string                                `json:"total_entries,omitempty"`

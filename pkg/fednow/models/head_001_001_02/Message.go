@@ -22,18 +22,18 @@ type Related struct {
 	ToMemberId                  string    `json:"to_member_id,omitempty"`   // Identifier of the member receiving
 	BusinessMessageIdentifier   string    `json:"business_message_identifier,omitempty"`
 	MessageDefinitionIdentifier string    `json:"message_definition_identifier,omitempty"` // Identifier of the message definition
-	CreatedDateTime             time.Time `json:"created_date_time,omitempty"`             // Date and
+	CreatedDateTime             time.Time `json:"created_date_time,omitzero"`              // Date and
 }
 type MessageModel struct {
 	FromMemberId                string                   `json:"from_member_id,omitempty"`
 	ToMemberId                  string                   `json:"to_member_id,omitempty"`
-	CreatedDateTime             time.Time                `json:"created_date_time,omitempty"`
+	CreatedDateTime             time.Time                `json:"created_date_time,omitzero"`
 	BusinessMessageIdentifier   string                   `json:"business_message_identifier,omitempty"`
 	MessageDefinitionIdentifier string                   `json:"message_definition_identifier,omitempty"`
 	MarketPractice              common.MarketPractice    `json:"market_practice,omitempty"`
-	BusinessProcessingDate      time.Time                `json:"business_processing_date,omitempty"`
+	BusinessProcessingDate      time.Time                `json:"business_processing_date,omitzero"`
 	CopyDuplicate               common.CopyDuplicateCode `json:"copy_duplicate,omitempty"` // Indicates if the message is a copy or duplicate
-	RelatedInfo                 Related                  `json:"related_info,omitempty"`   // Additional related information
+	RelatedInfo                 Related                  `json:"related_info,omitzero"`    // Additional related information
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:head.001.001.02"

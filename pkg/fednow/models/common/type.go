@@ -454,7 +454,7 @@ type Agent struct {
 	PaymentSysCode     PaymentSystemType `json:"payment_sys_code,omitempty"`      // Payment System Code
 	PaymentSysMemberId string            `json:"payment_sys_member_id,omitempty"` // Payment System Member ID
 	BankName           string            `json:"bank_name,omitempty"`             // Name of the bank or financial institution
-	PostalAddress      PostalAddress     `json:"postal_address,omitempty"`        // Postal address of the agent
+	PostalAddress      PostalAddress     `json:"postal_address,omitzero"`         // Postal address of the agent
 	OtherTypeId        string            `json:"other_type_id,omitempty"`         // Other type identifier for the agent
 }
 type ProprietaryAgent struct {
@@ -549,14 +549,14 @@ type PaymentTypeInfo struct {
 	ServiceLevel    ChargeBearerType    `json:"service_level,omitempty"`         // Service Level
 }
 type TransactionParty struct {
-	Agent                Agent         `json:"agent,omitempty"`                  // Agent representing the transaction party
-	PartyName            string        `json:"party_name,omitempty"`             // Name of the transaction party
-	PartyAddress         PostalAddress `json:"party_address,omitempty"`          // Address of the transaction party
-	PartyAccountId       string        `json:"party_account_id,omitempty"`       // Account ID of the transaction party
-	PartyAccountProxy    Proxy         `json:"party_account_proxy,omitempty"`    // Proxy for the transaction party's account
-	PartyAgent           Agent         `json:"party_agent,omitempty"`            // Agent representing the transaction party
-	UltimatePartyName    string        `json:"ultimate_party_name,omitempty"`    // Ultimate party name in the transaction
-	UltimatePartyAddress PostalAddress `json:"ultimate_party_address,omitempty"` // Ultimate party address in the transaction
+	Agent                Agent         `json:"agent,omitempty"`                 // Agent representing the transaction party
+	PartyName            string        `json:"party_name,omitempty"`            // Name of the transaction party
+	PartyAddress         PostalAddress `json:"party_address,omitzero"`          // Address of the transaction party
+	PartyAccountId       string        `json:"party_account_id,omitempty"`      // Account ID of the transaction party
+	PartyAccountProxy    Proxy         `json:"party_account_proxy,omitempty"`   // Proxy for the transaction party's account
+	PartyAgent           Agent         `json:"party_agent,omitempty"`           // Agent representing the transaction party
+	UltimatePartyName    string        `json:"ultimate_party_name,omitempty"`   // Ultimate party name in the transaction
+	UltimatePartyAddress PostalAddress `json:"ultimate_party_address,omitzero"` // Ultimate party address in the transaction
 }
 type RemittanceInformation struct {
 	Unstructured                string                `json:"unstructured,omitempty"`                  // Unstructured remittance information

@@ -18,7 +18,7 @@ import (
 
 type MessageModel struct {
 	MessageId                      common.CAMTReportType             `json:"message_id,omitempty"`
-	CreatedDateTime                time.Time                         `json:"created_date_time,omitempty"`
+	CreatedDateTime                time.Time                         `json:"created_date_time,omitzero"`
 	Pagenation                     common.MessagePagenation          `json:"pagenation,omitempty"`
 	NotificationId                 string                            `json:"notification_id,omitempty"`
 	AccountOtherId                 string                            `json:"account_other_id,omitempty"`

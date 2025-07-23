@@ -17,7 +17,7 @@ import (
 
 type MessageModel struct {
 	MessageId              string                   `json:"message_id,omitempty"`
-	CreatedDateTime        time.Time                `json:"created_date_time,omitempty"`
+	CreatedDateTime        time.Time                `json:"created_date_time,omitzero"`
 	ReportingRequestId     common.CAMTReportType    `json:"reporting_request_id,omitempty"`
 	RequestedMessageNameId string                   `json:"requested_message_name_id,omitempty"`
 	AccountOtherId         string                   `json:"account_other_id,omitempty"`

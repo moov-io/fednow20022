@@ -10,8 +10,6 @@
   "reporting_period": {
     "from_date": "2023-09-01",
     "to_date": "2023-09-02",
-    "from_time": "0001-01-01T00:00:00Z",
-    "to_time": "0001-01-01T00:00:00Z",
     "type": "ALLL"
   }
 }

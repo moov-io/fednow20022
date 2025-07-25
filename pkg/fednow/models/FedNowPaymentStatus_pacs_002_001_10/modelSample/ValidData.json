@@ -7,7 +7,7 @@
     "original_creation_date_time": "2023-06-04T10:55:26-04:00"
   },
   "payment_identification": {
-    "transaction_id": "Scenario01InstrId001",
+    "instruction_identification": "Scenario01InstrId001",
     "end_to_end_identification": "Scenario01EtoEId001",
     "uetr": "8a562c67-ca16-48ba-b074-65581be6f011"
   },

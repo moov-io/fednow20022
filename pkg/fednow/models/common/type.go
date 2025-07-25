@@ -431,7 +431,7 @@ type EntryDetail struct {
 	// LclInstrm (Local Instrument) is an optional field that refers to a local instrument or payment method for the transaction.
 	// It indicates how the transaction is to be processed (e.g., via a local payment system).
 
-	ProprietaryAgent      ProprietaryAgent       `json:"proprietary_agent,omitempty"`       // Proprietary Agent
+	ProprietaryAgent      ProprietaryAgent       `json:"proprietary_agent,omitzero"`        // Proprietary Agent
 	LocalInstrumentChoice InstrumentPropCodeType `json:"local_instrument_choice,omitempty"` // Local Instrument Choice
 	//Tp (Type) indicates the type of the related date. In this case, 'BPRD' could represent a specific type of related date, like business processing date.
 
@@ -513,7 +513,7 @@ type RelatedAgents struct {
 	InstructingAgent Agent                `json:"instructing_agent,omitempty"` // Instructing Agent
 	InstructedAgent  Agent                `json:"instructed_agent,omitempty"`  // Instructed Agent
 	ProprietaryType  ProprietaryAgentType `json:"proprietary_type,omitempty"`  // Proprietary Type
-	ProprietaryAgent Agent                `json:"proprietary_agent,omitempty"` // Proprietary Agent
+	ProprietaryAgent Agent                `json:"proprietary_agent,omitzero"`  // Proprietary Agent
 }
 type RelatedDates struct {
 	AcceptanceDateTime      time.Time      `json:"acceptance_date_time,omitzero"`       // Acceptance DateTime
@@ -549,11 +549,11 @@ type PaymentTypeInfo struct {
 	ServiceLevel    ChargeBearerType    `json:"service_level,omitempty"`         // Service Level
 }
 type TransactionParty struct {
-	Agent                Agent         `json:"agent,omitempty"`                 // Agent representing the transaction party
+	Agent                Agent         `json:"agent,omitzero"`                  // Agent representing the transaction party
 	PartyName            string        `json:"party_name,omitempty"`            // Name of the transaction party
 	PartyAddress         PostalAddress `json:"party_address,omitzero"`          // Address of the transaction party
 	PartyAccountId       string        `json:"party_account_id,omitempty"`      // Account ID of the transaction party
-	PartyAccountProxy    Proxy         `json:"party_account_proxy,omitempty"`   // Proxy for the transaction party's account
+	PartyAccountProxy    Proxy         `json:"party_account_proxy,omitzero"`    // Proxy for the transaction party's account
 	PartyAgent           Agent         `json:"party_agent,omitempty"`           // Agent representing the transaction party
 	UltimatePartyName    string        `json:"ultimate_party_name,omitempty"`   // Ultimate party name in the transaction
 	UltimatePartyAddress PostalAddress `json:"ultimate_party_address,omitzero"` // Ultimate party address in the transaction

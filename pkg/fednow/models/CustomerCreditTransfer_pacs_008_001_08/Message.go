@@ -19,7 +19,7 @@ import (
 
 type MessageModel struct {
 	MessageId                    string                              `json:"message_id,omitempty"`
-	CreatedDateTime              time.Time                           `json:"created_date_time,omitempty"`
+	CreatedDateTime              time.Time                           `json:"created_date_time,omitzero"`
 	NumberOfTransactions         string                              `json:"number_of_transactions,omitempty"`
 	SettlementInfo               common.SettlementInformation        `json:"settlement_info,omitempty"`
 	PaymentIdentification        common.TransactionDetailReference   `json:"payment_identification,omitempty"`
@@ -32,7 +32,7 @@ type MessageModel struct {
 	Creditor                     common.TransactionParty             `json:"creditor,omitempty"`
 	PurposeCode                  string                              `json:"purpose_code,omitempty"`
 	RemittanceInformation        common.RemittanceInformation        `json:"remittance_information,omitempty"`
-	RelatedRemittanceInformation common.RelatedRemittanceInformation `json:"related_remittance_information,omitempty"`
+	RelatedRemittanceInformation common.RelatedRemittanceInformation `json:"related_remittance_information,omitzero"`
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08"

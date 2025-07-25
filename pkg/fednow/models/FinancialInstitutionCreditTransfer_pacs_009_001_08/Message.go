@@ -18,7 +18,7 @@ import (
 
 type MessageModel struct {
 	MessageId                 string                            `json:"message_id,omitempty"`
-	CreatedDateTime           time.Time                         `json:"created_date_time,omitempty"`
+	CreatedDateTime           time.Time                         `json:"created_date_time,omitzero"`
 	NumberOfTransactions      string                            `json:"number_of_transactions,omitempty"`
 	SettlementInfo            common.SettlementInformation      `json:"settlement_info,omitempty"`
 	PaymentIdentification     common.TransactionDetailReference `json:"payment_identification,omitempty"`

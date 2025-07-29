@@ -8,11 +8,9 @@ moovio_xsd2go convert \
    --template-name=internal/templates/fednow20022/xmldsig.tgo \
    --xmlns-override="http://www.w3.org/2000/09/xmldsig#=xmldsig"
 
-
-files=($(find ./xsd -not -name "FedNow_*" -name "*iso15.xsd" | sort -u))
+files=($(find ./xsd -not -name "FedNow_*" -not -name "xmldsig-core-schema.xsd" -name "*.xsd" | sort -u))
 for file in "${files[@]}"
 do
-    # file = "./xsd/AccountActivityDetailsReport_camt_052_001_08_20241122_1718_iso15.xsd"
     ns_under=$(echo "$file" | grep -oE '[a-z]{4}_[0-9]{3}_[0-9]{3}_[0-9]{2}')
     ns_dots=$(echo "$ns_under" | tr '_' '.')
     msg=$(basename "$file" .xsd | grep -oE '[a-zA-Z]{1,}_[a-z]{4}_[0-9]{3}_[0-9]{3}_[0-9]{2}')

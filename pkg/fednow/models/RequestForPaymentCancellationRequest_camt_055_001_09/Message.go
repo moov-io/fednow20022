@@ -19,7 +19,7 @@ import (
 
 type MessageModel struct {
 	MessageId                      string                            `json:"message_id,omitempty"`
-	CreatedDateTime                time.Time                         `json:"created_date_time,omitempty"`
+	CreatedDateTime                time.Time                         `json:"created_date_time,omitzero"`
 	Assigners                      common.Assignments                `json:"assigners,omitempty"`
 	CaseId                         string                            `json:"case_id,omitempty"`
 	Creator                        common.PartyContact               `json:"creator,omitempty"`
@@ -28,7 +28,7 @@ type MessageModel struct {
 	TransactionInfo                common.TransactionDetailReference `json:"transaction_information,omitempty"`
 	OriginalInstructedAmount       common.CurrencyAndAmount          `json:"original_instructed_amount,omitempty"`
 	OriginalRequestedExecutionDate fednow.ISODate                    `json:"original_requested_execution_date,omitempty"`
-	Reason                         common.ReturnReason               `json:"reason,omitempty"`
+	Reason                         common.ReturnReason               `json:"reason,omitzero"`
 }
 
 func Test() {

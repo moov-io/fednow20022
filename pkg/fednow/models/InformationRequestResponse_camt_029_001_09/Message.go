@@ -17,13 +17,13 @@ import (
 
 type MessageModel struct {
 	AssignmentId                 string                                        `json:"assignment_id,omitempty"`
-	CreatedDateTime              time.Time                                     `json:"created_date_time,omitempty"`
+	CreatedDateTime              time.Time                                     `json:"created_date_time,omitzero"`
 	Assignments                  common.Assignments                            `json:"assignments,omitempty"`
 	CaseId                       string                                        `json:"case_id,omitempty"`
-	Creator                      common.Creator                                `json:"creator,omitempty"`                        // Creator of the message
-	Status                       common.InvestigationExecutionConfirmationCode `json:"status,omitempty"`                         // Status of the investigation execution confirmation
-	Interbank                    common.PaymentInfomation                      `json:"interbank,omitempty"`                      // Information about the interbank payment
-	ResolutionRelatedInformation common.TransactionDetailReference             `json:"resolution_related_information,omitempty"` // Reference to the resolution related information
+	Creator                      common.Creator                                `json:"creator,omitempty"`                       // Creator of the message
+	Status                       common.InvestigationExecutionConfirmationCode `json:"status,omitempty"`                        // Status of the investigation execution confirmation
+	Interbank                    common.PaymentInfomation                      `json:"interbank,omitempty"`                     // Information about the interbank payment
+	ResolutionRelatedInformation common.TransactionDetailReference             `json:"resolution_related_information,omitzero"` // Reference to the resolution related information
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:camt.029.001.09"

@@ -550,12 +550,12 @@ type PaymentTypeInfo struct {
 }
 type TransactionParty struct {
 	Agent                Agent         `json:"agent,omitzero"`                  // Agent representing the transaction party
-	PartyName            string        `json:"party_name,omitempty"`            // Name of the transaction party
+	PartyName            string        `json:"party_name,omitzero"`             // Name of the transaction party
 	PartyAddress         PostalAddress `json:"party_address,omitzero"`          // Address of the transaction party
-	PartyAccountId       string        `json:"party_account_id,omitempty"`      // Account ID of the transaction party
+	PartyAccountId       string        `json:"party_account_id,omitzero"`       // Account ID of the transaction party
 	PartyAccountProxy    Proxy         `json:"party_account_proxy,omitzero"`    // Proxy for the transaction party's account
-	PartyAgent           Agent         `json:"party_agent,omitempty"`           // Agent representing the transaction party
-	UltimatePartyName    string        `json:"ultimate_party_name,omitempty"`   // Ultimate party name in the transaction
+	PartyAgent           Agent         `json:"party_agent,omitzero"`            // Agent representing the transaction party
+	UltimatePartyName    string        `json:"ultimate_party_name,omitzero"`    // Ultimate party name in the transaction
 	UltimatePartyAddress PostalAddress `json:"ultimate_party_address,omitzero"` // Ultimate party address in the transaction
 }
 type RemittanceInformation struct {
@@ -603,10 +603,10 @@ type Creator struct {
 	Contact            ContactDetails    `json:"contact,omitempty"`               // Contact details of the creator
 }
 type PaymentInfomation struct {
-	OriginalGroupInfo         GroupInformation           `json:"original_group_info,omitempty"`                  // Information about the original group
-	OriginalTransactionDetail TransactionDetailReference `json:"original_transaction_detail,omitempty"`          // Reference to the original transaction detail
-	SettlementAmount          CurrencyAndAmount          `json:"original_interbank_settlement_amount,omitempty"` // Amount of the original interbank settlement
-	SettlementDate            fednow.ISODate             `json:"original_interbank_settlement_date,omitempty"`
+	OriginalGroupInfo         GroupInformation           `json:"original_group_info,omitzero"`                  // Information about the original group
+	OriginalTransactionDetail TransactionDetailReference `json:"original_transaction_detail,omitzero"`          // Reference to the original transaction detail
+	SettlementAmount          CurrencyAndAmount          `json:"original_interbank_settlement_amount,omitzero"` // Amount of the original interbank settlement
+	SettlementDate            fednow.ISODate             `json:"original_interbank_settlement_date,omitzero"`
 }
 type PartyContact struct {
 	Name            string        `json:"name,omitempty"`

@@ -59,7 +59,8 @@
     "party_agent": {
       "payment_sys_code": "USABA",
       "payment_sys_member_id": "011104238"
-    }  },
+    }
+  },
   "return_reason_information": {
     "code": "RRO4"
   },

@@ -22,15 +22,15 @@ type CancellationStatusReason struct {
 
 type MessageModel struct {
 	MessageId             string                             `json:"message_id,omitempty"`
-	CreatedDateTime       time.Time                          `json:"created_date_time,omitempty"`
+	CreatedDateTime       time.Time                          `json:"created_date_time,omitzero"`
 	Assigners             common.Assignments                 `json:"assigners,omitempty"`
 	ResolvedCaseId        string                             `json:"case_id,omitempty"`
 	Creator               common.PartyContact                `json:"creator,omitempty"`
 	Status                common.CancellationRequestResponse `json:"status,omitempty"` // Added status field
 	PaymentCancellationId string                             `json:"payment_cancellation_id,omitempty"`
-	GroupInfo             common.GroupInformation            `json:"group_information,omitempty"`
-	TransactionInfo       common.TransactionDetailReference  `json:"transaction_information,omitempty"`
-	Reason                CancellationStatusReason           `json:"reason,omitempty"`
+	GroupInfo             common.GroupInformation            `json:"group_information,omitzero"`
+	TransactionInfo       common.TransactionDetailReference  `json:"transaction_information,omitzero"`
+	Reason                CancellationStatusReason           `json:"reason,omitzero"`
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:camt.029.001.09"

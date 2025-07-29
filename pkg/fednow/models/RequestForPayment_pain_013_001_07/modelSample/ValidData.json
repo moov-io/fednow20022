@@ -54,8 +54,7 @@
     "party_agent": {
       "payment_sys_code": "USABA",
       "payment_sys_member_id": "011104238",
-      "bank_name": "BANK A",
-      "postal_address": {}
+      "bank_name": "BANK A"
     }
   },
   "credit_transfer_remit_info": {

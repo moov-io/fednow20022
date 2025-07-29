@@ -18,16 +18,16 @@ import (
 )
 
 type CancellationReasonInfo struct {
-	Contact common.PartyContact `json:"code,omitempty"`   // Cancellation reason code
-	Reason  common.ReturnReason `json:"reason,omitempty"` // Reason for cancellation
+	Contact common.PartyContact `json:"code,omitzero"`   // Cancellation reason code
+	Reason  common.ReturnReason `json:"reason,omitzero"` // Reason for cancellation
 }
 type Creator struct {
-	Agent common.Agent        `json:"agent,omitempty"` // Agent details
-	Party common.PartyContact `json:"party,omitempty"` // Party details
+	Agent common.Agent        `json:"agent,omitzero"` // Agent details
+	Party common.PartyContact `json:"party,omitzero"` // Party details
 }
 type MessageModel struct {
 	MessageId                         string                            `json:"message_id,omitempty"`
-	CreatedDateTime                   time.Time                         `json:"created_date_time,omitempty"`
+	CreatedDateTime                   time.Time                         `json:"created_date_time,omitzero"`
 	Assignment                        common.Assignments                `json:"assignment,omitempty"`                           // Assignment details
 	CaseId                            string                            `json:"case_id,omitempty"`                              // Case ID
 	CaseCreator                       Creator                           `json:"case_creator,omitempty"`                         // Case creator details
@@ -35,46 +35,7 @@ type MessageModel struct {
 	OriginalTransaction               common.TransactionDetailReference `json:"original_transaction,omitempty"`                 // Original transaction details
 	OriginalInterbankSettlementAmount common.CurrencyAndAmount          `json:"original_interbank_settlement_amount,omitempty"` // Original interbank settlement amount
 	OriginalInterbankSettlementDate   fednow.ISODate                    `json:"original_interbank_settlement_date,omitempty"`   // Original interbank settlement date
-	CancelReason                      CancellationReasonInfo            `json:"cancel_reason,omitempty"`                        // Cancellation reason information
-}
-
-func Test() {
-	data := MessageModel{}
-	doc := ReturnRequest_camt_056_001_08.Document{}
-
-	data.MessageId = string(doc.FIToFIPmtCxlReq.Assgnmt.Id)
-	data.CreatedDateTime = time.Time(doc.FIToFIPmtCxlReq.Assgnmt.CreDtTm)
-	data.Assignment.Assigner.PaymentSysCode = common.PaymentSystemType(*doc.FIToFIPmtCxlReq.Assgnmt.Assgnr.Agt.FinInstnId.ClrSysMmbId.ClrSysId.Cd)
-	data.Assignment.Assigner.PaymentSysMemberId = string(doc.FIToFIPmtCxlReq.Assgnmt.Assgnr.Agt.FinInstnId.ClrSysMmbId.MmbId)
-	data.Assignment.Assignee.PaymentSysCode = common.PaymentSystemType(*doc.FIToFIPmtCxlReq.Assgnmt.Assgne.Agt.FinInstnId.ClrSysMmbId.ClrSysId.Cd)
-	data.Assignment.Assignee.PaymentSysMemberId = string(doc.FIToFIPmtCxlReq.Assgnmt.Assgne.Agt.FinInstnId.ClrSysMmbId.MmbId)
-	data.CaseId = string(doc.FIToFIPmtCxlReq.Case.Id)
-	data.CaseCreator.Agent.PaymentSysCode = common.PaymentSystemType(*doc.FIToFIPmtCxlReq.Case.Cretr.Agt.FinInstnId.ClrSysMmbId.ClrSysId.Cd)
-	data.CaseCreator.Agent.PaymentSysMemberId = string(doc.FIToFIPmtCxlReq.Case.Cretr.Agt.FinInstnId.ClrSysMmbId.MmbId)
-	data.CaseCreator.Party.Name = string(doc.FIToFIPmtCxlReq.Case.Cretr.Pty.Nm)
-	data.CaseCreator.Party.PhoneNumber = string(*doc.FIToFIPmtCxlReq.Case.Cretr.Pty.CtctDtls.PhneNb)
-	data.CaseCreator.Party.EmailAddress = string(*doc.FIToFIPmtCxlReq.Case.Cretr.Pty.CtctDtls.EmailAdr)
-	data.CaseCreator.Party.MobileNumber = string(*doc.FIToFIPmtCxlReq.Case.Cretr.Pty.CtctDtls.MobNb)
-	data.CaseCreator.Party.Department = string(*doc.FIToFIPmtCxlReq.Case.Cretr.Pty.CtctDtls.Dept)
-	data.CaseCreator.Party.PreferredMethod = common.ContactMethod(doc.FIToFIPmtCxlReq.Case.Cretr.Pty.CtctDtls.PrefrdMtd)
-
-	data.OriginalGroup.OriginalMessageIdentification = string(doc.FIToFIPmtCxlReq.Undrlyg.TxInf.OrgnlGrpInf.OrgnlMsgId)
-	data.OriginalGroup.OriginalMessageNameIdentification = string(doc.FIToFIPmtCxlReq.Undrlyg.TxInf.OrgnlGrpInf.OrgnlMsgNmId)
-	data.OriginalGroup.OriginalCreationDateTime = time.Time(doc.FIToFIPmtCxlReq.Undrlyg.TxInf.OrgnlGrpInf.OrgnlCreDtTm)
-	data.OriginalTransaction.InstructionIdentification = string(*doc.FIToFIPmtCxlReq.Undrlyg.TxInf.OrgnlInstrId)
-	data.OriginalTransaction.EndToEndIdentification = string(*doc.FIToFIPmtCxlReq.Undrlyg.TxInf.OrgnlEndToEndId)
-	data.OriginalTransaction.UETR = string(*doc.FIToFIPmtCxlReq.Undrlyg.TxInf.OrgnlUETR)
-	data.OriginalInterbankSettlementAmount.Amount = float64(doc.FIToFIPmtCxlReq.Undrlyg.TxInf.OrgnlIntrBkSttlmAmt.Value)
-	data.OriginalInterbankSettlementAmount.Currency = string(doc.FIToFIPmtCxlReq.Undrlyg.TxInf.OrgnlIntrBkSttlmAmt.Ccy)
-	data.OriginalInterbankSettlementDate = fednow.ISODate(doc.FIToFIPmtCxlReq.Undrlyg.TxInf.OrgnlIntrBkSttlmDt)
-	data.CancelReason.Contact.Name = string(doc.FIToFIPmtCxlReq.Undrlyg.TxInf.CxlRsnInf.Orgtr.Nm)
-	data.CancelReason.Contact.PhoneNumber = string(*doc.FIToFIPmtCxlReq.Undrlyg.TxInf.CxlRsnInf.Orgtr.CtctDtls.PhneNb)
-	data.CancelReason.Contact.EmailAddress = string(*doc.FIToFIPmtCxlReq.Undrlyg.TxInf.CxlRsnInf.Orgtr.CtctDtls.EmailAdr)
-	data.CancelReason.Contact.MobileNumber = string(*doc.FIToFIPmtCxlReq.Undrlyg.TxInf.CxlRsnInf.Orgtr.CtctDtls.MobNb)
-	data.CancelReason.Contact.Department = string(*doc.FIToFIPmtCxlReq.Undrlyg.TxInf.CxlRsnInf.Orgtr.CtctDtls.Dept)
-	data.CancelReason.Contact.PreferredMethod = common.ContactMethod(doc.FIToFIPmtCxlReq.Undrlyg.TxInf.CxlRsnInf.Orgtr.CtctDtls.PrefrdMtd)
-	data.CancelReason.Reason.Code = common.ReturnReasonCode(*doc.FIToFIPmtCxlReq.Undrlyg.TxInf.CxlRsnInf.Rsn.Cd)
-	data.CancelReason.Reason.Info = string(*doc.FIToFIPmtCxlReq.Undrlyg.TxInf.CxlRsnInf.AddtlInf)
+	CancelReason                      CancellationReasonInfo            `json:"cancel_reason,omitzero"`                         // Cancellation reason information
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:camt.056.001.08"

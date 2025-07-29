@@ -18,7 +18,7 @@ import (
 type MessageModel struct {
 	EventCode      common.FundEventType `json:"EventCode,omitempty"`
 	EventParameter string               `json:"EventParameter,omitempty"`
-	EventTime      time.Time            `json:"EventTime,omitempty"`
+	EventTime      time.Time            `json:"EventTime,omitzero"`
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:admi.004.001.02"

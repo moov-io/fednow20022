@@ -27,8 +27,8 @@ type ResendSearchCriteria struct {
 
 type MessageModel struct {
 	MessageId       string                 `json:"message_id,omitempty"`
-	CreatedDateTime time.Time              `json:"created_date_time,omitempty"`
-	Criteriaes      []ResendSearchCriteria `json:"criteriaes,omitempty"`
+	CreatedDateTime time.Time              `json:"created_date_time,omitzero"`
+	Criteriaes      []ResendSearchCriteria `json:"criteriaes,omitzero"`
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:admi.006.001.01"

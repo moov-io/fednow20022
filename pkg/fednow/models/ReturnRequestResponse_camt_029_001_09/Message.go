@@ -24,15 +24,15 @@ type ResolutionRelatedInformation struct {
 }
 type MessageModel struct {
 	MessageId       string                                   `json:"message_id,omitempty"`
-	CreatedDateTime time.Time                                `json:"created_date_time,omitempty"`
+	CreatedDateTime time.Time                                `json:"created_date_time,omitzero"`
 	Assigners       common.Assignments                       `json:"assigners,omitempty"`
 	ResolvedCaseId  string                                   `json:"case_id,omitempty"`
 	Creator         common.Agent                             `json:"creator,omitempty"`
 	Status          common.InvestigationExecutionConfirmCode `json:"status,omitempty"` // Added status field
-	GroupInfo       common.GroupInformation                  `json:"group_information,omitempty"`
-	TransactionInfo common.TransactionDetailReference        `json:"transaction_information,omitempty"`
-	ReturnReason    common.ReturnReason                      `json:"return_reason,omitempty"`
-	RelatedInfo     ResolutionRelatedInformation             `json:"related_information,omitempty"`
+	GroupInfo       common.GroupInformation                  `json:"group_information,omitzero"`
+	TransactionInfo common.TransactionDetailReference        `json:"transaction_information,omitzero"`
+	ReturnReason    common.ReturnReason                      `json:"return_reason,omitzero"`
+	RelatedInfo     ResolutionRelatedInformation             `json:"related_information,omitzero"`
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:camt.029.001.09"

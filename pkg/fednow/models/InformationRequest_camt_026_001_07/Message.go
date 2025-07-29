@@ -16,20 +16,20 @@ import (
 )
 
 type Justification struct {
-	MissingInformation           common.MissingCodeAndInfo `json:"missing_information,omitempty"`            // Code and information about the missing or incorrect information
-	IncorrectInformation         common.MissingCodeAndInfo `json:"incorrect_information,omitempty"`          // Code and
-	PossibleDuplicateInstruction bool                      `json:"possible_duplicate_instruction,omitempty"` // Code and information about the possible duplicate instruction
+	MissingInformation           common.MissingCodeAndInfo `json:"missing_information,omitzero"`            // Code and information about the missing or incorrect information
+	IncorrectInformation         common.MissingCodeAndInfo `json:"incorrect_information,omitzero"`          // Code and
+	PossibleDuplicateInstruction bool                      `json:"possible_duplicate_instruction,omitzero"` // Code and information about the possible duplicate instruction
 }
 
 type MessageModel struct {
 	AssignmentId    string                   `json:"assignment_id,omitempty"`
-	CreatedDateTime time.Time                `json:"created_date_time,omitempty"`
+	CreatedDateTime time.Time                `json:"created_date_time,omitzero"`
 	Assignments     common.Assignments       `json:"assignments,omitempty"`
 	CaseId          string                   `json:"case_id,omitempty"`
-	Creator         common.Creator           `json:"creator,omitempty"`       // Creator of the message
-	Initiation      common.PaymentInfomation `json:"initiation,omitempty"`    // Information about the payment initiation
-	Interbank       common.PaymentInfomation `json:"interbank,omitempty"`     // Information about the interbank payment
-	Justification   Justification            `json:"justification,omitempty"` // Justification for the information request
+	Creator         common.Creator           `json:"creator,omitempty"`      // Creator of the message
+	Initiation      common.PaymentInfomation `json:"initiation,omitzero"`    // Information about the payment initiation
+	Interbank       common.PaymentInfomation `json:"interbank,omitzero"`     // Information about the interbank payment
+	Justification   Justification            `json:"justification,omitzero"` // Justification for the information request
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:camt.026.001.07"

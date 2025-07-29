@@ -24,12 +24,12 @@ type PaymentCondition struct {
 }
 type MessageModel struct {
 	MessageId                           string                              `json:"message_id,omitempty"`
-	CreatedDateTime                     time.Time                           `json:"created_date_time,omitempty"`
+	CreatedDateTime                     time.Time                           `json:"created_date_time,omitzero"`
 	NumberOfTransactions                string                              `json:"number_of_transactions,omitempty"`
 	InitiatingPartyName                 string                              `json:"initiating_party_name,omitempty"`
 	PaymentInformationId                string                              `json:"payment_information_id,omitempty"`
 	PaymentMethod                       common.PaymentMethodCode            `json:"payment_method,omitempty"`
-	PaymentCondition                    PaymentCondition                    `json:"payment_condition,omitempty"`
+	PaymentCondition                    PaymentCondition                    `json:"payment_condition,omitzero"`
 	RequestedExecutionDate              fednow.ISODate                      `json:"requested_execution_date,omitempty"`
 	ExpiryDate                          fednow.ISODate                      `json:"expiry_date,omitempty"`
 	Debtor                              common.TransactionParty             `json:"debtor,omitempty"`
@@ -40,7 +40,7 @@ type MessageModel struct {
 	CreditTransferCreditor              common.TransactionParty             `json:"creditor,omitempty"`
 	CreditTransferPurposeCode           string                              `json:"purpose_code,omitempty"`
 	CreditTransferRemitInfo             common.RemittanceInformation        `json:"credit_transfer_remit_info,omitempty"`
-	CreditTransferRelatedRemittanceInfo common.RelatedRemittanceInformation `json:"related_remittance_information,omitempty"`
+	CreditTransferRelatedRemittanceInfo common.RelatedRemittanceInformation `json:"related_remittance_information,omitzero"`
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:pain.013.001.07"

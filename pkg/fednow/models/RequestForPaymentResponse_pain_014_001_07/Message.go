@@ -28,16 +28,16 @@ type TransactionReference struct {
 }
 type MessageModel struct {
 	MessageId                    string                            `json:"message_id,omitempty"`
-	CreatedDateTime              time.Time                         `json:"created_date_time,omitempty"`
+	CreatedDateTime              time.Time                         `json:"created_date_time,omitzero"`
 	InitiatingPartyName          string                            `json:"initiating_party_name,omitempty"`
-	Agents                       common.DebtorAndCreditorAgent     `json:"agents,omitempty"`                           // Debtor and Creditor Agents
-	OriginalGroupInfo            common.GroupInformation           `json:"original_group_information,omitempty"`       // Original Group Information
-	OriginalPaymentInformationId string                            `json:"original_payment_information_id,omitempty"`  // Original Payment Information Identification
-	OriginalTransactionInfo      common.TransactionDetailReference `json:"original_transaction_information,omitempty"` // Original Transaction
-	TransactionStatus            common.TransactionStatusCode      `json:"transaction_status,omitempty"`               // Transaction Status
-	PaymentConditionStatus       PaymentConditionStatus            `json:"payment_condition_status,omitempty"`         // Payment Condition Status
-	ReturnReason                 common.ReturnReason               `json:"return_reason,omitempty"`                    // Return Reason
-	OriginalTransactionReference TransactionReference              `json:"original_transaction_reference,omitempty"`   // Original Transaction Reference
+	Agents                       common.DebtorAndCreditorAgent     `json:"agents,omitempty"`                          // Debtor and Creditor Agents
+	OriginalGroupInfo            common.GroupInformation           `json:"original_group_information,omitempty"`      // Original Group Information
+	OriginalPaymentInformationId string                            `json:"original_payment_information_id,omitempty"` // Original Payment Information Identification
+	OriginalTransactionInfo      common.TransactionDetailReference `json:"original_transaction_information,omitzero"` // Original Transaction
+	TransactionStatus            common.TransactionStatusCode      `json:"transaction_status,omitempty"`              // Transaction Status
+	PaymentConditionStatus       PaymentConditionStatus            `json:"payment_condition_status,omitzero"`         // Payment Condition Status
+	ReturnReason                 common.ReturnReason               `json:"return_reason,omitzero"`                    // Return Reason
+	OriginalTransactionReference TransactionReference              `json:"original_transaction_reference,omitzero"`   // Original Transaction Reference
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:pain.014.001.07"

@@ -18,12 +18,12 @@ import (
 
 type MessageModel struct {
 	MessageId               string                            `json:"message_id,omitempty"`
-	CreatedDateTime         time.Time                         `json:"created_date_time,omitempty"`
-	OriginalGroupInfo       common.GroupInformation           `json:"original_group_info,omitempty"`       // Information about the original group
-	TransactionInfo         common.TransactionDetailReference `json:"transaction_info,omitempty"`          // Information about the transaction
-	TransactionStatus       common.TransactionStatusCode      `json:"transaction_status,omitempty"`        // Status of the transaction
-	StatusReasonInformation common.Reason                     `json:"status_reason_information,omitempty"` // Reason for the status
-	Agents                  common.RelatedAgents              `json:"agents,omitempty"`                    // Information about the agents involved in the transaction
+	CreatedDateTime         time.Time                         `json:"created_date_time,omitzero"`
+	OriginalGroupInfo       common.GroupInformation           `json:"original_group_info,omitempty"`      // Information about the original group
+	TransactionInfo         common.TransactionDetailReference `json:"transaction_info,omitempty"`         // Information about the transaction
+	TransactionStatus       common.TransactionStatusCode      `json:"transaction_status,omitempty"`       // Status of the transaction
+	StatusReasonInformation common.Reason                     `json:"status_reason_information,omitzero"` // Reason for the status
+	Agents                  common.RelatedAgents              `json:"agents,omitempty"`                   // Information about the agents involved in the transaction
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10"

@@ -21,8 +21,5 @@
   "original_transaction_information": {
     "end_to_end_identification": "RFISc02Step1EndToEndId001"
   },
-  "transaction_status": "PRES",
-  "payment_condition_status": {
-    "accepted_amount": {}
-  }
+  "transaction_status": "PRES"
 }

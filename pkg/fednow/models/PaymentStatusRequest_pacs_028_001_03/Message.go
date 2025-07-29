@@ -18,10 +18,10 @@ import (
 
 type MessageModel struct {
 	MessageId               string                            `json:"message_id,omitempty"`
-	CreatedDateTime         time.Time                         `json:"created_date_time,omitempty"`
+	CreatedDateTime         time.Time                         `json:"created_date_time,omitzero"`
 	OriginalGroupInfo       common.GroupInformation           `json:"original_group_info,omitempty"`
 	OriginalTransactionInfo common.TransactionDetailReference `json:"payment_identification,omitempty"`
-	Agents                  common.RelatedAgents              `json:"agents,omitempty"`
+	Agents                  common.RelatedAgents              `json:"agents,omitzero"`
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:pacs.028.001.03"

@@ -8,10 +8,6 @@
     "market_practice": {
       "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
       "identification_code": "frb.fednow.01"
-    },
-    "business_processing_date": "0001-01-01T00:00:00Z",
-    "related_info": {
-      "created_date_time": "0001-01-01T00:00:00Z"
     }
   },
   "data": {
@@ -72,13 +68,11 @@
           "transaction_identification": "20230901231981435TxId011",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "231981435",
-            "postal_address": {}
+            "payment_sys_member_id": "231981435"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "proprietary_agent": {
             "type": "INDA",
@@ -113,13 +107,11 @@
           "unique_transaction_reference": "8a533c67-ca16-48de-b074-65581be6f011",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "114000116",
-            "postal_address": {}
+            "payment_sys_member_id": "114000116"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "proprietary_agent": {
             "type": "INDA",
@@ -154,13 +146,11 @@
           "transaction_identification": "202309010SP1234455TxId015",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "114000116",
-            "postal_address": {}
+            "payment_sys_member_id": "114000116"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "proprietary_agent": {
             "type": "INGA",
@@ -195,13 +185,11 @@
           "transaction_identification": "20230901011104238TxId023",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "231981435",
-            "postal_address": {}
+            "payment_sys_member_id": "231981435"
           },
           "proprietary_agent": {
             "type": "INGA",
@@ -236,13 +224,11 @@
           "transaction_identification": "20230901011104238TxId100",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "231981435",
-            "postal_address": {}
+            "payment_sys_member_id": "231981435"
           },
           "proprietary_agent": {
             "type": "INGA",
@@ -277,19 +263,16 @@
           "transaction_identification": "20230901011104238TxId101",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "231981435",
-            "postal_address": {}
+            "payment_sys_member_id": "231981435"
           },
           "proprietary_agent": {
             "type": "INGA",
             "payment_sys_member_id": "011104238"
           },
-          "acceptance_date_time": "0001-01-01T00:00:00Z",
           "type_and_date_times": [
             {
               "related_dates_proprietary": "SDTM",

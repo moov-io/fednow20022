@@ -8,10 +8,6 @@
     "market_practice": {
       "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
       "identification_code": "frb.fednow.aad.01"
-    },
-    "business_processing_date": "0001-01-01T00:00:00Z",
-    "related_info": {
-      "created_date_time": "0001-01-01T00:00:00Z"
     }
   },
   "data": {
@@ -20,9 +16,6 @@
     "pagenation": {
       "page_number": "1",
       "last_page_indicator": true
-    },
-    "original_business_query": {
-      "creation_date_time": "0001-01-01T00:00:00Z"
     },
     "report_id": "EDAY",
     "report_create_date_time": "2023-09-02T00:00:00-04:00",
@@ -70,13 +63,11 @@
           "unique_transaction_reference": "8a562c67-ca16-48ba-b074-65581be6f011",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "231981435",
-            "postal_address": {}
+            "payment_sys_member_id": "231981435"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "proprietary_agent": {
             "type": "INDA",
@@ -111,13 +102,11 @@
           "unique_transaction_reference": "8a533c67-ca16-48de-b074-65581be6f011",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "114000116",
-            "postal_address": {}
+            "payment_sys_member_id": "114000116"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "proprietary_agent": {
             "type": "INDA",
@@ -152,13 +141,11 @@
           "unique_transaction_reference": "8a533c67-ca16-48de-b074-88767be6f023",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "021307481",
-            "postal_address": {}
+            "payment_sys_member_id": "021307481"
           },
           "proprietary_agent": {
             "type": "INGA",
@@ -192,19 +179,16 @@
           "end_to_end_id": "20230902011104238E2EId002",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "231981435",
-            "postal_address": {}
+            "payment_sys_member_id": "231981435"
           },
           "proprietary_agent": {
             "type": "INGA",
             "payment_sys_member_id": "011104238"
           },
-          "acceptance_date_time": "0001-01-01T00:00:00Z",
           "type_and_date_times": [
             {
               "related_dates_proprietary": "BPRD",
@@ -226,19 +210,16 @@
           "message_id": "20230902231981435reportdata5",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "231981435",
-            "postal_address": {}
+            "payment_sys_member_id": "231981435"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "proprietary_agent": {
             "type": "INDA",
             "payment_sys_member_id": "011104238"
           },
-          "acceptance_date_time": "0001-01-01T00:00:00Z",
           "type_and_date_times": [
             {
               "related_dates_proprietary": "SDTM",
@@ -259,19 +240,16 @@
           "message_id": "20230902231981435reportdata6",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "231981435",
-            "postal_address": {}
+            "payment_sys_member_id": "231981435"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "proprietary_agent": {
             "type": "INDA",
             "payment_sys_member_id": "011104238"
           },
-          "acceptance_date_time": "0001-01-01T00:00:00Z",
           "type_and_date_times": [
             {
               "related_dates_proprietary": "SDTM",
@@ -292,19 +270,16 @@
           "message_id": "20230902011104238reportdata7",
           "instructing_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "011104238",
-            "postal_address": {}
+            "payment_sys_member_id": "011104238"
           },
           "instructed_agent": {
             "payment_sys_code": "USABA",
-            "payment_sys_member_id": "021307481",
-            "postal_address": {}
+            "payment_sys_member_id": "021307481"
           },
           "proprietary_agent": {
             "type": "INGA",
             "payment_sys_member_id": "011104238"
           },
-          "acceptance_date_time": "0001-01-01T00:00:00Z",
           "type_and_date_times": [
             {
               "related_dates_proprietary": "SDTM",

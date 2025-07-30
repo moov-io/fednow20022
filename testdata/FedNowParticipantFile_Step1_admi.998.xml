@@ -1,0 +1,62 @@
+<Document xmlns="urn:swift:xsd:admi.998.001.02" xmlns:n1="urn:fed:xsd:admi.998.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:swift:xsd:admi.998.001.02 FedNowParticipantFile_admi_998_001_02%20(2).xsd">
+	<AdmstnPrtryMsg>
+		<PrtryData>
+			<Tp>FPFL</Tp>
+			<Data>
+				<Document xmlns="urn:fed:xsd:admi.998.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:fed:xsd:admi.998.001.02 FedNowParticipantFile_admi_998_001_02_sup%20(2).xsd">
+					<admi998SuplDataV01>
+						<PtcptFile>
+							<BizDay>2023-08-18</BizDay>
+							<PtcptPrfl>
+								<Id>011104238</Id>
+								<Nm>Bank A</Nm>
+								<Svcs>CTSR</Svcs>
+								<Svcs>RFPR</Svcs>
+							</PtcptPrfl>
+							<PtcptPrfl>
+								<Id>021040078</Id>
+								<Nm>Bank B</Nm>
+								<Svcs>CTSR</Svcs>
+								<Svcs>RFPR</Svcs>
+							</PtcptPrfl>
+							<PtcptPrfl>
+								<Id>021307481</Id>
+								<Nm>Bank C</Nm>
+								<Svcs>CTSR</Svcs>
+								<Svcs>RFPR</Svcs>
+							</PtcptPrfl>
+							<PtcptPrfl>
+								<Id>231981435</Id>
+								<Nm>Bank D</Nm>
+								<Svcs>CTSR</Svcs>
+								<Svcs>RFPR</Svcs>
+							</PtcptPrfl>
+							<PtcptPrfl>
+								<Id>211590752</Id>
+								<Nm>Faster Payment System FPS</Nm>
+								<Svcs>CTSR</Svcs>
+							</PtcptPrfl>
+							<PtcptPrfl>
+								<Id>122240120</Id>
+								<Nm>Bank E</Nm>
+								<Svcs>CTSR</Svcs>
+								<Svcs>RFPR</Svcs>
+							</PtcptPrfl>
+							<PtcptPrfl>
+								<Id>113185029</Id>
+								<Nm>Bank F</Nm>
+								<Svcs>CTSR</Svcs>
+								<Svcs>RFPR</Svcs>
+							</PtcptPrfl>
+							<PtcptPrfl>
+								<Id>113194159</Id>
+								<Nm>Bank G</Nm>
+								<Svcs>CTRO</Svcs>
+							</PtcptPrfl>
+						</PtcptFile>
+					</admi998SuplDataV01>
+				</Document>
+			</Data>
+		</PrtryData>
+	</AdmstnPrtryMsg>
+</Document>

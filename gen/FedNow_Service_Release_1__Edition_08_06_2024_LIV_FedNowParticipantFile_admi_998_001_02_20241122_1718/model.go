@@ -26,7 +26,7 @@ type ProprietaryData51 struct {
 }
 
 type Admi998SupplementaryDataEnvelope1 struct {
-	Item string `xml:",any"`
+	Item string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

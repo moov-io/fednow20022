@@ -9,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"time"
 
 	"github.com/aknopov/xmlcomparator"
 )
@@ -68,6 +69,17 @@ func WriteXMLToGenerate(filePath string, data []byte) error {
 
 	return nil
 }
+func retryRename(oldPath, newPath string, retries int, delay time.Duration) error {
+	for i := 0; i < retries; i++ {
+		err := os.Rename(oldPath, newPath)
+		if err == nil {
+			return nil
+		}
+		time.Sleep(delay)
+	}
+	// Final attempt
+	return os.Rename(oldPath, newPath)
+}
 func WriteXMLTo(subPath string, filePath string, data []byte) error {
 	// Ensure directory exists with proper permissions
 	if err := os.MkdirAll(subPath, 0750); err != nil && !os.IsExist(err) {
@@ -90,11 +102,8 @@ func WriteXMLTo(subPath string, filePath string, data []byte) error {
 	}
 
 	// Atomic rename for crash safety
-	if err := os.Rename(tempFile, xmlFileName); err != nil {
-		// Clean up temp file if rename fails
-		if err := os.Remove(tempFile); err != nil && !os.IsNotExist(err) {
-			log.Printf("failed to remove temp file %q: %v", tempFile, err)
-		}
+	if err := retryRename(tempFile, xmlFileName, 5, 200*time.Millisecond); err != nil {
+		_ = os.Remove(tempFile)
 		return fmt.Errorf("file rename failed: %w", err)
 	}
 

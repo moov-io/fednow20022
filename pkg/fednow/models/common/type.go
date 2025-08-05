@@ -520,11 +520,11 @@ type RelatedDates struct {
 	InterbankSettlementDate fednow.ISODate `json:"interbank_settlement_date,omitempty"` // Interbank Settlement Date
 }
 type PeriodDateAndTime struct {
-	FromDate fednow.ISODate `json:"from_date,omitempty"` // Start date of the period
-	ToDate   fednow.ISODate `json:"to_date,omitempty"`   // End
-	FromTime time.Time      `json:"from_time,omitzero"`  // Start time of the period
-	ToTime   time.Time      `json:"to_time,omitzero"`    // End time of the period
-	Type     ModifyMode     `json:"type,omitempty"`      // Type of the period (e.g., ALLL, CHNG, MODF)
+	FromDate fednow.ISODate `json:"from_date,omitzero"` // Start date of the period
+	ToDate   fednow.ISODate `json:"to_date,omitzero"`   // End
+	FromTime time.Time      `json:"from_time,omitzero"` // Start time of the period
+	ToTime   time.Time      `json:"to_time,omitzero"`   // End time of the period
+	Type     ModifyMode     `json:"type,omitzero"`      // Type of the period (e.g., ALLL, CHNG, MODF)
 }
 type Assignments struct {
 	Assigner Agent `json:"assigner,omitempty"` // Assigner Agent

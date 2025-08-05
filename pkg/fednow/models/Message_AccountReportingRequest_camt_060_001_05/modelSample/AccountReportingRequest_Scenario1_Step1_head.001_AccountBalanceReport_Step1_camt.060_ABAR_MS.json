@@ -1,0 +1,24 @@
+{
+  "app_hdr": {
+    "from_member_id": "231981435",
+    "to_member_id": "021150706",
+    "created_date_time": "2023-09-21T13:29:32+04:00",
+    "business_message_identifier": "20230921231981435ABARrequest1",
+    "message_definition_identifier": "camt.060.001.05",
+    "market_practice": {
+      "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+      "identification_code": "frb.fednow.01"
+    }
+  },
+  "data": {
+    "message_id": "20230921231981435ABARMSrequest1",
+    "created_date_time": "2023-09-21T13:29:32+04:00",
+    "reporting_request_id": "ABAR",
+    "requested_message_name_id": "camt.052.001.08",
+    "account_other_id": "231981435",
+    "account_type": "S",
+    "account_owner": {
+      "payment_sys_member_id": "231981435"
+    }
+  }
+}

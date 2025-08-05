@@ -1,0 +1,48 @@
+{
+  "app_hdr": {
+    "from_member_id": "231981435",
+    "to_member_id": "021150706",
+    "created_date_time": "2023-09-21T13:29:32+04:00",
+    "business_message_identifier": "20230921231981435ABARrequest1",
+    "message_definition_identifier": "camt.060.001.05",
+    "market_practice": {
+      "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+      "identification_code": "frb.fednow.01"
+    }
+  },
+  "data": {
+    "message_id": "20230727011104238RFISc4Step5MsgId",
+    "assignment": {
+      "assigner": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "011104238"
+      },
+      "assignee": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "021040078"
+      }
+    },
+    "created_date_time": "2023-07-27T17:30:00-04:00",
+    "case_id": "RFI_pacs.008CaseId015",
+    "creator": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "021040078"
+    },
+    "original_group_info": {
+      "original_message_identification": "20230727011104238RFISc3Step1MsgId",
+      "original_message_name_identification": "pacs.008.001.08",
+      "original_creation_date_time": "2023-07-27T16:12:58-04:00"
+    },
+    "original_transaction_info": {
+      "transaction_id": "RFIScenario3TxId001",
+      "instruction_identification": "RFIScenario3InstrId001",
+      "end_to_end_identification": "RFIScenario3EtoEId001"
+    },
+    "original_interbank_settlement_amount": {
+      "currency": "USD",
+      "amount": 999
+    },
+    "original_interbank_settlement_date": "2023-07-27",
+    "information": "Series of 5 payments of $ 999.00 were instructed because of account limitations to pay invoice 234/333/33 of $4,995.00 in one payment."
+  }
+}

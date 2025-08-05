@@ -1,5 +1,9 @@
 cloud.google.com/go v0.121.4 h1:cVvUiY0sX0xwyxPwdSU2KsF9knOVmtRyAMt8xou0iTs=
 cloud.google.com/go v0.121.4/go.mod h1:XEBchUiHFJbz4lKBZwYBDHV/rSyfFktk737TLDU089s=
+github.com/aknopov/handymaps v0.0.2 h1:mThKfSEpVCL9nGR2wDjJCTu/ep6iR4RVtog50Zh1bVc=
+github.com/aknopov/handymaps v0.0.2/go.mod h1:xG+b4uoH3O4Fn11D8VThQy4mjQgwjtBLpclcBv+chD0=
+github.com/aknopov/xmlcomparator v0.1.0 h1:q/Iu2/TiOJEas7ZgdPgcx2Bb1gQuv4u1bUBaIia7zJQ=
+github.com/aknopov/xmlcomparator v0.1.0/go.mod h1:hTuMGs0wqrddEZesSLWfOYkUFn219VlEgJzRZB1DW2w=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc h1:U9qPSI2PIWSS1VwoXQT9A3Wy9MM3WgvqSxFWenqJduM=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=

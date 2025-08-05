@@ -23,7 +23,7 @@ type MessageModel struct {
 	AccountOtherId         string                   `json:"account_other_id,omitempty"`
 	AccountType            common.AccountType       `json:"account_type,omitempty"`
 	AccountOwner           common.Agent             `json:"account_owner,omitempty"`
-	ReportingPeriod        common.PeriodDateAndTime `json:"reporting_period,omitempty"`
+	ReportingPeriod        common.PeriodDateAndTime `json:"reporting_period,omitzero"`
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:camt.060.001.05"

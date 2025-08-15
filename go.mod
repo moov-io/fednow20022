@@ -3,8 +3,8 @@ module github.com/moov-io/fednow20022
 go 1.23.3
 
 require (
-	cloud.google.com/go v0.121.4
 	github.com/aknopov/xmlcomparator v0.1.0
+	cloud.google.com/go v0.121.6
 	github.com/moov-io/base v0.57.0
 	github.com/stretchr/testify v1.10.0
 )

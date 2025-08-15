@@ -1,0 +1,98 @@
+<Message xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:ir="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07" xmlns="urn:fednow">
+  <AppHdr xmlns="urn:fednow">
+    <Fr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+      <FIId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+        <FinInstnId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+          <ClrSysMmbId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+            <MmbId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">011104238</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </FIId>
+    </Fr>
+    <To xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+      <FIId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+        <FinInstnId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+          <ClrSysMmbId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+            <MmbId xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">021150706</MmbId>
+          </ClrSysMmbId>
+        </FinInstnId>
+      </FIId>
+    </To>
+    <BizMsgIdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">20230727011104238RFISc1Step3MsgId</BizMsgIdr>
+    <MsgDefIdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">camt.029.001.09</MsgDefIdr>
+    <MktPrctc xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+      <Regy xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service</Regy>
+      <Id xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">frb.fednow.irr.01</Id>
+    </MktPrctc>
+    <CreDt xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">2023-07-27T10:18:06</CreDt>
+  </AppHdr>
+  <Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+    <UblToApply xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+      <Assgnmt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+        <Id xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">20230727021307481RFISc3Step3MsgId</Id>
+        <Assgnr xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+          <Agt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+            <FinInstnId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+              <ClrSysMmbId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+                <ClrSysId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+                  <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">USABA</Cd>
+                </ClrSysId>
+                <MmbId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">021040078</MmbId>
+              </ClrSysMmbId>
+            </FinInstnId>
+          </Agt>
+        </Assgnr>
+        <Assgne xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+          <Agt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+            <FinInstnId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+              <ClrSysMmbId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+                <ClrSysId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+                  <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">USABA</Cd>
+                </ClrSysId>
+                <MmbId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">011104238</MmbId>
+              </ClrSysMmbId>
+            </FinInstnId>
+          </Agt>
+        </Assgne>
+        <CreDtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">2023-07-27T16:30:00</CreDtTm>
+      </Assgnmt>
+      <Case xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+        <Id xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">RFI_pacs.008CaseId015</Id>
+        <Cretr xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+          <Agt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+            <FinInstnId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+              <ClrSysMmbId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+                <ClrSysId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+                  <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">USABA</Cd>
+                </ClrSysId>
+                <MmbId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">021040078</MmbId>
+              </ClrSysMmbId>
+            </FinInstnId>
+          </Agt>
+        </Cretr>
+      </Case>
+      <Undrlyg xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+        <IntrBk xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+          <OrgnlGrpInf xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+            <OrgnlMsgId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">20230727011104238RFISc3Step1MsgId</OrgnlMsgId>
+            <OrgnlMsgNmId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">pacs.008.001.08</OrgnlMsgNmId>
+            <OrgnlCreDtTm xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">2023-07-27T16:12:58</OrgnlCreDtTm>
+          </OrgnlGrpInf>
+          <OrgnlInstrId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">RFIScenario3InstrId001</OrgnlInstrId>
+          <OrgnlEndToEndId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">RFIScenario3EtoEId001</OrgnlEndToEndId>
+          <OrgnlTxId xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">RFIScenario3TxId001</OrgnlTxId>
+          <OrgnlIntrBkSttlmAmt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07" Ccy="USD">999</OrgnlIntrBkSttlmAmt>
+          <OrgnlIntrBkSttlmDt xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">2023-07-27</OrgnlIntrBkSttlmDt>
+        </IntrBk>
+      </Undrlyg>
+      <Justfn xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+        <MssngOrIncrrctInf xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+          <MssngInf xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">
+            <Cd xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">NARR</Cd>
+            <AddtlMssngInf xmlns="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07">Fifth similar payment in less than 30 mins. Please provide underlying nature payments.</AddtlMssngInf>
+          </MssngInf>
+        </MssngOrIncrrctInf>
+      </Justfn>
+    </UblToApply>
+  </Document>
+</Message>

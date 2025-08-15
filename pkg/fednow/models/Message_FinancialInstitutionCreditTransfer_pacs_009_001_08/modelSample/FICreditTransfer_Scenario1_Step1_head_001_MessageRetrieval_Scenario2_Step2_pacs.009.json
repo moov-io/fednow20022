@@ -1,0 +1,60 @@
+{
+  "app_hdr": {
+    "from_member_id": "021307481",
+    "to_member_id": "021150706",
+    "created_date_time": "2023-07-13T16:18:14-04:00",
+    "business_message_identifier": "20230713021307481FISc01Step1MsgId",
+    "message_definition_identifier": "pacs.009.001.08",
+    "market_practice": {
+      "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+      "identification_code": "frb.fednow.01"
+    }
+  },
+  "data": {
+    "message_id": "20230728011104238sc01step1MsgId",
+    "created_date_time": "2023-07-28T16:18:14-06:00",
+    "number_of_transactions": "1",
+    "settlement_info": {
+      "method_code": "CLRG",
+      "service_code": "FDN"
+    },
+    "payment_identification": {
+      "transaction_id": "Scenario01FITxId001",
+      "instruction_identification": "Scenario01FIInstrId001",
+      "end_to_end_identification": "Scenario01FIEtoEId001"
+    },
+    "payment_type": {
+      "local_instrument_code": "LMT1",
+      "service_level": "SLEV"
+    },
+    "interbank_settlement_amount": {
+      "currency": "USD",
+      "amount": 500000
+    },
+    "interbank_settlement_date": "2023-07-28",
+    "agents": {
+      "instructing_agent": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "011104238"
+      },
+      "instructed_agent": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "231981435"
+      }
+    },
+    "debtor": {
+      "party_name": "Bank C",
+      "party_agent": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "011104238"
+      }
+    },
+    "creditor": {
+      "party_name": "BANK D",
+      "party_agent": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "231981435"
+      }
+    }
+  }
+}

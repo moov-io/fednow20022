@@ -1,0 +1,34 @@
+{
+  "app_hdr": {
+    "from_member_id": "021040078",
+    "to_member_id": "021150706",
+    "created_date_time": "2023-07-27T10:18:02-05:00",
+    "business_message_identifier": "20230727021040078RFISc1Step2MsgId",
+    "message_definition_identifier": "camt.026.001.07",
+    "market_practice": {
+      "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+      "identification_code": "frb.fednow.01"
+    }
+  },
+  "data": {
+    "assignment_id": "20230727011104238RFISc4Step4MsgId",
+    "created_date_time": "2023-07-27T17:30:00-04:00",
+    "assignments": {
+      "assigner": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "011104238"
+      },
+      "assignee": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "021040078"
+      }
+    },
+    "case_id": "RFI_pacs.008CaseId015",
+    "creator": {
+      "payment_sys_code": "USABA",
+      "payment_sys_member_id": "021040078"
+    },
+    "status": "INFO",
+    "interbank": {}
+  }
+}

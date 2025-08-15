@@ -597,10 +597,10 @@ type MissingCodeAndInfo struct {
 	Info string                            `json:"info,omitempty"` // Additional information about the missing or incorrect information
 }
 type Creator struct {
-	Name               string            `json:"name,omitempty"`                  // Name of the creator
-	PaymentSysCode     PaymentSystemType `json:"payment_sys_code,omitempty"`      // Payment system code of the creator
-	PaymentSysMemberId string            `json:"payment_sys_member_id,omitempty"` // Payment system
-	Contact            ContactDetails    `json:"contact,omitempty"`               // Contact details of the creator
+	Name               string            `json:"name,omitzero"`                  // Name of the creator
+	PaymentSysCode     PaymentSystemType `json:"payment_sys_code,omitzero"`      // Payment system code of the creator
+	PaymentSysMemberId string            `json:"payment_sys_member_id,omitzero"` // Payment system
+	Contact            ContactDetails    `json:"contact,omitzero"`               // Contact details of the creator
 }
 type PaymentInfomation struct {
 	OriginalGroupInfo         GroupInformation           `json:"original_group_info,omitzero"`                  // Information about the original group

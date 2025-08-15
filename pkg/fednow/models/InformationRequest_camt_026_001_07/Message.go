@@ -24,9 +24,9 @@ type Justification struct {
 type MessageModel struct {
 	AssignmentId    string                   `json:"assignment_id,omitempty"`
 	CreatedDateTime time.Time                `json:"created_date_time,omitzero"`
-	Assignments     common.Assignments       `json:"assignments,omitempty"`
+	Assignments     common.Assignments       `json:"assignments,omitzero"`
 	CaseId          string                   `json:"case_id,omitempty"`
-	Creator         common.Creator           `json:"creator,omitempty"`      // Creator of the message
+	Creator         common.Creator           `json:"creator,omitzero"`       // Creator of the message
 	Initiation      common.PaymentInfomation `json:"initiation,omitzero"`    // Information about the payment initiation
 	Interbank       common.PaymentInfomation `json:"interbank,omitzero"`     // Information about the interbank payment
 	Justification   Justification            `json:"justification,omitzero"` // Justification for the information request

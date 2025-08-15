@@ -20,13 +20,13 @@ import (
 type MessageModel struct {
 	MessageId                        string                            `json:"message_id,omitempty"`
 	CreatedDateTime                  time.Time                         `json:"created_date_time,omitzero"`
-	GroupInfo                        common.GroupInformation           `json:"group_info,omitempty"`
-	OriginalTransactionInfo          common.TransactionDetailReference `json:"payment_identification,omitempty"`
+	GroupInfo                        common.GroupInformation           `json:"group_info,omitzero"`
+	OriginalTransactionInfo          common.TransactionDetailReference `json:"payment_identification,omitzero"`
 	TransactionStatus                common.TransactionStatusCode      `json:"transaction_status,omitempty"`
 	StatusReasonInformation          common.Reason                     `json:"status_reason_information,omitzero"` // This field is not in the original document, but can be added if needed
 	AcceptanceDateTime               time.Time                         `json:"acceptance_dateTime,omitzero"`
-	EffectiveInterbankSettlementDate fednow.ISODate                    `json:"effective_interbank_settlement_date,omitempty"`
-	Agents                           common.RelatedAgents              `json:"agents,omitempty"`
+	EffectiveInterbankSettlementDate fednow.ISODate                    `json:"effective_interbank_settlement_date,omitzero"`
+	Agents                           common.RelatedAgents              `json:"agents,omitzero"`
 }
 
 var XLNS = "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10"

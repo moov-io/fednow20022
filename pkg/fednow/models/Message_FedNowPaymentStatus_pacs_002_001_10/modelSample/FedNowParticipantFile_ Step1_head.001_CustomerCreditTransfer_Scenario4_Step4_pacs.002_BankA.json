@@ -1,0 +1,40 @@
+{
+  "app_hdr": {
+    "from_member_id": "021150706",
+    "to_member_id": "098765432",
+    "created_date_time": "2023-08-18T19:00:15-04:00",
+    "business_message_identifier": "20230818FedNowReferencePartFile",
+    "message_definition_identifier": "admi.998.001.02",
+    "market_practice": {
+      "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+      "identification_code": "frb.fednow.01"
+    }
+  },
+  "data": {
+    "message_id": "20230604021150706Sc04Step4AMsgId",
+    "created_date_time": "2023-06-04T10:55:32-04:00",
+    "group_info": {
+      "original_message_identification": "20230604011104238Sc04Step1MsgId",
+      "original_message_name_identification": "pacs.008.001.08",
+      "original_creation_date_time": "2023-06-04T10:55:26-04:00"
+    },
+    "payment_identification": {
+      "instruction_identification": "Scenario04InstrId001",
+      "end_to_end_identification": "Scenario04EtoEId001",
+      "uetr": "8a562c67-ca16-48ba-b074-65581be6f011"
+    },
+    "transaction_status": "ACWP",
+    "acceptance_dateTime": "2023-06-04T10:55:32-04:00",
+    "effective_interbank_settlement_date": "2023-06-04",
+    "agents": {
+      "instructing_agent": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "021150706"
+      },
+      "instructed_agent": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "011104238"
+      }
+    }
+  }
+}

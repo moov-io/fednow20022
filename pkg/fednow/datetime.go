@@ -1,100 +1,44 @@
 package fednow
 
 import (
-	"bytes"
+	"encoding/xml"
+	"fmt"
 	"time"
-
-	"cloud.google.com/go/civil"
 )
 
-type ISODate civil.Date
+// ISODate is a custom type wrapping time.Time
+type ISODate time.Time
 
-func UnmarshalISODate(text string) ISODate {
-	date := ISODate{}
-	_ = date.UnmarshalText([]byte(text))
-	return date
+func (i ISODate) MarshalText() (string, error) {
+	return time.Time(i).Format("2006-01-02"), nil
 }
 
-func MarshalISODate(t ISODate) string {
-	txt, _ := t.MarshalText()
-	return string(txt)
+func (i ISODate) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	content, err := i.MarshalText()
+	if err != nil {
+		return err
+	}
+	return e.EncodeElement([]byte(content), start)
 }
 
-func (t *ISODate) UnmarshalText(text []byte) error {
-	return (*xsdDate)(t).UnmarshalText(text)
-}
+func (i *ISODate) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var content string
+	if err := d.DecodeElement(&content, &start); err != nil {
+		return err
+	}
 
-func (t ISODate) MarshalText() ([]byte, error) {
-	return xsdDate(t).MarshalText()
-}
+	// Parse the date in YYYY-MM-DD format
+	tt, err := time.Parse("2006-01-02", content)
+	if err != nil {
+		return fmt.Errorf("invalid ISODate format: %v", err)
+	}
 
-func (t ISODate) Validate() error {
-	_, err := t.MarshalText()
-	return err
+	*i = ISODate(tt)
+	return nil
 }
 
 type ISODateTime time.Time
 
-func UnmarshalISODateTime(text string) ISODateTime {
-	dateTime := ISODateTime{}
-	_ = dateTime.UnmarshalText([]byte(text))
-	return dateTime
-}
-
-func MarshalISODateTime(t ISODateTime) string {
-	txt, _ := t.MarshalText()
-	return string(txt)
-}
-
-func (t *ISODateTime) UnmarshalText(text []byte) error {
-	return (*xsdDateTime)(t).UnmarshalText(text)
-}
-
-func (t ISODateTime) MarshalText() ([]byte, error) {
-	return xsdDateTime(t).MarshalText()
-}
-
 func (t ISODateTime) Validate() error {
-	_, err := t.MarshalText()
-	return err
-}
-
-type xsdDate civil.Date
-
-func (t *xsdDate) UnmarshalText(text []byte) error {
-	s := string(bytes.TrimSpace(text))
-	d := (*civil.Date)(t)
-	var err error
-	*d, err = civil.ParseDate(s)
-	if err != nil {
-		return err
-	}
 	return nil
-}
-
-func (t xsdDate) MarshalText() ([]byte, error) {
-	return (civil.Date)(t).MarshalText()
-}
-
-func _unmarshalTime(text []byte, t *time.Time, format string) (err error) {
-	s := string(bytes.TrimSpace(text))
-	*t, err = time.ParseInLocation(format, s, Eastern())
-	if _, ok := err.(*time.ParseError); ok {
-		*t, err = time.ParseInLocation(format+"Z07:00", s, Eastern())
-	}
-	return err
-}
-
-func _marshalTime(t time.Time, format string) ([]byte, error) {
-	return []byte(t.Format(format)), nil
-}
-
-type xsdDateTime time.Time
-
-func (t *xsdDateTime) UnmarshalText(text []byte) error {
-	return _unmarshalTime(text, (*time.Time)(t), "2006-01-02T15:04:05")
-}
-
-func (t xsdDateTime) MarshalText() ([]byte, error) {
-	return _marshalTime((time.Time)(t), "2006-01-02T15:04:05")
 }

@@ -5,6 +5,8 @@ package camt_029_001_09
 import (
 	"encoding/xml"
 	"time"
+
+	"github.com/moov-io/fednow20022/pkg/fednow"
 )
 
 // Element
@@ -83,7 +85,7 @@ type AmendmentInformationDetails13 struct {
 
 	OrgnlDbtrAgtAcct *CashAccount38 `xml:"OrgnlDbtrAgtAcct"`
 
-	OrgnlFnlColltnDt *ISODate `xml:"OrgnlFnlColltnDt"`
+	OrgnlFnlColltnDt *fednow.ISODate `xml:"OrgnlFnlColltnDt"`
 
 	OrgnlFrqcy *Frequency36Choice `xml:"OrgnlFrqcy"`
 
@@ -267,7 +269,7 @@ type ChargesRecord3 struct {
 type ClaimNonReceipt2 struct {
 	XMLName xml.Name
 
-	DtPrcd ISODate `xml:"DtPrcd"`
+	DtPrcd fednow.ISODate `xml:"DtPrcd"`
 
 	OrgnlNxtAgt *BranchAndFinancialInstitutionIdentification6 `xml:"OrgnlNxtAgt"`
 
@@ -405,7 +407,7 @@ type CorrectiveInterbankTransaction2 struct {
 
 	IntrBkSttlmAmt ActiveOrHistoricCurrencyAndAmount `xml:"IntrBkSttlmAmt"`
 
-	IntrBkSttlmDt ISODate `xml:"IntrBkSttlmDt"`
+	IntrBkSttlmDt fednow.ISODate `xml:"IntrBkSttlmDt"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -427,7 +429,7 @@ type CorrectivePaymentInitiation4 struct {
 
 	ReqdExctnDt *DateAndDateTime2Choice `xml:"ReqdExctnDt"`
 
-	ReqdColltnDt *ISODate `xml:"ReqdColltnDt"`
+	ReqdColltnDt *fednow.ISODate `xml:"ReqdColltnDt"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -475,7 +477,7 @@ type CreditorReferenceType2 struct {
 type DateAndDateTime2Choice struct {
 	XMLName xml.Name
 
-	Dt *ISODate `xml:"Dt"`
+	Dt *fednow.ISODate `xml:"Dt"`
 
 	DtTm *ISODateTime `xml:"DtTm"`
 
@@ -485,7 +487,7 @@ type DateAndDateTime2Choice struct {
 type DateAndPlaceOfBirth1 struct {
 	XMLName xml.Name
 
-	BirthDt ISODate `xml:"BirthDt"`
+	BirthDt fednow.ISODate `xml:"BirthDt"`
 
 	PrvcOfBirth *Max35Text `xml:"PrvcOfBirth"`
 
@@ -499,9 +501,9 @@ type DateAndPlaceOfBirth1 struct {
 type DatePeriod2 struct {
 	XMLName xml.Name
 
-	FrDt ISODate `xml:"FrDt"`
+	FrDt fednow.ISODate `xml:"FrDt"`
 
-	ToDt ISODate `xml:"ToDt"`
+	ToDt fednow.ISODate `xml:"ToDt"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -547,7 +549,7 @@ type DocumentLineIdentification1 struct {
 
 	Nb *Max35Text `xml:"Nb"`
 
-	RltdDt *ISODate `xml:"RltdDt"`
+	RltdDt *fednow.ISODate `xml:"RltdDt"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -665,7 +667,7 @@ type Garnishment3 struct {
 
 	RefNb *Max140Text `xml:"RefNb"`
 
-	Dt *ISODate `xml:"Dt"`
+	Dt *fednow.ISODate `xml:"Dt"`
 
 	RmtdAmt *ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt"`
 
@@ -795,7 +797,7 @@ type MandateRelatedInformation14 struct {
 
 	MndtId *Max35Text `xml:"MndtId"`
 
-	DtOfSgntr *ISODate `xml:"DtOfSgntr"`
+	DtOfSgntr *fednow.ISODate `xml:"DtOfSgntr"`
 
 	AmdmntInd *TrueFalseIndicator `xml:"AmdmntInd"`
 
@@ -803,9 +805,9 @@ type MandateRelatedInformation14 struct {
 
 	ElctrncSgntr *Max1025Text `xml:"ElctrncSgntr"`
 
-	FrstColltnDt *ISODate `xml:"FrstColltnDt"`
+	FrstColltnDt *fednow.ISODate `xml:"FrstColltnDt"`
 
-	FnlColltnDt *ISODate `xml:"FnlColltnDt"`
+	FnlColltnDt *fednow.ISODate `xml:"FnlColltnDt"`
 
 	Frqcy *Frequency36Choice `xml:"Frqcy"`
 
@@ -965,9 +967,9 @@ type OriginalTransactionReference28 struct {
 
 	Amt *AmountType4Choice `xml:"Amt"`
 
-	IntrBkSttlmDt *ISODate `xml:"IntrBkSttlmDt"`
+	IntrBkSttlmDt *fednow.ISODate `xml:"IntrBkSttlmDt"`
 
-	ReqdColltnDt *ISODate `xml:"ReqdColltnDt"`
+	ReqdColltnDt *fednow.ISODate `xml:"ReqdColltnDt"`
 
 	ReqdExctnDt *DateAndDateTime2Choice `xml:"ReqdExctnDt"`
 
@@ -1081,7 +1083,7 @@ type PaymentTransaction102 struct {
 
 	OrgnlIntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount `xml:"OrgnlIntrBkSttlmAmt"`
 
-	OrgnlIntrBkSttlmDt *ISODate `xml:"OrgnlIntrBkSttlmDt"`
+	OrgnlIntrBkSttlmDt *fednow.ISODate `xml:"OrgnlIntrBkSttlmDt"`
 
 	Assgnr *Party40Choice `xml:"Assgnr"`
 
@@ -1113,7 +1115,7 @@ type PaymentTransaction103 struct {
 
 	OrgnlReqdExctnDt *DateAndDateTime2Choice `xml:"OrgnlReqdExctnDt"`
 
-	OrgnlReqdColltnDt *ISODate `xml:"OrgnlReqdColltnDt"`
+	OrgnlReqdColltnDt *fednow.ISODate `xml:"OrgnlReqdColltnDt"`
 
 	OrgnlTxRef *OriginalTransactionReference28 `xml:"OrgnlTxRef"`
 
@@ -1147,7 +1149,7 @@ type PaymentTransaction107 struct {
 
 	OrgnlIntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount `xml:"OrgnlIntrBkSttlmAmt"`
 
-	OrgnlIntrBkSttlmDt *ISODate `xml:"OrgnlIntrBkSttlmDt"`
+	OrgnlIntrBkSttlmDt *fednow.ISODate `xml:"OrgnlIntrBkSttlmDt"`
 
 	Assgnr *Party40Choice `xml:"Assgnr"`
 
@@ -1271,7 +1273,7 @@ type ReferredDocumentInformation7 struct {
 
 	Nb *Max35Text `xml:"Nb"`
 
-	RltdDt *ISODate `xml:"RltdDt"`
+	RltdDt *fednow.ISODate `xml:"RltdDt"`
 
 	LineDtls []DocumentLineInformation1 `xml:"LineDtls"`
 
@@ -1355,7 +1357,7 @@ type ResolutionData1 struct {
 
 	IntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount `xml:"IntrBkSttlmAmt"`
 
-	IntrBkSttlmDt *ISODate `xml:"IntrBkSttlmDt"`
+	IntrBkSttlmDt *fednow.ISODate `xml:"IntrBkSttlmDt"`
 
 	ClrChanl *ClearingChannel2Code `xml:"ClrChanl"`
 
@@ -1559,7 +1561,7 @@ type TaxInformation7 struct {
 
 	TtlTaxAmt *ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxAmt"`
 
-	Dt *ISODate `xml:"Dt"`
+	Dt *fednow.ISODate `xml:"Dt"`
 
 	SeqNb *Number `xml:"SeqNb"`
 
@@ -1597,7 +1599,7 @@ type TaxParty2 struct {
 type TaxPeriod2 struct {
 	XMLName xml.Name
 
-	Yr *ISODate `xml:"Yr"`
+	Yr *fednow.ISODate `xml:"Yr"`
 
 	Tp *TaxRecordPeriod1Code `xml:"Tp"`
 
@@ -1849,8 +1851,6 @@ const GroupCancellationStatus1CodeAccr GroupCancellationStatus1Code = "ACCR"
 const GroupCancellationStatus1CodePdcr GroupCancellationStatus1Code = "PDCR"
 
 type IBAN2007Identifier string
-
-type ISODate time.Time
 
 type ISODateTime time.Time
 

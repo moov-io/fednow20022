@@ -5,6 +5,8 @@ package head_001_001_02
 import (
 	"encoding/xml"
 	"time"
+
+	"github.com/moov-io/fednow20022/pkg/fednow"
 )
 
 // Element
@@ -191,7 +193,7 @@ type Contact4 struct {
 type DateAndPlaceOfBirth1 struct {
 	XMLName xml.Name
 
-	BirthDt ISODate `xml:"BirthDt"`
+	BirthDt fednow.ISODate `xml:"BirthDt"`
 
 	PrvcOfBirth *Max35Text `xml:"PrvcOfBirth"`
 
@@ -461,8 +463,6 @@ type ExternalFinancialInstitutionIdentification1Code string
 type ExternalOrganisationIdentification1Code string
 
 type ExternalPersonIdentification1Code string
-
-type ISODate time.Time
 
 type ISODateTime time.Time
 

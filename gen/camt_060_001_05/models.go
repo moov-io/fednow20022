@@ -5,6 +5,8 @@ package camt_060_001_05
 import (
 	"encoding/xml"
 	"time"
+
+	"github.com/moov-io/fednow20022/pkg/fednow"
 )
 
 // Element
@@ -200,7 +202,7 @@ type Contact4 struct {
 type DateAndPlaceOfBirth1 struct {
 	XMLName xml.Name
 
-	BirthDt ISODate `xml:"BirthDt"`
+	BirthDt fednow.ISODate `xml:"BirthDt"`
 
 	PrvcOfBirth *Max35Text `xml:"PrvcOfBirth"`
 
@@ -214,9 +216,9 @@ type DateAndPlaceOfBirth1 struct {
 type DatePeriodDetails1 struct {
 	XMLName xml.Name
 
-	FrDt ISODate `xml:"FrDt"`
+	FrDt fednow.ISODate `xml:"FrDt"`
 
-	ToDt *ISODate `xml:"ToDt"`
+	ToDt *fednow.ISODate `xml:"ToDt"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -650,8 +652,6 @@ const FloorLimitType1CodeDebt FloorLimitType1Code = "DEBT"
 const FloorLimitType1CodeBoth FloorLimitType1Code = "BOTH"
 
 type IBAN2007Identifier string
-
-type ISODate time.Time
 
 type ISODateTime time.Time
 

@@ -5,6 +5,8 @@ package pacs_008_001_08
 import (
 	"encoding/xml"
 	"time"
+
+	"github.com/moov-io/fednow20022/pkg/fednow"
 )
 
 // Element
@@ -203,7 +205,7 @@ type CreditTransferTransaction39 struct {
 
 	IntrBkSttlmAmt ActiveCurrencyAndAmount `xml:"IntrBkSttlmAmt"`
 
-	IntrBkSttlmDt *ISODate `xml:"IntrBkSttlmDt"`
+	IntrBkSttlmDt *fednow.ISODate `xml:"IntrBkSttlmDt"`
 
 	SttlmPrty *Priority3Code `xml:"SttlmPrty"`
 
@@ -213,7 +215,7 @@ type CreditTransferTransaction39 struct {
 
 	AccptncDtTm *ISODateTime `xml:"AccptncDtTm"`
 
-	PoolgAdjstmntDt *ISODate `xml:"PoolgAdjstmntDt"`
+	PoolgAdjstmntDt *fednow.ISODate `xml:"PoolgAdjstmntDt"`
 
 	InstdAmt *ActiveOrHistoricCurrencyAndAmount `xml:"InstdAmt"`
 
@@ -325,7 +327,7 @@ type CreditorReferenceType2 struct {
 type DateAndPlaceOfBirth1 struct {
 	XMLName xml.Name
 
-	BirthDt ISODate `xml:"BirthDt"`
+	BirthDt fednow.ISODate `xml:"BirthDt"`
 
 	PrvcOfBirth *Max35Text `xml:"PrvcOfBirth"`
 
@@ -339,9 +341,9 @@ type DateAndPlaceOfBirth1 struct {
 type DatePeriod2 struct {
 	XMLName xml.Name
 
-	FrDt ISODate `xml:"FrDt"`
+	FrDt fednow.ISODate `xml:"FrDt"`
 
-	ToDt ISODate `xml:"ToDt"`
+	ToDt fednow.ISODate `xml:"ToDt"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -387,7 +389,7 @@ type DocumentLineIdentification1 struct {
 
 	Nb *Max35Text `xml:"Nb"`
 
-	RltdDt *ISODate `xml:"RltdDt"`
+	RltdDt *fednow.ISODate `xml:"RltdDt"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -475,7 +477,7 @@ type Garnishment3 struct {
 
 	RefNb *Max140Text `xml:"RefNb"`
 
-	Dt *ISODate `xml:"Dt"`
+	Dt *fednow.ISODate `xml:"Dt"`
 
 	RmtdAmt *ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt"`
 
@@ -581,7 +583,7 @@ type GroupHeader93 struct {
 
 	TtlIntrBkSttlmAmt *ActiveCurrencyAndAmount `xml:"TtlIntrBkSttlmAmt"`
 
-	IntrBkSttlmDt *ISODate `xml:"IntrBkSttlmDt"`
+	IntrBkSttlmDt *fednow.ISODate `xml:"IntrBkSttlmDt"`
 
 	SttlmInf SettlementInstruction7 `xml:"SttlmInf"`
 
@@ -819,7 +821,7 @@ type ReferredDocumentInformation7 struct {
 
 	Nb *Max35Text `xml:"Nb"`
 
-	RltdDt *ISODate `xml:"RltdDt"`
+	RltdDt *fednow.ISODate `xml:"RltdDt"`
 
 	LineDtls []DocumentLineInformation1 `xml:"LineDtls"`
 
@@ -999,7 +1001,7 @@ type StructuredRegulatoryReporting3 struct {
 
 	Tp *Max35Text `xml:"Tp"`
 
-	Dt *ISODate `xml:"Dt"`
+	Dt *fednow.ISODate `xml:"Dt"`
 
 	Ctry *CountryCode `xml:"Ctry"`
 
@@ -1113,7 +1115,7 @@ type TaxInformation7 struct {
 
 	TtlTaxAmt *ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxAmt"`
 
-	Dt *ISODate `xml:"Dt"`
+	Dt *fednow.ISODate `xml:"Dt"`
 
 	SeqNb *Number `xml:"SeqNb"`
 
@@ -1139,7 +1141,7 @@ type TaxInformation8 struct {
 
 	TtlTaxAmt *ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxAmt"`
 
-	Dt *ISODate `xml:"Dt"`
+	Dt *fednow.ISODate `xml:"Dt"`
 
 	SeqNb *Number `xml:"SeqNb"`
 
@@ -1177,7 +1179,7 @@ type TaxParty2 struct {
 type TaxPeriod2 struct {
 	XMLName xml.Name
 
-	Yr *ISODate `xml:"Yr"`
+	Yr *fednow.ISODate `xml:"Yr"`
 
 	Tp *TaxRecordPeriod1Code `xml:"Tp"`
 
@@ -1365,8 +1367,6 @@ type ExternalServiceLevel1Code string
 type ExternalTaxAmountType1Code string
 
 type IBAN2007Identifier string
-
-type ISODate time.Time
 
 type ISODateTime time.Time
 

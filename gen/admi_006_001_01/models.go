@@ -5,6 +5,8 @@ package admi_006_001_01
 import (
 	"encoding/xml"
 	"time"
+
+	"github.com/moov-io/fednow20022/pkg/fednow"
 )
 
 // Element
@@ -149,7 +151,7 @@ type ResendRequestV01 struct {
 type ResendSearchCriteria2 struct {
 	XMLName xml.Name
 
-	BizDt *ISODate `xml:"BizDt"`
+	BizDt *fednow.ISODate `xml:"BizDt"`
 
 	SeqNb *Max35Text `xml:"SeqNb"`
 
@@ -229,8 +231,6 @@ type CountryCode string
 type ExternalEnquiryRequestType1Code string
 
 type ExternalPaymentControlRequestType1Code string
-
-type ISODate time.Time
 
 type ISODateTime time.Time
 

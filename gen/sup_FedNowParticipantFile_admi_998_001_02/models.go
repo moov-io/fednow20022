@@ -4,7 +4,8 @@ package sup_FedNowParticipantFile_admi_998_001_02
 
 import (
 	"encoding/xml"
-	"time"
+
+	"github.com/moov-io/fednow20022/pkg/fednow"
 )
 
 // Element
@@ -19,7 +20,7 @@ type Document struct {
 type FedNowParticipantFile1 struct {
 	XMLName xml.Name
 
-	BizDay ISODate `xml:"BizDay"`
+	BizDay fednow.ISODate `xml:"BizDay"`
 
 	PtcptPrfl []FedNowParticipantProfile1 `xml:"PtcptPrfl"`
 
@@ -47,8 +48,6 @@ type Admi998SuplDataV01 struct {
 }
 
 // XSD SimpleType declarations
-
-type ISODate time.Time
 
 type Max140Text string
 

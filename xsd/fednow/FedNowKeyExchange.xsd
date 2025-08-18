@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(c) 2022 Federal Reserve Banks. Pilot Confidential/FedNow Confidential Information. Materials are not to be used or shared without consent.
+
+The FedNow Key Exchange XSD ("Schema") provides technical details about the FedNow Service.
+The Federal Reserve Banks may change the Schema at any time and will endeavor to provide at least 30 days' notice for material changes.
+The FedNow Service will be governed by applicable law and the terms of an operating circular issued by each of the Federal Reserve Banks.
+Other Federal Reserve Banks operating circulars applicable to the Federal Reserve Banks provision of financial services, including operating circulars
+that govern the account relationships and electronic connection with the Participants, will also apply.
+
+The Federal Reserve Banks provide no warranties with respect to the Schema provided, are not responsible for its accuracy or use within your environment
+and disclaim all liability in connection with its use. At a minimum, use of the Schema in your environment is subject to your internal quality, security,
+and control processes.
+
+The Financial Services logo and "FedNow" are service marks of the Federal Reserve Banks.
+A list of marks related to financial services products that are offered to Financial Institutions by the Federal Reserve Banks is available at FRBservices.org.
+
+Products and company names of third parties identified in this document are trademarks of their respective holders.
+Use of them does not imply any affiliation with or endorsement by them.
+-->
+<!---->
+<xs:schema
+        xmlns="urn:fednow:security:external:v001"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified" targetNamespace="urn:fednow:security:external:v001">
+
+    <xs:simpleType name="Max300AlphaNumericString">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9\-_]{1,300}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Max50AlphaNumericString">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9\-_]{1,50}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Max300Text">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="300"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="RoutingNumber_FRS_1">
+        <xs:annotation>
+            <xs:documentation source="Name" xml:lang="EN">RoutingNumber_FRS_1</xs:documentation>
+            <xs:documentation source="Definition" xml:lang="EN">This is a routing number used by the Service participant in connection with the message.&#13;
+                &#13;
+                Note: This may be a master account routing number or a subaccount routing number. </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{9,9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:element name="FedNowKeyID" type="Max300AlphaNumericString">
+        <xs:annotation>
+            <xs:documentation>
+                The key finger print used as the key id.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="FedNowStatusDescription" type="Max300Text">
+        <xs:annotation>
+            <xs:documentation>
+                A description for the status update intended for the key owner.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="FedNowMessageSignatureKeyStatus">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="KeyStatus">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="expired"/>
+                            <xs:enumeration value="revoked"/>
+                            <xs:enumeration value="compromised"/>
+                            <xs:enumeration value="active"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="StatusDateTime">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:dateTime"/>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element ref="FedNowStatusDescription"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="FedNowMessageSignatureKey">
+        <xs:sequence>
+            <xs:element ref="FedNowKeyID"/>
+            <xs:element name="Name" type="Max300AlphaNumericString">
+                <xs:annotation>
+                    <xs:documentation>
+                        The name for the key. This name is chosen by the customer for their own purposes.
+                        FedNow will populate this field with the key id for FedNow system's own keys
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="EncodedPublicKey">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="100"/>
+                        <xs:maxLength value="2000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Encoding" type="Max50AlphaNumericString">
+                <xs:annotation>
+                    <xs:documentation>
+                        The Encoding used for the content inside of EncodedPublicKey. e.g PEM
+                        Reference https://datatracker.ietf.org/doc/html/rfc7468
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Algorithm" minOccurs="0" type="Max50AlphaNumericString">
+                <xs:annotation>
+                    <xs:documentation>
+                        This is a FedNow specified string that will depict the supported algorithms and lengths.
+                        For example RSA-2048
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="KeyCreationDateTime" minOccurs="0">
+                <xs:simpleType>
+                    <xs:annotation>
+                        <xs:documentation>
+                            The creation datetime for the key. This value is overwritten on submission based on the
+                            System timezone for FedNow
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:restriction base="xs:dateTime"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="KeyExpirationDateTime">
+                <xs:annotation>
+                    <xs:documentation>
+                        The Expiration datetime. This is the date and time the customer intends for their keys to be
+                        automatically expired.
+                        This value should be no more than 365 days from the submission time and will be used as a point
+                        in time to the nearest system date.
+                        If the expiration time is 3:00 AM Wednesday, Coordinated Universal Time (UTC)
+                        this translates to 10:00 PM Tuesday, Eastern Time (ET)
+
+                        For this time, we will take expire this at midnight on the given date.
+                        In the example above, the key will not be valid at 12:01 AM Wednesday, Eastern Time (ET).
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:dateTime"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="TargetRTN" minOccurs="0" type="RoutingNumber_FRS_1">
+                <xs:annotation>
+                    <xs:documentation source="Name" xml:lang="EN">TargetRTN</xs:documentation>
+                    <xs:documentation source="Definition" xml:lang="EN">Identifier of the RTN to associate this key
+                        with. If providing the ETI, the scope of this key is all RTNs managed by that connection party.
+                        If providing a single RTN, FedNow will check and only accept the key for operations against that RTN only
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="FedNowMessageSignatureKeyExchange">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice>
+                    <xs:element name="KeyAddition">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element type="FedNowMessageSignatureKey" name="Key"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="KeyRevocation">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="KeyRevocation">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:enumeration value="revoke"/>
+                                            <xs:enumeration value="compromised"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:element>
+                                <xs:element ref="FedNowStatusDescription"/>
+                                <xs:element ref="FedNowKeyID"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="FedNowCustomerMessageSignatureKeyOperationResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="FedNowKeyID"/>
+                <xs:element name="Status">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="success"/>
+                            <xs:enumeration value="fail"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="ErrorCode" minOccurs="0">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="10"/>
+                            <xs:minLength value="3"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="GetAllFedNowActivePublicKeys">
+        <xs:annotation>
+            <xs:documentation>
+                Returns FedNow's currently active public keys
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+    </xs:element>
+
+
+    <xs:element name="GetAllCustomerPublicKeys">
+        <xs:annotation>
+            <xs:documentation>
+                Returns all of the requesting customers keys that are within the Federal Reserve data retention period.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType/>
+    </xs:element>
+
+
+    <xs:complexType name="FedNowPublicKeyResponse">
+        <xs:sequence>
+            <xs:element ref="FedNowMessageSignatureKeyStatus"/>
+            <xs:element type="FedNowMessageSignatureKey" name="FedNowMessageSignatureKey"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="FedNowPublicKeyResponses">
+        <xs:annotation>
+            <xs:documentation>
+                Bounded list of Key Responses with no pagination.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="100" type="FedNowPublicKeyResponse" name="PublicKeys"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
+
+

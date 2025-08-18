@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(c) 2022 Federal Reserve Banks. Pilot Confidential/FedNow Confidential Information. Materials are not to be used or shared without consent.
+
+The FedNowSM Service Incoming/Outgoing Technical Message Wrappers ("Schemas") provide technical details about the FedNow Service.
+The Federal Reserve Banks may change the Schemas at any time and will endeavor to provide at least 30 days' notice for material changes.
+The FedNow Service will be governed by applicable law and the terms of an operating circular issued by each of the Federal Reserve Banks.
+Other Federal Reserve Banks operating circulars applicable to the Federal Reserve Banks provision of financial services, including operating circulars
+that govern the account relationships and electronic connection with the Participants, will also apply.
+
+The Federal Reserve Banks provide no warranties with respect to the Schemas provided, are not responsible for its accuracy or use within your environment
+and disclaim all liability in connection with its use. At a minimum, use of the Schemas in your environment is subject to your internal quality, security,
+and control processes.
+
+The Financial Services logo and "FedNow" are service marks of the Federal Reserve Banks.
+A list of marks related to financial services products that are offered to Financial Institutions by the Federal Reserve Banks is available at FRBservices.org.
+
+Products and company names of third parties identified in this document are trademarks of their respective holders.
+Use of them does not imply any affiliation with or endorsement by them.
+-->
+<!---->
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="urn:fednow:outgoing:v001"
+    xmlns="urn:fednow:outgoing:v001"
+    xmlns:bah="urn:iso:std:iso:20022:tech:xsd:head.001.001.02"
+    xmlns:a2="urn:iso:std:iso:20022:tech:xsd:admi.002.001.01"
+    xmlns:a4="urn:iso:std:iso:20022:tech:xsd:admi.004.001.02"
+    xmlns:a7="urn:iso:std:iso:20022:tech:xsd:admi.007.001.01"
+    xmlns:a11="urn:iso:std:iso:20022:tech:xsd:admi.011.001.01"
+    xmlns:a998="urn:swift:xsd:admi.998.001.02"
+    xmlns:p2="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10"
+    xmlns:p4="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.10"
+    xmlns:p8="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08"
+    xmlns:p9="urn:iso:std:iso:20022:tech:xsd:pacs.009.001.08"
+    xmlns:p28="urn:iso:std:iso:20022:tech:xsd:pacs.028.001.03"
+    xmlns:pain13="urn:iso:std:iso:20022:tech:xsd:pain.013.001.07"
+    xmlns:pain14="urn:iso:std:iso:20022:tech:xsd:pain.014.001.07"
+    xmlns:c26="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07"
+    xmlns:c28="urn:iso:std:iso:20022:tech:xsd:camt.028.001.09"
+    xmlns:c29="urn:iso:std:iso:20022:tech:xsd:camt.029.001.09"
+    xmlns:c52="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08"
+    xmlns:c54="urn:iso:std:iso:20022:tech:xsd:camt.054.001.08"
+    xmlns:c55="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09"
+    xmlns:c56="urn:iso:std:iso:20022:tech:xsd:camt.056.001.08"
+    xmlns:ke="urn:fednow:security:external:v001"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.02"
+        schemaLocation="iso/head.001.001.02.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:admi.002.001.01"
+        schemaLocation="iso/admi.002.001.01.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:admi.004.001.02"
+        schemaLocation="iso/admi.004.001.02.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:admi.007.001.01"
+        schemaLocation="iso/admi.007.001.01.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:admi.011.001.01"
+        schemaLocation="iso/admi.011.001.01.xsd" />
+
+    <xs:import namespace="urn:swift:xsd:admi.998.001.02"
+        schemaLocation="iso/admi.998.001.02.xsd" />
+
+    <xs:import namespace="urn:fed:xsd:admi.998.001.02"
+        schemaLocation="fednow/sup_FedNowParticipantFile_admi_998_001_02.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10"
+        schemaLocation="iso/pacs.002.001.10.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.10"
+        schemaLocation="iso/pacs.004.001.10.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08"
+        schemaLocation="iso/pacs.008.001.08.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.009.001.08"
+        schemaLocation="iso/pacs.009.001.08.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.028.001.03"
+        schemaLocation="iso/pacs.028.001.03.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pain.013.001.07"
+        schemaLocation="iso/pain.013.001.07.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pain.014.001.07"
+        schemaLocation="iso/pain.014.001.07.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:camt.026.001.07"
+        schemaLocation="iso/camt.026.001.07.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:camt.028.001.09"
+        schemaLocation="iso/camt.028.001.09.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:camt.029.001.09"
+        schemaLocation="iso/camt.029.001.09.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:camt.052.001.08"
+        schemaLocation="iso/camt.052.001.08.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:camt.054.001.08"
+        schemaLocation="iso/camt.054.001.08.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:camt.055.001.09"
+        schemaLocation="iso/camt.055.001.09.xsd" />
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:camt.056.001.08"
+        schemaLocation="iso/camt.056.001.08.xsd" />
+
+    <xs:import namespace="urn:fednow:security:external:v001"
+        schemaLocation="fednow/FedNowKeyExchange.xsd" />
+
+    <xs:element name="FedNowOutgoing">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="FedNowTechnicalHeader" minOccurs="0" />
+                <xs:element ref="FedNowOutgoingMessage" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowTechnicalHeader">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowOutgoingMessage">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice>
+                    <xs:element ref="FedNowMessageReject" />
+                    <xs:element ref="FedNowBroadcast" />
+                    <xs:element ref="FedNowReceiptAcknowledgement" />
+                    <xs:element ref="FedNowSystemResponse" />
+                    <xs:element ref="FedNowParticipantFile" />
+                    <xs:element ref="FedNowPaymentStatus" />
+                    <xs:element ref="FedNowPaymentReturn" />
+                    <xs:element ref="FedNowCustomerCreditTransfer" />
+                    <xs:element ref="FedNowInstitutionCreditTransfer" />
+                    <xs:element ref="FedNowPaymentStatusRequest" />
+                    <xs:element ref="FedNowRequestForPayment" />
+                    <xs:element ref="FedNowRequestForPaymentResponse" />
+                    <xs:element ref="FedNowInformationRequest" />
+                    <xs:element ref="FedNowAdditionalPaymentInformation" />
+                    <xs:element ref="FedNowReturnRequestResponse" />
+                    <xs:element ref="FedNowInformationRequestResponse" />
+                    <xs:element ref="FedNowAccountActivityDetailsReport" />
+                    <xs:element ref="FedNowAccountActivityTotalsReport" />
+                    <xs:element ref="FedNowAccountBalanceReport" />
+                    <xs:element ref="AccountDebitCreditNotification" />
+                    <xs:element ref="FedNowRequestForPaymentCancellationRequest" />
+                    <xs:element ref="FedNowRequestForPaymentCancellationRequestResponse" />
+                    <xs:element ref="FedNowReturnRequest" />
+                    <xs:element ref="FedNowOutgoingMessageSignatureManagement" />
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowMessageReject">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="a2:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowBroadcast">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="a4:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowReceiptAcknowledgement">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="a7:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowSystemResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="a11:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowParticipantFile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="a998:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowPaymentStatus">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="p2:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowPaymentReturn">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="p4:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowCustomerCreditTransfer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="p8:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowInstitutionCreditTransfer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="p9:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowPaymentStatusRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="p28:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowRequestForPayment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="pain13:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowRequestForPaymentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="pain14:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowInformationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c26:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowAdditionalPaymentInformation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c28:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowRequestForPaymentCancellationRequestResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c29:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowReturnRequestResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c29:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowInformationRequestResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c29:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowAccountActivityDetailsReport">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c52:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowAccountActivityTotalsReport">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c52:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowAccountBalanceReport">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c52:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AccountDebitCreditNotification">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c54:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowRequestForPaymentCancellationRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c55:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowReturnRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bah:AppHdr" />
+                <xs:element ref="c56:Document" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FedNowOutgoingMessageSignatureManagement">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice>
+                    <xs:element ref="ke:FedNowPublicKeyResponses" />
+                    <xs:element ref="ke:FedNowCustomerMessageSignatureKeyOperationResponse" />
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

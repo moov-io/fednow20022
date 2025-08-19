@@ -1,0 +1,92 @@
+{
+  "app_hdr": {
+    "from_member_id": "011104238",
+    "to_member_id": "021150706",
+    "created_date_time": "2023-06-04T13:55:26-04:00",
+    "business_message_identifier": "20230604011104238Sc01RTStep1MsgId",
+    "message_definition_identifier": "camt.056.001.08",
+    "market_practice": {
+      "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+      "identification_code": "frb.fednow.01"
+    }
+  },
+  "data": {
+    "message_id": "20230721021040078Sc03RTStep4MsgId",
+    "created_date_time": "2023-07-21T09:01:36-06:00",
+    "number_of_transactions": "1",
+    "settlement_info": {
+      "method_code": "CLRG",
+      "service_code": "FDN"
+    },
+    "original_group_info": {
+      "original_message_identification": "20230620011104238Sc03RTStep1MsgId",
+      "original_message_name_identification": "pacs.008.001.08",
+      "original_creation_date_time": "2023-06-20T08:08:14-06:00"
+    },
+    "payment_identification": {
+      "instruction_identification": "Variation03InstrId001",
+      "end_to_end_identification": "Variation3EtoEId001",
+      "uetr": "8a562c67-ca16-48ba-b074-65581be6f011"
+    },
+    "original_interbank_settlement_amount": {
+      "currency": "USD",
+      "amount": 45021.75
+    },
+    "original_interbank_settlement_date": "2023-06-20",
+    "returned_interbank_settlement_amount": {
+      "currency": "USD",
+      "amount": 9004.35
+    },
+    "interbank_settlement_date_time": "2023-07-21",
+    "charge_bearer": "SLEV",
+    "agents": {
+      "instructing_agent": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "021040078"
+      },
+      "instructed_agent": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "011104238"
+      }
+    },
+    "debtor": {
+      "party_name": "Corporation B",
+      "party_address": {
+        "post_box": "6001",
+        "postal_code": "60197",
+        "town_name": "Carol Stream",
+        "subdivision": "IL",
+        "country": "US"
+      },
+      "party_account_id": "56478374687",
+      "party_agent": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "021040078",
+        "bank_name": "BankA"
+      }
+    },
+    "creditor": {
+      "party_name": "Corporation C",
+      "party_address": {
+        "street_name": "40th street",
+        "building_number": "1180",
+        "postal_code": "11218",
+        "town_name": "Brooklyn",
+        "subdivision": "NY",
+        "country": "US"
+      },
+      "party_account_id": "0031234567",
+      "party_agent": {
+        "payment_sys_code": "USABA",
+        "payment_sys_member_id": "011104238"
+      }
+    },
+    "return_reason_information": {
+      "code": "FOCR",
+      "info": "As per agreed resolution. Ref: ReturnRequestSc3Step2"
+    },
+    "payment_type": {
+      "local_instrument_code": "FDNA"
+    }
+  }
+}

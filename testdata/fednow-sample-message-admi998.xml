@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    Legal Notices
+
+The Federal Reserve Banks are providing this FedNow Service sample message for
+illustrative purposes only. Please refer to the FedNow Service Technical
+Specifications and FedNow Service ISO 20022 Implementation Guide for additional
+details on how to apply the sample message. The Reserve Banks provide no
+warranties, are not responsible for its accuracy or use within your
+environment, and disclaim all liability in connection with your use of this
+sample message. Use of the information in your applications is subject to your
+internal quality and security control processes.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+
+<FedNowOutgoing xmlns="urn:fednow:outgoing:v001">
+  <FedNowOutgoingMessage>
+    <FedNowParticipantFile>
+      <AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+        <Fr>
+          <FIId>
+            <FinInstnId>
+              <ClrSysMmbId>
+                <MmbId>021150706</MmbId>
+              </ClrSysMmbId>
+            </FinInstnId>
+          </FIId>
+        </Fr>
+        <To>
+          <FIId>
+            <FinInstnId>
+              <ClrSysMmbId>
+                <MmbId>111111111</MmbId>
+              </ClrSysMmbId>
+            </FinInstnId>
+          </FIId>
+        </To>
+        <BizMsgIdr>20230818FedNowReferencePartFile</BizMsgIdr>
+        <MsgDefIdr>admi.998.001.02</MsgDefIdr>
+        <MktPrctc>
+          <Regy>www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service</Regy>
+          <Id>frb.fednow.01</Id>
+        </MktPrctc>
+        <CreDt>2023-08-18T19:00:15-04:00</CreDt>
+      </AppHdr>
+      <Document xmlns="urn:swift:xsd:admi.998.001.02">
+        <AdmstnPrtryMsg>
+          <PrtryData>
+            <Tp>FPFL</Tp>
+            <Data>
+              <Document xmlns="urn:fed:xsd:admi.998.001.02">
+                <admi998SuplDataV01>
+                  <PtcptFile>
+                    <BizDay>2023-08-18</BizDay>
+                    <PtcptPrfl>
+                      <Id>222222222</Id>
+                      <Nm>Bank A</Nm>
+                      <Svcs>CTRO</Svcs>
+                      <Svcs>CTSR</Svcs>
+                      <Svcs>RFPR</Svcs>
+                    </PtcptPrfl>
+                    <PtcptPrfl>
+                      <Id>333333333</Id>
+                      <Nm>Bank B</Nm>
+                      <Svcs>CTRO</Svcs>
+                      <Svcs>CTSR</Svcs>
+                      <Svcs>RFPR</Svcs>
+                    </PtcptPrfl>
+                    <PtcptPrfl>
+                      <Id>444444444</Id>
+                      <Nm>Bank C</Nm>
+                      <Svcs>CTRO</Svcs>
+                      <Svcs>CTSR</Svcs>
+                      <Svcs>RFPR</Svcs>
+                    </PtcptPrfl>
+                    <PtcptPrfl>
+                      <Id>555555555</Id>
+                      <Nm>Bank D</Nm>
+                      <Svcs>CTRO</Svcs>
+                      <Svcs>CTSR</Svcs>
+                      <Svcs>RFPR</Svcs>
+                    </PtcptPrfl>
+                    <PtcptPrfl>
+                      <Id>666666666</Id>
+                      <Nm>Faster Payment System FPS</Nm>
+                      <Svcs>CTRO</Svcs>
+                      <Svcs>CTSR</Svcs>
+                    </PtcptPrfl>
+                    <PtcptPrfl>
+                      <Id>777777777</Id>
+                      <Nm>Bank E</Nm>
+                      <Svcs>CTRO</Svcs>
+                      <Svcs>CTSR</Svcs>
+                      <Svcs>RFPR</Svcs>
+                    </PtcptPrfl>
+                    <PtcptPrfl>
+                      <Id>888888888</Id>
+                      <Nm>Bank F</Nm>
+                      <Svcs>CTRO</Svcs>
+                      <Svcs>CTSR</Svcs>
+                      <Svcs>RFPR</Svcs>
+                    </PtcptPrfl>
+                    <PtcptPrfl>
+                      <Id>999999999</Id>
+                      <Nm>Bank G</Nm>
+                      <Svcs>CTRO</Svcs>
+                      <Svcs>CTSR</Svcs>
+                      <Svcs>RFPR</Svcs>
+                    </PtcptPrfl>
+                  </PtcptFile>
+                </admi998SuplDataV01>
+              </Document>
+            </Data>
+          </PrtryData>
+        </AdmstnPrtryMsg>
+      </Document>
+    </FedNowParticipantFile>
+  </FedNowOutgoingMessage>
+</FedNowOutgoing>

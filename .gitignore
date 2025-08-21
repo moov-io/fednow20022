@@ -30,3 +30,4 @@ coverage.txt
 /lint-project.sh
 gitleaks.tar.gz
 /bin/
+/pkg/fednow/models/**/generated/

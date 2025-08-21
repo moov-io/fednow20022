@@ -1,0 +1,212 @@
+{
+  "message_id": "ABAR",
+  "created_date_time": "2023-09-21T18:30:45-04:00",
+  "pagenation": {
+    "page_number": "1",
+    "last_page_indicator": true
+  },
+  "original_business_query": {
+    "message_identification": "20230921231981435ABARMMrequest1",
+    "message_name_identification": "camt.060.001.05",
+    "creation_date_time": "2023-09-21T13:29:32-04:00"
+  },
+  "report_id": "ABMS",
+  "report_create_date_time": "2023-09-21T00:00:00-04:00",
+  "account_other_id": "231981435",
+  "account_type": "M",
+  "related_account_other_id": "231981435",
+  "balances": [
+    {
+      "balance_type_id": "OBFL",
+      "amount": {
+        "currency": "USD",
+        "amount": 8000000
+      },
+      "credit_debit_indicator": "CRDT",
+      "date_time": "2023-09-21T18:30:45-04:00"
+    },
+    {
+      "balance_type_id": "DLOD",
+      "amount": {
+        "currency": "USD",
+        "amount": 8576743.25
+      },
+      "credit_debit_indicator": "CRDT",
+      "date_time": "2023-09-21T18:30:45-04:00"
+    },
+    {
+      "balance_type_id": "ABAL",
+      "credit_lines": [
+        {
+          "included": true,
+          "type": "NCAP",
+          "amount": {
+            "currency": "USD",
+            "amount": 100
+          },
+          "date_time": "2023-09-21T18:30:45-04:00"
+        },
+        {
+          "included": true,
+          "type": "CCAP",
+          "amount": {
+            "currency": "USD",
+            "amount": 100
+          },
+          "date_time": "2023-09-21T18:30:45-04:00"
+        },
+        {
+          "included": true,
+          "type": "COLL",
+          "amount": {
+            "currency": "USD",
+            "amount": 100000
+          },
+          "date_time": "2023-09-21T18:30:45-04:00"
+        },
+        {
+          "included": true,
+          "type": "CLOD",
+          "amount": {
+            "currency": "USD",
+            "amount": 1500000
+          },
+          "date_time": "2023-09-21T18:30:45-04:00"
+        },
+        {
+          "included": true,
+          "type": "ULOD",
+          "amount": {
+            "currency": "USD"
+          },
+          "date_time": "2023-09-21T18:30:45-04:00"
+        }
+      ],
+      "amount": {
+        "currency": "USD",
+        "amount": 8571743.25
+      },
+      "credit_debit_indicator": "CRDT",
+      "date_time": "2023-09-21T18:30:45-04:00"
+    },
+    {
+      "balance_type_id": "AVLD",
+      "amount": {
+        "currency": "USD",
+        "amount": 8576943.25
+      },
+      "credit_debit_indicator": "CRDT",
+      "date_time": "2023-09-21T18:30:45-04:00"
+    }
+  ],
+  "transactions_summary": [
+    {
+      "total_net_entry_amount": 10000,
+      "credit_debit_indicator": "DBIT",
+      "credit_entries": {
+        "number_of_entries": "100",
+        "sum": 50000
+      },
+      "debit_entries": {
+        "number_of_entries": "200",
+        "sum": 60000
+      },
+      "bank_transaction_code": "FDWF",
+      "date": "2023-09-21T18:30:45-04:00"
+    },
+    {
+      "total_net_entry_amount": 10000,
+      "credit_debit_indicator": "DBIT",
+      "credit_entries": {
+        "number_of_entries": "300",
+        "sum": 50000
+      },
+      "debit_entries": {
+        "number_of_entries": "100",
+        "sum": 60000
+      },
+      "bank_transaction_code": "NSSE",
+      "date": "2023-09-21T18:30:45-04:00"
+    },
+    {
+      "total_net_entry_amount": 10000,
+      "credit_debit_indicator": "DBIT",
+      "credit_entries": {
+        "number_of_entries": "100",
+        "sum": 50000
+      },
+      "debit_entries": {
+        "number_of_entries": "200",
+        "sum": 60000
+      },
+      "bank_transaction_code": "FDWS",
+      "date": "2023-09-21T18:30:45-04:00"
+    },
+    {
+      "total_net_entry_amount": 491743.25,
+      "credit_debit_indicator": "CRDT",
+      "credit_entries": {
+        "number_of_entries": "1524",
+        "sum": 548695.35
+      },
+      "debit_entries": {
+        "number_of_entries": "1000",
+        "sum": 56952.1
+      },
+      "bank_transaction_code": "FDNF",
+      "date": "2023-09-21T18:30:45-04:00"
+    },
+    {
+      "total_net_entry_amount": 10000,
+      "credit_debit_indicator": "DBIT",
+      "credit_entries": {
+        "number_of_entries": "75",
+        "sum": 50000
+      },
+      "debit_entries": {
+        "number_of_entries": "150",
+        "sum": 60000
+      },
+      "bank_transaction_code": "FDAP",
+      "date": "2023-09-21T18:30:45-04:00"
+    },
+    {
+      "total_net_entry_amount": 12500,
+      "credit_debit_indicator": "CRDT",
+      "credit_entries": {
+        "sum": 130000
+      },
+      "debit_entries": {
+        "sum": 5000
+      },
+      "bank_transaction_code": "AVOT",
+      "date": "2023-09-21T18:30:45-04:00"
+    },
+    {
+      "total_net_entry_amount": 5000,
+      "credit_debit_indicator": "DBIT",
+      "credit_entries": {
+        "sum": 1000
+      },
+      "debit_entries": {
+        "sum": 6000
+      },
+      "bank_transaction_code": "UVOT",
+      "date": "2023-09-21T18:30:45-04:00"
+    },
+    {
+      "total_net_entry_amount": 2000,
+      "credit_debit_indicator": "CRDT",
+      "credit_entries": {
+        "number_of_entries": "1",
+        "sum": 1000
+      },
+      "debit_entries": {
+        "number_of_entries": "1",
+        "sum": 1000
+      },
+      "bank_transaction_code": "MEMO",
+      "date": "2023-09-21T18:30:45-04:00"
+    }
+  ]
+}

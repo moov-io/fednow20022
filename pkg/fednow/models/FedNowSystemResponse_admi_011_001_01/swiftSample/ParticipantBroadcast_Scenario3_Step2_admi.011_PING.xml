@@ -1,0 +1,9 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.011.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:admi.011.001.01 FedNowSystemResponse_admi.011.001.01.xsd">
+	<SysEvtAck>
+		<MsgId>20230805021150706Sc3Step3MsgId</MsgId>
+		<AckDtls>
+			<EvtCd>PING</EvtCd>
+			<EvtTm>2023-08-05T08:17:26-05:00</EvtTm>
+		</AckDtls>
+	</SysEvtAck>
+</Document>

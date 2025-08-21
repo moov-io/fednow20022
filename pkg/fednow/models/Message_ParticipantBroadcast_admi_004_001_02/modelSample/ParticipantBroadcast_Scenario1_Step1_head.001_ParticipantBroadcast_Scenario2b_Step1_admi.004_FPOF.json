@@ -1,0 +1,18 @@
+{
+  "app_hdr": {
+    "from_member_id": "231981435",
+    "to_member_id": "021150706",
+    "created_date_time": "2023-08-01T03:00:00-04:00",
+    "business_message_identifier": "20230801231981435PBSc1Step1MsgId",
+    "message_definition_identifier": "admi.004.001.02",
+    "market_practice": {
+      "registry_code": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service",
+      "identification_code": "frb.fednow.01"
+    }
+  },
+  "data": {
+    "EventCode": "FPOF",
+    "EventParameter": "114000116",
+    "EventTime": "2023-08-05T08:14:12-05:00"
+  }
+}

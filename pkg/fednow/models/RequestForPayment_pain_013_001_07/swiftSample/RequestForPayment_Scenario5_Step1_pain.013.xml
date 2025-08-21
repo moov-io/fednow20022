@@ -1,0 +1,114 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.013.001.07" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.013.001.07 RequestForPayment_pain_013_001_07.xsd">
+	<CdtrPmtActvtnReq>
+		<GrpHdr>
+			<MsgId>20230725011104238RFPSc05Step1MsgId</MsgId>
+			<CreDtTm>2023-07-25T15:42:14-05:00</CreDtTm>
+			<NbOfTxs>1</NbOfTxs>
+			<InitgPty>
+				<Nm>Corporation A</Nm>
+			</InitgPty>
+		</GrpHdr>
+		<PmtInf>
+			<PmtInfId>RFPSc05Step1PaymentInfoId001</PmtInfId>
+			<PmtMtd>TRF</PmtMtd>
+			<ReqdExctnDt>
+				<Dt>2023-08-25</Dt>
+			</ReqdExctnDt>
+			<XpryDt>
+				<Dt>2023-09-25</Dt>
+			</XpryDt>
+			<Dbtr>
+				<Nm>Corporation C</Nm>
+				<PstlAdr>
+					<StrtNm>Desert View Street</StrtNm>
+					<BldgNb>1</BldgNb>
+					<Flr>33</Flr>
+					<PstCd>92262</PstCd>
+					<TwnNm>Palm Springs</TwnNm>
+					<CtrySubDvsn>CA</CtrySubDvsn>
+					<Ctry>US</Ctry>
+				</PstlAdr>
+			</Dbtr>
+			<DbtrAcct>
+				<Id>
+					<Othr>
+						<Id>567876543</Id>
+					</Othr>
+				</Id>
+			</DbtrAcct>
+			<DbtrAgt>
+				<FinInstnId>
+					<ClrSysMmbId>
+						<ClrSysId>
+							<Cd>USABA</Cd>
+						</ClrSysId>
+						<MmbId>021307481</MmbId>
+					</ClrSysMmbId>
+				</FinInstnId>
+			</DbtrAgt>
+			<CdtTrfTx>
+				<PmtId>
+					<EndToEndId>RFPSc05Step1EndToEndId001</EndToEndId>
+				</PmtId>
+				<PmtTpInf>
+					<LclInstrm>
+						<Prtry>FDNA</Prtry>
+					</LclInstrm>
+					<CtgyPurp>
+						<Prtry>BIZZ</Prtry>
+					</CtgyPurp>
+				</PmtTpInf>
+				<Amt>
+					<InstdAmt Ccy="USD">91780</InstdAmt>
+				</Amt>
+				<ChrgBr>SLEV</ChrgBr>
+				<CdtrAgt>
+					<FinInstnId>
+						<ClrSysMmbId>
+							<ClrSysId>
+								<Cd>USABA</Cd>
+							</ClrSysId>
+							<MmbId>011104238</MmbId>
+						</ClrSysMmbId>
+						<Nm>BANK A</Nm>
+					</FinInstnId>
+				</CdtrAgt>
+				<Cdtr>
+					<Nm>Corporation A</Nm>
+					<PstlAdr>
+						<StrtNm>Avenue of the Fountains</StrtNm>
+						<BldgNb>167565</BldgNb>
+						<Room>Suite D110</Room>
+						<PstCd>85268</PstCd>
+						<TwnNm>Fountain HIlls</TwnNm>
+						<CtrySubDvsn>AZ</CtrySubDvsn>
+						<Ctry>US</Ctry>
+					</PstlAdr>
+				</Cdtr>
+				<CdtrAcct>
+					<Id>
+						<Othr>
+							<Id>5647772655</Id>
+						</Othr>
+					</Id>
+				</CdtrAcct>
+				<Purp>
+					<Cd>SUPP</Cd>
+				</Purp>
+				<RmtInf>
+					<Strd>
+						<RfrdDocInf>
+							<Tp>
+								<CdOrPrtry>
+									<Cd>CINV</Cd>
+								</CdOrPrtry>
+							</Tp>
+							<Nb>508-9934</Nb>
+							<RltdDt>2023-07-25</RltdDt>
+						</RfrdDocInf>
+					</Strd>
+				</RmtInf>
+			</CdtTrfTx>
+		</PmtInf>
+	</CdtrPmtActvtnReq>
+</Document>

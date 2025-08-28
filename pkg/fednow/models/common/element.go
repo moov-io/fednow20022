@@ -347,7 +347,7 @@ func setValue(v reflect.Value, value any) error {
 		if !ok {
 			return fmt.Errorf("failed to convert value to fednow.ISODate")
 		}
-		yearStr := fmt.Sprintf("%d", isoDate.Year)
+		yearStr := fmt.Sprintf("%d", time.Time(isoDate).Year())
 		convertedVal := reflect.ValueOf(yearStr).Convert(v.Type())
 		v.Set(convertedVal)
 		if hasValidateMethod(v) {
@@ -378,7 +378,14 @@ func setValue(v reflect.Value, value any) error {
 		}
 
 		var isoDate fednow.ISODate
-		isoDate.Year = year // Assign the converted integer value
+
+		iso := time.Time(isoDate)
+		newDate := time.Date(year, iso.Month(), iso.Day(),
+			iso.Hour(), iso.Minute(), iso.Second(), iso.Nanosecond(),
+			iso.Location(),
+		)
+
+		isoDate = fednow.ISODate(newDate) // <-- convert time.Time -> ISODate
 
 		v.Set(reflect.ValueOf(isoDate))
 	} else if val.Kind() == reflect.String {
@@ -442,7 +449,7 @@ func hasValidateMethod(v reflect.Value) bool {
 		return true
 	}
 
-	return false
+	return true
 }
 func RemakeMapping(from any, modelMap map[string]any, toModel bool) map[string]string {
 	newMap := make(map[string]string)

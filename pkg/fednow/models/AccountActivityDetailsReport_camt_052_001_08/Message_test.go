@@ -37,7 +37,7 @@ func TestMappingTable(t *testing.T) {
 			require.NoError(t, err, "failed to convert new document to XML for %s", path)
 			/*Create New Generated XML*/
 			fileName := filepath.Base(path)
-			err = common.WriteXMLToGenerate("Result"+fileName+".xml", xml_newDocument)
+			err = common.WriteXMLToGenerate("Result"+fileName, xml_newDocument)
 			require.NoError(t, err, "failed to write new XML to file for %s", path)
 			/*Compare XMLs*/
 			isEqual := common.CompareXMLs(xml_document, xml_newDocument)

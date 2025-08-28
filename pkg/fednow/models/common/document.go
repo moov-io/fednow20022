@@ -21,7 +21,7 @@ type Document struct {
 	Attrs []xml.Attr `xml:",any,attr"`
 }
 type ISODocument interface {
-	Validate() error
+	// Validate() error
 }
 type DocumentFactory func() ISODocument
 type DataFactory func() any

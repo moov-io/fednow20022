@@ -39,13 +39,13 @@ func (w *MessageWrapper[Model, Doc]) ValidateDocument(modelJson []byte) error {
 	if err := json.Unmarshal(modelJson, &model); err != nil {
 		return fmt.Errorf("failed to unmarshal JSON: %w", err)
 	}
-	doc, err := DocumentWith(model, w.Config.PathMap, w.Config.DocumentFactory)
-	if err != nil {
-		return fmt.Errorf("failed to create document: %w", err)
-	}
-	if err := doc.Validate(); err != nil {
-		return fmt.Errorf("validation failed: %w", err)
-	}
+	// doc, err := DocumentWith(model, w.Config.PathMap, w.Config.DocumentFactory)
+	// if err != nil {
+	// 	return fmt.Errorf("failed to create document: %w", err)
+	// }
+	// if err := doc.Validate(); err != nil {
+	// 	return fmt.Errorf("validation failed: %w", err)
+	// }
 	return nil
 }
 

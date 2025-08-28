@@ -11,7 +11,7 @@ import (
 	"encoding/xml"
 	"time"
 
-	"github.com/moov-io/fednow20022/gen/InformationRequest_camt_026_001_07"
+	"github.com/moov-io/fednow20022/gen/camt_026_001_07"
 	"github.com/moov-io/fednow20022/pkg/fednow/models/common"
 )
 
@@ -37,7 +37,7 @@ var DataFactory = func() any {
 	return &MessageModel{}
 }
 var DocumentFactory = func() common.ISODocument {
-	return &InformationRequest_camt_026_001_07.Document{
+	return &camt_026_001_07.Document{
 		XMLName: xml.Name{Space: XLNS, Local: "Document"}}
 }
 var RequireFileds = []string{

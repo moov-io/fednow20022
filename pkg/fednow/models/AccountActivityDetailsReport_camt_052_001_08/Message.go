@@ -12,7 +12,7 @@ import (
 	"encoding/xml"
 	"time"
 
-	"github.com/moov-io/fednow20022/gen/AccountActivityDetailsReport_camt_052_001_08"
+	"github.com/moov-io/fednow20022/gen/camt_052_001_08"
 	"github.com/moov-io/fednow20022/pkg/fednow/models/common"
 )
 
@@ -38,7 +38,7 @@ var DataFactory = func() any {
 	return &MessageModel{}
 }
 var DocumentFactory = func() common.ISODocument {
-	return &AccountActivityDetailsReport_camt_052_001_08.Document{
+	return &camt_052_001_08.Document{
 		XMLName: xml.Name{Space: XLNS, Local: "Document"}}
 }
 
@@ -47,50 +47,50 @@ var RequireFileds = []string{
 }
 
 var PathMap = map[string]any{
-	"BkToCstmrAcctRpt.GrpHdr.MsgId":                             "MessageId",
-	"BkToCstmrAcctRpt.GrpHdr.CreDtTm":                           "CreatedDateTime",
-	"BkToCstmrAcctRpt.GrpHdr.MsgPgntn.PgNb":                     "Pagenation.PageNumber",
-	"BkToCstmrAcctRpt.GrpHdr.MsgPgntn.LastPgInd":                "Pagenation.LastPageIndicator",
-	"BkToCstmrAcctRpt.GrpHdr.OrgnlBizQry.MsgId":                 "OriginalBusinessQuery.MessageIdentification",
-	"BkToCstmrAcctRpt.GrpHdr.OrgnlBizQry.MsgNmId":               "OriginalBusinessQuery.MessageNameIdentification",
-	"BkToCstmrAcctRpt.GrpHdr.OrgnlBizQry.CreDtTm":               "OriginalBusinessQuery.CreationDateTime",
-	"BkToCstmrAcctRpt.Rpt[0].Id":                                "ReportId",
-	"BkToCstmrAcctRpt.Rpt[0].CreDtTm":                           "ReportCreateDateTime",
-	"BkToCstmrAcctRpt.Rpt[0].Acct.Id.Othr.Id":                   "AccountOtherId",
-	"BkToCstmrAcctRpt.Rpt[0].RltdAcct.Id.Othr.Id":               "RelateAccountOtherId",
-	"BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlNtries.NbOfNtries":    "TotalEntries",
-	"BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlCdtNtries.NbOfNtries": "TotalCreditEntries.NumberOfEntries",
-	"BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlCdtNtries.Sum":        "TotalCreditEntries.Sum",
-	"BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlDbtNtries.NbOfNtries": "TotalDebitEntries.NumberOfEntries",
-	"BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlDbtNtries.Sum":        "TotalDebitEntries.Sum",
-	"BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlNtriesPerBkTxCd : TotalEntriesPerBankTransactionCode": map[string]string{
-		"NbOfNtries":      "NumberOfEntries",
-		"BkTxCd.Prtry.Cd": "BankTransactionCode",
-	},
-	"BkToCstmrAcctRpt.Rpt[0].Ntry : EntryDetails": map[string]any{
-		"Amt.Value":                       "Amount.Amount",
-		"Amt.Ccy":                         "Amount.Currency",
-		"CdtDbtInd":                       "CreditDebitIndicator",
-		"Sts.Cd":                          "Status",
-		"BkTxCd.Prtry.Cd":                 "BankTransactionCode",
-		"AddtlInfInd.MsgNmId":             "MessageNameId",
-		"NtryDtls.TxDtls.Refs.MsgId":      "EntryDetails.MessageId",
-		"NtryDtls.TxDtls.Refs.InstrId":    "EntryDetails.InstructionId",
-		"NtryDtls.TxDtls.Refs.EndToEndId": "EntryDetails.EndToEndId",
-		"NtryDtls.TxDtls.Refs.UETR":       "EntryDetails.UniqueTransactionReference",
-		"NtryDtls.TxDtls.Refs.TxId":       "EntryDetails.TransactionIdentification",
-		"NtryDtls.TxDtls.RltdAgts.InstgAgt.FinInstnId.ClrSysMmbId.ClrSysId.Cd": "EntryDetails.InstructingAgent.PaymentSysCode",
-		"NtryDtls.TxDtls.RltdAgts.InstgAgt.FinInstnId.ClrSysMmbId.MmbId":       "EntryDetails.InstructingAgent.PaymentSysMemberId",
-		"NtryDtls.TxDtls.RltdAgts.InstdAgt.FinInstnId.ClrSysMmbId.ClrSysId.Cd": "EntryDetails.InstructedAgent.PaymentSysCode",
-		"NtryDtls.TxDtls.RltdAgts.InstdAgt.FinInstnId.ClrSysMmbId.MmbId":       "EntryDetails.InstructedAgent.PaymentSysMemberId",
-		"NtryDtls.TxDtls.RltdAgts.Prtry[0].Tp":                                 "EntryDetails.ProprietaryAgent.Type",
-		"NtryDtls.TxDtls.RltdAgts.Prtry[0].Agt.FinInstnId.ClrSysMmbId.MmbId":   "EntryDetails.ProprietaryAgent.PaymentSysMemberId",
-		"NtryDtls.TxDtls.LclInstrm.Prtry":                                      "EntryDetails.LocalInstrumentChoice",
-		"NtryDtls.TxDtls.AddtlTxInf":                                           "EntryDetails.AdditionalTransactionInformation",
-		"NtryDtls.TxDtls.RltdDts.AccptncDtTm":                                  "EntryDetails.AcceptanceDateTime",
-		"NtryDtls.TxDtls.RltdDts.Prtry : EntryDetails.TypeAndDateTimes": map[string]string{
-			"Tp":      "RelatedDatesProprietary",
-			"Dt.DtTm": "RelatedDateTime",
-		},
-	},
+	// "BkToCstmrAcctRpt.GrpHdr.MsgId":                             "MessageId",
+	"BkToCstmrAcctRpt.GrpHdr.CreDtTm": "CreatedDateTime",
+	// "BkToCstmrAcctRpt.GrpHdr.MsgPgntn.PgNb":                     "Pagenation.PageNumber",
+	// "BkToCstmrAcctRpt.GrpHdr.MsgPgntn.LastPgInd":                "Pagenation.LastPageIndicator",
+	// "BkToCstmrAcctRpt.GrpHdr.OrgnlBizQry.MsgId":                 "OriginalBusinessQuery.MessageIdentification",
+	// "BkToCstmrAcctRpt.GrpHdr.OrgnlBizQry.MsgNmId":               "OriginalBusinessQuery.MessageNameIdentification",
+	// "BkToCstmrAcctRpt.GrpHdr.OrgnlBizQry.CreDtTm":               "OriginalBusinessQuery.CreationDateTime",
+	// "BkToCstmrAcctRpt.Rpt[0].Id":                                "ReportId",
+	// "BkToCstmrAcctRpt.Rpt[0].CreDtTm":                           "ReportCreateDateTime",
+	// "BkToCstmrAcctRpt.Rpt[0].Acct.Id.Othr.Id":                   "AccountOtherId",
+	// "BkToCstmrAcctRpt.Rpt[0].RltdAcct.Id.Othr.Id":               "RelateAccountOtherId",
+	// "BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlNtries.NbOfNtries":    "TotalEntries",
+	// "BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlCdtNtries.NbOfNtries": "TotalCreditEntries.NumberOfEntries",
+	// "BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlCdtNtries.Sum":        "TotalCreditEntries.Sum",
+	// "BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlDbtNtries.NbOfNtries": "TotalDebitEntries.NumberOfEntries",
+	// "BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlDbtNtries.Sum":        "TotalDebitEntries.Sum",
+	// "BkToCstmrAcctRpt.Rpt[0].TxsSummry.TtlNtriesPerBkTxCd : TotalEntriesPerBankTransactionCode": map[string]string{
+	// 	"NbOfNtries":      "NumberOfEntries",
+	// 	"BkTxCd.Prtry.Cd": "BankTransactionCode",
+	// },
+	// "BkToCstmrAcctRpt.Rpt[0].Ntry : EntryDetails": map[string]any{
+	// 	"Amt.Value":                       "Amount.Amount",
+	// 	"Amt.Ccy":                         "Amount.Currency",
+	// 	"CdtDbtInd":                       "CreditDebitIndicator",
+	// 	"Sts.Cd":                          "Status",
+	// 	"BkTxCd.Prtry.Cd":                 "BankTransactionCode",
+	// 	"AddtlInfInd.MsgNmId":             "MessageNameId",
+	// 	"NtryDtls.TxDtls.Refs.MsgId":      "EntryDetails.MessageId",
+	// 	"NtryDtls.TxDtls.Refs.InstrId":    "EntryDetails.InstructionId",
+	// 	"NtryDtls.TxDtls.Refs.EndToEndId": "EntryDetails.EndToEndId",
+	// 	"NtryDtls.TxDtls.Refs.UETR":       "EntryDetails.UniqueTransactionReference",
+	// 	"NtryDtls.TxDtls.Refs.TxId":       "EntryDetails.TransactionIdentification",
+	// 	"NtryDtls.TxDtls.RltdAgts.InstgAgt.FinInstnId.ClrSysMmbId.ClrSysId.Cd": "EntryDetails.InstructingAgent.PaymentSysCode",
+	// 	"NtryDtls.TxDtls.RltdAgts.InstgAgt.FinInstnId.ClrSysMmbId.MmbId":       "EntryDetails.InstructingAgent.PaymentSysMemberId",
+	// 	"NtryDtls.TxDtls.RltdAgts.InstdAgt.FinInstnId.ClrSysMmbId.ClrSysId.Cd": "EntryDetails.InstructedAgent.PaymentSysCode",
+	// 	"NtryDtls.TxDtls.RltdAgts.InstdAgt.FinInstnId.ClrSysMmbId.MmbId":       "EntryDetails.InstructedAgent.PaymentSysMemberId",
+	// 	"NtryDtls.TxDtls.RltdAgts.Prtry[0].Tp":                                 "EntryDetails.ProprietaryAgent.Type",
+	// 	"NtryDtls.TxDtls.RltdAgts.Prtry[0].Agt.FinInstnId.ClrSysMmbId.MmbId":   "EntryDetails.ProprietaryAgent.PaymentSysMemberId",
+	// 	"NtryDtls.TxDtls.LclInstrm.Prtry":                                      "EntryDetails.LocalInstrumentChoice",
+	// 	"NtryDtls.TxDtls.AddtlTxInf":                                           "EntryDetails.AdditionalTransactionInformation",
+	// 	"NtryDtls.TxDtls.RltdDts.AccptncDtTm":                                  "EntryDetails.AcceptanceDateTime",
+	// 	"NtryDtls.TxDtls.RltdDts.Prtry : EntryDetails.TypeAndDateTimes": map[string]string{
+	// 		"Tp":      "RelatedDatesProprietary",
+	// 		"Dt.DtTm": "RelatedDateTime",
+	// 	},
+	// },
 }

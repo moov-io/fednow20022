@@ -11,7 +11,7 @@ import (
 	"encoding/xml"
 	"time"
 
-	"github.com/moov-io/fednow20022/gen/RequestForPaymentCancellationRequestResponse_camt_029_001_09"
+	"github.com/moov-io/fednow20022/gen/camt_029_001_09"
 	"github.com/moov-io/fednow20022/pkg/fednow/models/common"
 )
 
@@ -38,7 +38,7 @@ var DataFactory = func() any {
 	return &MessageModel{}
 }
 var DocumentFactory = func() common.ISODocument {
-	return &RequestForPaymentCancellationRequestResponse_camt_029_001_09.Document{
+	return &camt_029_001_09.Document{
 		XMLName: xml.Name{Space: XLNS, Local: "Document"}}
 }
 var RequireFileds = []string{

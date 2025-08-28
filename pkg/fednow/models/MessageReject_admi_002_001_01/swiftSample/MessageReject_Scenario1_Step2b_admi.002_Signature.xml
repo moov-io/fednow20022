@@ -1,0 +1,11 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.002.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:admi.002.001.01 MessageReject_admi.002.001.01.xsd">
+	<admi.002.001.01>
+		<RltdRef>
+			<Ref>NOTAVAILABLE</Ref>
+		</RltdRef>
+		<Rsn>
+			<RjctgPtyRsn>T529</RjctgPtyRsn>
+			<RjctnDtTm>2023-07-26T11:35:24-04:00</RjctnDtTm>
+		</Rsn>
+	</admi.002.001.01>
+</Document>

@@ -1,0 +1,10 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.011.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:admi.011.001.01 FedNowSystemResponse_admi.011.001.01.xsd">
+	<SysEvtAck>
+		<MsgId>FedNowServiceApplicationRef</MsgId>
+		<AckDtls>
+			<EvtCd>FPOF</EvtCd>
+			<EvtParam>231981435</EvtParam>
+			<EvtTm>2023-08-01T03:00:01-04:00</EvtTm>
+		</AckDtls>
+	</SysEvtAck>
+</Document>

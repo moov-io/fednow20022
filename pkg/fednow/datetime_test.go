@@ -2,6 +2,7 @@ package fednow_test
 
 import (
 	"encoding/xml"
+	"fmt"
 	"testing"
 	"time"
 
@@ -11,11 +12,14 @@ import (
 )
 
 func TestISODateFormat(t *testing.T) {
-	when := time.Date(2019, time.March, 21, 0, 0, 0, 0, time.UTC)
+	when := time.Date(2019, time.March, 21, 0, 0, 0, 123, time.UTC)
+	fmt.Println(when.Format(time.RFC3339))
 
 	out, err := fednow.ISODate(when).MarshalText()
 	require.NoError(t, err)
 	require.Equal(t, "2019-03-21", string(out))
+
+	fmt.Println(out)
 
 	bs, err := xml.Marshal(fednow.ISODate(when))
 	require.NoError(t, err)
@@ -26,22 +30,24 @@ func TestISODateFormat(t *testing.T) {
 	require.NoError(t, err)
 }
 
-// func TestISODateTimeFormat(t *testing.T) {
-// 	loc, _ := time.LoadLocation("America/New_York")
-// 	when := time.Date(2019, time.March, 21, 10, 36, 19, 0, loc)
-//
-// 	require.Equal(t, fednow.ISODateTime(when), fednow.UnmarshalISODateTime("2019-03-21T10:36:19"))
-//
-// 	out, err := fednow.ISODateTime(when).MarshalText()
-// 	require.NoError(t, err)
-// 	require.Equal(t, "2019-03-21T10:36:19", string(out))
-//
-// 	out, err = xml.Marshal(fednow.ISODateTime(when))
-// 	require.NoError(t, err)
-// 	require.Equal(t, "<ISODateTime>2019-03-21T10:36:19</ISODateTime>", string(out))
-//
-// 	var read fednow.ISODateTime
-// 	err = xml.Unmarshal([]byte("<ISODateTime>2019-03-21T10:36:19</ISODateTime>"), &read)
-// 	require.NoError(t, err)
-// 	require.True(t, when.Equal(time.Time(read)))
-// }
+func TestISODateTimeFormat(t *testing.T) {
+	loc, _ := time.LoadLocation("America/New_York")
+	when := time.Date(2019, time.March, 21, 10, 36, 19, 0, loc)
+
+	out, err := fednow.ISODateTime(when).MarshalText()
+	require.NoError(t, err)
+	require.Equal(t, "2019-03-21T10:36:19-0400", string(out))
+
+	bs, err := xml.Marshal(fednow.ISODateTime(when))
+	require.NoError(t, err)
+	require.Equal(t, "<ISODateTime>2019-03-21T10:36:19-0400</ISODateTime>", string(bs))
+
+	var read fednow.ISODateTime
+	err = xml.Unmarshal([]byte("<ISODateTime>2019-03-21T10:36:19-0400</ISODateTime>"), &read)
+	require.NoError(t, err)
+
+	fmt.Println(when.Format(time.RFC3339))
+	fmt.Println(time.Time(read).Format(time.RFC3339))
+
+	require.True(t, when.Equal(time.Time(read)))
+}

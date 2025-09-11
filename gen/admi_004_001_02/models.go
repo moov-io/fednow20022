@@ -4,7 +4,8 @@ package admi_004_001_02
 
 import (
 	"encoding/xml"
-	"time"
+
+	"github.com/moov-io/fednow20022/pkg/fednow"
 )
 
 // Element
@@ -25,7 +26,7 @@ type Event2 struct {
 
 	EvtDesc *Max1000Text `xml:"EvtDesc"`
 
-	EvtTm *ISODateTime `xml:"EvtTm"`
+	EvtTm *fednow.ISODateTime `xml:"EvtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -39,8 +40,6 @@ type SystemEventNotificationV02 struct {
 }
 
 // XSD SimpleType declarations
-
-type ISODateTime time.Time
 
 type Max1000Text string
 

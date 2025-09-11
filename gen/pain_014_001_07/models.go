@@ -4,7 +4,6 @@ package pain_014_001_07
 
 import (
 	"encoding/xml"
-	"time"
 
 	"github.com/moov-io/fednow20022/pkg/fednow"
 )
@@ -255,7 +254,7 @@ type DateAndDateTime2Choice struct {
 
 	Dt *fednow.ISODate `xml:"Dt"`
 
-	DtTm *ISODateTime `xml:"DtTm"`
+	DtTm *fednow.ISODateTime `xml:"DtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -563,7 +562,7 @@ type GroupHeader87 struct {
 
 	MsgId Max35Text `xml:"MsgId"`
 
-	CreDtTm ISODateTime `xml:"CreDtTm"`
+	CreDtTm fednow.ISODateTime `xml:"CreDtTm"`
 
 	InitgPty PartyIdentification135 `xml:"InitgPty"`
 
@@ -625,7 +624,7 @@ type OriginalGroupInformation30 struct {
 
 	OrgnlMsgNmId Max35Text `xml:"OrgnlMsgNmId"`
 
-	OrgnlCreDtTm *ISODateTime `xml:"OrgnlCreDtTm"`
+	OrgnlCreDtTm *fednow.ISODateTime `xml:"OrgnlCreDtTm"`
 
 	OrgnlNbOfTxs *Max15NumericText `xml:"OrgnlNbOfTxs"`
 
@@ -791,9 +790,9 @@ type PaymentTransaction104 struct {
 
 	ChrgsInf []Charges7 `xml:"ChrgsInf"`
 
-	DbtrDcsnDtTm *ISODateTime `xml:"DbtrDcsnDtTm"`
+	DbtrDcsnDtTm *fednow.ISODateTime `xml:"DbtrDcsnDtTm"`
 
-	AccptncDtTm *ISODateTime `xml:"AccptncDtTm"`
+	AccptncDtTm *fednow.ISODateTime `xml:"AccptncDtTm"`
 
 	AcctSvcrRef *Max35Text `xml:"AcctSvcrRef"`
 
@@ -1327,8 +1326,6 @@ type ExternalStatusReason1Code string
 type ExternalTaxAmountType1Code string
 
 type IBAN2007Identifier string
-
-type ISODateTime time.Time
 
 type LEIIdentifier string
 

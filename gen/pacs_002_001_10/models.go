@@ -4,7 +4,6 @@ package pacs_002_001_10
 
 import (
 	"encoding/xml"
-	"time"
 
 	"github.com/moov-io/fednow20022/pkg/fednow"
 )
@@ -262,7 +261,7 @@ type DateAndDateTime2Choice struct {
 
 	Dt *fednow.ISODate `xml:"Dt"`
 
-	DtTm *ISODateTime `xml:"DtTm"`
+	DtTm *fednow.ISODateTime `xml:"DtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -560,7 +559,7 @@ type GroupHeader91 struct {
 
 	MsgId Max35Text `xml:"MsgId"`
 
-	CreDtTm ISODateTime `xml:"CreDtTm"`
+	CreDtTm fednow.ISODateTime `xml:"CreDtTm"`
 
 	InstgAgt *BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt"`
 
@@ -656,7 +655,7 @@ type OriginalGroupHeader17 struct {
 
 	OrgnlMsgNmId Max35Text `xml:"OrgnlMsgNmId"`
 
-	OrgnlCreDtTm *ISODateTime `xml:"OrgnlCreDtTm"`
+	OrgnlCreDtTm *fednow.ISODateTime `xml:"OrgnlCreDtTm"`
 
 	OrgnlNbOfTxs *Max15NumericText `xml:"OrgnlNbOfTxs"`
 
@@ -678,7 +677,7 @@ type OriginalGroupInformation29 struct {
 
 	OrgnlMsgNmId Max35Text `xml:"OrgnlMsgNmId"`
 
-	OrgnlCreDtTm *ISODateTime `xml:"OrgnlCreDtTm"`
+	OrgnlCreDtTm *fednow.ISODateTime `xml:"OrgnlCreDtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -800,7 +799,7 @@ type PaymentTransaction110 struct {
 
 	ChrgsInf []Charges7 `xml:"ChrgsInf"`
 
-	AccptncDtTm *ISODateTime `xml:"AccptncDtTm"`
+	AccptncDtTm *fednow.ISODateTime `xml:"AccptncDtTm"`
 
 	FctvIntrBkSttlmDt *DateAndDateTime2Choice `xml:"FctvIntrBkSttlmDt"`
 
@@ -1400,8 +1399,6 @@ const Frequency6CodeInda Frequency6Code = "INDA"
 const Frequency6CodeFrtn Frequency6Code = "FRTN"
 
 type IBAN2007Identifier string
-
-type ISODateTime time.Time
 
 type LEIIdentifier string
 

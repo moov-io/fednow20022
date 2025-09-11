@@ -4,7 +4,6 @@ package camt_052_001_08
 
 import (
 	"encoding/xml"
-	"time"
 
 	"github.com/moov-io/fednow20022/pkg/fednow"
 )
@@ -57,7 +56,7 @@ type AccountReport25 struct {
 
 	LglSeqNb *Number `xml:"LglSeqNb"`
 
-	CreDtTm *ISODateTime `xml:"CreDtTm"`
+	CreDtTm *fednow.ISODateTime `xml:"CreDtTm"`
 
 	FrToDt *DateTimePeriod1 `xml:"FrToDt"`
 
@@ -692,7 +691,7 @@ type CurrencyExchange5 struct {
 
 	CtrctId *Max35Text `xml:"CtrctId"`
 
-	QtnDt *ISODateTime `xml:"QtnDt"`
+	QtnDt *fednow.ISODateTime `xml:"QtnDt"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -702,7 +701,7 @@ type DateAndDateTime2Choice struct {
 
 	Dt *fednow.ISODate `xml:"Dt"`
 
-	DtTm *ISODateTime `xml:"DtTm"`
+	DtTm *fednow.ISODateTime `xml:"DtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -744,9 +743,9 @@ type DatePeriod2 struct {
 type DateTimePeriod1 struct {
 	XMLName xml.Name
 
-	FrDtTm ISODateTime `xml:"FrDtTm"`
+	FrDtTm fednow.ISODateTime `xml:"FrDtTm"`
 
-	ToDtTm ISODateTime `xml:"ToDtTm"`
+	ToDtTm fednow.ISODateTime `xml:"ToDtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -1112,7 +1111,7 @@ type GroupHeader81 struct {
 
 	MsgId Max35Text `xml:"MsgId"`
 
-	CreDtTm ISODateTime `xml:"CreDtTm"`
+	CreDtTm fednow.ISODateTime `xml:"CreDtTm"`
 
 	MsgRcpt *PartyIdentification135 `xml:"MsgRcpt"`
 
@@ -1272,7 +1271,7 @@ type OriginalBusinessQuery1 struct {
 
 	MsgNmId *Max35Text `xml:"MsgNmId"`
 
-	CreDtTm *ISODateTime `xml:"CreDtTm"`
+	CreDtTm *fednow.ISODateTime `xml:"CreDtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -2216,7 +2215,7 @@ type TransactionAgents5 struct {
 type TransactionDates3 struct {
 	XMLName xml.Name
 
-	AccptncDtTm *ISODateTime `xml:"AccptncDtTm"`
+	AccptncDtTm *fednow.ISODateTime `xml:"AccptncDtTm"`
 
 	TradActvtyCtrctlSttlmDt *fednow.ISODate `xml:"TradActvtyCtrctlSttlmDt"`
 
@@ -2228,7 +2227,7 @@ type TransactionDates3 struct {
 
 	EndDt *fednow.ISODate `xml:"EndDt"`
 
-	TxDtTm *ISODateTime `xml:"TxDtTm"`
+	TxDtTm *fednow.ISODateTime `xml:"TxDtTm"`
 
 	Prtry []ProprietaryDate3 `xml:"Prtry"`
 
@@ -2238,7 +2237,7 @@ type TransactionDates3 struct {
 type TransactionIdentifier1 struct {
 	XMLName xml.Name
 
-	TxDtTm ISODateTime `xml:"TxDtTm"`
+	TxDtTm fednow.ISODateTime `xml:"TxDtTm"`
 
 	TxRef Max35Text `xml:"TxRef"`
 
@@ -2640,8 +2639,6 @@ type IBAN2007Identifier string
 type ISINOct2015Identifier string
 
 type ISO2ALanguageCode string
-
-type ISODateTime time.Time
 
 type ISOYearMonth string
 

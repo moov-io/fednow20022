@@ -4,7 +4,6 @@ package head_001_001_02
 
 import (
 	"encoding/xml"
-	"time"
 
 	"github.com/moov-io/fednow20022/pkg/fednow"
 )
@@ -27,9 +26,9 @@ type AppHdr struct {
 
 	MktPrctc *ImplementationSpecification1 `xml:"MktPrctc"`
 
-	CreDt ISODateTime `xml:"CreDt"`
+	CreDt fednow.ISODateTime `xml:"CreDt"`
 
-	BizPrcgDt *ISODateTime `xml:"BizPrcgDt"`
+	BizPrcgDt *fednow.ISODateTime `xml:"BizPrcgDt"`
 
 	CpyDplct *CopyDuplicate1Code `xml:"CpyDplct"`
 
@@ -93,7 +92,7 @@ type BusinessApplicationHeader5 struct {
 
 	BizSvc *Max35Text `xml:"BizSvc"`
 
-	CreDt ISODateTime `xml:"CreDt"`
+	CreDt fednow.ISODateTime `xml:"CreDt"`
 
 	CpyDplct *CopyDuplicate1Code `xml:"CpyDplct"`
 
@@ -123,9 +122,9 @@ type BusinessApplicationHeaderV02 struct {
 
 	MktPrctc *ImplementationSpecification1 `xml:"MktPrctc"`
 
-	CreDt ISODateTime `xml:"CreDt"`
+	CreDt fednow.ISODateTime `xml:"CreDt"`
 
-	BizPrcgDt *ISODateTime `xml:"BizPrcgDt"`
+	BizPrcgDt *fednow.ISODateTime `xml:"BizPrcgDt"`
 
 	CpyDplct *CopyDuplicate1Code `xml:"CpyDplct"`
 
@@ -463,8 +462,6 @@ type ExternalFinancialInstitutionIdentification1Code string
 type ExternalOrganisationIdentification1Code string
 
 type ExternalPersonIdentification1Code string
-
-type ISODateTime time.Time
 
 type LEIIdentifier string
 

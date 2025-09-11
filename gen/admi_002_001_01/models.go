@@ -4,7 +4,8 @@ package admi_002_001_01
 
 import (
 	"encoding/xml"
-	"time"
+
+	"github.com/moov-io/fednow20022/pkg/fednow"
 )
 
 // Element
@@ -29,7 +30,7 @@ type RejectionReason2 struct {
 
 	RjctgPtyRsn Max35Text `xml:"RjctgPtyRsn"`
 
-	RjctnDtTm *ISODateTime `xml:"RjctnDtTm"`
+	RjctnDtTm *fednow.ISODateTime `xml:"RjctnDtTm"`
 
 	ErrLctn *Max350Text `xml:"ErrLctn"`
 
@@ -51,8 +52,6 @@ type Admi00200101 struct {
 }
 
 // XSD SimpleType declarations
-
-type ISODateTime time.Time
 
 type Max20000Text string
 

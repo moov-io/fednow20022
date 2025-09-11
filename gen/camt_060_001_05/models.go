@@ -326,7 +326,7 @@ type GroupHeader77 struct {
 
 	MsgId Max35Text `xml:"MsgId"`
 
-	CreDtTm ISODateTime `xml:"CreDtTm"`
+	CreDtTm fednow.ISODateTime `xml:"CreDtTm"`
 
 	MsgSndr *Party40Choice `xml:"MsgSndr"`
 
@@ -652,8 +652,6 @@ const FloorLimitType1CodeDebt FloorLimitType1Code = "DEBT"
 const FloorLimitType1CodeBoth FloorLimitType1Code = "BOTH"
 
 type IBAN2007Identifier string
-
-type ISODateTime time.Time
 
 type ISOTime time.Time
 

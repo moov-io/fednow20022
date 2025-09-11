@@ -18,10 +18,16 @@ func main() {
 		old string
 		new string
 	}{
+		// imports
 		{`"time"`, `"github.com/moov-io/fednow20022/pkg/fednow"`},
+		// Date
 		{`type ISODate time.Time`, ``},
 		{` ISODate `, ` fednow.ISODate `},
 		{` *ISODate `, ` *fednow.ISODate `},
+		// DateTime
+		{`type ISODateTime time.Time`, ``},
+		{` ISODateTime `, ` fednow.ISODateTime `},
+		{` *ISODateTime `, ` *fednow.ISODateTime `},
 	}
 
 	// Walk through the directory

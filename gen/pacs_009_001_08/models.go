@@ -607,7 +607,7 @@ type GroupHeader93 struct {
 
 	MsgId Max35Text `xml:"MsgId"`
 
-	CreDtTm ISODateTime `xml:"CreDtTm"`
+	CreDtTm fednow.ISODateTime `xml:"CreDtTm"`
 
 	BtchBookg *BatchBookingIndicator `xml:"BtchBookg"`
 
@@ -949,9 +949,9 @@ type ServiceLevel8Choice struct {
 type SettlementDateTimeIndication1 struct {
 	XMLName xml.Name
 
-	DbtDtTm *ISODateTime `xml:"DbtDtTm"`
+	DbtDtTm *fednow.ISODateTime `xml:"DbtDtTm"`
 
-	CdtDtTm *ISODateTime `xml:"CdtDtTm"`
+	CdtDtTm *fednow.ISODateTime `xml:"CdtDtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -1335,8 +1335,6 @@ type ExternalServiceLevel1Code string
 type ExternalTaxAmountType1Code string
 
 type IBAN2007Identifier string
-
-type ISODateTime time.Time
 
 type ISOTime time.Time
 

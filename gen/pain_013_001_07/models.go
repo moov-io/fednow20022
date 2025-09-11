@@ -4,7 +4,6 @@ package pain_013_001_07
 
 import (
 	"encoding/xml"
-	"time"
 
 	"github.com/moov-io/fednow20022/pkg/fednow"
 )
@@ -333,7 +332,7 @@ type DateAndDateTime2Choice struct {
 
 	Dt *fednow.ISODate `xml:"Dt"`
 
-	DtTm *ISODateTime `xml:"DtTm"`
+	DtTm *fednow.ISODateTime `xml:"DtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -641,7 +640,7 @@ type GroupHeader78 struct {
 
 	MsgId Max35Text `xml:"MsgId"`
 
-	CreDtTm ISODateTime `xml:"CreDtTm"`
+	CreDtTm fednow.ISODateTime `xml:"CreDtTm"`
 
 	NbOfTxs Max15NumericText `xml:"NbOfTxs"`
 
@@ -1447,8 +1446,6 @@ type ExternalServiceLevel1Code string
 type ExternalTaxAmountType1Code string
 
 type IBAN2007Identifier string
-
-type ISODateTime time.Time
 
 type Instruction3Code string
 

@@ -4,7 +4,8 @@ package admi_007_001_01
 
 import (
 	"encoding/xml"
-	"time"
+
+	"github.com/moov-io/fednow20022/pkg/fednow"
 )
 
 // Element
@@ -33,7 +34,7 @@ type MessageHeader10 struct {
 
 	MsgId Max35Text `xml:"MsgId"`
 
-	CreDtTm *ISODateTime `xml:"CreDtTm"`
+	CreDtTm *fednow.ISODateTime `xml:"CreDtTm"`
 
 	QryNm *Max35Text `xml:"QryNm"`
 
@@ -133,7 +134,7 @@ type RequestHandling2 struct {
 
 	StsCd Max4AlphaNumericText `xml:"StsCd"`
 
-	StsDtTm *ISODateTime `xml:"StsDtTm"`
+	StsDtTm *fednow.ISODateTime `xml:"StsDtTm"`
 
 	Desc *Max140Text `xml:"Desc"`
 
@@ -175,8 +176,6 @@ const AddressType2CodeDlvy AddressType2Code = "DLVY"
 type AnyBICDec2014Identifier string
 
 type CountryCode string
-
-type ISODateTime time.Time
 
 type LEIIdentifier string
 

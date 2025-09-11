@@ -4,7 +4,6 @@ package admi_006_001_01
 
 import (
 	"encoding/xml"
-	"time"
 
 	"github.com/moov-io/fednow20022/pkg/fednow"
 )
@@ -47,7 +46,7 @@ type MessageHeader7 struct {
 
 	MsgId Max35Text `xml:"MsgId"`
 
-	CreDtTm *ISODateTime `xml:"CreDtTm"`
+	CreDtTm *fednow.ISODateTime `xml:"CreDtTm"`
 
 	ReqTp *RequestType4Choice `xml:"ReqTp"`
 
@@ -75,7 +74,7 @@ type OriginalBusinessQuery1 struct {
 
 	MsgNmId *Max35Text `xml:"MsgNmId"`
 
-	CreDtTm *ISODateTime `xml:"CreDtTm"`
+	CreDtTm *fednow.ISODateTime `xml:"CreDtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -231,8 +230,6 @@ type CountryCode string
 type ExternalEnquiryRequestType1Code string
 
 type ExternalPaymentControlRequestType1Code string
-
-type ISODateTime time.Time
 
 type LEIIdentifier string
 

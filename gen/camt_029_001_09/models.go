@@ -4,7 +4,6 @@ package camt_029_001_09
 
 import (
 	"encoding/xml"
-	"time"
 
 	"github.com/moov-io/fednow20022/pkg/fednow"
 )
@@ -173,7 +172,7 @@ type CaseAssignment5 struct {
 
 	Assgne Party40Choice `xml:"Assgne"`
 
-	CreDtTm ISODateTime `xml:"CreDtTm"`
+	CreDtTm fednow.ISODateTime `xml:"CreDtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -387,7 +386,7 @@ type CorrectiveGroupInformation1 struct {
 
 	MsgNmId Max35Text `xml:"MsgNmId"`
 
-	CreDtTm *ISODateTime `xml:"CreDtTm"`
+	CreDtTm *fednow.ISODateTime `xml:"CreDtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -479,7 +478,7 @@ type DateAndDateTime2Choice struct {
 
 	Dt *fednow.ISODate `xml:"Dt"`
 
-	DtTm *ISODateTime `xml:"DtTm"`
+	DtTm *fednow.ISODateTime `xml:"DtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -907,7 +906,7 @@ type OriginalGroupHeader14 struct {
 
 	OrgnlMsgNmId Max35Text `xml:"OrgnlMsgNmId"`
 
-	OrgnlCreDtTm *ISODateTime `xml:"OrgnlCreDtTm"`
+	OrgnlCreDtTm *fednow.ISODateTime `xml:"OrgnlCreDtTm"`
 
 	OrgnlNbOfTxs *Max15NumericText `xml:"OrgnlNbOfTxs"`
 
@@ -929,7 +928,7 @@ type OriginalGroupInformation29 struct {
 
 	OrgnlMsgNmId Max35Text `xml:"OrgnlMsgNmId"`
 
-	OrgnlCreDtTm *ISODateTime `xml:"OrgnlCreDtTm"`
+	OrgnlCreDtTm *fednow.ISODateTime `xml:"OrgnlCreDtTm"`
 
 	innerXml string `xml:",innerxml"`
 }
@@ -1851,8 +1850,6 @@ const GroupCancellationStatus1CodeAccr GroupCancellationStatus1Code = "ACCR"
 const GroupCancellationStatus1CodePdcr GroupCancellationStatus1Code = "PDCR"
 
 type IBAN2007Identifier string
-
-type ISODateTime time.Time
 
 type LEIIdentifier string
 

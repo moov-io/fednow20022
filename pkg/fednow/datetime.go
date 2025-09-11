@@ -9,8 +9,12 @@ import (
 // ISODate is a custom type wrapping time.Time
 type ISODate time.Time
 
+var (
+	defaultDateFormat = "2006-01-02"
+)
+
 func (i ISODate) MarshalText() (string, error) {
-	return time.Time(i).Truncate(time.Second).Format("2006-01-02"), nil
+	return time.Time(i).Truncate(time.Second).Format(defaultDateFormat), nil
 }
 
 func (i ISODate) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -27,8 +31,7 @@ func (i *ISODate) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 		return err
 	}
 
-	// Parse the date in YYYY-MM-DD format
-	tt, err := time.Parse("2006-01-02", content)
+	tt, err := time.Parse(defaultDateFormat, content)
 	if err != nil {
 		return fmt.Errorf("invalid ISODate format: %v", err)
 	}
@@ -37,10 +40,25 @@ func (i *ISODate) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
+var (
+	defaultDateTimeFormat = "2006-01-02T15:04:05-07:00"
+
+	acceptedDateTimeFormats = []string{
+		defaultDateTimeFormat,
+		"2006-01-02T15:04:05-0700",
+		"2006-01-02T15:04:05.000",
+		"2006-01-02T15:04:05.00000",
+		"2006-01-02T15:04:05.000Z",
+		"2006-01-02T15:04:05.00000Z",
+		"2006-01-02T15:04:05.000-07:00",
+		"2006-01-02T15:04:05.00000-07:00",
+	}
+)
+
 type ISODateTime time.Time
 
 func (i ISODateTime) MarshalText() (string, error) {
-	return time.Time(i).Truncate(time.Second).Format("2006-01-02T15:04:05-0700"), nil
+	return time.Time(i).Truncate(time.Second).Format(defaultDateTimeFormat), nil
 }
 
 func (i ISODateTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -57,12 +75,13 @@ func (i *ISODateTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
 		return err
 	}
 
-	// Parse the date in YYYY-MM-DD format
-	tt, err := time.Parse("2006-01-02T15:04:05-0700", content)
-	if err != nil {
-		return fmt.Errorf("invalid ISODate format: %v", err)
+	for idx := range acceptedDateTimeFormats {
+		tt, err := time.Parse(acceptedDateTimeFormats[idx], content)
+		if err == nil {
+			*i = ISODateTime(tt)
+			return nil
+		}
 	}
 
-	*i = ISODateTime(tt)
-	return nil
+	return fmt.Errorf("no date time format found for %s", content)
 }

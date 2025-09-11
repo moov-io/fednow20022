@@ -36,14 +36,14 @@ func TestISODateTimeFormat(t *testing.T) {
 
 	out, err := fednow.ISODateTime(when).MarshalText()
 	require.NoError(t, err)
-	require.Equal(t, "2019-03-21T10:36:19-0400", string(out))
+	require.Equal(t, "2019-03-21T10:36:19-04:00", string(out))
 
 	bs, err := xml.Marshal(fednow.ISODateTime(when))
 	require.NoError(t, err)
-	require.Equal(t, "<ISODateTime>2019-03-21T10:36:19-0400</ISODateTime>", string(bs))
+	require.Equal(t, "<ISODateTime>2019-03-21T10:36:19-04:00</ISODateTime>", string(bs))
 
 	var read fednow.ISODateTime
-	err = xml.Unmarshal([]byte("<ISODateTime>2019-03-21T10:36:19-0400</ISODateTime>"), &read)
+	err = xml.Unmarshal([]byte("<ISODateTime>2019-03-21T10:36:19-04:00</ISODateTime>"), &read)
 	require.NoError(t, err)
 
 	fmt.Println(when.Format(time.RFC3339))

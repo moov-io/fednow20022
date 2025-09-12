@@ -83,5 +83,5 @@ func (i *ISODateTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error
 		}
 	}
 
-	return fmt.Errorf("no date time format found for %s", content)
+	return fmt.Errorf("%s (namespace=%s) has no date time format found for %q", start.Name.Local, start.Name.Space, content)
 }

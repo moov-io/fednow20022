@@ -1,0 +1,58 @@
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Legal Notices
+
+The Federal Reserve Banks are providing this FedNow Service sample message for
+illustrative purposes only. Please refer to the FedNow Service Technical
+Specifications and FedNow Service ISO 20022 Implementation Guide for additional
+details on how to apply the sample message. The Reserve Banks provide no
+warranties, are not responsible for its accuracy or use within your
+environment, and disclaim all liability in connection with your use of this
+sample message. Use of the information in your applications is subject to your
+internal quality and security control processes.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ -->
+<FedNowOutgoing xmlns="urn:fednow:outgoing:v001">
+<FedNowOutgoingMessage>
+<FedNowMessageReject>
+<AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+<Fr>
+<FIId>
+<FinInstnId>
+<ClrSysMmbId>
+<MmbId>021150706</MmbId>
+</ClrSysMmbId>
+</FinInstnId>
+</FIId>
+</Fr>
+<To>
+<FIId>
+<FinInstnId>
+<ClrSysMmbId>
+<MmbId>111111111</MmbId>
+</ClrSysMmbId>
+</FinInstnId>
+</FIId>
+</To>
+<BizMsgIdr>20230726111111111Sc1Step2aCorrId</BizMsgIdr>
+<MsgDefIdr>admi.002.001.01</MsgDefIdr>
+<MktPrctc>
+<Regy>www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service</Regy>
+<Id>frb.fednow.01</Id>
+</MktPrctc>
+<CreDt>2023-07-26T11:35:24-04:00</CreDt>
+</AppHdr>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.002.001.01">
+<admi.002.001.01>
+<RltdRef>
+<Ref>NOTAVAILABLE</Ref>
+</RltdRef>
+<Rsn>
+<RjctgPtyRsn>T505</RjctgPtyRsn>
+<RjctnDtTm>2023-07-26T11:35:24-04:00</RjctnDtTm>
+</Rsn>
+</admi.002.001.01>
+</Document>
+</FedNowMessageReject>
+</FedNowOutgoingMessage>
+</FedNowOutgoing>

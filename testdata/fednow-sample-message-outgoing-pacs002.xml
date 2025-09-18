@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Legal Notices
+
+The Federal Reserve Banks are providing this FedNow Service sample message for
+illustrative purposes only. Please refer to the FedNow Service Technical
+Specifications and FedNow Service ISO 20022 Implementation Guide for additional
+details on how to apply the sample message. The Reserve Banks provide no
+warranties, are not responsible for its accuracy or use within your
+environment, and disclaim all liability in connection with your use of this
+sample message. Use of the information in your applications is subject to your
+internal quality and security control processes.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+
+<FedNowOutgoing xmlns="urn:fednow:outgoing:v001">
+    <FedNowOutgoingMessage>
+        <FedNowPaymentStatus>
+            <AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+                <Fr>
+                    <FIId>
+                        <FinInstnId>
+                            <ClrSysMmbId>
+                                <MmbId>021150706</MmbId>
+                            </ClrSysMmbId>
+                        </FinInstnId>
+                    </FIId>
+                </Fr>
+                <To>
+                    <FIId>
+                        <FinInstnId>
+                            <ClrSysMmbId>
+                                <MmbId>111111111</MmbId>
+                            </ClrSysMmbId>
+                        </FinInstnId>
+                    </FIId>
+                </To>
+                <BizMsgIdr>20230604021150706Sc04Step4AMsgId</BizMsgIdr>
+                <MsgDefIdr>pacs.002.001.10</MsgDefIdr>
+                <MktPrctc>
+                    <Regy>www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/FedNow_Service</Regy>
+                    <Id>frb.fednow.01</Id>
+                </MktPrctc>
+                <CreDt>2023-06-04T10:55:32-04:00</CreDt>
+                <BizPrcgDt>2023-06-04T10:55:26-04:00</BizPrcgDt>
+            </AppHdr>
+            <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10">
+                <FIToFIPmtStsRpt>
+                    <GrpHdr>
+                        <MsgId>20230604021150706Sc01Step4AMsgId</MsgId>
+                        <CreDtTm>2023-06-04T10:55:32-04:00</CreDtTm>
+                    </GrpHdr>
+                    <TxInfAndSts>
+                        <OrgnlGrpInf>
+                            <OrgnlMsgId>20230604111111111Sc01Step1MsgId</OrgnlMsgId>
+                            <OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId>
+                            <OrgnlCreDtTm>2023-06-04T10:55:26-04:00</OrgnlCreDtTm>
+                        </OrgnlGrpInf>
+                        <OrgnlInstrId>Scenario01InstrId001</OrgnlInstrId>
+                        <OrgnlEndToEndId>Scenario01EtoEId001</OrgnlEndToEndId>
+                        <OrgnlUETR>8a562c67-ca16-48ba-b074-65581be6f011</OrgnlUETR>
+                        <TxSts>ACSC</TxSts>
+                        <AccptncDtTm>2023-06-04T10:55:32-04:00</AccptncDtTm>
+                        <FctvIntrBkSttlmDt>
+                            <Dt>2023-06-04</Dt>
+                        </FctvIntrBkSttlmDt>
+                        <InstgAgt>
+                            <FinInstnId>
+                                <ClrSysMmbId>
+                                    <ClrSysId>
+                                        <Cd>USABA</Cd>
+                                    </ClrSysId>
+                                    <MmbId>021150706</MmbId>
+                                </ClrSysMmbId>
+                            </FinInstnId>
+                        </InstgAgt>
+                        <InstdAgt>
+                            <FinInstnId>
+                                <ClrSysMmbId>
+                                    <ClrSysId>
+                                        <Cd>USABA</Cd>
+                                    </ClrSysId>
+                                    <MmbId>111111111</MmbId>
+                                </ClrSysMmbId>
+                            </FinInstnId>
+                        </InstdAgt>
+                    </TxInfAndSts>
+                </FIToFIPmtStsRpt>
+            </Document>
+        </FedNowPaymentStatus>
+    </FedNowOutgoingMessage>
+</FedNowOutgoing>

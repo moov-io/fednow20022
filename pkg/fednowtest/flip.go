@@ -17,24 +17,167 @@ func FlipMessageDirection(input []byte) ([]byte, error) {
 	if fednowError == nil {
 		// Convert the message into a FedNowIncomingMessage
 		switch {
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowMessageReject != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowMessageReject
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowMessageReject: &fednow_incoming_external.FedNowMessageReject{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowReceiptAcknowledgement != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowReceiptAcknowledgement
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowReceiptAcknowledgement: &fednow_incoming_external.FedNowReceiptAcknowledgement{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowInformationRequest != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowInformationRequest
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowInformationRequest: &fednow_incoming_external.FedNowInformationRequest{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowAdditionalPaymentInformation != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowAdditionalPaymentInformation
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowAdditionalPaymentInformation: &fednow_incoming_external.FedNowAdditionalPaymentInformation{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowRequestForPaymentCancellationRequestResponse != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowRequestForPaymentCancellationRequestResponse
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowRequestForPaymentCancellationRequestResponse: &fednow_incoming_external.FedNowRequestForPaymentCancellationRequestResponse{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowReturnRequestResponse != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowReturnRequestResponse
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowReturnRequestResponse: &fednow_incoming_external.FedNowReturnRequestResponse{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowRequestForPaymentCancellationRequest != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowRequestForPaymentCancellationRequest
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowRequestForPaymentCancellationRequest: &fednow_incoming_external.FedNowRequestForPaymentCancellationRequest{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowReturnRequest != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowReturnRequest
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowReturnRequest: &fednow_incoming_external.FedNowReturnRequest{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
 		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowPaymentStatus != nil:
-			xfer := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowPaymentStatus
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowPaymentStatus
 			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
 				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
 					FedNowPaymentStatus: &fednow_incoming_external.FedNowPaymentStatus{
-						AppHdr:   xfer.AppHdr,
-						Document: xfer.Document,
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowPaymentReturn != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowPaymentReturn
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowPaymentReturn: &fednow_incoming_external.FedNowPaymentReturn{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
 					},
 				},
 			})
 
 		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowCustomerCreditTransfer != nil:
-			xfer := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowCustomerCreditTransfer
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowCustomerCreditTransfer
 			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
 				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
 					FedNowCustomerCreditTransfer: &fednow_incoming_external.FedNowCustomerCreditTransfer{
-						AppHdr:   xfer.AppHdr,
-						Document: xfer.Document,
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowInstitutionCreditTransfer != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowInstitutionCreditTransfer
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowInstitutionCreditTransfer: &fednow_incoming_external.FedNowInstitutionCreditTransfer{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowPaymentStatusRequest != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowPaymentStatusRequest
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowPaymentStatusRequest: &fednow_incoming_external.FedNowPaymentStatusRequest{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowRequestForPayment != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowRequestForPayment
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowRequestForPayment: &fednow_incoming_external.FedNowRequestForPayment{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowRequestForPaymentResponse != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowRequestForPaymentResponse
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowRequestForPaymentResponse: &fednow_incoming_external.FedNowRequestForPaymentResponse{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
 					},
 				},
 			})
@@ -46,24 +189,167 @@ func FlipMessageDirection(input []byte) ([]byte, error) {
 	if fednowError2 == nil {
 		// Convert the message into a FedNowOutgoing
 		switch {
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowMessageReject != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowMessageReject
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowMessageReject: &fednow_outgoing_external.FedNowMessageReject{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowReceiptAcknowledgement != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowReceiptAcknowledgement
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowReceiptAcknowledgement: &fednow_outgoing_external.FedNowReceiptAcknowledgement{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowInformationRequest != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowInformationRequest
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowInformationRequest: &fednow_outgoing_external.FedNowInformationRequest{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowAdditionalPaymentInformation != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowAdditionalPaymentInformation
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowAdditionalPaymentInformation: &fednow_outgoing_external.FedNowAdditionalPaymentInformation{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowRequestForPaymentCancellationRequestResponse != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowRequestForPaymentCancellationRequestResponse
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowRequestForPaymentCancellationRequestResponse: &fednow_outgoing_external.FedNowRequestForPaymentCancellationRequestResponse{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowReturnRequestResponse != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowReturnRequestResponse
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowReturnRequestResponse: &fednow_outgoing_external.FedNowReturnRequestResponse{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowRequestForPaymentCancellationRequest != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowRequestForPaymentCancellationRequest
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowRequestForPaymentCancellationRequest: &fednow_outgoing_external.FedNowRequestForPaymentCancellationRequest{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowReturnRequest != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowReturnRequest
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowReturnRequest: &fednow_outgoing_external.FedNowReturnRequest{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
 		case fednowIncomingDoc.FedNowIncomingMessage.FedNowPaymentStatus != nil:
-			xfer := fednowIncomingDoc.FedNowIncomingMessage.FedNowPaymentStatus
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowPaymentStatus
 			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
 				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
 					FedNowPaymentStatus: &fednow_outgoing_external.FedNowPaymentStatus{
-						AppHdr:   xfer.AppHdr,
-						Document: xfer.Document,
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowPaymentReturn != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowPaymentReturn
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowPaymentReturn: &fednow_outgoing_external.FedNowPaymentReturn{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
 					},
 				},
 			})
 
 		case fednowIncomingDoc.FedNowIncomingMessage.FedNowCustomerCreditTransfer != nil:
-			xfer := fednowIncomingDoc.FedNowIncomingMessage.FedNowCustomerCreditTransfer
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowCustomerCreditTransfer
 			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
 				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
 					FedNowCustomerCreditTransfer: &fednow_outgoing_external.FedNowCustomerCreditTransfer{
-						AppHdr:   xfer.AppHdr,
-						Document: xfer.Document,
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowInstitutionCreditTransfer != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowInstitutionCreditTransfer
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowInstitutionCreditTransfer: &fednow_outgoing_external.FedNowInstitutionCreditTransfer{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowPaymentStatusRequest != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowPaymentStatusRequest
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowPaymentStatusRequest: &fednow_outgoing_external.FedNowPaymentStatusRequest{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowRequestForPayment != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowRequestForPayment
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowRequestForPayment: &fednow_outgoing_external.FedNowRequestForPayment{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowRequestForPaymentResponse != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowRequestForPaymentResponse
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowRequestForPaymentResponse: &fednow_outgoing_external.FedNowRequestForPaymentResponse{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
 					},
 				},
 			})

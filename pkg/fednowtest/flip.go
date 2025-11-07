@@ -61,6 +61,17 @@ func FlipMessageDirection(input []byte) ([]byte, error) {
 				},
 			})
 
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowInformationRequestResponse != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowInformationRequestResponse
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowInformationRequestResponse: &fednow_incoming_external.FedNowInformationRequestResponse{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
 		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowRequestForPaymentCancellationRequestResponse != nil:
 			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowRequestForPaymentCancellationRequestResponse
 			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
@@ -227,6 +238,17 @@ func FlipMessageDirection(input []byte) ([]byte, error) {
 			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
 				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
 					FedNowAdditionalPaymentInformation: &fednow_outgoing_external.FedNowAdditionalPaymentInformation{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowInformationRequestResponse != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowInformationRequestResponse
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowInformationRequestResponse: &fednow_outgoing_external.FedNowInformationRequestResponse{
 						AppHdr:   msg.AppHdr,
 						Document: msg.Document,
 					},

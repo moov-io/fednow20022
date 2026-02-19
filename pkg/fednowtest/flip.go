@@ -28,6 +28,17 @@ func FlipMessageDirection(input []byte) ([]byte, error) {
 				},
 			})
 
+		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowBroadcast != nil:
+			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowBroadcast
+			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
+				FedNowIncomingMessage: fednow_incoming_external.FedNowIncomingMessage{
+					FedNowParticipantBroadcast: &fednow_incoming_external.FedNowParticipantBroadcast{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
 		case fednowOutgoingDoc.FedNowOutgoingMessage.FedNowReceiptAcknowledgement != nil:
 			msg := fednowOutgoingDoc.FedNowOutgoingMessage.FedNowReceiptAcknowledgement
 			return xml.Marshal(fednow_incoming_external.FedNowIncoming{
@@ -205,6 +216,17 @@ func FlipMessageDirection(input []byte) ([]byte, error) {
 			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
 				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
 					FedNowMessageReject: &fednow_outgoing_external.FedNowMessageReject{
+						AppHdr:   msg.AppHdr,
+						Document: msg.Document,
+					},
+				},
+			})
+
+		case fednowIncomingDoc.FedNowIncomingMessage.FedNowParticipantBroadcast != nil:
+			msg := fednowIncomingDoc.FedNowIncomingMessage.FedNowParticipantBroadcast
+			return xml.Marshal(fednow_outgoing_external.FedNowOutgoing{
+				FedNowOutgoingMessage: fednow_outgoing_external.FedNowOutgoingMessage{
+					FedNowBroadcast: &fednow_outgoing_external.FedNowBroadcast{
 						AppHdr:   msg.AppHdr,
 						Document: msg.Document,
 					},

@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	Admi00200101 Admi00200101 `xml:",any"`
+	Admi00200101 Admi00200101 `xml:"admi.002.001.01"`
 }
 
 // XSD ComplexType declarations

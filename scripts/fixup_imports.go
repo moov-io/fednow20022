@@ -28,6 +28,9 @@ func main() {
 		{`type ISODateTime time.Time`, ``},
 		{` ISODateTime `, ` fednow.ISODateTime `},
 		{` *ISODateTime `, ` *fednow.ISODateTime `},
+
+		// admi.002
+		{"Admi00200101 Admi00200101 `xml:\",any\"`", "Admi00200101 Admi00200101 `xml:\"admi.002.001.01\"`"},
 	}
 
 	// Walk through the directory

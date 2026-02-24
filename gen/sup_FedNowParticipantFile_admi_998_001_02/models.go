@@ -12,13 +12,13 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	Admi998SuplDataV01 Admi998SuplDataV01 `xml:",any"`
+	Admi998SuplDataV01 Admi998SuplDataV01 `xml:"admi998SuplDataV01"`
 }
 
 // XSD ComplexType declarations
 
 type FedNowParticipantFile1 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"PtcptFile"`
 
 	BizDay fednow.ISODate `xml:"BizDay"`
 
@@ -40,9 +40,9 @@ type FedNowParticipantProfile1 struct {
 }
 
 type Admi998SuplDataV01 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"admi998SuplDataV01"`
 
-	PtcptFile FedNowParticipantFile1 `xml:",any"`
+	PtcptFile FedNowParticipantFile1 `xml:"PtcptFile"`
 
 	innerXml string `xml:",innerxml"`
 }

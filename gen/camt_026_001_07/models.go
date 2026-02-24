@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	UblToApply UnableToApplyV07 `xml:",any"`
+	UblToApply UnableToApplyV07 `xml:"UblToApply"`
 }
 
 // XSD ComplexType declarations
@@ -1179,7 +1179,7 @@ type UnableToApplyMissing1 struct {
 }
 
 type UnableToApplyV07 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"UblToApply"`
 
 	Assgnmt CaseAssignment5 `xml:"Assgnmt"`
 

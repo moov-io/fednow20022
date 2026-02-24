@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	BkToCstmrAcctRpt BankToCustomerAccountReportV08 `xml:",any"`
+	BkToCstmrAcctRpt BankToCustomerAccountReportV08 `xml:"BkToCstmrAcctRpt"`
 }
 
 // XSD ComplexType declarations
@@ -229,7 +229,7 @@ type BalanceType13 struct {
 }
 
 type BankToCustomerAccountReportV08 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"BkToCstmrAcctRpt"`
 
 	GrpHdr GroupHeader81 `xml:"GrpHdr"`
 

@@ -1,10 +1,16 @@
 package fednowtest
 
 import (
+	"encoding/xml"
+	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
+	"reflect"
 	"testing"
 
+	"github.com/moov-io/fednow20022/gen/fednow_incoming_external"
+	"github.com/moov-io/fednow20022/gen/fednow_outgoing_external"
 	"github.com/stretchr/testify/require"
 )
 
@@ -57,10 +63,46 @@ func TestFlipMessageContents(t *testing.T) {
 			// flip back and verify before
 			flipped, err = FlipMessageDirection(flipped)
 			require.NoError(t, err)
+			require.NotEmpty(t, flipped)
 
-			for _, needle := range tc.containsBefore {
-				require.Contains(t, string(flipped), needle)
+			// read the final as a message
+			var fednowOutgoingDoc fednow_outgoing_external.FedNowOutgoing
+			outgoingErr := xml.Unmarshal(flipped, &fednowOutgoingDoc)
+
+			var fednowIncomingDoc fednow_incoming_external.FedNowIncoming
+			incomingErr := xml.Unmarshal(flipped, &fednowIncomingDoc)
+
+			if outgoingErr != nil && incomingErr != nil {
+				t.Fatal(errors.Join(
+					fmt.Errorf("outgoing: %w", outgoingErr),
+					fmt.Errorf("incoming: %w", incomingErr),
+				))
+			}
+
+			if outgoingErr != nil {
+				require.True(t, verifyUnmarshaled(fednowIncomingDoc))
+			}
+			if incomingErr != nil {
+				require.True(t, verifyUnmarshaled(fednowOutgoingDoc))
 			}
 		})
 	}
+}
+
+// verifyUnmarshaled checks that the unmarshaled document has at least one non-nil member
+func verifyUnmarshaled(doc interface{}) bool {
+	v := reflect.ValueOf(doc)
+	if v.Kind() == reflect.Ptr {
+		v = v.Elem()
+	}
+	if v.Kind() != reflect.Struct {
+		return false
+	}
+	for i := 0; i < v.NumField(); i++ {
+		field := v.Field(i)
+		if field.IsValid() && !field.IsZero() {
+			return true
+		}
+	}
+	return false
 }

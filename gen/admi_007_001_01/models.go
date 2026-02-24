@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	RctAck ReceiptAcknowledgementV01 `xml:",any"`
+	RctAck ReceiptAcknowledgementV01 `xml:"RctAck"`
 }
 
 // XSD ComplexType declarations
@@ -118,7 +118,7 @@ type ReceiptAcknowledgementReport2 struct {
 }
 
 type ReceiptAcknowledgementV01 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"RctAck"`
 
 	MsgId MessageHeader10 `xml:"MsgId"`
 

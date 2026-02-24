@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	FIToFIPmtStsReq FIToFIPaymentStatusRequestV03 `xml:",any"`
+	FIToFIPmtStsReq FIToFIPaymentStatusRequestV03 `xml:"FIToFIPmtStsReq"`
 }
 
 // XSD ComplexType declarations
@@ -369,7 +369,7 @@ type EquivalentAmount2 struct {
 }
 
 type FIToFIPaymentStatusRequestV03 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"FIToFIPmtStsReq"`
 
 	GrpHdr GroupHeader91 `xml:"GrpHdr"`
 

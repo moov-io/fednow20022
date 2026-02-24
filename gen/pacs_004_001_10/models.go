@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	PmtRtr PaymentReturnV10 `xml:",any"`
+	PmtRtr PaymentReturnV10 `xml:"PmtRtr"`
 }
 
 // XSD ComplexType declarations
@@ -934,7 +934,7 @@ type PaymentReturnReason6 struct {
 }
 
 type PaymentReturnV10 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"PmtRtr"`
 
 	GrpHdr GroupHeader90 `xml:"GrpHdr"`
 

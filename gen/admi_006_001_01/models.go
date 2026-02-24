@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	RsndReq ResendRequestV01 `xml:",any"`
+	RsndReq ResendRequestV01 `xml:"RsndReq"`
 }
 
 // XSD ComplexType declarations
@@ -136,7 +136,7 @@ type RequestType4Choice struct {
 }
 
 type ResendRequestV01 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"RsndReq"`
 
 	MsgHdr MessageHeader7 `xml:"MsgHdr"`
 

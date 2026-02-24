@@ -20,7 +20,7 @@ type Document struct {
 type MessageReference struct {
 	XMLName xml.Name
 
-	Ref Max35Text `xml:",any"`
+	Ref Max35Text `xml:"Ref"`
 
 	innerXml string `xml:",innerxml"`
 }

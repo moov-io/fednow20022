@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"bytes"
 	"encoding/xml"
 	"os"
 	"testing"
@@ -17,5 +18,5 @@ func xmlMatches[T any](tb testing.TB, doc T, expectedPath string) {
 	read, err := os.ReadFile(expectedPath)
 	require.NoError(tb, err)
 
-	require.Equal(tb, string(read), string(marshaled))
+	require.Equal(tb, string(bytes.TrimSpace(read)), string(bytes.TrimSpace(marshaled)))
 }

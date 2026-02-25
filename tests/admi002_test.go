@@ -3,6 +3,7 @@ package tests
 import (
 	"encoding/xml"
 	"fmt"
+	"path/filepath"
 	"testing"
 
 	"github.com/moov-io/fednow20022/gen/admi_002_001_01"
@@ -28,4 +29,6 @@ func TestAdmi002(t *testing.T) {
 
 	require.Contains(t, string(bs), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.002.001.01">`)
 	require.Contains(t, string(bs), "<admi.002.001.01><RltdRef><Ref>test</Ref>")
+
+	xmlMatches(t, doc, filepath.Join("testdata", "admi_002.xml"))
 }

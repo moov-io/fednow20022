@@ -4,13 +4,20 @@ package admi_006_001_01
 
 import (
 	"encoding/xml"
+	"fmt"
 )
 
 func (d Document) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	start.Name = xml.Name{Local: "Document"}
 	start.Attr = append(start.Attr, xml.Attr{Name: xml.Name{Local: "xmlns"}, Value: "urn:iso:std:iso:20022:tech:xsd:admi.006.001.01"})
-	e.EncodeToken(start)
-	e.Encode(d.RsndReq)
-	e.EncodeToken(xml.EndElement{Name: start.Name})
+	if err := e.EncodeToken(start); err != nil {
+		return fmt.Errorf("failed to encode token: %w", err)
+	}
+	if err := e.Encode(d.RsndReq); err != nil {
+		return fmt.Errorf("failed to encode RsndReq: %w", err)
+	}
+	if err := e.EncodeToken(xml.EndElement{Name: start.Name}); err != nil {
+		return fmt.Errorf("failed to encode token: %w", err)
+	}
 	return nil
 }

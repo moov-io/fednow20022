@@ -3,6 +3,7 @@ package tests
 import (
 	"encoding/xml"
 	"fmt"
+	"path/filepath"
 	"testing"
 
 	"github.com/moov-io/fednow20022/gen/fednow_incoming_external"
@@ -41,4 +42,6 @@ func TestFedNowIncomingEnvelopeMarshalXML(t *testing.T) {
 	require.Contains(t, string(bs), `<FedNowIncoming xmlns="urn:fednow:incoming:v001">`)
 	require.Contains(t, string(bs), `<AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">`)
 	require.Contains(t, string(bs), `<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10">`)
+
+	xmlMatches(t, msg, filepath.Join("testdata", "fednow_incoming.xml"))
 }

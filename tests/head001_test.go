@@ -3,6 +3,7 @@ package tests
 import (
 	"encoding/xml"
 	"fmt"
+	"path/filepath"
 	"testing"
 
 	"github.com/moov-io/fednow20022/gen/head_001_001_02"
@@ -25,4 +26,6 @@ func TestHead001MarshalXML(t *testing.T) {
 
 	require.Contains(t, string(bs), `<AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">`)
 	require.Contains(t, string(bs), "<BizMsgIdr>test-msg-id</BizMsgIdr>")
+
+	xmlMatches(t, hdr, filepath.Join("testdata", "head_001.xml"))
 }

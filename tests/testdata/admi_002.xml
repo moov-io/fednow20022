@@ -1,0 +1,10 @@
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:admi.002.001.01">
+  <admi.002.001.01>
+    <RltdRef>
+      <Ref>test</Ref>
+    </RltdRef>
+    <Rsn>
+      <RjctgPtyRsn></RjctgPtyRsn>
+    </Rsn>
+  </admi.002.001.01>
+</Document>

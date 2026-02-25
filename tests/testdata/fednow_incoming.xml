@@ -1,0 +1,21 @@
+<FedNowIncoming xmlns="urn:fednow:incoming:v001">
+  <FedNowIncomingMessage>
+    <FedNowPaymentStatus>
+      <AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.02">
+        <Fr></Fr>
+        <To></To>
+        <BizMsgIdr>test-msg-id</BizMsgIdr>
+        <MsgDefIdr>pacs.002.001.10</MsgDefIdr>
+        <CreDt>0001-01-01T00:00:00+00:00</CreDt>
+      </AppHdr>
+      <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10">
+        <FIToFIPmtStsRpt>
+          <GrpHdr>
+            <MsgId>test-msg-id</MsgId>
+            <CreDtTm>0001-01-01T00:00:00+00:00</CreDtTm>
+          </GrpHdr>
+        </FIToFIPmtStsRpt>
+      </Document>
+    </FedNowPaymentStatus>
+  </FedNowIncomingMessage>
+</FedNowIncoming>

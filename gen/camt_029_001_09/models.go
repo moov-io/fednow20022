@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	RsltnOfInvstgtn ResolutionOfInvestigationV09 `xml:",any"`
+	RsltnOfInvstgtn ResolutionOfInvestigationV09 `xml:"RsltnOfInvstgtn"`
 }
 
 // XSD ComplexType declarations
@@ -1368,7 +1368,7 @@ type ResolutionData1 struct {
 }
 
 type ResolutionOfInvestigationV09 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"RsltnOfInvstgtn"`
 
 	Assgnmt CaseAssignment5 `xml:"Assgnmt"`
 

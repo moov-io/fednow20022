@@ -13,7 +13,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	FIToFICstmrCdtTrf FIToFICustomerCreditTransferV08 `xml:",any"`
+	FIToFICstmrCdtTrf FIToFICustomerCreditTransferV08 `xml:"FIToFICstmrCdtTrf"`
 }
 
 // XSD ComplexType declarations
@@ -427,7 +427,7 @@ type DocumentLineType1Choice struct {
 }
 
 type FIToFICustomerCreditTransferV08 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"FIToFICstmrCdtTrf"`
 
 	GrpHdr GroupHeader93 `xml:"GrpHdr"`
 

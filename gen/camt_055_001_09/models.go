@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	CstmrPmtCxlReq CustomerPaymentCancellationRequestV09 `xml:",any"`
+	CstmrPmtCxlReq CustomerPaymentCancellationRequestV09 `xml:"CstmrPmtCxlReq"`
 }
 
 // XSD ComplexType declarations
@@ -317,7 +317,7 @@ type CreditorReferenceType2 struct {
 }
 
 type CustomerPaymentCancellationRequestV09 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"CstmrPmtCxlReq"`
 
 	Assgnmt CaseAssignment5 `xml:"Assgnmt"`
 

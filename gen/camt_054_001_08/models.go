@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	BkToCstmrDbtCdtNtfctn BankToCustomerDebitCreditNotificationV08 `xml:",any"`
+	BkToCstmrDbtCdtNtfctn BankToCustomerDebitCreditNotificationV08 `xml:"BkToCstmrDbtCdtNtfctn"`
 }
 
 // XSD ComplexType declarations
@@ -197,7 +197,7 @@ type AmountRangeBoundary1 struct {
 }
 
 type BankToCustomerDebitCreditNotificationV08 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"BkToCstmrDbtCdtNtfctn"`
 
 	GrpHdr GroupHeader81 `xml:"GrpHdr"`
 

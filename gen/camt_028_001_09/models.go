@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	AddtlPmtInf AdditionalPaymentInformationV09 `xml:",any"`
+	AddtlPmtInf AdditionalPaymentInformationV09 `xml:"AddtlPmtInf"`
 }
 
 // XSD ComplexType declarations
@@ -47,7 +47,7 @@ type ActiveOrHistoricCurrencyAndAmount struct {
 }
 
 type AdditionalPaymentInformationV09 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"AddtlPmtInf"`
 
 	Assgnmt CaseAssignment5 `xml:"Assgnmt"`
 

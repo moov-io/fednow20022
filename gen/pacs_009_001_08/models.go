@@ -13,7 +13,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	FICdtTrf FinancialInstitutionCreditTransferV08 `xml:",any"`
+	FICdtTrf FinancialInstitutionCreditTransferV08 `xml:"FICdtTrf"`
 }
 
 // XSD ComplexType declarations
@@ -471,7 +471,7 @@ type FinancialIdentificationSchemeName1Choice struct {
 }
 
 type FinancialInstitutionCreditTransferV08 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"FICdtTrf"`
 
 	GrpHdr GroupHeader93 `xml:"GrpHdr"`
 

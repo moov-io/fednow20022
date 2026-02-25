@@ -10,13 +10,13 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	AdmstnPrtryMsg AdministrationProprietaryMessageV02 `xml:",any"`
+	AdmstnPrtryMsg AdministrationProprietaryMessageV02 `xml:"AdmstnPrtryMsg"`
 }
 
 // XSD ComplexType declarations
 
 type AdministrationProprietaryMessageV02 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"AdmstnPrtryMsg"`
 
 	MsgId *MessageReference `xml:"MsgId"`
 
@@ -34,7 +34,7 @@ type AdministrationProprietaryMessageV02 struct {
 type MessageReference struct {
 	XMLName xml.Name
 
-	Ref Max35Text `xml:",any"`
+	Ref Max35Text `xml:"Ref"`
 
 	innerXml string `xml:",innerxml"`
 }

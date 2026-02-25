@@ -12,13 +12,13 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	SysEvtNtfctn SystemEventNotificationV02 `xml:",any"`
+	SysEvtNtfctn SystemEventNotificationV02 `xml:"SysEvtNtfctn"`
 }
 
 // XSD ComplexType declarations
 
 type Event2 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"EvtInf"`
 
 	EvtCd Max4AlphaNumericText `xml:"EvtCd"`
 
@@ -32,9 +32,9 @@ type Event2 struct {
 }
 
 type SystemEventNotificationV02 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"SysEvtNtfctn"`
 
-	EvtInf Event2 `xml:",any"`
+	EvtInf Event2 `xml:"EvtInf"`
 
 	innerXml string `xml:",innerxml"`
 }

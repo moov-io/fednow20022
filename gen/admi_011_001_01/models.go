@@ -12,7 +12,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	SysEvtAck SystemEventAcknowledgementV01 `xml:",any"`
+	SysEvtAck SystemEventAcknowledgementV01 `xml:"SysEvtAck"`
 }
 
 // XSD ComplexType declarations
@@ -48,7 +48,7 @@ type SupplementaryDataEnvelope1 struct {
 }
 
 type SystemEventAcknowledgementV01 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"SysEvtAck"`
 
 	MsgId Max35Text `xml:"MsgId"`
 

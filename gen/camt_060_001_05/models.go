@@ -13,7 +13,7 @@ import (
 type Document struct {
 	XMLName xml.Name `xml:"Document"`
 
-	AcctRptgReq AccountReportingRequestV05 `xml:",any"`
+	AcctRptgReq AccountReportingRequestV05 `xml:"AcctRptgReq"`
 }
 
 // XSD ComplexType declarations
@@ -29,7 +29,7 @@ type AccountIdentification4Choice struct {
 }
 
 type AccountReportingRequestV05 struct {
-	XMLName xml.Name
+	XMLName xml.Name `xml:"AcctRptgReq"`
 
 	GrpHdr GroupHeader77 `xml:"GrpHdr"`
 

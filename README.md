@@ -31,6 +31,15 @@ Refer to the [FedNow Explorer](https://explore.fednow.org/) and [FedNow technica
 
 Go code is [generated with `xsdgen`](https://pkg.go.dev/aqwari.net/xml/cmd/xsdgen) inside the `gen/` folder. Please star the project if you are interested in its progress. Feedback on this early version of ISO 20022 is appreciated and vital to its success. Please let us know if you encounter any bugs/unclear documentation or have feature suggestions by opening up an issue. Thanks!
 
+## Naming Conventions
+
+The XSDs define some naming that can be confusing.
+
+| Go Package                     | Description                                                      |
+|--------------------------------|------------------------------------------------------------------|
+| `gen/fednow_incoming_external` | Messages sent INTO the FedNOW services - from a bank or vendor.  |
+| `gen/fednow_outgoing_external` | Messages coming INTO a bank or vendor - from the FedNOW service. |
+
 ## Usage
 
 ### Go Library

@@ -2,6 +2,7 @@ package fednow_test
 
 import (
 	"encoding/xml"
+	"math"
 	"testing"
 
 	"github.com/moov-io/fednow20022/pkg/fednow"
@@ -37,4 +38,7 @@ func TestAmountFormat(t *testing.T) {
 func TestAmountValidate(t *testing.T) {
 	var amt = fednow.Amount(634)
 	require.NoError(t, amt.Validate())
+
+	require.Error(t, fednow.Amount(math.NaN()).Validate())
+	require.Error(t, fednow.Amount(math.Inf(1)).Validate())
 }

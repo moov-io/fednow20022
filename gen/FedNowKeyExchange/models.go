@@ -106,8 +106,6 @@ type FedNowMessageSignatureKey struct {
 	KeyExpirationDateTime string `xml:"KeyExpirationDateTime"`
 
 	TargetRTN *RoutingNumberFRS1 `xml:"TargetRTN"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type FedNowPublicKeyResponse struct {
@@ -116,8 +114,6 @@ type FedNowPublicKeyResponse struct {
 	FedNowMessageSignatureKeyStatus FedNowMessageSignatureKeyStatus `xml:"FedNowMessageSignatureKeyStatus"`
 
 	FedNowMessageSignatureKey FedNowMessageSignatureKey `xml:"FedNowMessageSignatureKey"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

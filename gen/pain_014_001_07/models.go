@@ -23,8 +23,6 @@ type AccountIdentification4Choice struct {
 	IBAN *IBAN2007Identifier `xml:"IBAN"`
 
 	Othr *GenericAccountIdentification1 `xml:"Othr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type AccountSchemeName1Choice struct {
@@ -33,8 +31,6 @@ type AccountSchemeName1Choice struct {
 	Cd *ExternalAccountIdentification1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ActiveCurrencyAndAmount struct {
@@ -42,8 +38,7 @@ type ActiveCurrencyAndAmount struct {
 
 	Ccy ActiveCurrencyCode `xml:"Ccy,attr"`
 
-	Text     string `xml:",chardata"`
-	innerXml string `xml:",innerxml"`
+	Text string `xml:",chardata"`
 }
 
 type ActiveOrHistoricCurrencyAndAmount struct {
@@ -51,8 +46,7 @@ type ActiveOrHistoricCurrencyAndAmount struct {
 
 	Ccy ActiveOrHistoricCurrencyCode `xml:"Ccy,attr"`
 
-	Text     string `xml:",chardata"`
-	innerXml string `xml:",innerxml"`
+	Text string `xml:",chardata"`
 }
 
 type AddressType3Choice struct {
@@ -61,8 +55,6 @@ type AddressType3Choice struct {
 	Cd *AddressType2Code `xml:"Cd"`
 
 	Prtry *GenericIdentification30 `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type AmountOrRate1Choice struct {
@@ -71,8 +63,6 @@ type AmountOrRate1Choice struct {
 	Amt *ActiveCurrencyAndAmount `xml:"Amt"`
 
 	Rate *PercentageRate `xml:"Rate"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type AmountType4Choice struct {
@@ -81,8 +71,6 @@ type AmountType4Choice struct {
 	InstdAmt *ActiveOrHistoricCurrencyAndAmount `xml:"InstdAmt"`
 
 	EqvtAmt *EquivalentAmount2 `xml:"EqvtAmt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type BranchAndFinancialInstitutionIdentification6 struct {
@@ -91,8 +79,6 @@ type BranchAndFinancialInstitutionIdentification6 struct {
 	FinInstnId FinancialInstitutionIdentification18 `xml:"FinInstnId"`
 
 	BrnchId *BranchData3 `xml:"BrnchId"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type BranchData3 struct {
@@ -105,8 +91,6 @@ type BranchData3 struct {
 	Nm *Max140Text `xml:"Nm"`
 
 	PstlAdr *PostalAddress24 `xml:"PstlAdr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type CashAccount38 struct {
@@ -121,8 +105,6 @@ type CashAccount38 struct {
 	Nm *Max70Text `xml:"Nm"`
 
 	Prxy *ProxyAccountIdentification1 `xml:"Prxy"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type CashAccountType2Choice struct {
@@ -131,8 +113,6 @@ type CashAccountType2Choice struct {
 	Cd *ExternalCashAccountType1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type CategoryPurpose1Choice struct {
@@ -141,8 +121,6 @@ type CategoryPurpose1Choice struct {
 	Cd *ExternalCategoryPurpose1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type Charges7 struct {
@@ -151,8 +129,6 @@ type Charges7 struct {
 	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
 
 	Agt BranchAndFinancialInstitutionIdentification6 `xml:"Agt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ClearingSystemIdentification2Choice struct {
@@ -161,8 +137,6 @@ type ClearingSystemIdentification2Choice struct {
 	Cd *ExternalClearingSystemIdentification1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ClearingSystemMemberIdentification2 struct {
@@ -171,8 +145,6 @@ type ClearingSystemMemberIdentification2 struct {
 	ClrSysId *ClearingSystemIdentification2Choice `xml:"ClrSysId"`
 
 	MmbId Max35Text `xml:"MmbId"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type Contact4 struct {
@@ -201,8 +173,6 @@ type Contact4 struct {
 	Othr []OtherContact1 `xml:"Othr"`
 
 	PrefrdMtd *PreferredContactMethod1Code `xml:"PrefrdMtd"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type CreditorPaymentActivationRequestStatusReportV07 struct {
@@ -215,8 +185,6 @@ type CreditorPaymentActivationRequestStatusReportV07 struct {
 	OrgnlPmtInfAndSts []OriginalPaymentInstruction31 `xml:"OrgnlPmtInfAndSts"`
 
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type CreditorReferenceInformation2 struct {
@@ -225,8 +193,6 @@ type CreditorReferenceInformation2 struct {
 	Tp *CreditorReferenceType2 `xml:"Tp"`
 
 	Ref *Max35Text `xml:"Ref"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type CreditorReferenceType1Choice struct {
@@ -235,8 +201,6 @@ type CreditorReferenceType1Choice struct {
 	Cd *DocumentType3Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type CreditorReferenceType2 struct {
@@ -245,8 +209,6 @@ type CreditorReferenceType2 struct {
 	CdOrPrtry CreditorReferenceType1Choice `xml:"CdOrPrtry"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DateAndDateTime2Choice struct {
@@ -255,8 +217,6 @@ type DateAndDateTime2Choice struct {
 	Dt *fednow.ISODate `xml:"Dt"`
 
 	DtTm *fednow.ISODateTime `xml:"DtTm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DateAndPlaceOfBirth1 struct {
@@ -269,8 +229,6 @@ type DateAndPlaceOfBirth1 struct {
 	CityOfBirth Max35Text `xml:"CityOfBirth"`
 
 	CtryOfBirth CountryCode `xml:"CtryOfBirth"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DatePeriod2 struct {
@@ -279,8 +237,6 @@ type DatePeriod2 struct {
 	FrDt fednow.ISODate `xml:"FrDt"`
 
 	ToDt fednow.ISODate `xml:"ToDt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DiscountAmountAndType1 struct {
@@ -289,8 +245,6 @@ type DiscountAmountAndType1 struct {
 	Tp *DiscountAmountType1Choice `xml:"Tp"`
 
 	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DiscountAmountType1Choice struct {
@@ -299,8 +253,6 @@ type DiscountAmountType1Choice struct {
 	Cd *ExternalDiscountAmountType1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type Document12 struct {
@@ -323,8 +275,6 @@ type Document12 struct {
 	DgtlSgntr *PartyAndSignature3 `xml:"DgtlSgntr"`
 
 	Nclsr Max10MbBinary `xml:"Nclsr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DocumentAdjustment1 struct {
@@ -337,8 +287,6 @@ type DocumentAdjustment1 struct {
 	Rsn *Max4Text `xml:"Rsn"`
 
 	AddtlInf *Max140Text `xml:"AddtlInf"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DocumentFormat1Choice struct {
@@ -347,8 +295,6 @@ type DocumentFormat1Choice struct {
 	Cd *ExternalDocumentFormat1Code `xml:"Cd"`
 
 	Prtry *GenericIdentification1 `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DocumentLineIdentification1 struct {
@@ -359,8 +305,6 @@ type DocumentLineIdentification1 struct {
 	Nb *Max35Text `xml:"Nb"`
 
 	RltdDt *fednow.ISODate `xml:"RltdDt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DocumentLineInformation1 struct {
@@ -371,8 +315,6 @@ type DocumentLineInformation1 struct {
 	Desc *Max2048Text `xml:"Desc"`
 
 	Amt *RemittanceAmount3 `xml:"Amt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DocumentLineType1 struct {
@@ -381,8 +323,6 @@ type DocumentLineType1 struct {
 	CdOrPrtry DocumentLineType1Choice `xml:"CdOrPrtry"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DocumentLineType1Choice struct {
@@ -391,8 +331,6 @@ type DocumentLineType1Choice struct {
 	Cd *ExternalDocumentLineType1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DocumentType1Choice struct {
@@ -401,8 +339,6 @@ type DocumentType1Choice struct {
 	Cd *ExternalDocumentType1Code `xml:"Cd"`
 
 	Prtry *GenericIdentification1 `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type EquivalentAmount2 struct {
@@ -411,8 +347,6 @@ type EquivalentAmount2 struct {
 	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
 
 	CcyOfTrf ActiveOrHistoricCurrencyCode `xml:"CcyOfTrf"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type FinancialIdentificationSchemeName1Choice struct {
@@ -421,8 +355,6 @@ type FinancialIdentificationSchemeName1Choice struct {
 	Cd *ExternalFinancialInstitutionIdentification1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type FinancialInstitutionIdentification18 struct {
@@ -439,8 +371,6 @@ type FinancialInstitutionIdentification18 struct {
 	PstlAdr *PostalAddress24 `xml:"PstlAdr"`
 
 	Othr *GenericFinancialIdentification1 `xml:"Othr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type Garnishment3 struct {
@@ -461,8 +391,6 @@ type Garnishment3 struct {
 	FmlyMdclInsrncInd *TrueFalseIndicator `xml:"FmlyMdclInsrncInd"`
 
 	MplyeeTermntnInd *TrueFalseIndicator `xml:"MplyeeTermntnInd"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GarnishmentType1 struct {
@@ -471,8 +399,6 @@ type GarnishmentType1 struct {
 	CdOrPrtry GarnishmentType1Choice `xml:"CdOrPrtry"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GarnishmentType1Choice struct {
@@ -481,8 +407,6 @@ type GarnishmentType1Choice struct {
 	Cd *ExternalGarnishmentType1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericAccountIdentification1 struct {
@@ -493,8 +417,6 @@ type GenericAccountIdentification1 struct {
 	SchmeNm *AccountSchemeName1Choice `xml:"SchmeNm"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericFinancialIdentification1 struct {
@@ -505,8 +427,6 @@ type GenericFinancialIdentification1 struct {
 	SchmeNm *FinancialIdentificationSchemeName1Choice `xml:"SchmeNm"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericIdentification1 struct {
@@ -517,8 +437,6 @@ type GenericIdentification1 struct {
 	SchmeNm *Max35Text `xml:"SchmeNm"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericIdentification30 struct {
@@ -529,8 +447,6 @@ type GenericIdentification30 struct {
 	Issr Max35Text `xml:"Issr"`
 
 	SchmeNm *Max35Text `xml:"SchmeNm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericOrganisationIdentification1 struct {
@@ -541,8 +457,6 @@ type GenericOrganisationIdentification1 struct {
 	SchmeNm *OrganisationIdentificationSchemeName1Choice `xml:"SchmeNm"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericPersonIdentification1 struct {
@@ -553,8 +467,6 @@ type GenericPersonIdentification1 struct {
 	SchmeNm *PersonIdentificationSchemeName1Choice `xml:"SchmeNm"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GroupHeader87 struct {
@@ -569,8 +481,6 @@ type GroupHeader87 struct {
 	DbtrAgt *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt"`
 
 	CdtrAgt *BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type LocalInstrument2Choice struct {
@@ -579,8 +489,6 @@ type LocalInstrument2Choice struct {
 	Cd *ExternalLocalInstrument1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type NumberOfTransactionsPerStatus5 struct {
@@ -591,8 +499,6 @@ type NumberOfTransactionsPerStatus5 struct {
 	DtldSts ExternalPaymentTransactionStatus1Code `xml:"DtldSts"`
 
 	DtldCtrlSum *DecimalNumber `xml:"DtldCtrlSum"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type OrganisationIdentification29 struct {
@@ -603,8 +509,6 @@ type OrganisationIdentification29 struct {
 	LEI *LEIIdentifier `xml:"LEI"`
 
 	Othr []GenericOrganisationIdentification1 `xml:"Othr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type OrganisationIdentificationSchemeName1Choice struct {
@@ -613,8 +517,6 @@ type OrganisationIdentificationSchemeName1Choice struct {
 	Cd *ExternalOrganisationIdentification1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type OriginalGroupInformation30 struct {
@@ -635,8 +537,6 @@ type OriginalGroupInformation30 struct {
 	StsRsnInf []StatusReasonInformation12 `xml:"StsRsnInf"`
 
 	NbOfTxsPerSts []NumberOfTransactionsPerStatus5 `xml:"NbOfTxsPerSts"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type OriginalPaymentInstruction31 struct {
@@ -655,8 +555,6 @@ type OriginalPaymentInstruction31 struct {
 	NbOfTxsPerSts []NumberOfTransactionsPerStatus5 `xml:"NbOfTxsPerSts"`
 
 	TxInfAndSts []PaymentTransaction104 `xml:"TxInfAndSts"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type OriginalTransactionReference29 struct {
@@ -693,8 +591,6 @@ type OriginalTransactionReference29 struct {
 	CdtrAcct *CashAccount38 `xml:"CdtrAcct"`
 
 	UltmtCdtr *PartyIdentification135 `xml:"UltmtCdtr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type OtherContact1 struct {
@@ -703,8 +599,6 @@ type OtherContact1 struct {
 	ChanlTp Max4Text `xml:"ChanlTp"`
 
 	Id *Max128Text `xml:"Id"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type Party38Choice struct {
@@ -713,8 +607,6 @@ type Party38Choice struct {
 	OrgId *OrganisationIdentification29 `xml:"OrgId"`
 
 	PrvtId *PersonIdentification13 `xml:"PrvtId"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PartyAndSignature3 struct {
@@ -723,8 +615,6 @@ type PartyAndSignature3 struct {
 	Pty PartyIdentification135 `xml:"Pty"`
 
 	Sgntr SkipPayload `xml:"Sgntr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PartyIdentification135 struct {
@@ -739,8 +629,6 @@ type PartyIdentification135 struct {
 	CtryOfRes *CountryCode `xml:"CtryOfRes"`
 
 	CtctDtls *Contact4 `xml:"CtctDtls"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PaymentCondition1 struct {
@@ -755,8 +643,6 @@ type PaymentCondition1 struct {
 	ImdtPmtRbt *AmountOrRate1Choice `xml:"ImdtPmtRbt"`
 
 	GrntedPmtReqd TrueFalseIndicator `xml:"GrntedPmtReqd"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PaymentConditionStatus1 struct {
@@ -767,8 +653,6 @@ type PaymentConditionStatus1 struct {
 	GrntedPmt TrueFalseIndicator `xml:"GrntedPmt"`
 
 	EarlyPmt TrueFalseIndicator `xml:"EarlyPmt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PaymentTransaction104 struct {
@@ -803,8 +687,6 @@ type PaymentTransaction104 struct {
 	NclsdFile []Document12 `xml:"NclsdFile"`
 
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PaymentTypeInformation26 struct {
@@ -817,8 +699,6 @@ type PaymentTypeInformation26 struct {
 	LclInstrm *LocalInstrument2Choice `xml:"LclInstrm"`
 
 	CtgyPurp *CategoryPurpose1Choice `xml:"CtgyPurp"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PersonIdentification13 struct {
@@ -827,8 +707,6 @@ type PersonIdentification13 struct {
 	DtAndPlcOfBirth *DateAndPlaceOfBirth1 `xml:"DtAndPlcOfBirth"`
 
 	Othr []GenericPersonIdentification1 `xml:"Othr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PersonIdentificationSchemeName1Choice struct {
@@ -837,8 +715,6 @@ type PersonIdentificationSchemeName1Choice struct {
 	Cd *ExternalPersonIdentification1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PostalAddress24 struct {
@@ -875,8 +751,6 @@ type PostalAddress24 struct {
 	Ctry *CountryCode `xml:"Ctry"`
 
 	AdrLine []Max70Text `xml:"AdrLine"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ProxyAccountIdentification1 struct {
@@ -885,8 +759,6 @@ type ProxyAccountIdentification1 struct {
 	Tp *ProxyAccountType1Choice `xml:"Tp"`
 
 	Id Max2048Text `xml:"Id"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ProxyAccountType1Choice struct {
@@ -895,8 +767,6 @@ type ProxyAccountType1Choice struct {
 	Cd *ExternalProxyAccountType1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ReferredDocumentInformation7 struct {
@@ -909,8 +779,6 @@ type ReferredDocumentInformation7 struct {
 	RltdDt *fednow.ISODate `xml:"RltdDt"`
 
 	LineDtls []DocumentLineInformation1 `xml:"LineDtls"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ReferredDocumentType3Choice struct {
@@ -919,8 +787,6 @@ type ReferredDocumentType3Choice struct {
 	Cd *DocumentType6Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ReferredDocumentType4 struct {
@@ -929,8 +795,6 @@ type ReferredDocumentType4 struct {
 	CdOrPrtry ReferredDocumentType3Choice `xml:"CdOrPrtry"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type RemittanceAmount2 struct {
@@ -947,8 +811,6 @@ type RemittanceAmount2 struct {
 	AdjstmntAmtAndRsn []DocumentAdjustment1 `xml:"AdjstmntAmtAndRsn"`
 
 	RmtdAmt *ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type RemittanceAmount3 struct {
@@ -965,8 +827,6 @@ type RemittanceAmount3 struct {
 	AdjstmntAmtAndRsn []DocumentAdjustment1 `xml:"AdjstmntAmtAndRsn"`
 
 	RmtdAmt *ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type RemittanceInformation16 struct {
@@ -975,8 +835,6 @@ type RemittanceInformation16 struct {
 	Ustrd []Max140Text `xml:"Ustrd"`
 
 	Strd []StructuredRemittanceInformation16 `xml:"Strd"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ServiceLevel8Choice struct {
@@ -985,14 +843,10 @@ type ServiceLevel8Choice struct {
 	Cd *ExternalServiceLevel1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SkipPayload struct {
 	XMLName xml.Name
-
-	innerXml string `xml:",innerxml"`
 }
 
 type StatusReason6Choice struct {
@@ -1001,8 +855,6 @@ type StatusReason6Choice struct {
 	Cd *ExternalStatusReason1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type StatusReasonInformation12 struct {
@@ -1013,8 +865,6 @@ type StatusReasonInformation12 struct {
 	Rsn *StatusReason6Choice `xml:"Rsn"`
 
 	AddtlInf []Max105Text `xml:"AddtlInf"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type StructuredRemittanceInformation16 struct {
@@ -1035,8 +885,6 @@ type StructuredRemittanceInformation16 struct {
 	GrnshmtRmt *Garnishment3 `xml:"GrnshmtRmt"`
 
 	AddtlRmtInf []Max140Text `xml:"AddtlRmtInf"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SupplementaryData1 struct {
@@ -1045,14 +893,10 @@ type SupplementaryData1 struct {
 	PlcAndNm *Max350Text `xml:"PlcAndNm"`
 
 	Envlp SupplementaryDataEnvelope1 `xml:"Envlp"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SupplementaryDataEnvelope1 struct {
 	XMLName xml.Name
-
-	innerXml string `xml:",innerxml"`
 }
 
 type TaxAmount2 struct {
@@ -1065,8 +909,6 @@ type TaxAmount2 struct {
 	TtlAmt *ActiveOrHistoricCurrencyAndAmount `xml:"TtlAmt"`
 
 	Dtls []TaxRecordDetails2 `xml:"Dtls"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type TaxAmountAndType1 struct {
@@ -1075,8 +917,6 @@ type TaxAmountAndType1 struct {
 	Tp *TaxAmountType1Choice `xml:"Tp"`
 
 	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type TaxAmountType1Choice struct {
@@ -1085,8 +925,6 @@ type TaxAmountType1Choice struct {
 	Cd *ExternalTaxAmountType1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type TaxAuthorisation1 struct {
@@ -1095,8 +933,6 @@ type TaxAuthorisation1 struct {
 	Titl *Max35Text `xml:"Titl"`
 
 	Nm *Max140Text `xml:"Nm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type TaxInformation7 struct {
@@ -1123,8 +959,6 @@ type TaxInformation7 struct {
 	SeqNb *Number `xml:"SeqNb"`
 
 	Rcrd []TaxRecord2 `xml:"Rcrd"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type TaxParty1 struct {
@@ -1135,8 +969,6 @@ type TaxParty1 struct {
 	RegnId *Max35Text `xml:"RegnId"`
 
 	TaxTp *Max35Text `xml:"TaxTp"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type TaxParty2 struct {
@@ -1149,8 +981,6 @@ type TaxParty2 struct {
 	TaxTp *Max35Text `xml:"TaxTp"`
 
 	Authstn *TaxAuthorisation1 `xml:"Authstn"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type TaxPeriod2 struct {
@@ -1161,8 +991,6 @@ type TaxPeriod2 struct {
 	Tp *TaxRecordPeriod1Code `xml:"Tp"`
 
 	FrToDt *DatePeriod2 `xml:"FrToDt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type TaxRecord2 struct {
@@ -1185,8 +1013,6 @@ type TaxRecord2 struct {
 	TaxAmt *TaxAmount2 `xml:"TaxAmt"`
 
 	AddtlInf *Max140Text `xml:"AddtlInf"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type TaxRecordDetails2 struct {
@@ -1195,8 +1021,6 @@ type TaxRecordDetails2 struct {
 	Prd *TaxPeriod2 `xml:"Prd"`
 
 	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

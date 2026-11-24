@@ -25,8 +25,6 @@ type GenericIdentification1 struct {
 	SchmeNm *Max35Text `xml:"SchmeNm"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericIdentification36 struct {
@@ -37,8 +35,6 @@ type GenericIdentification36 struct {
 	Issr Max35Text `xml:"Issr"`
 
 	SchmeNm *Max35Text `xml:"SchmeNm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type MessageHeader7 struct {
@@ -53,8 +49,6 @@ type MessageHeader7 struct {
 	OrgnlBizQry *OriginalBusinessQuery1 `xml:"OrgnlBizQry"`
 
 	QryNm *Max35Text `xml:"QryNm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type NameAndAddress5 struct {
@@ -63,8 +57,6 @@ type NameAndAddress5 struct {
 	Nm Max350Text `xml:"Nm"`
 
 	Adr *PostalAddress1 `xml:"Adr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type OriginalBusinessQuery1 struct {
@@ -75,8 +67,6 @@ type OriginalBusinessQuery1 struct {
 	MsgNmId *Max35Text `xml:"MsgNmId"`
 
 	CreDtTm *fednow.ISODateTime `xml:"CreDtTm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PartyIdentification120Choice struct {
@@ -87,8 +77,6 @@ type PartyIdentification120Choice struct {
 	PrtryId *GenericIdentification36 `xml:"PrtryId"`
 
 	NmAndAdr *NameAndAddress5 `xml:"NmAndAdr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PartyIdentification136 struct {
@@ -97,8 +85,6 @@ type PartyIdentification136 struct {
 	Id PartyIdentification120Choice `xml:"Id"`
 
 	LEI *LEIIdentifier `xml:"LEI"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PostalAddress1 struct {
@@ -119,8 +105,6 @@ type PostalAddress1 struct {
 	CtrySubDvsn *Max35Text `xml:"CtrySubDvsn"`
 
 	Ctry CountryCode `xml:"Ctry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type RequestType4Choice struct {
@@ -131,8 +115,6 @@ type RequestType4Choice struct {
 	Enqry *ExternalEnquiryRequestType1Code `xml:"Enqry"`
 
 	Prtry *GenericIdentification1 `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ResendRequestV01 struct {
@@ -143,8 +125,6 @@ type ResendRequestV01 struct {
 	RsndSchCrit []ResendSearchCriteria2 `xml:"RsndSchCrit"`
 
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ResendSearchCriteria2 struct {
@@ -161,8 +141,6 @@ type ResendSearchCriteria2 struct {
 	FileRef *Max35Text `xml:"FileRef"`
 
 	Rcpt PartyIdentification136 `xml:"Rcpt"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SequenceRange1 struct {
@@ -171,8 +149,6 @@ type SequenceRange1 struct {
 	FrSeq Max35Text `xml:"FrSeq"`
 
 	ToSeq Max35Text `xml:"ToSeq"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SequenceRange1Choice struct {
@@ -187,8 +163,6 @@ type SequenceRange1Choice struct {
 	EQSeq []Max35Text `xml:"EQSeq"`
 
 	NEQSeq []Max35Text `xml:"NEQSeq"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SupplementaryData1 struct {
@@ -197,14 +171,10 @@ type SupplementaryData1 struct {
 	PlcAndNm *Max350Text `xml:"PlcAndNm"`
 
 	Envlp SupplementaryDataEnvelope1 `xml:"Envlp"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SupplementaryDataEnvelope1 struct {
 	XMLName xml.Name
-
-	innerXml string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

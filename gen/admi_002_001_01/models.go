@@ -21,8 +21,6 @@ type MessageReference struct {
 	XMLName xml.Name
 
 	Ref Max35Text `xml:"Ref"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type RejectionReason2 struct {
@@ -37,8 +35,6 @@ type RejectionReason2 struct {
 	RsnDesc *Max350Text `xml:"RsnDesc"`
 
 	AddtlData *Max20000Text `xml:"AddtlData"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type Admi00200101 struct {
@@ -47,8 +43,6 @@ type Admi00200101 struct {
 	RltdRef MessageReference `xml:"RltdRef"`
 
 	Rsn RejectionReason2 `xml:"Rsn"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

@@ -27,16 +27,12 @@ type AdministrationProprietaryMessageV02 struct {
 	Othr *MessageReference `xml:"Othr"`
 
 	PrtryData ProprietaryData5 `xml:"PrtryData"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type MessageReference struct {
 	XMLName xml.Name
 
 	Ref Max35Text `xml:"Ref"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ProprietaryData5 struct {
@@ -45,14 +41,10 @@ type ProprietaryData5 struct {
 	Tp Max35Text `xml:"Tp"`
 
 	Data SupplementaryDataEnvelope1 `xml:"Data"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SupplementaryDataEnvelope1 struct {
 	XMLName xml.Name
-
-	innerXml string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

@@ -9,11 +9,18 @@
 // encoding use the correct elements. This program applies those names after
 // the models are generated and formatted. Each replacement must match exactly
 // one time, or the program fails.
+//
+// It also removes the unexported innerXml fields that moovio_xsd2go writes.
+// encoding/xml ignores unexported fields, so these fields are never set or
+// written, and go vet reports each of them ("struct field innerXml has xml
+// tag but is not exported").
 package main
 
 import (
 	"fmt"
+	"io/fs"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -372,5 +379,36 @@ func main() {
 			os.Exit(1)
 		}
 	}
+	if err := removeInnerXML("gen"); err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR: %v\n", err)
+		os.Exit(1)
+	}
+
 	fmt.Println("XML name fixups completed.")
+}
+
+const innerXMLField = "\tinnerXml string `xml:\",innerxml\"`\n"
+
+// removeInnerXML removes the unexported innerXml field from every generated
+// models.go file under dir. Run gofmt after it.
+func removeInnerXML(dir string) error {
+	return filepath.WalkDir(dir, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if d.IsDir() || filepath.Base(path) != "models.go" {
+			return nil
+		}
+		data, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		content := string(data)
+		if !strings.Contains(content, innerXMLField) {
+			return nil
+		}
+		content = strings.ReplaceAll(content, "\n"+innerXMLField, "")
+		content = strings.ReplaceAll(content, innerXMLField, "")
+		return os.WriteFile(path, []byte(content), 0644)
+	})
 }

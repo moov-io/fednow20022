@@ -25,8 +25,6 @@ type GenericIdentification36 struct {
 	Issr Max35Text `xml:"Issr"`
 
 	SchmeNm *Max35Text `xml:"SchmeNm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type MessageHeader10 struct {
@@ -37,8 +35,6 @@ type MessageHeader10 struct {
 	CreDtTm *fednow.ISODateTime `xml:"CreDtTm"`
 
 	QryNm *Max35Text `xml:"QryNm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type MessageReference1 struct {
@@ -49,8 +45,6 @@ type MessageReference1 struct {
 	MsgNm *Max35Text `xml:"MsgNm"`
 
 	RefIssr *PartyIdentification136 `xml:"RefIssr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type NameAndAddress5 struct {
@@ -59,8 +53,6 @@ type NameAndAddress5 struct {
 	Nm Max350Text `xml:"Nm"`
 
 	Adr *PostalAddress1 `xml:"Adr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PartyIdentification120Choice struct {
@@ -71,8 +63,6 @@ type PartyIdentification120Choice struct {
 	PrtryId *GenericIdentification36 `xml:"PrtryId"`
 
 	NmAndAdr *NameAndAddress5 `xml:"NmAndAdr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PartyIdentification136 struct {
@@ -81,8 +71,6 @@ type PartyIdentification136 struct {
 	Id PartyIdentification120Choice `xml:"Id"`
 
 	LEI *LEIIdentifier `xml:"LEI"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PostalAddress1 struct {
@@ -103,8 +91,6 @@ type PostalAddress1 struct {
 	CtrySubDvsn *Max35Text `xml:"CtrySubDvsn"`
 
 	Ctry CountryCode `xml:"Ctry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ReceiptAcknowledgementReport2 struct {
@@ -113,8 +99,6 @@ type ReceiptAcknowledgementReport2 struct {
 	RltdRef MessageReference1 `xml:"RltdRef"`
 
 	ReqHdlg RequestHandling2 `xml:"ReqHdlg"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ReceiptAcknowledgementV01 struct {
@@ -125,8 +109,6 @@ type ReceiptAcknowledgementV01 struct {
 	Rpt []ReceiptAcknowledgementReport2 `xml:"Rpt"`
 
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type RequestHandling2 struct {
@@ -137,8 +119,6 @@ type RequestHandling2 struct {
 	StsDtTm *fednow.ISODateTime `xml:"StsDtTm"`
 
 	Desc *Max140Text `xml:"Desc"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SupplementaryData1 struct {
@@ -147,14 +127,10 @@ type SupplementaryData1 struct {
 	PlcAndNm *Max350Text `xml:"PlcAndNm"`
 
 	Envlp SupplementaryDataEnvelope1 `xml:"Envlp"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SupplementaryDataEnvelope1 struct {
 	XMLName xml.Name
-
-	innerXml string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

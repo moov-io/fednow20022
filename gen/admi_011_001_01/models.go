@@ -27,8 +27,6 @@ type Event1 struct {
 	EvtDesc *Max350Text `xml:"EvtDesc"`
 
 	EvtTm *fednow.ISODateTime `xml:"EvtTm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SupplementaryData1 struct {
@@ -37,14 +35,10 @@ type SupplementaryData1 struct {
 	PlcAndNm *Max350Text `xml:"PlcAndNm"`
 
 	Envlp SupplementaryDataEnvelope1 `xml:"Envlp"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SupplementaryDataEnvelope1 struct {
 	XMLName xml.Name
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SystemEventAcknowledgementV01 struct {
@@ -59,8 +53,6 @@ type SystemEventAcknowledgementV01 struct {
 	AckDtls *Event1 `xml:"AckDtls"`
 
 	SplmtryData []SupplementaryData1 `xml:"SplmtryData"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

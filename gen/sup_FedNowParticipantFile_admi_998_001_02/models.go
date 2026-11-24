@@ -23,8 +23,6 @@ type FedNowParticipantFile1 struct {
 	BizDay fednow.ISODate `xml:"BizDay"`
 
 	PtcptPrfl []FedNowParticipantProfile1 `xml:"PtcptPrfl"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type FedNowParticipantProfile1 struct {
@@ -35,16 +33,12 @@ type FedNowParticipantProfile1 struct {
 	Nm Max140Text `xml:"Nm"`
 
 	Svcs []ServicesFedNow1 `xml:"Svcs"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type Admi998SuplDataV01 struct {
 	XMLName xml.Name `xml:"admi998SuplDataV01"`
 
 	PtcptFile FedNowParticipantFile1 `xml:"PtcptFile"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

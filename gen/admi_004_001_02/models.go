@@ -27,16 +27,12 @@ type Event2 struct {
 	EvtDesc *Max1000Text `xml:"EvtDesc"`
 
 	EvtTm *fednow.ISODateTime `xml:"EvtTm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SystemEventNotificationV02 struct {
 	XMLName xml.Name `xml:"SysEvtNtfctn"`
 
 	EvtInf Event2 `xml:"EvtInf"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

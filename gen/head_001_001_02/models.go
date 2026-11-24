@@ -49,8 +49,6 @@ type AddressType3Choice struct {
 	Cd *AddressType2Code `xml:"Cd"`
 
 	Prtry *GenericIdentification30 `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type BranchAndFinancialInstitutionIdentification6 struct {
@@ -59,8 +57,6 @@ type BranchAndFinancialInstitutionIdentification6 struct {
 	FinInstnId FinancialInstitutionIdentification18 `xml:"FinInstnId"`
 
 	BrnchId *BranchData3 `xml:"BrnchId"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type BranchData3 struct {
@@ -73,8 +69,6 @@ type BranchData3 struct {
 	Nm *Max140Text `xml:"Nm"`
 
 	PstlAdr *PostalAddress24 `xml:"PstlAdr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type BusinessApplicationHeader5 struct {
@@ -101,8 +95,6 @@ type BusinessApplicationHeader5 struct {
 	Prty *BusinessMessagePriorityCode `xml:"Prty"`
 
 	Sgntr *SignatureEnvelope `xml:"Sgntr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type BusinessApplicationHeaderV02 struct {
@@ -135,8 +127,6 @@ type BusinessApplicationHeaderV02 struct {
 	Sgntr *SignatureEnvelope `xml:"Sgntr"`
 
 	Rltd []BusinessApplicationHeader5 `xml:"Rltd"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ClearingSystemIdentification2Choice struct {
@@ -145,8 +135,6 @@ type ClearingSystemIdentification2Choice struct {
 	Cd *ExternalClearingSystemIdentification1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ClearingSystemMemberIdentification2 struct {
@@ -155,8 +143,6 @@ type ClearingSystemMemberIdentification2 struct {
 	ClrSysId *ClearingSystemIdentification2Choice `xml:"ClrSysId"`
 
 	MmbId Max35Text `xml:"MmbId"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type Contact4 struct {
@@ -185,8 +171,6 @@ type Contact4 struct {
 	Othr []OtherContact1 `xml:"Othr"`
 
 	PrefrdMtd *PreferredContactMethod1Code `xml:"PrefrdMtd"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type DateAndPlaceOfBirth1 struct {
@@ -199,8 +183,6 @@ type DateAndPlaceOfBirth1 struct {
 	CityOfBirth Max35Text `xml:"CityOfBirth"`
 
 	CtryOfBirth CountryCode `xml:"CtryOfBirth"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type FinancialIdentificationSchemeName1Choice struct {
@@ -209,8 +191,6 @@ type FinancialIdentificationSchemeName1Choice struct {
 	Cd *ExternalFinancialInstitutionIdentification1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type FinancialInstitutionIdentification18 struct {
@@ -227,8 +207,6 @@ type FinancialInstitutionIdentification18 struct {
 	PstlAdr *PostalAddress24 `xml:"PstlAdr"`
 
 	Othr *GenericFinancialIdentification1 `xml:"Othr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericFinancialIdentification1 struct {
@@ -239,8 +217,6 @@ type GenericFinancialIdentification1 struct {
 	SchmeNm *FinancialIdentificationSchemeName1Choice `xml:"SchmeNm"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericIdentification30 struct {
@@ -251,8 +227,6 @@ type GenericIdentification30 struct {
 	Issr Max35Text `xml:"Issr"`
 
 	SchmeNm *Max35Text `xml:"SchmeNm"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericOrganisationIdentification1 struct {
@@ -263,8 +237,6 @@ type GenericOrganisationIdentification1 struct {
 	SchmeNm *OrganisationIdentificationSchemeName1Choice `xml:"SchmeNm"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type GenericPersonIdentification1 struct {
@@ -275,8 +247,6 @@ type GenericPersonIdentification1 struct {
 	SchmeNm *PersonIdentificationSchemeName1Choice `xml:"SchmeNm"`
 
 	Issr *Max35Text `xml:"Issr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type ImplementationSpecification1 struct {
@@ -285,8 +255,6 @@ type ImplementationSpecification1 struct {
 	Regy Max350Text `xml:"Regy"`
 
 	Id Max2048Text `xml:"Id"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type OrganisationIdentification29 struct {
@@ -297,8 +265,6 @@ type OrganisationIdentification29 struct {
 	LEI *LEIIdentifier `xml:"LEI"`
 
 	Othr []GenericOrganisationIdentification1 `xml:"Othr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type OrganisationIdentificationSchemeName1Choice struct {
@@ -307,8 +273,6 @@ type OrganisationIdentificationSchemeName1Choice struct {
 	Cd *ExternalOrganisationIdentification1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type OtherContact1 struct {
@@ -317,8 +281,6 @@ type OtherContact1 struct {
 	ChanlTp Max4Text `xml:"ChanlTp"`
 
 	Id *Max128Text `xml:"Id"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type Party38Choice struct {
@@ -327,8 +289,6 @@ type Party38Choice struct {
 	OrgId *OrganisationIdentification29 `xml:"OrgId"`
 
 	PrvtId *PersonIdentification13 `xml:"PrvtId"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type Party44Choice struct {
@@ -337,8 +297,6 @@ type Party44Choice struct {
 	OrgId *PartyIdentification135 `xml:"OrgId"`
 
 	FIId *BranchAndFinancialInstitutionIdentification6 `xml:"FIId"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PartyIdentification135 struct {
@@ -353,8 +311,6 @@ type PartyIdentification135 struct {
 	CtryOfRes *CountryCode `xml:"CtryOfRes"`
 
 	CtctDtls *Contact4 `xml:"CtctDtls"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PersonIdentification13 struct {
@@ -363,8 +319,6 @@ type PersonIdentification13 struct {
 	DtAndPlcOfBirth *DateAndPlaceOfBirth1 `xml:"DtAndPlcOfBirth"`
 
 	Othr []GenericPersonIdentification1 `xml:"Othr"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PersonIdentificationSchemeName1Choice struct {
@@ -373,8 +327,6 @@ type PersonIdentificationSchemeName1Choice struct {
 	Cd *ExternalPersonIdentification1Code `xml:"Cd"`
 
 	Prtry *Max35Text `xml:"Prtry"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type PostalAddress24 struct {
@@ -411,14 +363,10 @@ type PostalAddress24 struct {
 	Ctry *CountryCode `xml:"Ctry"`
 
 	AdrLine []Max70Text `xml:"AdrLine"`
-
-	innerXml string `xml:",innerxml"`
 }
 
 type SignatureEnvelope struct {
 	XMLName xml.Name
-
-	innerXml string `xml:",innerxml"`
 }
 
 // XSD SimpleType declarations

@@ -18,12 +18,24 @@ install:
 	go mod tidy
 	go mod vendor
 
+# The generator versions are pinned so that "make generate" makes the
+# committed gen/ code. Keep them the same as in scripts/generate.sh. Update
+# them only together with a regeneration.
+GOIMPORTS_VERSION := v0.53.0
+XSD2GO_VERSION := v0.0.0-20261021193221-ef1732ddf011
+
 install-generator:
-	go install golang.org/x/tools/cmd/goimports@latest
-	go install github.com/moov-io/xsd2go/cli/moovio_xsd2go@latest
+	go install golang.org/x/tools/cmd/goimports@$(GOIMPORTS_VERSION)
+	go install github.com/moov-io/xsd2go/cli/moovio_xsd2go@$(XSD2GO_VERSION)
 
 generate:
 	./scripts/generate.sh
+
+# check-generate fails if "make generate" changes the committed gen/ code.
+.PHONY: check-generate
+check-generate: generate
+	git diff --exit-code -- gen/
+	@test -z "$$(git status --porcelain -- gen/)" || (git status --porcelain -- gen/ && exit 1)
 
 .PHONY: check
 check:

@@ -13,8 +13,22 @@ var (
 	defaultDateFormat = "2006-01-02"
 )
 
-func (i ISODate) MarshalText() (string, error) {
-	return time.Time(i).Truncate(time.Second).Format(defaultDateFormat), nil
+// MarshalText implements encoding.TextMarshaler. It writes the date as
+// YYYY-MM-DD.
+func (i ISODate) MarshalText() ([]byte, error) {
+	return []byte(time.Time(i).Truncate(time.Second).Format(defaultDateFormat)), nil
+}
+
+// UnmarshalText implements encoding.TextUnmarshaler. It reads a date as
+// YYYY-MM-DD.
+func (i *ISODate) UnmarshalText(text []byte) error {
+	tt, err := time.Parse(defaultDateFormat, string(text))
+	if err != nil {
+		return fmt.Errorf("invalid ISODate format: %v", err)
+	}
+
+	*i = ISODate(tt)
+	return nil
 }
 
 func (i ISODate) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -22,7 +36,7 @@ func (i ISODate) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	if err != nil {
 		return err
 	}
-	return e.EncodeElement([]byte(content), start)
+	return e.EncodeElement(content, start)
 }
 
 func (i *ISODate) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
@@ -30,14 +44,7 @@ func (i *ISODate) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	if err := d.DecodeElement(&content, &start); err != nil {
 		return err
 	}
-
-	tt, err := time.Parse(defaultDateFormat, content)
-	if err != nil {
-		return fmt.Errorf("invalid ISODate format: %v", err)
-	}
-
-	*i = ISODate(tt)
-	return nil
+	return i.UnmarshalText([]byte(content))
 }
 
 var (
@@ -57,8 +64,25 @@ var (
 
 type ISODateTime time.Time
 
-func (i ISODateTime) MarshalText() (string, error) {
-	return time.Time(i).Truncate(time.Second).Format(defaultDateTimeFormat), nil
+// MarshalText implements encoding.TextMarshaler. It writes the date time
+// as YYYY-MM-DDThh:mm:ss with the UTC offset, for example
+// 2019-03-21T10:36:19-04:00.
+func (i ISODateTime) MarshalText() ([]byte, error) {
+	return []byte(time.Time(i).Truncate(time.Second).Format(defaultDateTimeFormat)), nil
+}
+
+// UnmarshalText implements encoding.TextUnmarshaler. It accepts the same
+// formats as UnmarshalXML.
+func (i *ISODateTime) UnmarshalText(text []byte) error {
+	content := string(text)
+	for idx := range acceptedDateTimeFormats {
+		tt, err := time.Parse(acceptedDateTimeFormats[idx], content)
+		if err == nil {
+			*i = ISODateTime(tt)
+			return nil
+		}
+	}
+	return fmt.Errorf("ISODateTime has no date time format found for %q", content)
 }
 
 func (i ISODateTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -66,7 +90,7 @@ func (i ISODateTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	if err != nil {
 		return err
 	}
-	return e.EncodeElement([]byte(content), start)
+	return e.EncodeElement(content, start)
 }
 
 func (i *ISODateTime) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {

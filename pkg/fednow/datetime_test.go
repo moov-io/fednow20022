@@ -1,6 +1,8 @@
 package fednow_test
 
 import (
+	"encoding"
+	"encoding/json"
 	"encoding/xml"
 	"fmt"
 	"testing"
@@ -94,4 +96,43 @@ func TestDateTimeXML(t *testing.T) {
 		err = xml.Unmarshal(bs, &read)
 		require.ErrorContains(t, err, `CreDt (namespace=) has no date time format found for ""`)
 	})
+}
+
+var (
+	_ encoding.TextMarshaler   = fednow.ISODate{}
+	_ encoding.TextUnmarshaler = (*fednow.ISODate)(nil)
+	_ encoding.TextMarshaler   = fednow.ISODateTime{}
+	_ encoding.TextUnmarshaler = (*fednow.ISODateTime)(nil)
+)
+
+func TestISODate_Text(t *testing.T) {
+	when := time.Date(2019, time.March, 21, 0, 0, 0, 0, time.UTC)
+
+	bs, err := json.Marshal(fednow.ISODate(when))
+	require.NoError(t, err)
+	require.Equal(t, `"2019-03-21"`, string(bs))
+
+	var read fednow.ISODate
+	require.NoError(t, json.Unmarshal(bs, &read))
+	require.True(t, when.Equal(time.Time(read)))
+
+	require.Error(t, read.UnmarshalText([]byte("21/03/2019")))
+}
+
+func TestISODateTime_Text(t *testing.T) {
+	loc, _ := time.LoadLocation("America/New_York")
+	when := time.Date(2019, time.March, 21, 10, 36, 19, 0, loc)
+
+	bs, err := json.Marshal(fednow.ISODateTime(when))
+	require.NoError(t, err)
+	require.Equal(t, `"2019-03-21T10:36:19-04:00"`, string(bs))
+
+	var read fednow.ISODateTime
+	require.NoError(t, json.Unmarshal(bs, &read))
+	require.True(t, when.Equal(time.Time(read)))
+
+	require.NoError(t, read.UnmarshalText([]byte("2019-03-21T14:36:19.000Z")))
+	require.True(t, when.Equal(time.Time(read)))
+
+	require.Error(t, read.UnmarshalText([]byte("not a date")))
 }
